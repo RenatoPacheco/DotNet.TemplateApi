@@ -1,15 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -18,6 +11,10 @@ namespace DotNetCore.API.Template.Site
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            Helpers.AppSettings.Configuration = configuration;
+            AppSettings.Inicializar(new Helpers.AppSettings());
+            ConnectionStrings.Inicializar(new Helpers.AppSettings());
         }
 
         public IConfiguration Configuration { get; }
