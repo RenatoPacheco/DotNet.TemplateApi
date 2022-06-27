@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BitHelp.Core.Validation" Version="0.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\src\DotNetCore.API.Template.csproj" />
   </ItemGroup>
 
