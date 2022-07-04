@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using DotNetCore.API.Template.Dominio.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Auxiliares
 {
@@ -34,10 +35,7 @@ namespace DotNetCore.API.Template.Dominio.Auxiliares
 
         public override string ConvertName(string name)
         {
-            if (string.IsNullOrEmpty(name) || !char.IsUpper(name[0]))
-                return name;
-
-            return $"{char.ToLower(name[0])}{name[1..]}";
+            return name?.StartToLower();
         }
     }
 }

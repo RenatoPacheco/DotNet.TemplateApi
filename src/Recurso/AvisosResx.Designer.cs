@@ -70,7 +70,7 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocirreu um erro interno na solicitação..
+        ///   Looks up a localized string similar to Ocorreu um erro interno na solicitação..
         /// </summary>
         public static string OcorreuUmErroInterno {
             get {

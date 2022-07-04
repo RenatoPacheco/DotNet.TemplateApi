@@ -121,7 +121,7 @@
     <value>Acesso não autorizado.</value>
   </data>
   <data name="OcorreuUmErroInterno" xml:space="preserve">
-    <value>Ocirreu um erro interno na solicitação.</value>
+    <value>Ocorreu um erro interno na solicitação.</value>
   </data>
   <data name="SolicitacaoErro" xml:space="preserve">
     <value>Ocorreu um erro na solicitação.</value>
