@@ -1,8 +1,10 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using DotNetCore.API.Template.Dominio.Auxiliares;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -11,10 +13,7 @@ namespace DotNetCore.API.Template.Site
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-            Helpers.AppSettings.Configuration = configuration;
-            AppSettings.Inicializar(new Helpers.AppSettings());
-            ConnectionStrings.Inicializar(new Helpers.AppSettings());
+            AppSettingsConfig.Config(configuration);
         }
 
         public IConfiguration Configuration { get; }
@@ -22,12 +21,29 @@ namespace DotNetCore.API.Template.Site
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            CorsConfig.Config(services);
+            IdCConfig.Config(services);
+
+            services.AddControllers(options => {
+                // Aplicando filtrdo customizados
+                FiltersConfig.Config(options);
+                // Aplicando binders customizados
+                ModelBinderProvidersConfig.Config(options);
+            }).ConfigureApiBehaviorOptions(options => {
+                // Desabilitando o filtro que intecepta erros do ModelState
+                options.SuppressModelStateInvalidFilter = true;
+            }).AddJsonOptions(options => {
+                ContratoJson.Configurar(options.JsonSerializerOptions);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            CultureInfo cultureInfo = new CultureInfo(AppSettings.CultureInfo);
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

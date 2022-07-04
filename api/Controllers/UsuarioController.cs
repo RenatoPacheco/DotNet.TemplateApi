@@ -1,48 +1,69 @@
-﻿using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
+using DotNetCore.API.Template.Aplicacao;
+using DotNetCore.API.Template.Dominio.Entidades;
+using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using DotNetCore.API.Template.Site.Filters;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
-    [ApiController]
+    [ApiController, AcessoLivre]
     [Route("servico/[controller]")]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : Common.BaseController
     {
         public UsuarioController(
-            ILogger<SobreController> logger)
+            UsuarioApp appUsuario,
+            ILogger<UsuarioController> logger)
         {
             _logger = logger;
+            _appUsuario = appUsuario;
         }
 
-        private readonly ILogger<SobreController> _logger;
+        private readonly ILogger<UsuarioController> _logger;
+        private readonly UsuarioApp _appUsuario;
 
         [HttpGet]
-        public IList<Usuario> Get()
+        public IActionResult Get([FromQuery] FiltrarUsuarioCmd query)
         {
-            return new List<Usuario>
-            {
-                new Usuario("Teste", "teste@teste.com", Status.Ativo)
-            };
+            Notifications.Clear();
+
+            Usuario[] resultado = _appUsuario.Filtrar(query);
+            Validate(_appUsuario);
+
+            return CustomResponse(resultado);
         }
 
         [HttpPost]
-        public Usuario Post()
+        public IActionResult Post([FromBody] InserirUsuarioCmd body)
         {
-            return new Usuario("Teste", "teste@teste.com", Status.Ativo);
+            Notifications.Clear();
+
+            Usuario resultado = _appUsuario.Inserir(body);
+            Validate(_appUsuario);
+
+            return CustomResponse(resultado);
         }
 
         [HttpPatch]
-        public Usuario Patch()
+        public IActionResult Patch([FromBody] EditarUsuarioCmd body)
         {
-            return new Usuario("Teste", "teste@teste.com", Status.Ativo);
+            Notifications.Clear();
+
+            Usuario resultado = _appUsuario.Editar(body);
+            Validate(_appUsuario);
+
+            return CustomResponse(resultado);
         }
 
         [HttpDelete]
-        public Usuario Delete()
+        public IActionResult Delete([FromBody] ExcluirUsuarioCmd query)
         {
-            return new Usuario("Teste", "teste@teste.com", Status.Ativo);
+            Notifications.Clear();
+
+            _appUsuario.Excluir(query);
+            Validate(_appUsuario);
+
+            return CustomResponse();
         }
     }
 }
