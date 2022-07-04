@@ -1,6 +1,7 @@
 ﻿using BitHelp.Core.Validation;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Interfaces.Repositorios
 {
@@ -12,6 +13,6 @@ namespace DotNetCore.API.Template.Dominio.Interfaces.Repositorios
 
         void Excluir(ExcluirUsuarioCmd comando);
 
-        Usuario[] Filtrar(FiltrarUsuarioCmd comando);
+        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando);
     }
 }

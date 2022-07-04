@@ -23,7 +23,7 @@ namespace DotNetCore.API.Template.Dominio.Servicos
 
             if (Validate(comando))
             {
-                resultado = _repUsuario.Filtrar(comando);
+                resultado = (Usuario[])_repUsuario.Filtrar(comando);
                 Validate(_repUsuario);
             }
 
@@ -52,9 +52,9 @@ namespace DotNetCore.API.Template.Dominio.Servicos
 
             if (Validate(comando))
             {
-                resultado = _repUsuario.Filtrar(new FiltrarUsuarioCmd {
+                resultado = (Usuario)_repUsuario.Filtrar(new FiltrarUsuarioCmd {
                     Usuario = new int[] { comando.Usuario.Value }
-                }).FirstOrDefault();
+                });
                 Validate(_repUsuario);
 
                 if (IsValid())

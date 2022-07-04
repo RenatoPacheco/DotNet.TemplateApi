@@ -7,8 +7,8 @@
             _appSettings = appSettings;
         }
 
-        public static IAppSettings _appSettings;
+        private static IAppSettings _appSettings;
 
-        public static string Site => _appSettings.GetConnectionString("app:site:{ambiente}");
+        public static string Teste => $"Application Name={AppSettings.Nome};{_appSettings.GetConnectionString("app:teste:{ambiente}")}";
     }
 }

@@ -20,5 +20,10 @@
 
         public static string Versao => _appSettings.GetValue<string>("app:versao");
 
+        public static string Autorizacao => _appSettings.GetValue<string>("app:autorizacao");
+
+        public static string ChavePublica => _appSettings.GetValue<string>("app:chave-publica");
+
+        public static string CultureInfo => _appSettings.GetValue<string>("app:culture-info");
     }
 }

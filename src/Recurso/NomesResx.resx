@@ -117,31 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcessoNaoAutorizado" xml:space="preserve">
-    <value>Acesso não autorizado.</value>
+  <data name="Usuario" xml:space="preserve">
+    <value>Usuário</value>
   </data>
-  <data name="OcorreuUmErroInterno" xml:space="preserve">
-    <value>Ocirreu um erro interno na solicitação.</value>
-  </data>
-  <data name="SolicitacaoErro" xml:space="preserve">
-    <value>Ocorreu um erro na solicitação.</value>
-  </data>
-  <data name="SolicitacaoNaoAutorizada" xml:space="preserve">
-    <value>Solicitação não autorizada.</value>
-  </data>
-  <data name="SolicitacaoSucesso" xml:space="preserve">
-    <value>Solicitação realizada com sucesso.</value>
-  </data>
-  <data name="XHeObrigatorio" xml:space="preserve">
-    <value>O valor de "{0}" é obrigatório. </value>
-  </data>
-  <data name="XNaoEhValido" xml:space="preserve">
-    <value>{0} não é válido.</value>
-  </data>
-  <data name="XPropriedadeNaoConfigurada" xml:space="preserve">
-    <value>A propriedade "{0}" ainda não foi configurada.</value>
-  </data>
-  <data name="XValorNaoPodeSerVazio" xml:space="preserve">
-    <value>O valor de "{0}" não pode ser vazio.</value>
+  <data name="Usuarios" xml:space="preserve">
+    <value>Usuários</value>
   </data>
 </root>

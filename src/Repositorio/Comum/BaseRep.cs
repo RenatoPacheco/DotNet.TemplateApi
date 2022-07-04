@@ -1,9 +1,8 @@
-﻿using System.Reflection;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 
-namespace DotNetCore.API.Template.Aplicacao.Comum
+namespace DotNetCore.API.Template.Repositorio.Comum
 {
-    public abstract class BaseApp : ISelfValidation
+    internal abstract class BaseRep : ISelfValidation
     {
         public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
 
@@ -17,11 +16,6 @@ namespace DotNetCore.API.Template.Aplicacao.Comum
         public bool IsValid()
         {
             return Notifications.IsValid();
-        }
-
-        public bool EhAutorizado(MethodBase metodo)
-        {
-            return true;
         }
     }
 }

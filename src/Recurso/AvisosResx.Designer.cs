@@ -61,11 +61,65 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório..
+        ///   Looks up a localized string similar to Acesso não autorizado..
+        /// </summary>
+        public static string AcessoNaoAutorizado {
+            get {
+                return ResourceManager.GetString("AcessoNaoAutorizado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocirreu um erro interno na solicitação..
+        /// </summary>
+        public static string OcorreuUmErroInterno {
+            get {
+                return ResourceManager.GetString("OcorreuUmErroInterno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro na solicitação..
+        /// </summary>
+        public static string SolicitacaoErro {
+            get {
+                return ResourceManager.GetString("SolicitacaoErro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitação não autorizada..
+        /// </summary>
+        public static string SolicitacaoNaoAutorizada {
+            get {
+                return ResourceManager.GetString("SolicitacaoNaoAutorizada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitação realizada com sucesso..
+        /// </summary>
+        public static string SolicitacaoSucesso {
+            get {
+                return ResourceManager.GetString("SolicitacaoSucesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório. .
         /// </summary>
         public static string XHeObrigatorio {
             get {
                 return ResourceManager.GetString("XHeObrigatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} não é válido..
+        /// </summary>
+        public static string XNaoEhValido {
+            get {
+                return ResourceManager.GetString("XNaoEhValido", resourceCulture);
             }
         }
         

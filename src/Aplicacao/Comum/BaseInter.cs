@@ -3,7 +3,7 @@ using BitHelp.Core.Validation;
 
 namespace DotNetCore.API.Template.Aplicacao.Comum
 {
-    public abstract class BaseApp : ISelfValidation
+    public abstract class BaseInter : ISelfValidation
     {
         public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
 

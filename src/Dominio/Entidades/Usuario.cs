@@ -1,11 +1,15 @@
 ﻿using System;
+using BitHelp.Core.Validation;
+using System.Text.Json.Serialization;
+using BitHelp.Core.Validation.Extends;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Entidades
 {
-    public class Usuario : IEquatable<Usuario>
+    public class Usuario
+        : ISelfValidation, IEquatable<Usuario>
     {
         protected Usuario()
         {
@@ -14,7 +18,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             Status = ObjetosDeValor.Status.Inativo;
         }
 
-        public Usuario(string nome, string email, Status status)
+        public Usuario(string nome, string email, Status? status)
             : this()
         {
             Nome = nome;
@@ -26,8 +30,18 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         public string Nome { get; set; }
 
+        private string _email;
         [Display(Name = "E-mail")]
-        public string Email { get; set; }
+        public string Email
+        {
+            get => _email;
+            set 
+            { 
+                _email = value;
+                this.RemoveAtReference(x => x.Email);
+                this.EmailIsValid(x => x.Email);
+            }
+        }
 
         [Display(Name = "Criado em")]
         public DateTime? CriadoEm { get; set; }
@@ -43,7 +57,8 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         public bool Equals([AllowNull] Usuario other)
         {
-            return other.GetHashCode() == GetHashCode();
+            return !(other is null) 
+                && other.GetHashCode() == GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -70,6 +85,18 @@ namespace DotNetCore.API.Template.Dominio.Entidades
         {
             return !((a is null) && (b is null)
                 || (!(a is null) && !(b is null) && a.Equals(b)));
+        }
+
+        #endregion
+
+        #region ISelfValidation
+
+        [JsonIgnore]
+        public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
+
+        public bool IsValid()
+        {
+            return Notifications.IsValid();
         }
 
         #endregion
