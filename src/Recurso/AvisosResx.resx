@@ -139,7 +139,7 @@
     <value>O valor de {0} não é únido.</value>
   </data>
   <data name="XNaoEhValido" xml:space="preserve">
-    <value>{0} não é válido.</value>
+    <value>{0} não é válido(a).</value>
   </data>
   <data name="XNaoEncontrado" xml:space="preserve">
     <value>{0} não encontrado(a).</value>

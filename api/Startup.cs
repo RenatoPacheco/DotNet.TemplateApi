@@ -1,4 +1,3 @@
-using System.Globalization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -24,15 +23,18 @@ namespace DotNetCore.API.Template.Site
             CorsConfig.Config(services);
             IdCConfig.Config(services);
 
-            services.AddControllers(options => {
+            services.AddControllers(options =>
+            {
                 // Aplicando filtrdo customizados
                 FiltersConfig.Config(options);
                 // Aplicando binders customizados
                 ModelBinderProvidersConfig.Config(options);
-            }).ConfigureApiBehaviorOptions(options => {
+            }).ConfigureApiBehaviorOptions(options =>
+            {
                 // Desabilitando o filtro que intecepta erros do ModelState
                 options.SuppressModelStateInvalidFilter = true;
-            }).AddJsonOptions(options => {
+            }).AddJsonOptions(options =>
+            {
                 ContratoJson.Configurar(options.JsonSerializerOptions);
             });
         }
@@ -40,9 +42,7 @@ namespace DotNetCore.API.Template.Site
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            CultureInfo cultureInfo = new CultureInfo(AppSettings.CultureInfo);
-            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
-            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            CultureInfoConfig.Config(app);
 
             if (env.IsDevelopment())
             {

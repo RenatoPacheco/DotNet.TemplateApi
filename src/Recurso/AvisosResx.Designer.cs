@@ -124,7 +124,7 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} não é válido..
+        ///   Looks up a localized string similar to {0} não é válido(a)..
         /// </summary>
         public static string XNaoEhValido {
             get {
