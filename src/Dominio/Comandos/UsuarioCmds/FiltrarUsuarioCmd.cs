@@ -11,7 +11,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
     {
         private int[] _usuario;
         /// <summary>
-        /// Lista de ids de usuários
+        /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
         public int[] Usuario
@@ -22,7 +22,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 
         private Status[] _status;
         /// <summary>
-        /// Lista de status
+        /// Status de usuário
         /// </summary>
         public Status[] Status
         {

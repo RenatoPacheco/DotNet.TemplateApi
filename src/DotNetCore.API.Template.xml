@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DotNetCore.API.Template</name>
+    </assembly>
+    <members>
+        <member name="P:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.Servidor">
+            <summary>
+            Servidor atual, sendo produção por padrão
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.EhLocal">
+            <summary>
+            Retorna true se o servidor atual for local
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.EhHomologacao">
+            <summary>
+            Retorna true se o servidor atual for de homologação
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.EhProducao">
+            <summary>
+            Retorna true se o servidor atual for de produção
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd.Texto">
+            <summary>
+            Texto para busca
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd.Pagina">
+            <summary>
+            Página atual
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd.Maximo">
+            <summary>
+            Máximo de registros por página
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd.Paginacao">
+            <summary>
+            Calcular a paginação
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Nome">
+            <summary>
+            Nome de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Email">
+            <summary>
+            E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.ExcluirUsuarioCmd.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Nome">
+            <summary>
+            Nome de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Email">
+            <summary>
+            E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="T:DotNetCore.API.Template.Dominio.ObjetosDeValor.Sobre">
+            <summary>
+            Obtém informações básicas sobre a aplicação
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.ObjetosDeValor.Sobre.Nome">
+            <summary>
+            Nome da aplicação
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.ObjetosDeValor.Sobre.Versao">
+            <summary>
+            Versão atual da aplicação
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.ObjetosDeValor.Sobre.Servidor">
+            <summary>
+            Servidor atual que a aplicação está sendo executada
+            </summary>
+        </member>
+        <member name="T:DotNetCore.API.Template.Recurso.AvisosResx">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.AcessoNaoAutorizado">
+            <summary>
+              Looks up a localized string similar to Acesso não autorizado..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.OcorreuUmErroInterno">
+            <summary>
+              Looks up a localized string similar to Ocorreu um erro interno na solicitação..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoErro">
+            <summary>
+              Looks up a localized string similar to Ocorreu um erro na solicitação..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoNaoAutorizada">
+            <summary>
+              Looks up a localized string similar to Solicitação não autorizada..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoSucesso">
+            <summary>
+              Looks up a localized string similar to Solicitação realizada com sucesso..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XHeObrigatorio">
+            <summary>
+              Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório. .
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEhUnico">
+            <summary>
+              Looks up a localized string similar to O valor de {0} não é únido..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEhValido">
+            <summary>
+              Looks up a localized string similar to {0} não é válido(a)..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEncontrado">
+            <summary>
+              Looks up a localized string similar to {0} não encontrado(a)..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEncontrados">
+            <summary>
+              Looks up a localized string similar to {0} não encontrados(as)..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XPropriedadeNaoConfigurada">
+            <summary>
+              Looks up a localized string similar to A propriedade &quot;{0}&quot; ainda não foi configurada..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XValorNaoPodeSerVazio">
+            <summary>
+              Looks up a localized string similar to O valor de &quot;{0}&quot; não pode ser vazio..
+            </summary>
+        </member>
+        <member name="T:DotNetCore.API.Template.Recurso.NomesResx">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Usuario">
+            <summary>
+              Looks up a localized string similar to Usuário.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Usuarios">
+            <summary>
+              Looks up a localized string similar to Usuários.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Repositorio.Comum.BuscaResp.DesmebrarTexto(System.String,System.Int32)">
+            <summary>
+            Tratar o texto para a busca 
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Repositorio.Comum.BuscaResp.MontarPaginacao(DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd)">
+            <summary>
+            Só funciona se for adicionado após um order by
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Repositorio.Comum.BuscaResp.HaPaginacao(DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd)">
+            <summary>
+            Verifica se há paginação 
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Repositorio.Comum.SimplesRep.MontarPaginacao(System.Int32,System.Int32)">
+            <summary>
+            Só funciona se for adicionado após um order by
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Repositorio.Comum.SimplesRep.DesmebrarTexto(System.String)">
+            <summary>
+            Quebra um texto em várias partes para aumentar o alcance da busca 
+            </summary>
+        </member>
+    </members>
+</doc>

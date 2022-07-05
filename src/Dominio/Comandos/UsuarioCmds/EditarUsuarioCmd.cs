@@ -11,6 +11,9 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         : Comum.EditarBaseCmd, ISelfValidation
     {
         private int? _usuario;
+        /// <summary>
+        /// Identificador de usuário
+        /// </summary>
         [Display(Name = "Usuário")]
         public int? Usuario
         {
@@ -23,6 +26,9 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         }
 
         private string _nome;
+        /// <summary>
+        /// Nome de usuário
+        /// </summary>
         public string Nome
         {
             get => _nome;
@@ -34,6 +40,9 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         }
 
         private string _email;
+        /// <summary>
+        /// E-mail de usuário
+        /// </summary>
         [Display(Name = "E-mail")]
         public string Email
         {
@@ -46,6 +55,9 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         }
 
         private Status? _status;
+        /// <summary>
+        /// Status de usuário
+        /// </summary>
         public Status? Status
         {
             get => _status;

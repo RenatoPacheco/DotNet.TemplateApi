@@ -9,6 +9,9 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
     public class ExcluirUsuarioCmd : ISelfValidation
     {
         private int[] _usuario;
+        /// <summary>
+        /// Identificador de usuário
+        /// </summary>
         [Display(Name = "Usuário")]
         public int[] Usuario
         {
