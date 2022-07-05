@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Text;
 using System.Linq;
 using System.Reflection;
 using BitHelp.Core.Validation;
@@ -52,12 +51,12 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
 
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return MontarResultado.Json(
-                    HttpStatusCode.Unauthorized, Notifications, data);
+                    HttpStatusCode.BadRequest, Notifications, data);
             }
 
             Response.StatusCode = (int)HttpStatusCode.OK;
             return MontarResultado.Json(
-                HttpStatusCode.Unauthorized, Notifications, data);
+                HttpStatusCode.OK, Notifications, data);
         }
     }
 }
