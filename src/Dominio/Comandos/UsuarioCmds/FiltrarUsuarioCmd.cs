@@ -1,4 +1,5 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
@@ -8,16 +9,27 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
     public class FiltrarUsuarioCmd 
         : Comum.FiltrarBaseCmd, ISelfValidation
     {
+        private int[] _usuario;
         /// <summary>
         /// Lista de ids de usuários
         /// </summary>
         [Display(Name = "Usuário")]
-        public int[] Usuario { get; set; }
+        public int[] Usuario
+        {
+            get => _usuario ??= Array.Empty<int>();
+            set => _usuario = value ?? Array.Empty<int>();
+        }
 
+        private Status[] _status;
         /// <summary>
         /// Lista de status
         /// </summary>
-        public Status[] Status { get; set; }
+        public Status[] Status
+        {
+            get => _status ??= Array.Empty<Status>();
+            set => _status = value ?? Array.Empty<Status>();
+        }
+
 
         #region Auto validação
 

@@ -13,7 +13,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         
         }
 
-        public ResultadoBusca(int total, int maximo)
+        public ResultadoBusca(long total, long maximo)
             : this()
         {
             TotalDeResultados = total;
@@ -22,10 +22,10 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         }
 
         [Display(Name = "Total de resultados")]
-        public int? TotalDeResultados { get; set; }
+        public long? TotalDeResultados { get; set; }
 
         [Display(Name = "Total de páginas")]
-        public int? TotalDePaginas { get; set; }
+        public long? TotalDePaginas { get; set; }
 
         [Display(Name = "Resultado da página atual")]
         public string ResultadosDaPaginaAtual { get; set; } = "[]";
@@ -46,7 +46,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         public static ResultadoBusca<T> ParaObjeto<T>(string json)
             where T : class
         {
-            return ContratoJson.Deserializar(json, typeof(ResultadoBusca<T>)) as ResultadoBusca<T>;
+            return ContratoJson.Desserializar(json, typeof(ResultadoBusca<T>)) as ResultadoBusca<T>;
         }
     }
 
@@ -69,12 +69,19 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         }
 
         [Display(Name = "Total de resultados")]
-        public int TotalDeResultados { get; set; }
+        public long? TotalDeResultados { get; set; }
 
         [Display(Name = "Total de páginas")]
-        public int TotalDePaginas { get; set; }
+        public long? TotalDePaginas { get; set; }
 
         [Display(Name = "Resultados da página atual")]
         public T[] ResultadosDaPaginaAtual { get; set; } = Array.Empty<T>();
+
+        public void CalcularPaginas(long total, long maximo)
+        {
+            TotalDeResultados = total;
+            TotalDePaginas = maximo < 1 ? 1
+                : total % maximo > 0 ? total / maximo + 1 : total / maximo;
+        }
     }
 }

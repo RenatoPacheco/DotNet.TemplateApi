@@ -57,14 +57,15 @@ namespace DotNetCore.API.Template.Dominio.Servicos
             if (Validate(comando))
             {
                 resultado = (Usuario)_repUsuario.Filtrar(new FiltrarUsuarioCmd {
-                    Usuario = new int[] { comando.Usuario.Value }
+                    Usuario = new int[] { comando.Usuario.Value },
+                    Maximo = 1, Pagina = 1
                 }, nameof(comando.Usuario), ValidationType.Error);
                 Validate(_repUsuario);
 
                 if (IsValid())
                 {
                     comando.Aplicar(ref resultado);
-                    _repUsuario.Inserir(resultado);
+                    _repUsuario.Editar(resultado);
                     Validate(_repUsuario);
                 }
             }

@@ -31,7 +31,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-07-04T15:06:49.916Z",
-    "modified": "2022-07-04T15:07:06.428Z",
+    "modified": "2022-07-05T10:53:56.136Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -82,7 +82,7 @@
     "method": "PATCH",
     "sortNum": 30000,
     "created": "2022-07-04T23:58:32.714Z",
-    "modified": "2022-07-05T00:33:36.099Z",
+    "modified": "2022-07-05T10:53:05.619Z",
     "headers": [
       {
         "name": "Chave-Publica",

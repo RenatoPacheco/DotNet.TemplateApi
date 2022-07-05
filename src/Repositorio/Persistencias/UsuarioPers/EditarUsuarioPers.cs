@@ -40,8 +40,8 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
                             [{json.Coluna(x => x.Nome)}] = @Nome
                            ,[{json.Coluna(x => x.Email)}] = @Email
                            ,[{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{json.Coluna(x => x.Status)}]) = @Status
-                    WHERE {json.Coluna(x => x.Id)} = @Id
+                           ,[{json.Coluna(x => x.Status)}] = @Status
+                    WHERE [{json.Coluna(x => x.Id)}] = @Id
                 ";
 
                 object sqlObject = new
