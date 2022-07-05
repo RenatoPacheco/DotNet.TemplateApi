@@ -46,21 +46,18 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
                 if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
                 {
                     Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    return Content(MontarResultado.Json(
-                        HttpStatusCode.Unauthorized, Notifications, data),
-                        "application/json", Encoding.UTF8);
+                    return MontarResultado.Json(
+                        HttpStatusCode.Unauthorized, Notifications, data);
                 }
 
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return Content(MontarResultado.Json(
-                    HttpStatusCode.BadRequest, Notifications, data),
-                        "application/json", Encoding.UTF8);
+                return MontarResultado.Json(
+                    HttpStatusCode.Unauthorized, Notifications, data);
             }
 
             Response.StatusCode = (int)HttpStatusCode.OK;
-            return Content(MontarResultado.Json(
-                HttpStatusCode.OK, Notifications, data),
-                    "application/json", Encoding.UTF8);
+            return MontarResultado.Json(
+                HttpStatusCode.Unauthorized, Notifications, data);
         }
     }
 }
