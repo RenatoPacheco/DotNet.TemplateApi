@@ -1,5 +1,6 @@
 ﻿using System;
 using BitHelp.Core.Validation;
+using DotNetCore.API.Template.Dominio.Extensoes;
 
 namespace DotNetCore.API.Template.Site.ValuesObject
 {
@@ -28,7 +29,14 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
         public Guid Id { get; set; }
 
-        public string Referencia { get; set; }
+        private string _referencia;
+
+        public string Referencia
+        {
+            get { return _referencia ??= string.Empty; }
+            set { _referencia = (value ?? string.Empty).StartToLower(); }
+        }
+
 
         public string Mensagem { get; set; }
 
