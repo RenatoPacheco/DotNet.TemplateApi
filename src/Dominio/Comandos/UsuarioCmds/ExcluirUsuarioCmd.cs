@@ -1,13 +1,21 @@
 ﻿using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
+using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
     public class ExcluirUsuarioCmd : ISelfValidation
     {
+        private int[] _usuario;
         [Display(Name = "Usuário")]
-        public int[] Usuario { get; set; }
+        public int[] Usuario
+        {
+            get => _usuario ??= Array.Empty<int>();
+            set => _usuario = value ?? Array.Empty<int>();
+        }
+
 
         #region Auto validação
 
@@ -16,6 +24,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 
         public virtual bool IsValid()
         {
+            this.RequiredIsValid(x => x.Usuario);
             return Notifications.IsValid();
         }
 

@@ -31,7 +31,7 @@ namespace DotNetCore.API.Template.Repositorio.Contexto
         {
             if (!HaSessao())
             {
-                Sessao1 = new SqlConnection(ConnectionStrings.Teste);
+                Sessao1 = new SqlConnection(ConnectionStrings.Testando);
                 Sessao1.Open();
             }
             return Sessao1;

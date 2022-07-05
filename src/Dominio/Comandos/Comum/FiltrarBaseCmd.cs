@@ -2,7 +2,7 @@
 
 namespace DotNetCore.API.Template.Dominio.Comandos.Comum
 {
-    public class FiltrarBaseCmd
+    public abstract class FiltrarBaseCmd
     {
         /// <summary>
         /// Texto para busca

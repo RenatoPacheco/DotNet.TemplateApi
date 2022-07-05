@@ -2,6 +2,7 @@
 using System.Reflection;
 using DotNetCore.API.Template.Dominio.Servicos;
 using DotNetCore.API.Template.Dominio.Entidades;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 
 namespace DotNetCore.API.Template.Aplicacao
@@ -16,10 +17,10 @@ namespace DotNetCore.API.Template.Aplicacao
 
         protected readonly UsuarioServ _servUsuario;
 
-        public Usuario[] Filtrar(FiltrarUsuarioCmd comando)
+        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando)
         {
             Notifications.Clear();
-            Usuario[] resultado = Array.Empty<Usuario>();
+            ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {

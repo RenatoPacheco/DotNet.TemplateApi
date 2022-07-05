@@ -13,6 +13,11 @@ namespace DotNetCore.API.Template.Dominio.Interfaces.Repositorios
 
         void Excluir(ExcluirUsuarioCmd comando);
 
-        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando);
+
+        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia);
+
+        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, ValidationType tipo);
+
+        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia = "", ValidationType tipo = ValidationType.Alert);
     }
 }

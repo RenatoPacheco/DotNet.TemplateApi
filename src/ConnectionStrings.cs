@@ -9,6 +9,6 @@
 
         private static IAppSettings _appSettings;
 
-        public static string Teste => $"Application Name={AppSettings.Nome};{_appSettings.GetConnectionString("app:teste:{ambiente}")}";
+        public static string Testando => $"Application Name={AppSettings.Nome};{_appSettings.GetConnectionString("app:testando:{ambiente}")}";
     }
 }

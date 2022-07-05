@@ -1,0 +1,127 @@
+[
+  {
+    "_id": "7fa36ed3-f596-4df2-9353-636e09ddffdc",
+    "colId": "7be72ee1-52f2-482b-8b47-61ca965c23d5",
+    "containerId": "",
+    "name": "Obter",
+    "url": "{{host}}/servico/sobre",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-07-04T15:04:32.517Z",
+    "modified": "2022-07-04T15:06:33.824Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1a2749ca-2ff8-495a-bd7f-92a8404239a7",
+    "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
+    "containerId": "",
+    "name": "Filtrar",
+    "url": "{{host}}/servico/usuario",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-07-04T15:06:49.916Z",
+    "modified": "2022-07-04T15:07:06.428Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e2647f74-d0c6-44c6-a223-2b43b331dba4",
+    "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
+    "containerId": "",
+    "name": "Inserir",
+    "url": "{{host}}/servico/usuario",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-07-04T15:07:29.263Z",
+    "modified": "2022-07-04T15:09:33.320Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"nome\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"status\": \"Ativo\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "58321bee-8bba-4a5d-8119-2d459acc1fea",
+    "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
+    "containerId": "",
+    "name": "Editar",
+    "url": "{{host}}/servico/usuario",
+    "method": "PATCH",
+    "sortNum": 30000,
+    "created": "2022-07-04T23:58:32.714Z",
+    "modified": "2022-07-05T00:33:36.099Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"usuario\": 1,\n    \"nome\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"status\": \"Ativo\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "dbc5200f-e827-4e97-85ee-75dae5d3b669",
+    "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
+    "containerId": "",
+    "name": "Deletar",
+    "url": "{{host}}/servico/usuario",
+    "method": "DELETE",
+    "sortNum": 40000,
+    "created": "2022-07-05T00:43:36.213Z",
+    "modified": "2022-07-05T00:43:52.527Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  }
+]

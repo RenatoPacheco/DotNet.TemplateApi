@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Linq;
+using BitHelp.Core.Validation;
 using DotNetCore.API.Template.Dominio.Entidades;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
 
@@ -16,14 +17,14 @@ namespace DotNetCore.API.Template.Dominio.Servicos
 
         protected readonly IUsuarioRep _repUsuario;
 
-        public Usuario[] Filtrar(FiltrarUsuarioCmd comando)
+        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando)
         {
             Notifications.Clear();
-            Usuario[] resultado = Array.Empty<Usuario>();
+            ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
 
             if (Validate(comando))
             {
-                resultado = (Usuario[])_repUsuario.Filtrar(comando);
+                resultado = _repUsuario.Filtrar(comando);
                 Validate(_repUsuario);
             }
 
@@ -54,7 +55,7 @@ namespace DotNetCore.API.Template.Dominio.Servicos
             {
                 resultado = (Usuario)_repUsuario.Filtrar(new FiltrarUsuarioCmd {
                     Usuario = new int[] { comando.Usuario.Value }
-                });
+                }, nameof(comando.Usuario), ValidationType.Error);
                 Validate(_repUsuario);
 
                 if (IsValid())

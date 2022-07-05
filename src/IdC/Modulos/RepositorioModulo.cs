@@ -5,6 +5,7 @@ using DotNetCore.API.Template.Repositorio;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
+using DotNetCore.API.Template.Repositorio.Persistencias.SobrePers;
 
 namespace DotNetCore.API.Template.IdC.Modulos
 {
@@ -25,6 +26,9 @@ namespace DotNetCore.API.Template.IdC.Modulos
             Injecao.Registrar<ITransicao, Transicao>(recipiente);
             Injecao.Registrar<IUnidadeTrabalho, UnidadeTrabalho>(recipiente);
 
+            string bancoTestando = typeof(ObterSobrePers).Namespace;
+            bancoTestando = bancoTestando.Substring(0, bancoTestando.LastIndexOf('.'));
+
             Type baseType = typeof(SobreRep);
             string[] exactNamespace = new string[]
             {
@@ -32,8 +36,9 @@ namespace DotNetCore.API.Template.IdC.Modulos
             };
             string[] startNamespace = new string[]
             {
-
-            };
+                typeof(ObterSobrePers).Namespace.Substring(
+                    0, typeof(ObterSobrePers).Namespace.LastIndexOf('.'))
+        };
             string[] interfaceNamespace = new string[]
             {
                 typeof(ISobreRep).Namespace
@@ -42,7 +47,7 @@ namespace DotNetCore.API.Template.IdC.Modulos
                     .Where(x => x.ReflectedType is null
                         && !(x.Namespace is null)
                         && (exactNamespace.Contains(x.Namespace)
-                            || startNamespace.Any(y => y.StartsWith(x.Namespace)))
+                            || startNamespace.Any(y => x.Namespace.StartsWith(y)))
                         && x.IsClass
                         && !x.IsAbstract
                         && !x.IsInterface).ToArray();

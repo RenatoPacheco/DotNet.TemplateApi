@@ -115,11 +115,38 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O valor de {0} não é únido..
+        /// </summary>
+        public static string XNaoEhUnico {
+            get {
+                return ResourceManager.GetString("XNaoEhUnico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} não é válido..
         /// </summary>
         public static string XNaoEhValido {
             get {
                 return ResourceManager.GetString("XNaoEhValido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} não encontrado(a)..
+        /// </summary>
+        public static string XNaoEncontrado {
+            get {
+                return ResourceManager.GetString("XNaoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} não encontrados(as)..
+        /// </summary>
+        public static string XNaoEncontrados {
+            get {
+                return ResourceManager.GetString("XNaoEncontrados", resourceCulture);
             }
         }
         

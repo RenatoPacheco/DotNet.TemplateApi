@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "82e6162c-4c84-493e-b27f-81f504bcd112",
+    "name": "Local",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-07-04T15:03:56.639Z",
+    "modified": "2022-07-04T15:06:01.465Z",
+    "data": [
+      {
+        "name": "host",
+        "value": "https://localhost:44323"
+      },
+      {
+        "name": "autorizacao",
+        "value": "5SqSnwtl0h1R0L61Hk0OGu2m63rcdeva7IvFc3qatEwnh0j8lP"
+      },
+      {
+        "name": "chave-publica",
+        "value": "1ISarWGyGIZ2LC6hRbnKHNjycrYu3VxyaGDRq8o589EJIcOlZe"
+      }
+    ]
+  }
+]

@@ -28,7 +28,7 @@ namespace DotNetCore.API.Template.IdC.Modulos
                     .Where(x => x.ReflectedType is null
                         && !(x.Namespace is null)
                         && (exactNamespace.Contains(x.Namespace)
-                            || startNamespace.Any(y => y.StartsWith(x.Namespace)))
+                            || startNamespace.Any(y => x.Namespace.StartsWith(y)))
                         && x.IsClass
                         && !x.IsAbstract
                         && !x.IsInterface).ToArray();

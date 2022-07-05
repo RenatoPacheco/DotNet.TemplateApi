@@ -1,6 +1,8 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Text;
 using System.Linq;
+using System.Reflection;
 using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
 using DotNetCore.API.Template.Site.Helpers;
@@ -20,6 +22,16 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
         protected bool IsValid()
         {
             return Notifications.IsValid();
+        }
+
+        protected void InvocarSeNulo<TClasse>(ref TClasse classe)
+            where TClasse : class
+        {
+            if (classe is null)
+            {
+                ConstructorInfo constructor = typeof(TClasse).GetConstructor(Type.EmptyTypes);
+                classe = (TClasse)constructor.Invoke(null);
+            }
         }
 
         protected IActionResult CustomResponse()

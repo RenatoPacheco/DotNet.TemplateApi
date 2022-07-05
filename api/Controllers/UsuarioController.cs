@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Site.Filters;
+using DotNetCore.API.Template.Site.Extensions;
+using DotNetCore.API.Template.Dominio.Entidades;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
@@ -25,9 +27,10 @@ namespace DotNetCore.API.Template.Site.Controllers
         [HttpGet]
         public IActionResult Get([FromQuery] FiltrarUsuarioCmd query)
         {
-            Notifications.Clear();
+            InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            Usuario[] resultado = _appUsuario.Filtrar(query);
+            ResultadoBusca<Usuario> resultado = _appUsuario.Filtrar(query);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);
@@ -36,7 +39,8 @@ namespace DotNetCore.API.Template.Site.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] InserirUsuarioCmd body)
         {
-            Notifications.Clear();
+            InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
             Usuario resultado = _appUsuario.Inserir(body);
             Validate(_appUsuario);
@@ -47,7 +51,8 @@ namespace DotNetCore.API.Template.Site.Controllers
         [HttpPatch]
         public IActionResult Patch([FromBody] EditarUsuarioCmd body)
         {
-            Notifications.Clear();
+            InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
             Usuario resultado = _appUsuario.Editar(body);
             Validate(_appUsuario);
@@ -56,9 +61,10 @@ namespace DotNetCore.API.Template.Site.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody] ExcluirUsuarioCmd query)
+        public IActionResult Delete([FromQuery] ExcluirUsuarioCmd query)
         {
-            Notifications.Clear();
+            InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
             _appUsuario.Excluir(query);
             Validate(_appUsuario);

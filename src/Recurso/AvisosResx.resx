@@ -135,8 +135,17 @@
   <data name="XHeObrigatorio" xml:space="preserve">
     <value>O valor de "{0}" é obrigatório. </value>
   </data>
+  <data name="XNaoEhUnico" xml:space="preserve">
+    <value>O valor de {0} não é únido.</value>
+  </data>
   <data name="XNaoEhValido" xml:space="preserve">
     <value>{0} não é válido.</value>
+  </data>
+  <data name="XNaoEncontrado" xml:space="preserve">
+    <value>{0} não encontrado(a).</value>
+  </data>
+  <data name="XNaoEncontrados" xml:space="preserve">
+    <value>{0} não encontrados(as).</value>
   </data>
   <data name="XPropriedadeNaoConfigurada" xml:space="preserve">
     <value>A propriedade "{0}" ainda não foi configurada.</value>
