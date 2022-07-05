@@ -43,6 +43,9 @@ namespace DotNetCore.API.Template.Dominio.Servicos
                 Validate(_repUsuario);
             }
 
+            if (!IsValid())
+                comando.Desfazer(ref resultado);
+
             return resultado;
         }
 
@@ -65,6 +68,9 @@ namespace DotNetCore.API.Template.Dominio.Servicos
                     Validate(_repUsuario);
                 }
             }
+
+            if (!IsValid())
+                comando.Desfazer(ref resultado);
 
             return resultado;
         }

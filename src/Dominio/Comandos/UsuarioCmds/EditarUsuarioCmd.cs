@@ -74,6 +74,8 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
+        public void Desfazer(ref Usuario dados) => dados = null;
+
         #region Auto validação
 
         [JsonIgnore]
