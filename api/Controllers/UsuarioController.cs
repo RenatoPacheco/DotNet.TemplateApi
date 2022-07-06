@@ -6,14 +6,10 @@ using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
-using System.Text.Json.Serialization;
-using BitHelp.Core.Validation;
-using System.Collections.Generic;
-using System;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
-    [ApiController, AcessoLivre]
+    [ApiController]
     [Route("servico/[controller]")]
     public class UsuarioController : Common.BaseController
     {

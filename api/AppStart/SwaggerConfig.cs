@@ -1,9 +1,10 @@
-﻿using DotNetCore.API.Template.Site.Swashbuckle;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-using System;
+﻿using System;
 using System.IO;
+using System.Text;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Builder;
+using DotNetCore.API.Template.Site.Swashbuckle;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -12,10 +13,65 @@ namespace DotNetCore.API.Template.Site
         public static void Config(IServiceCollection services)
         {
             services.AddSwaggerGen(options => {
+                
+                StringBuilder texto = new StringBuilder();
 
                 options.SwaggerDoc("v1", new OpenApiInfo { 
                     Title = AppSettings.Nome, 
                     Version = "v1" 
+                });
+
+                texto.Clear();
+                texto.Append("Insira sua chave de acesso diretamente: <strong>{sua chave de acesso}</strong>");
+                texto.Append($"<br>Chave-Publica: <strong>{AppSettings.ChavePublica}</strong>");
+                texto.Append("<br><br><center><strong>!!! IMPORTANTE !!!</strong></center>");
+                texto.Append("<br/>Esse é só um template, não deixe os valores aparecerem aqui nem use esses valores!<br>&nbsp;");
+
+                options.AddSecurityDefinition("Chave pública", new OpenApiSecurityScheme
+                {
+                    Description = texto.ToString(),
+                    Name = "Chave-Publica",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Chave pública"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+
+                texto.Clear();
+                texto.Append("Insira o token desta maneira: <strong>Bearer {seu token}</strong>");
+                texto.Append($"<br>Authorization: <strong>Bearer {AppSettings.Autorizacao}</strong>");
+                texto.Append("<br><br><center><strong>!!! IMPORTANTE !!!</strong></center>");
+                texto.Append("<br/>Esse é só um template, não deixe os valores aparecerem aqui nem use esses valores!<br>&nbsp;");
+
+                options.AddSecurityDefinition("Autorização", new OpenApiSecurityScheme
+                {
+                    Description = texto.ToString(),
+                    Name = "Authorization",
+                    Scheme = "Bearer",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Autorização"
+                            }
+                        },
+                        new string[] {}
+                    }
                 });
 
                 options.SchemaFilter<FiltroSchemaFilter>();
