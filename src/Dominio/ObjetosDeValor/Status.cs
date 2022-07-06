@@ -2,6 +2,9 @@
 
 namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 {
+    /// <summary>
+    /// Opções de status
+    /// </summary>
     public enum Status
     {
         Inativo,

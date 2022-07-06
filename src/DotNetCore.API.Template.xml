@@ -114,6 +114,11 @@
             Servidor atual que a aplicação está sendo executada
             </summary>
         </member>
+        <member name="T:DotNetCore.API.Template.Dominio.ObjetosDeValor.Status">
+            <summary>
+            Opções de status
+            </summary>
+        </member>
         <member name="T:DotNetCore.API.Template.Recurso.AvisosResx">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.

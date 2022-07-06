@@ -6,6 +6,10 @@ using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using System.Text.Json.Serialization;
+using BitHelp.Core.Validation;
+using System.Collections.Generic;
+using System;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
@@ -24,8 +28,11 @@ namespace DotNetCore.API.Template.Site.Controllers
         private readonly ILogger<UsuarioController> _logger;
         private readonly UsuarioApp _appUsuario;
 
+        /// <summary>
+        /// Filtro de usuários
+        /// </summary>
         [HttpGet]
-        public IActionResult Get([FromQuery] FiltrarUsuarioCmd query)
+        public IActionResult Get([FromBody] FiltrarUsuarioCmd query)
         {
             InvocarSeNulo(ref query);
             query.ExtrairModelState(ModelState);
@@ -36,6 +43,9 @@ namespace DotNetCore.API.Template.Site.Controllers
             return CustomResponse(resultado);
         }
 
+        /// <summary>
+        /// Inserir usuário
+        /// </summary>
         [HttpPost]
         public IActionResult Post([FromBody] InserirUsuarioCmd body)
         {
@@ -48,6 +58,9 @@ namespace DotNetCore.API.Template.Site.Controllers
             return CustomResponse(resultado);
         }
 
+        /// <summary>
+        /// Editar usuário
+        /// </summary>
         [HttpPatch]
         public IActionResult Patch([FromBody] EditarUsuarioCmd body)
         {
@@ -60,8 +73,11 @@ namespace DotNetCore.API.Template.Site.Controllers
             return CustomResponse(resultado);
         }
 
+        /// <summary>
+        /// Deletar um ou mais usuários
+        /// </summary>
         [HttpDelete]
-        public IActionResult Delete([FromQuery] ExcluirUsuarioCmd query)
+        public IActionResult Delete([FromBody] ExcluirUsuarioCmd query)
         {
             InvocarSeNulo(ref query);
             query.ExtrairModelState(ModelState);

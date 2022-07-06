@@ -4,5 +4,42 @@
         <name>DotNetCore.API.Template.Site</name>
     </assembly>
     <members>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.SobreController.Get">
+            <summary>
+            Obter informação como nome e versão da API
+            </summary>
+            <remarks>
+            Essa consulta vai permitir obter dados como:
+            
+            <code>
+            "dados": {
+                "nome": "Projeto teste API",
+                "versao": "1.0.0",
+                "servidor": "local"
+            } 
+            </code>
+            
+            </remarks>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Get(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd)">
+            <summary>
+            Filtro de usuários
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Post(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd)">
+            <summary>
+            Inserir usuário
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Patch(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd)">
+            <summary>
+            Editar usuário
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.ExcluirUsuarioCmd)">
+            <summary>
+            Deletar um ou mais usuários
+            </summary>
+        </member>
     </members>
 </doc>

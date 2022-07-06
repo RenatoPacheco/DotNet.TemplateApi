@@ -23,20 +23,19 @@ namespace DotNetCore.API.Template.Site
             CorsConfig.Config(services);
             IdCConfig.Config(services);
 
-            services.AddControllers(options =>
-            {
+            services.AddControllers(options => {
                 // Aplicando filtrdo customizados
                 FiltersConfig.Config(options);
                 // Aplicando binders customizados
                 ModelBinderProvidersConfig.Config(options);
-            }).ConfigureApiBehaviorOptions(options =>
-            {
+            }).ConfigureApiBehaviorOptions(options => {
                 // Desabilitando o filtro que intecepta erros do ModelState
                 options.SuppressModelStateInvalidFilter = true;
-            }).AddJsonOptions(options =>
-            {
+            }).AddJsonOptions(options => {
                 ContratoJson.Configurar(options.JsonSerializerOptions);
             });
+
+            SwaggerConfig.Config(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +46,7 @@ namespace DotNetCore.API.Template.Site
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                SwaggerConfig.Config(app);
             }
 
             app.UseHttpsRedirection();
@@ -55,8 +55,7 @@ namespace DotNetCore.API.Template.Site
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
+            app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
         }
