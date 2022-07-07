@@ -7,6 +7,11 @@ using DotNetCore.API.Template.Site.Swashbuckle;
 using Microsoft.Extensions.DependencyInjection;
 using BitHelp.Core.Type.pt_BR;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using System.Linq;
+using Microsoft.OpenApi.Any;
+using System.Collections.Generic;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using DotNetCore.API.Template.Site.Extensions;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -86,10 +91,17 @@ namespace DotNetCore.API.Template.Site
                     () => new OpenApiSchema { Type = "string" });
                 options.MapType<PhoneType?>(
                     () => new OpenApiSchema { Type = "string" });
+
                 options.MapType<Status>(
-                    () => new OpenApiSchema { Type = "enum" });
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Enum = options.IOpenApiAnyByEnum<Status>()
+                    });
                 options.MapType<Status?>(
-                    () => new OpenApiSchema { Type = "enum" });
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Enum = options.IOpenApiAnyByEnum<Status>()
+                    });
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;
                 options.IncludeXmlComments(Path.Combine(pasta, "DotNetCore.API.Template.Site.xml"));
