@@ -4,6 +4,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DotNetCore.API.Template.Dominio.Auxiliares;
+using AutoMapper;
+using DotNetCore.API.Template.Site.AutoMapper;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -36,6 +38,7 @@ namespace DotNetCore.API.Template.Site
             });
 
             SwaggerConfig.Config(services);
+            AutoMapperConfig.Config(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

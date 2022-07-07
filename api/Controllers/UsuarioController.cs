@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
-using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
@@ -15,25 +16,30 @@ namespace DotNetCore.API.Template.Site.Controllers
     {
         public UsuarioController(
             UsuarioApp appUsuario,
+            IMapper mapper,
             ILogger<UsuarioController> logger)
         {
             _logger = logger;
             _appUsuario = appUsuario;
+            _mapper = mapper;
         }
 
         private readonly ILogger<UsuarioController> _logger;
         private readonly UsuarioApp _appUsuario;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Filtro de usuários
         /// </summary>
         [HttpGet]
-        public IActionResult Get([FromBody] FiltrarUsuarioCmd query)
+        public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);
-            query.ExtrairModelState(ModelState);
 
-            ResultadoBusca<Usuario> resultado = _appUsuario.Filtrar(query);
+            FiltrarUsuarioCmd cmd = _mapper.Map<FiltrarUsuarioCmd>(query);
+            cmd.ExtrairModelState(ModelState);
+
+            ResultadoBusca<Usuario> resultado = _appUsuario.Filtrar(cmd);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);
@@ -73,12 +79,14 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// Deletar um ou mais usuários
         /// </summary>
         [HttpDelete]
-        public IActionResult Delete([FromBody] ExcluirUsuarioCmd query)
+        public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);
-            query.ExtrairModelState(ModelState);
 
-            _appUsuario.Excluir(query);
+            ExcluirUsuarioCmd cmd = _mapper.Map<ExcluirUsuarioCmd>(query);
+            cmd.ExtrairModelState(ModelState);
+
+            _appUsuario.Excluir(cmd);
             Validate(_appUsuario);
 
             return CustomResponse();

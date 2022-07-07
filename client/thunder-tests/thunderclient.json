@@ -31,7 +31,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-07-04T15:06:49.916Z",
-    "modified": "2022-07-05T10:53:56.136Z",
+    "modified": "2022-07-07T14:05:40.485Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -106,18 +106,24 @@
     "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
     "containerId": "",
     "name": "Deletar",
-    "url": "{{host}}/servico/usuario",
+    "url": "{{host}}/servico/usuario?usuario=1111",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-05T00:43:36.213Z",
-    "modified": "2022-07-05T00:43:52.527Z",
+    "modified": "2022-07-07T14:05:58.340Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [],
+    "params": [
+      {
+        "name": "usuario",
+        "value": "1111",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"

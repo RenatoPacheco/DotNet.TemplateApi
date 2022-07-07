@@ -19,7 +19,6 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             set => _usuario = value ?? Array.Empty<int>();
         }
 
-
         #region Auto validação
 
         [JsonIgnore]

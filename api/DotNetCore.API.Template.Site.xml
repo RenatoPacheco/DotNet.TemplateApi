@@ -21,7 +21,7 @@
             
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Get(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
             </summary>
@@ -36,9 +36,24 @@
             Editar usuário
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.ExcluirUsuarioCmd)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
+            <summary>
+            Status de usuário
             </summary>
         </member>
     </members>

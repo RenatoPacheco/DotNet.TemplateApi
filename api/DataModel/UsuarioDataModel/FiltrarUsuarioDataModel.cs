@@ -1,13 +1,11 @@
 ﻿using System;
-using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
+using DotNetCore.API.Template.Dominio.Comandos.Comum;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
+namespace DotNetCore.API.Template.Site.DataModel.UsuarioDataModel
 {
-    public class FiltrarUsuarioCmd 
-        : Comum.FiltrarBaseCmd, ISelfValidation
+    public class FiltrarUsuarioDataModel : FiltrarBaseCmd
     {
         private int[] _usuario;
         /// <summary>
@@ -29,17 +27,5 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             get => _status ??= Array.Empty<Status>();
             set => _status = value ?? Array.Empty<Status>();
         }
-
-        #region Auto validação
-
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
-
-        public virtual bool IsValid()
-        {
-            return Notifications.IsValid();
-        }
-
-        #endregion
     }
 }
