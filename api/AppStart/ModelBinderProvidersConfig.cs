@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DotNetCore.API.Template.Site.ModelBinderProvider;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -10,6 +11,7 @@ namespace DotNetCore.API.Template.Site
             options.ModelBinderProviders.Insert(0, new GuidBinderProvider());
             options.ModelBinderProviders.Insert(0, new IntBinderProvider());
             options.ModelBinderProviders.Insert(0, new DateTimeBinderProvider());
+            options.ModelBinderProviders.Insert(0, new EnumBinderProvider<Status>());
         }
     }
 }
