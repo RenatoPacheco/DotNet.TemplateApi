@@ -106,6 +106,15 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Valor não está no formato válido..
+        /// </summary>
+        public static string ValorNoFormatoInvalido {
+            get {
+                return ResourceManager.GetString("ValorNoFormatoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório. .
         /// </summary>
         public static string XHeObrigatorio {

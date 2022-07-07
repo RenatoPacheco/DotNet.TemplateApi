@@ -170,6 +170,11 @@
               Looks up a localized string similar to Solicitação realizada com sucesso..
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ValorNoFormatoInvalido">
+            <summary>
+              Looks up a localized string similar to Valor não está no formato válido..
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XHeObrigatorio">
             <summary>
               Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório. .

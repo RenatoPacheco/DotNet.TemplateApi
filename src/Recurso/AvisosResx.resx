@@ -132,6 +132,9 @@
   <data name="SolicitacaoSucesso" xml:space="preserve">
     <value>Solicitação realizada com sucesso.</value>
   </data>
+  <data name="ValorNoFormatoInvalido" xml:space="preserve">
+    <value>Valor não está no formato válido.</value>
+  </data>
   <data name="XHeObrigatorio" xml:space="preserve">
     <value>O valor de "{0}" é obrigatório. </value>
   </data>

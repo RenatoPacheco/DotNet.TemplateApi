@@ -1,4 +1,5 @@
 ﻿using BitHelp.Core.Validation;
+using DotNetCore.API.Template.Recurso;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -24,6 +25,22 @@ namespace DotNetCore.API.Template.Site.Extensions
                 {
                     entidade.Notifications.AddError(erros[e].ErrorMessage.ToString(), referencia);
                 }
+            }
+
+            dados.Clear();
+        }
+
+        public static void ExtrairModelStateParaBody(this ISelfValidation entidade, ModelStateDictionary dados)
+        {
+            string chave, referencia;
+            int chavesTotal = dados.Keys.Count();
+
+            for (int c = 0; c < chavesTotal; c++)
+            {
+                chave = dados.Keys.ElementAt(c);
+                referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
+                entidade.Notifications.AddError(
+                    string.Format(AvisosResx.ValorNoFormatoInvalido, chave), referencia);
             }
 
             dados.Clear();

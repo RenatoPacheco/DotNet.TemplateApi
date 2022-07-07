@@ -52,7 +52,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         public IActionResult Post([FromBody] InserirUsuarioCmd body)
         {
             InvocarSeNulo(ref body);
-            body.ExtrairModelState(ModelState);
+            body.ExtrairModelStateParaBody(ModelState);
 
             Usuario resultado = _appUsuario.Inserir(body);
             Validate(_appUsuario);
@@ -67,7 +67,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         public IActionResult Patch([FromBody] EditarUsuarioCmd body)
         {
             InvocarSeNulo(ref body);
-            body.ExtrairModelState(ModelState);
+            body.ExtrairModelStateParaBody(ModelState);
 
             Usuario resultado = _appUsuario.Editar(body);
             Validate(_appUsuario);
