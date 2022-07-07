@@ -59,6 +59,11 @@
             E-mail de usuário
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Telefone">
+            <summary>
+            Telefone de usuário
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Status">
             <summary>
             Status de usuário
@@ -87,6 +92,11 @@
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Email">
             <summary>
             E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Telefone">
+            <summary>
+            Telefone de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Status">

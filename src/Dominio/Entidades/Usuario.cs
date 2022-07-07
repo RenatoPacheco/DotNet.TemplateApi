@@ -1,10 +1,12 @@
 ﻿using System;
 using BitHelp.Core.Validation;
+using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
 using BitHelp.Core.Validation.Extends;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Dominio.Validacoes.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Entidades
 {
@@ -40,6 +42,18 @@ namespace DotNetCore.API.Template.Dominio.Entidades
                 _email = value;
                 this.RemoveAtReference(x => x.Email);
                 this.EmailIsValid(x => x.Email);
+            }
+        }
+
+        private PhoneType? _telefone;
+        public PhoneType? Telefone
+        {
+            get => _telefone;
+            set
+            {
+                _telefone = value;
+                this.RemoveAtReference(x => x.Telefone);
+                this.PhoneTypeIsValid(x => x.Telefone);
             }
         }
 

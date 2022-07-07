@@ -39,6 +39,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
                     UPDATE [dbo].[{json.Tabela}] SET
                             [{json.Coluna(x => x.Nome)}] = @Nome
                            ,[{json.Coluna(x => x.Email)}] = @Email
+                           ,[{json.Coluna(x => x.Telefone)}] = @Telefone
                            ,[{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
                            ,[{json.Coluna(x => x.Status)}] = @Status
                     WHERE [{json.Coluna(x => x.Id)}] = @Id
@@ -49,6 +50,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
                     Id = dados.Id,
                     Nome = new DbString { Value = dados.Nome, IsAnsi = true },
                     Email = new DbString { Value = dados.Email, IsAnsi = true },
+                    Telefone = new DbString { Value = dados.Telefone, IsAnsi = true },
                     Status = new DbString { Value = StatusAdapt.EnumParaSql(dados.Status), IsAnsi = true },
                     AlteradoEm = dados.AlteradoEm
                 };

@@ -1,6 +1,6 @@
 USE [Testando]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 04/07/2022 22:35:07 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 07/07/2022 16:44:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[Usuario](
 	[DataCriacao_Usuario] [datetime] NULL,
 	[DataAlteracao_Usuario] [datetime] NULL,
 	[Status_Usuario] [char](1) NULL,
+	[Telefone_Usuario] [varchar](50) NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
 (
 	[Codigo_Usuario] ASC

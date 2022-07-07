@@ -14,6 +14,7 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
             Associar(x => x.CriadoEm, "DataCriacao_Usuario");
             Associar(x => x.AlteradoEm, "DataAlteracao_Usuario");
             Associar(x => x.Status, "Status_Usuario");
+            Associar(x => x.Telefone, "Telefone_Usuario");
         }
 
         public override string Tabela => "Usuario";
@@ -39,6 +40,9 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
 
             if (NaoIgnorar(x => x.Status))
                 resultado.Append($"{CharParaStatus(x => x.Status)},");
+
+            if (NaoIgnorar(x => x.Telefone))
+                resultado.Append($"{SqlParaJson(x => x.Telefone)},");
 
             return resultado.ToString().Substring(0, resultado.ToString().Length - 1);
         }

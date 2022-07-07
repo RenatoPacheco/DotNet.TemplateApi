@@ -1,9 +1,11 @@
 ﻿using BitHelp.Core.Validation;
+using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
 using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Dominio.Validacoes.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -54,6 +56,22 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
+        private PhoneType? _telefone;
+        /// <summary>
+        /// Telefone de usuário
+        /// </summary>
+        public PhoneType? Telefone
+        {
+            get => _telefone;
+            set
+            {
+                _telefone = value;
+                RegistrarCampo(nameof(Telefone));
+                this.RemoveAtReference(x => x.Telefone);
+                this.PhoneTypeIsValid(x => x.Telefone);
+            }
+        }
+
         private Status? _status;
         /// <summary>
         /// Status de usuário
@@ -78,6 +96,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             if (CampoFoiRegistrado(nameof(Email)))
             {
                 dados.Email = Email;
+            }
+
+            if (CampoFoiRegistrado(nameof(Telefone)))
+            {
+                dados.Telefone = Telefone;
             }
 
             if (CampoFoiRegistrado(nameof(Status)))

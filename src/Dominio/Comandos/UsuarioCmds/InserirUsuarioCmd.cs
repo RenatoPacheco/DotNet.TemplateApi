@@ -1,8 +1,11 @@
 ﻿using BitHelp.Core.Validation;
+using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
+using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Dominio.Validacoes.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -29,6 +32,21 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             set => _email = value;
         }
 
+        private PhoneType? _telefone;
+        /// <summary>
+        /// Telefone de usuário
+        /// </summary>
+        public PhoneType? Telefone
+        {
+            get => _telefone;
+            set
+            {
+                _telefone = value;
+                this.RemoveAtReference(x => x.Telefone);
+                this.PhoneTypeIsValid(x => x.Telefone);
+            }
+        }
+
         private Status? _status;
         /// <summary>
         /// Status de usuário
@@ -42,7 +60,10 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         public void Aplicar(ref Usuario dados)
         {
             dados = new Usuario(
-                Nome, Email, Status.Value);
+                Nome, Email, Status.Value)
+            {
+                Telefone = Telefone
+            };
         }
 
         public void Desfazer(ref Usuario dados) => dados = null;

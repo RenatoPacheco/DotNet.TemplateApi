@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using DotNetCore.API.Template.Dominio.Auxiliares.JsonConverte;
 using DotNetCore.API.Template.Dominio.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Auxiliares
@@ -18,6 +19,7 @@ namespace DotNetCore.API.Template.Dominio.Auxiliares
             settings.PropertyNamingPolicy = new ContratoJson();
             settings.IgnoreNullValues = true;
             settings.Converters.Add(new JsonStringEnumConverter());
+            settings.Converters.Add(new PhoneTypeJsonConverte());
 
             return settings;
         }
