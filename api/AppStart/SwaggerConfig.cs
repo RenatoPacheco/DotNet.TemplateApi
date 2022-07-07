@@ -1,17 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using BitHelp.Core.Type.pt_BR;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
+using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Site.Swashbuckle;
 using Microsoft.Extensions.DependencyInjection;
-using BitHelp.Core.Type.pt_BR;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using System.Linq;
-using Microsoft.OpenApi.Any;
-using System.Collections.Generic;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using DotNetCore.API.Template.Site.Extensions;
 
 namespace DotNetCore.API.Template.Site
 {

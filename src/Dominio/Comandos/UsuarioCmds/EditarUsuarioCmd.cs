@@ -1,17 +1,21 @@
 ﻿using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
-using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
+using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Validacoes.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
     public class EditarUsuarioCmd 
         : Comum.EditarBaseCmd, ISelfValidation
     {
+        public EditarUsuarioCmd()
+        {
+            _escopo = new UsuarioEscp<EditarUsuarioCmd>(this);
+        }
+
         private int? _usuario;
         /// <summary>
         /// Identificador de usuário
@@ -24,6 +28,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             {
                 _usuario = value;
                 RegistrarCampo(nameof(Usuario));
+                _escopo.IdEhValido(x => x.Usuario);
             }
         }
 
@@ -34,10 +39,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         public string Nome
         {
             get => _nome;
-            set 
-            { 
+            set
+            {
                 _nome = value;
                 RegistrarCampo(nameof(Nome));
+                _escopo.NomeEhValido(x => x.Nome);
             }
         }
 
@@ -53,6 +59,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             {
                 _email = value;
                 RegistrarCampo(nameof(Email));
+                _escopo.EmailEhValido(x => x.Email);
             }
         }
 
@@ -67,8 +74,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             {
                 _telefone = value;
                 RegistrarCampo(nameof(Telefone));
-                this.RemoveAtReference(x => x.Telefone);
-                this.PhoneTypeIsValid(x => x.Telefone);
+                _escopo.TelefoneEhValido(x => x.Telefone);
             }
         }
 
@@ -83,6 +89,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             {
                 _status = value;
                 RegistrarCampo(nameof(Status));
+                _escopo.StatusEhValido(x => x.Status);
             }
         }
 
@@ -113,12 +120,15 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 
         #region Auto validação
 
+        protected UsuarioEscp<EditarUsuarioCmd> _escopo;
+
         [JsonIgnore]
         public ValidationNotification Notifications { get; set; } = new ValidationNotification();
 
         public virtual bool IsValid()
         {
-            this.RequiredIsValid(x => x.Usuario);
+            _escopo.EhRequerido(x => x.Usuario);
+
             return Notifications.IsValid();
         }
 

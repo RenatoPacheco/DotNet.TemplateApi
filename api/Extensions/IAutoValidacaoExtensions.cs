@@ -38,9 +38,12 @@ namespace DotNetCore.API.Template.Site.Extensions
             for (int c = 0; c < chavesTotal; c++)
             {
                 chave = dados.Keys.ElementAt(c);
-                referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
-                entidade.Notifications.AddError(
-                    string.Format(AvisosResx.ValorNoFormatoInvalido, chave), referencia);
+                if (dados[chave].Errors.Any())
+                {
+                    referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
+                    entidade.Notifications.AddError(
+                        string.Format(AvisosResx.ValorNoFormatoInvalido, chave), referencia);
+                }
             }
 
             dados.Clear();

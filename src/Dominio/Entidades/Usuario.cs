@@ -2,11 +2,10 @@
 using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
-using BitHelp.Core.Validation.Extends;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
+using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Validacoes.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Entidades
 {
@@ -15,6 +14,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
     {
         protected Usuario()
         {
+            _escopo = new UsuarioEscp<Usuario>(this);
             CriadoEm = DateTime.Now;
             AlteradoEm = DateTime.Now;
             Status = ObjetosDeValor.Status.Inativo;
@@ -32,30 +32,10 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         public string Nome { get; set; }
 
-        private string _email;
         [Display(Name = "E-mail")]
-        public string Email
-        {
-            get => _email;
-            set 
-            { 
-                _email = value;
-                this.RemoveAtReference(x => x.Email);
-                this.EmailIsValid(x => x.Email);
-            }
-        }
+        public string Email { get; set; }
 
-        private PhoneType? _telefone;
-        public PhoneType? Telefone
-        {
-            get => _telefone;
-            set
-            {
-                _telefone = value;
-                this.RemoveAtReference(x => x.Telefone);
-                this.PhoneTypeIsValid(x => x.Telefone);
-            }
-        }
+        public PhoneType? Telefone { get; set; }
 
         [Display(Name = "Criado em")]
         public DateTime? CriadoEm { get; set; }
@@ -65,13 +45,16 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         public Status? Status { get; set; }
 
-        public override string ToString() => Nome;
+        public override string ToString()
+        {
+            return Nome;
+        }
 
         #region Compare
 
         public bool Equals([AllowNull] Usuario other)
         {
-            return !(other is null) 
+            return !(other is null)
                 && other.GetHashCode() == GetHashCode();
         }
 
@@ -105,11 +88,19 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         #region ISelfValidation
 
+        protected UsuarioEscp<Usuario> _escopo;
+
         [JsonIgnore]
         public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
 
         public bool IsValid()
         {
+            _escopo.IdEhValido(x => x.Id);
+            _escopo.NomeEhValido(x => x.Nome);
+            _escopo.EmailEhValido(x => x.Email);
+            _escopo.TelefoneEhValido(x => x.Telefone);
+            _escopo.StatusEhValido(x => x.Status);
+
             return Notifications.IsValid();
         }
 
