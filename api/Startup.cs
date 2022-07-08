@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DotNetCore.API.Template.Dominio.Auxiliares;
-using AutoMapper;
-using DotNetCore.API.Template.Site.AutoMapper;
+using DotNetCore.API.Template.Compartilhado.Json;
 
 namespace DotNetCore.API.Template.Site
 {

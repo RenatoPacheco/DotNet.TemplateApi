@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Auxiliares;
+using DotNetCore.API.Template.Compartilhado.Json;
 
 namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 {

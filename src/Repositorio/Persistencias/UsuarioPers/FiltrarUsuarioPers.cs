@@ -12,7 +12,7 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Repositorio.FormatoJson;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
-using DotNetCore.API.Template.Dominio.Auxiliares;
+using DotNetCore.API.Template.Compartilhado.Json;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
 {

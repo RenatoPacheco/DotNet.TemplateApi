@@ -3,7 +3,7 @@ using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
 using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Site.ValuesObject;
-using DotNetCore.API.Template.Dominio.Auxiliares;
+using DotNetCore.API.Template.Compartilhado.Json;
 
 namespace DotNetCore.API.Template.Site.Helpers
 {

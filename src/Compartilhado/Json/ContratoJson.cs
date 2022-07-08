@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DotNetCore.API.Template.Compartilhado.Json.JsonConverte;
-using DotNetCore.API.Template.Dominio.Auxiliares.JsonConverte;
 using DotNetCore.API.Template.Dominio.Extensoes;
+using DotNetCore.API.Template.Compartilhado.Json.JsonConverte;
 
-namespace DotNetCore.API.Template.Dominio.Auxiliares
+namespace DotNetCore.API.Template.Compartilhado.Json
 {
     public class ContratoJson : JsonNamingPolicy
     {
