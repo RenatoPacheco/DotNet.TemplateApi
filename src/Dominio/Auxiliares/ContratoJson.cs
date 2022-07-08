@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using DotNetCore.API.Template.Compartilhado.Json.JsonConverte;
 using DotNetCore.API.Template.Dominio.Auxiliares.JsonConverte;
 using DotNetCore.API.Template.Dominio.Extensoes;
 
@@ -20,6 +21,7 @@ namespace DotNetCore.API.Template.Dominio.Auxiliares
             settings.IgnoreNullValues = true;
             settings.Converters.Add(new JsonStringEnumConverter());
             settings.Converters.Add(new PhoneTypeJsonConverte());
+            settings.Converters.Add(new IntInputDataJsonConverte());
 
             return settings;
         }

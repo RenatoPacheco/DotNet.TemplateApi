@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -15,17 +16,17 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
         }
 
-        private int[] _usuario;
+        private IntInputData[] _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public int[] Usuario
+        public IntInputData[] Usuario
         {
-            get => _usuario ??= Array.Empty<int>();
+            get => _usuario ??= Array.Empty<IntInputData>();
             set
             {
-                _usuario = value ?? Array.Empty<int>();
+                _usuario = value ?? Array.Empty<IntInputData>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }

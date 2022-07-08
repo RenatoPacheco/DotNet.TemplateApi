@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -16,12 +17,12 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<EditarUsuarioCmd>(this);
         }
 
-        private int? _usuario;
+        private IntInputData? _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public int? Usuario
+        public IntInputData? Usuario
         {
             get => _usuario;
             set

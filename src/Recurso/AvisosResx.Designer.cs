@@ -70,6 +70,24 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Formato inválido..
+        /// </summary>
+        public static string FormatoInvalido {
+            get {
+                return ResourceManager.GetString("FormatoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não pode ser nulo..
+        /// </summary>
+        public static string NaoPodeSerNulo {
+            get {
+                return ResourceManager.GetString("NaoPodeSerNulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ocorreu um erro interno na solicitação..
         /// </summary>
         public static string OcorreuUmErroInterno {
@@ -138,6 +156,15 @@ namespace DotNetCore.API.Template.Recurso {
         public static string Status500 {
             get {
                 return ResourceManager.GetString("Status500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo inválido..
+        /// </summary>
+        public static string TipoInvalido {
+            get {
+                return ResourceManager.GetString("TipoInvalido", resourceCulture);
             }
         }
         

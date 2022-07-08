@@ -4,6 +4,59 @@
         <name>DotNetCore.API.Template</name>
     </assembly>
     <members>
+        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.Empty">
+            <summary>
+            Return value string.Empty
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToString(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToBoolean(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToChar(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToSByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToUInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToUInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToUInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToSingle(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToDouble(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToDecimal(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToDateTime(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+            <internalonly/>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.Servidor">
             <summary>
             Servidor atual, sendo produção por padrão
@@ -150,6 +203,16 @@
               Looks up a localized string similar to Acesso não autorizado..
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.FormatoInvalido">
+            <summary>
+              Looks up a localized string similar to Formato inválido..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.NaoPodeSerNulo">
+            <summary>
+              Looks up a localized string similar to Não pode ser nulo..
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.OcorreuUmErroInterno">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
@@ -188,6 +251,11 @@
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status500">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TipoInvalido">
+            <summary>
+              Looks up a localized string similar to Tipo inválido..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ValorNoFormatoInvalido">
