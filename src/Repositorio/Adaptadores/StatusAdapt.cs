@@ -2,6 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Repositorio.Adaptadores
 {
@@ -26,6 +27,11 @@ namespace DotNetCore.API.Template.Repositorio.Adaptadores
         }
 
         public static string[] EnumParaSql(IEnumerable<Status> valor)
+        {
+            return valor.Select(x => EnumParaSql(x)).ToArray();
+        }
+
+        public static string[] EnumParaSql(IEnumerable<EnumInputData<Status>> valor)
         {
             return valor.Select(x => EnumParaSql(x)).ToArray();
         }

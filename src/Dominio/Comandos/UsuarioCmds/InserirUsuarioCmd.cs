@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -58,11 +59,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
-        private Status? _status;
+        private EnumInputData<Status>? _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public Status? Status
+        public EnumInputData<Status>? Status
         {
             get => _status;
             set

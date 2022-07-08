@@ -31,16 +31,16 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
-        private Status[] _status;
+        private EnumInputData<Status>[] _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public Status[] Status
+        public EnumInputData<Status>[] Status
         {
-            get => _status ??= Array.Empty<Status>();
+            get => _status ??= Array.Empty<EnumInputData<Status>>();
             set
             {
-                _status = value ?? Array.Empty<Status>();
+                _status = value ?? Array.Empty<EnumInputData<Status>>();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }

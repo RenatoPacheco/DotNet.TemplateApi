@@ -42,7 +42,7 @@ namespace DotNetCore.API.Template.Dominio.Escopos
         public void StatusEhValido(Expression<Func<TClasse, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
-            _entidade.EnumIsValid(expressao, typeof(Status));
+            _entidade.EnumForStringIsValid(expressao, typeof(Status));
         }
     }
 }
