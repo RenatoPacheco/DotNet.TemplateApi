@@ -22,6 +22,7 @@ namespace DotNetCore.API.Template.Dominio.Auxiliares
             settings.Converters.Add(new JsonStringEnumConverter());
             settings.Converters.Add(new PhoneTypeJsonConverte());
             settings.Converters.Add(new IntInputDataJsonConverte());
+            settings.Converters.Add(new LongInputDataJsonConverte());
 
             return settings;
         }

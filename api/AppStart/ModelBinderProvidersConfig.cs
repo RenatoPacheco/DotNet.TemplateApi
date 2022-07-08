@@ -13,6 +13,8 @@ namespace DotNetCore.API.Template.Site
             options.ModelBinderProviders.Insert(0, new DateTimeBinderProvider());
             options.ModelBinderProviders.Insert(0, new EnumBinderProvider<Status>());
             options.ModelBinderProviders.Insert(0, new PhoneTypeBinderProvider());
+            options.ModelBinderProviders.Insert(0, new IntInputDataBinderProvider());
+            options.ModelBinderProviders.Insert(0, new LongInputDataBinderProvider());
         }
     }
 }
