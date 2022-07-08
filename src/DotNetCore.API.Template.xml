@@ -4,163 +4,163 @@
         <name>DotNetCore.API.Template</name>
     </assembly>
     <members>
-        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.Empty">
+        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.Empty">
             <summary>
             Return value string.Empty
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToString(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToString(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToBoolean(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToBoolean(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToChar(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToChar(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToSByte(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToSByte(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToByte(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToByte(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToInt16(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToInt16(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToUInt16(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToUInt16(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToInt32(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToInt32(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToUInt32(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToUInt32(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToInt64(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToInt64(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToUInt64(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToUInt64(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToSingle(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToSingle(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToDouble(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToDouble(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToDecimal(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToDecimal(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToDateTime(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToDateTime(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInputData`1.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.EnumInput`1.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.Empty">
+        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.Empty">
             <summary>
             Return value string.Empty
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToString(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToString(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToBoolean(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToBoolean(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToChar(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToChar(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToSByte(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToSByte(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToByte(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToByte(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToInt16(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToInt16(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToUInt16(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToUInt16(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToInt32(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToInt32(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToUInt32(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToUInt32(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToInt64(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToInt64(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToUInt64(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToUInt64(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToSingle(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToSingle(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToDouble(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToDouble(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToDecimal(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToDecimal(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToDateTime(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToDateTime(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInputData.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.IntInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.Empty">
+        <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.Empty">
             <summary>
             Return value string.Empty
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToString(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToString(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToBoolean(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToBoolean(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToChar(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToChar(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToSByte(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToSByte(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToByte(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToByte(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToInt16(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToInt16(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToUInt16(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToUInt16(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToInt32(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToInt32(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToUInt32(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToUInt32(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToInt64(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToInt64(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToUInt64(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToUInt64(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToSingle(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToSingle(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToDouble(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToDouble(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToDecimal(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToDecimal(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToDateTime(System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToDateTime(System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInputData.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+        <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.Servidor">

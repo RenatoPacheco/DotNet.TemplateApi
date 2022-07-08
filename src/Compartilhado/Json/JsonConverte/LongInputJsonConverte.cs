@@ -6,26 +6,25 @@ using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Compartilhado.Json.JsonConverte
 {
-    public class EnumInputDataJsonConverte<T> : JsonConverter<EnumInputData<T>>
-        where T : struct
+    public class LongInputJsonConverte : JsonConverter<LongInput>
     {
-        public override EnumInputData<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override LongInput Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            EnumInputData<T> result;
+            LongInput result;
 
             if (reader.TokenType == JsonTokenType.String)
             {
-                result = new EnumInputData<T>(reader.GetString());
+                result = new LongInput(reader.GetString());
             }
             else
             {
-                result = new EnumInputData<T>(reader.GetBytesToString());
+                result = new LongInput(reader.GetBytesToString());
             }
 
             return result;
         }
 
-        public override void Write(Utf8JsonWriter writer, EnumInputData<T> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, LongInput value, JsonSerializerOptions options)
         {
             writer.WriteStringValue(value.ToString());
         }

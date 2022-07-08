@@ -7,8 +7,7 @@ using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.ModelBinder
 {
-    public class EnumInputDataModelBinder<T> : IModelBinder
-        where T: struct
+    public class LongInputModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -33,7 +32,7 @@ namespace DotNetCore.API.Template.Site.ModelBinder
                 return Task.CompletedTask;
             }
 
-            if (EnumInputData<T>.TryParse(value, out EnumInputData<T> result))
+            if (LongInput.TryParse(value, out LongInput result))
             {
                 bindingContext.Result = ModelBindingResult.Success(result);
             }

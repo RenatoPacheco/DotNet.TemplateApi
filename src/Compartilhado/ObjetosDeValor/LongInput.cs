@@ -3,18 +3,18 @@ using DotNetCore.API.Template.Recurso;
 
 namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
 {
-    public struct IntInputData
+    public struct LongInput
         : IFormattable, IComparable, IConvertible,
-        IComparable<IntInputData>, IComparable<int>,
-        IEquatable<IntInputData>, IEquatable<int>
+        IComparable<LongInput>, IComparable<long>,
+        IEquatable<LongInput>, IEquatable<long>
     {
-        public IntInputData(string input)
+        public LongInput(string input)
         {
-            TryParse(input, out IntInputData output);
+            TryParse(input, out LongInput output);
             this = output;
         }
 
-        public IntInputData(int input)
+        public LongInput(long input)
         {
             _inptValue = input.ToString();
             _value = input;
@@ -22,23 +22,23 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         }
 
         private string _inptValue;
-        private int _value;
+        private long _value;
         private bool _isValid;
 
-        public static implicit operator string(IntInputData input) => input.ToString();
-        public static implicit operator IntInputData(string input) => new IntInputData(input);
+        public static implicit operator string(LongInput input) => input.ToString();
+        public static implicit operator LongInput(string input) => new LongInput(input);
 
-        public static implicit operator int(IntInputData input) => input._value;
-        public static implicit operator IntInputData(int input) => new IntInputData(input);
+        public static implicit operator long(LongInput input) => input._value;
+        public static implicit operator LongInput(long input) => new LongInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly IntInputData Empty = new IntInputData { _inptValue = "0" };
+        public static readonly LongInput Empty = new LongInput { _inptValue = "0" };
 
-        public static void Parse(string input, out IntInputData output)
+        public static void Parse(string input, out LongInput output)
         {
-            if (TryParse(input, out IntInputData result))
+            if (TryParse(input, out LongInput result))
             {
                 output = result;
             }
@@ -53,11 +53,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             }
         }
 
-        public static bool TryParse(string input, out IntInputData output)
+        public static bool TryParse(string input, out LongInput output)
         {
             input = input?.Trim();
-            bool result = int.TryParse(input, out int value);
-            output = new IntInputData {
+            bool result = long.TryParse(input, out long value);
+            output = new LongInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = value
@@ -88,28 +88,28 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             return $"{_inptValue}:{GetType()}".GetHashCode();
         }
 
-        public bool Equals(IntInputData other)
+        public bool Equals(LongInput other)
         {
             return _inptValue == other._inptValue;
         }
 
-        public bool Equals(int other)
+        public bool Equals(long other)
         {
             return _inptValue == other.ToString();
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is IntInputData typeA && Equals(typeA))
-                || (obj is int typeB && Equals(typeB));
+            return (obj is LongInput typeA && Equals(typeA))
+                || (obj is long typeB && Equals(typeB));
         }
 
-        public int CompareTo(IntInputData other)
+        public int CompareTo(LongInput other)
         {
             return _inptValue.CompareTo(other._inptValue);
         }
 
-        public int CompareTo(int other)
+        public int CompareTo(long other)
         {
             return _inptValue.CompareTo(other.ToString());
         }
@@ -121,12 +121,12 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 return 1;
             }
 
-            if (obj is IntInputData typeA)
+            if (obj is LongInput typeA)
             {
                 return CompareTo(typeA);
             }
 
-            if (obj is int typeB)
+            if (obj is long typeB)
             {
                 return CompareTo(typeB);
             }
@@ -135,22 +135,22 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 nameof(obj), AvisosResx.TipoInvalido);
         }
 
-        public static bool operator ==(IntInputData left, IntInputData right)
+        public static bool operator ==(LongInput left, LongInput right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(IntInputData left, IntInputData right)
+        public static bool operator !=(LongInput left, LongInput right)
         {
             return !(left == right);
         }
 
-        public static bool operator >(IntInputData left, IntInputData right)
+        public static bool operator >(LongInput left, LongInput right)
         {
             return left.CompareTo(right) == 1;
         }
 
-        public static bool operator <(IntInputData left, IntInputData right)
+        public static bool operator <(LongInput left, LongInput right)
         {
             return left.CompareTo(right) == -1;
         }

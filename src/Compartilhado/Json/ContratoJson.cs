@@ -21,9 +21,9 @@ namespace DotNetCore.API.Template.Compartilhado.Json
             settings.IgnoreNullValues = true;
             settings.Converters.Add(new JsonStringEnumConverter());
             settings.Converters.Add(new PhoneTypeJsonConverte());
-            settings.Converters.Add(new IntInputDataJsonConverte());
-            settings.Converters.Add(new LongInputDataJsonConverte());
-            settings.Converters.Add(new EnumInputDataJsonConverte<Status>());
+            settings.Converters.Add(new IntInputJsonConverte());
+            settings.Converters.Add(new LongInputJsonConverte());
+            settings.Converters.Add(new EnumInputJsonConverte<Status>());
 
             return settings;
         }

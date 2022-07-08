@@ -3,19 +3,19 @@ using DotNetCore.API.Template.Recurso;
 
 namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
 {
-    public struct EnumInputData<T>
+    public struct EnumInput<T>
         : IFormattable, IComparable, IConvertible,
-        IComparable<EnumInputData<T>>, IComparable<T>,
-        IEquatable<EnumInputData<T>>, IEquatable<T>
+        IComparable<EnumInput<T>>, IComparable<T>,
+        IEquatable<EnumInput<T>>, IEquatable<T>
         where T: struct
     {
-        public EnumInputData(string input)
+        public EnumInput(string input)
         {
-            TryParse(input, out EnumInputData<T> output);
+            TryParse(input, out EnumInput<T> output);
             this = output;
         }
 
-        public EnumInputData(T input)
+        public EnumInput(T input)
         {
             _inptValue = input.ToString();
             _value = input;
@@ -26,20 +26,20 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         private T _value;
         private bool _isValid;
 
-        public static implicit operator string(EnumInputData<T> input) => input.ToString();
-        public static implicit operator EnumInputData<T>(string input) => new EnumInputData<T>(input);
+        public static implicit operator string(EnumInput<T> input) => input.ToString();
+        public static implicit operator EnumInput<T>(string input) => new EnumInput<T>(input);
 
-        public static implicit operator T(EnumInputData<T> input) => input._value;
-        public static implicit operator EnumInputData<T>(T input) => new EnumInputData<T>(input);
+        public static implicit operator T(EnumInput<T> input) => input._value;
+        public static implicit operator EnumInput<T>(T input) => new EnumInput<T>(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly EnumInputData<T> Empty = new EnumInputData<T> { _inptValue = string.Empty };
+        public static readonly EnumInput<T> Empty = new EnumInput<T> { _inptValue = string.Empty };
 
-        public static void Parse(string input, out EnumInputData<T> output)
+        public static void Parse(string input, out EnumInput<T> output)
         {
-            if (TryParse(input, out EnumInputData<T> result))
+            if (TryParse(input, out EnumInput<T> result))
             {
                 output = result;
             }
@@ -54,11 +54,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             }
         }
 
-        public static bool TryParse(string input, out EnumInputData<T> output)
+        public static bool TryParse(string input, out EnumInput<T> output)
         {
             input = input?.Trim();
             bool result = Enum.TryParse(input, true, out T value);
-            output = new EnumInputData<T>
+            output = new EnumInput<T>
             {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
@@ -90,7 +90,7 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             return $"{_inptValue}:{GetType()}".GetHashCode();
         }
 
-        public bool Equals(EnumInputData<T> other)
+        public bool Equals(EnumInput<T> other)
         {
             return _inptValue == other._inptValue;
         }
@@ -102,11 +102,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
 
         public override bool Equals(object obj)
         {
-            return (obj is EnumInputData<T> typeA && Equals(typeA))
+            return (obj is EnumInput<T> typeA && Equals(typeA))
                 || (obj is T typeB && Equals(typeB));
         }
 
-        public int CompareTo(EnumInputData<T> other)
+        public int CompareTo(EnumInput<T> other)
         {
             return _inptValue.CompareTo(other._inptValue);
         }
@@ -123,7 +123,7 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 return 1;
             }
 
-            if (obj is EnumInputData<T> typeA)
+            if (obj is EnumInput<T> typeA)
             {
                 return CompareTo(typeA);
             }
@@ -137,22 +137,22 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 nameof(obj), AvisosResx.TipoInvalido);
         }
 
-        public static bool operator ==(EnumInputData<T> left, EnumInputData<T> right)
+        public static bool operator ==(EnumInput<T> left, EnumInput<T> right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(EnumInputData<T> left, EnumInputData<T> right)
+        public static bool operator !=(EnumInput<T> left, EnumInput<T> right)
         {
             return !(left == right);
         }
 
-        public static bool operator >(EnumInputData<T> left, EnumInputData<T> right)
+        public static bool operator >(EnumInput<T> left, EnumInput<T> right)
         {
             return left.CompareTo(right) == 1;
         }
 
-        public static bool operator <(EnumInputData<T> left, EnumInputData<T> right)
+        public static bool operator <(EnumInput<T> left, EnumInput<T> right)
         {
             return left.CompareTo(right) == -1;
         }

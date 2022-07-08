@@ -58,7 +58,7 @@ namespace DotNetCore.API.Template.Dominio.Servicos
             if (Validate(comando))
             {
                 resultado = (Usuario)_repUsuario.Filtrar(new FiltrarUsuarioCmd {
-                    Usuario = new IntInputData[] { comando.Usuario.Value },
+                    Usuario = new IntInput[] { comando.Usuario.Value },
                     Maximo = 1, Pagina = 1
                 }, nameof(comando.Usuario), ValidationType.Error);
                 Validate(_repUsuario);

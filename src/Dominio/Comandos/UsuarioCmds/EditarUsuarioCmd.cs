@@ -17,12 +17,12 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<EditarUsuarioCmd>(this);
         }
 
-        private IntInputData? _usuario;
+        private IntInput? _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IntInputData? Usuario
+        public IntInput? Usuario
         {
             get => _usuario;
             set
@@ -79,11 +79,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
-        private EnumInputData<Status>? _status;
+        private EnumInput<Status>? _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInputData<Status>? Status
+        public EnumInput<Status>? Status
         {
             get => _status;
             set

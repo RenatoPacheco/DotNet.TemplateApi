@@ -7,7 +7,7 @@ using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.ModelBinder
 {
-    public class IntInputDataModelBinder : IModelBinder
+    public class IntInputModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -32,7 +32,7 @@ namespace DotNetCore.API.Template.Site.ModelBinder
                 return Task.CompletedTask;
             }
 
-            if (IntInputData.TryParse(value, out IntInputData result))
+            if (IntInput.TryParse(value, out IntInput result))
             {
                 bindingContext.Result = ModelBindingResult.Success(result);
             }

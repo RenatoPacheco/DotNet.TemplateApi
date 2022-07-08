@@ -6,25 +6,25 @@ using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Compartilhado.Json.JsonConverte
 {
-    public class IntInputDataJsonConverte : JsonConverter<IntInputData>
+    public class IntInputJsonConverte : JsonConverter<IntInput>
     {
-        public override IntInputData Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override IntInput Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            IntInputData result;
+            IntInput result;
 
             if (reader.TokenType == JsonTokenType.String)
             {
-                result = new IntInputData(reader.GetString());
+                result = new IntInput(reader.GetString());
             }
             else
             {
-                result = new IntInputData(reader.GetBytesToString());
+                result = new IntInput(reader.GetBytesToString());
             }
 
             return result;
         }
 
-        public override void Write(Utf8JsonWriter writer, IntInputData value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, IntInput value, JsonSerializerOptions options)
         {
             writer.WriteStringValue(value.ToString());
         }

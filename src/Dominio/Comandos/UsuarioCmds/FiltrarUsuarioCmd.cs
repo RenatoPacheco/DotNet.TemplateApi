@@ -16,31 +16,31 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
         }
 
-        private IntInputData[] _usuario;
+        private IntInput[] _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IntInputData[] Usuario
+        public IntInput[] Usuario
         {
-            get => _usuario ??= Array.Empty<IntInputData>();
+            get => _usuario ??= Array.Empty<IntInput>();
             set
             {
-                _usuario = value ?? Array.Empty<IntInputData>();
+                _usuario = value ?? Array.Empty<IntInput>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }
 
-        private EnumInputData<Status>[] _status;
+        private EnumInput<Status>[] _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInputData<Status>[] Status
+        public EnumInput<Status>[] Status
         {
-            get => _status ??= Array.Empty<EnumInputData<Status>>();
+            get => _status ??= Array.Empty<EnumInput<Status>>();
             set
             {
-                _status = value ?? Array.Empty<EnumInputData<Status>>();
+                _status = value ?? Array.Empty<EnumInput<Status>>();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace DotNetCore.API.Template.Site.ModelBinderProvider
 {
-    public class IntInputDataBinderProvider : IModelBinderProvider
+    public class IntInputBinderProvider : IModelBinderProvider
     {
         public IModelBinder GetBinder(ModelBinderProviderContext context)
         {
@@ -15,9 +15,9 @@ namespace DotNetCore.API.Template.Site.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(IntInputData) || context.Metadata.ModelType == typeof(IntInputData?))
+            if (context.Metadata.ModelType == typeof(IntInput) || context.Metadata.ModelType == typeof(IntInput?))
             {
-                return new BinderTypeModelBinder(typeof(IntInputDataModelBinder));
+                return new BinderTypeModelBinder(typeof(IntInputModelBinder));
             }
 
             return null;

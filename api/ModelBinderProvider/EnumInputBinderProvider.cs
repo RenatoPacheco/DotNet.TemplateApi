@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace DotNetCore.API.Template.Site.ModelBinderProvider
 {
-    public class EnumInputDataBinderProvider<T> : IModelBinderProvider
+    public class EnumInputBinderProvider<T> : IModelBinderProvider
         where T : struct
     {
         public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -16,9 +16,9 @@ namespace DotNetCore.API.Template.Site.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(EnumInputData<T>) || context.Metadata.ModelType == typeof(EnumInputData<T>?))
+            if (context.Metadata.ModelType == typeof(EnumInput<T>) || context.Metadata.ModelType == typeof(EnumInput<T>?))
             {
-                return new BinderTypeModelBinder(typeof(EnumInputDataModelBinder<T>));
+                return new BinderTypeModelBinder(typeof(EnumInputModelBinder<T>));
             }
 
             return null;
