@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
+using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Site.ValuesObject;
 using DotNetCore.API.Template.Dominio.Auxiliares;
 
@@ -11,12 +12,10 @@ namespace DotNetCore.API.Template.Site.Helpers
         public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes)
         {
             Avisos avisos = new Avisos((int)codigo, notificacoes);
-            object dados = null;
 
-            return new JsonResult(new 
+            return new JsonResult(new ComumViewsData
             { 
-                Avisos = avisos,
-                Dados = dados
+                Avisos = avisos
             }, ContratoJson.Configuracao);
         }
 
@@ -24,7 +23,7 @@ namespace DotNetCore.API.Template.Site.Helpers
         {
             Avisos avisos = new Avisos((int)codigo, notificacoes);
 
-            return new JsonResult(new
+            return new JsonResult(new ComumViewsData<object>
             {
                 Avisos = avisos,
                 Dados = dados
