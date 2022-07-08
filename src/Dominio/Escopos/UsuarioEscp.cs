@@ -3,7 +3,7 @@ using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using BitHelp.Core.Validation.Extends;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Validacoes.Extensoes;
+using DotNetCore.API.Template.Compartilhado.Validacoes.Extensoes;
 
 namespace DotNetCore.API.Template.Dominio.Escopos
 {
