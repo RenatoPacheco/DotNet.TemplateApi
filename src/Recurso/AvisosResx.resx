@@ -132,6 +132,18 @@
   <data name="SolicitacaoSucesso" xml:space="preserve">
     <value>Solicitação realizada com sucesso.</value>
   </data>
+  <data name="Status200" xml:space="preserve">
+    <value>Solicitação realizada com sucesso.</value>
+  </data>
+  <data name="Status400" xml:space="preserve">
+    <value>Ocorreu algum erro na solicitação.</value>
+  </data>
+  <data name="Status401" xml:space="preserve">
+    <value>Solicitação não autorizada.</value>
+  </data>
+  <data name="Status500" xml:space="preserve">
+    <value>Ocorreu um erro interno na solicitação.</value>
+  </data>
   <data name="ValorNoFormatoInvalido" xml:space="preserve">
     <value>Valor não está no formato válido.</value>
   </data>

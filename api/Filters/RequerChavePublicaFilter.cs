@@ -38,7 +38,7 @@ namespace DotNetCore.API.Template.Site.Filters
                     ValidationNotification notificacao = new ValidationNotification();
                     notificacao.AddError(AvisosResx.AcessoNaoAutorizado);
                     HttpStatusCode codigo = HttpStatusCode.Unauthorized;
-                    Notificacao avisos = new Notificacao((int)codigo, notificacao);
+                    Avisos avisos = new Avisos((int)codigo, notificacao);
                     string dados = null;
 
                     context.HttpContext.Response.StatusCode = (int)codigo;

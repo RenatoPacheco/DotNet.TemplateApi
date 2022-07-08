@@ -19,7 +19,7 @@ namespace DotNetCore.API.Template.Site.Filters
                 ValidationNotification notificacao = new ValidationNotification();
                 notificacao.AddFatal(context.Exception);
                 HttpStatusCode codigo = HttpStatusCode.InternalServerError;
-                Notificacao avisos = new Notificacao((int)codigo, notificacao);
+                Avisos avisos = new Avisos((int)codigo, notificacao);
                 string dados = null;
 
                 context.Result = new ObjectResult(new { 

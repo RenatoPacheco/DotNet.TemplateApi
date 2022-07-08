@@ -8,6 +8,7 @@ using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Site.Swashbuckle;
 using Microsoft.Extensions.DependencyInjection;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Site.ValuesObject;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -97,6 +98,19 @@ namespace DotNetCore.API.Template.Site
                     () => new OpenApiSchema {
                         Type = "string",
                         Enum = options.IOpenApiAnyByEnum<Status>()
+                    });
+
+                options.MapType<TipoNoificacaoAvisos>(
+                    () => new OpenApiSchema
+                    {
+                        Type = "string",
+                        Enum = options.IOpenApiAnyByEnum<TipoNoificacaoAvisos>()
+                    });
+                options.MapType<TipoNoificacaoAvisos?>(
+                    () => new OpenApiSchema
+                    {
+                        Type = "string",
+                        Enum = options.IOpenApiAnyByEnum<TipoNoificacaoAvisos>()
                     });
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;

@@ -170,6 +170,26 @@
               Looks up a localized string similar to Solicitação realizada com sucesso..
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status200">
+            <summary>
+              Looks up a localized string similar to Solicitação realizada com sucesso..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status400">
+            <summary>
+              Looks up a localized string similar to Ocorreu algum erro na solicitação..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status401">
+            <summary>
+              Looks up a localized string similar to Solicitação não autorizada..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status500">
+            <summary>
+              Looks up a localized string similar to Ocorreu um erro interno na solicitação..
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ValorNoFormatoInvalido">
             <summary>
               Looks up a localized string similar to Valor não está no formato válido..

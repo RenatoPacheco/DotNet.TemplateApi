@@ -7,6 +7,9 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
+using System.Net;
+using Swashbuckle.AspNetCore.Annotations;
+using DotNetCore.API.Template.Site.ViewsData;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
@@ -32,6 +35,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// Filtro de usuários
         /// </summary>
         [HttpGet]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario[]>))]
         public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -49,6 +53,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// Inserir usuário
         /// </summary>
         [HttpPost]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario>))]
         public IActionResult Post([FromBody] InserirUsuarioCmd body)
         {
             InvocarSeNulo(ref body);
@@ -64,6 +69,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// Editar usuário
         /// </summary>
         [HttpPatch]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario>))]
         public IActionResult Patch([FromBody] EditarUsuarioCmd body)
         {
             InvocarSeNulo(ref body);
@@ -79,6 +85,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// Deletar um ou mais usuários
         /// </summary>
         [HttpDelete]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
         public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);

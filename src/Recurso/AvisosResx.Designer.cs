@@ -106,6 +106,42 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Solicitação realizada com sucesso..
+        /// </summary>
+        public static string Status200 {
+            get {
+                return ResourceManager.GetString("Status200", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorreu algum erro na solicitação..
+        /// </summary>
+        public static string Status400 {
+            get {
+                return ResourceManager.GetString("Status400", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitação não autorizada..
+        /// </summary>
+        public static string Status401 {
+            get {
+                return ResourceManager.GetString("Status401", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro interno na solicitação..
+        /// </summary>
+        public static string Status500 {
+            get {
+                return ResourceManager.GetString("Status500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Valor não está no formato válido..
         /// </summary>
         public static string ValorNoFormatoInvalido {

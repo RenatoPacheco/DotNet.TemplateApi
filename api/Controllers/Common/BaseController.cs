@@ -5,9 +5,14 @@ using System.Reflection;
 using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
 using DotNetCore.API.Template.Site.Helpers;
+using DotNetCore.API.Template.Site.ViewsData;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace DotNetCore.API.Template.Site.Controllers.Common
 {
+    [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(ComumViewsData))]
+    [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(ComumViewsData))]
+    [SwaggerResponse((int)HttpStatusCode.InternalServerError, "", typeof(ComumViewsData))]
     public class BaseController : ControllerBase
     {
         protected ValidationNotification Notifications { get; set; } = new ValidationNotification();

@@ -10,7 +10,7 @@ namespace DotNetCore.API.Template.Site.Helpers
     {
         public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes)
         {
-            Notificacao avisos = new Notificacao((int)codigo, notificacoes);
+            Avisos avisos = new Avisos((int)codigo, notificacoes);
             object dados = null;
 
             return new JsonResult(new 
@@ -22,7 +22,7 @@ namespace DotNetCore.API.Template.Site.Helpers
 
         public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes, object dados)
         {
-            Notificacao avisos = new Notificacao((int)codigo, notificacoes);
+            Avisos avisos = new Avisos((int)codigo, notificacoes);
 
             return new JsonResult(new
             {

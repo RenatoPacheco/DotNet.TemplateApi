@@ -3,6 +3,9 @@ using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
 using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using System.Net;
+using Swashbuckle.AspNetCore.Annotations;
+using DotNetCore.API.Template.Site.ViewsData;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
@@ -37,6 +40,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// 
         /// </remarks>
         [HttpGet]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Sobre>))]
         public IActionResult Get()
         {
             Notifications.Clear();
