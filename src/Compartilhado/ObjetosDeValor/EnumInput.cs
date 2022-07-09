@@ -26,11 +26,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         private T _value;
         private bool _isValid;
 
-        public static implicit operator string(EnumInput<T> input) => input.ToString();
-        public static implicit operator EnumInput<T>(string input) => new EnumInput<T>(input);
+        public static explicit operator string(EnumInput<T> input) => input.ToString();
+        public static explicit operator EnumInput<T>(string input) => new EnumInput<T>(input);
 
-        public static implicit operator T(EnumInput<T> input) => input._value;
-        public static implicit operator EnumInput<T>(T input) => new EnumInput<T>(input);
+        public static explicit operator T(EnumInput<T> input) => input._value;
+        public static explicit operator EnumInput<T>(T input) => new EnumInput<T>(input);
 
         /// <summary>
         /// Return value string.Empty

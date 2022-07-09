@@ -113,7 +113,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 
             if (CampoFoiRegistrado(nameof(Status)))
             {
-                dados.Status = Status;
+                dados.Status = (Status)Status;
             }
         }
 

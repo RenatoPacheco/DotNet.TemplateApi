@@ -27,18 +27,24 @@
     "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
     "containerId": "",
     "name": "Filtrar",
-    "url": "{{host}}/servico/usuario",
+    "url": "{{host}}/servico/usuario?usuario=35",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-07-04T15:06:49.916Z",
-    "modified": "2022-07-07T19:42:47.864Z",
+    "modified": "2022-07-09T12:47:07.120Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [],
+    "params": [
+      {
+        "name": "usuario",
+        "value": "35",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"
@@ -54,7 +60,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-07-04T15:07:29.263Z",
-    "modified": "2022-07-07T19:34:31.171Z",
+    "modified": "2022-07-09T12:28:09.858Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -64,7 +70,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"nome\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"status\": \"Ativo\",\n    \"telefone\": \"(11) 95424-5236\"\n}",
+      "raw": "{\n    \"nome\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"status\": \"Ativo\",\n    \"telefone\": \"(12) 93456-0000\"\n}",
       "form": []
     },
     "auth": {
@@ -82,7 +88,7 @@
     "method": "PATCH",
     "sortNum": 30000,
     "created": "2022-07-04T23:58:32.714Z",
-    "modified": "2022-07-07T19:34:49.389Z",
+    "modified": "2022-07-09T12:28:33.292Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -92,7 +98,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"usuario\": 1,\n    \"nome\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"status\": \"Ativo\",\n    \"telefone\": \"(11) 95424-5236\"\n}",
+      "raw": "{\n    \"usuario\": 1,\n    \"nome\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"status\": \"Ativo\",\n    \"telefone\": \"(12) 93456-0000\"\n}",
       "form": []
     },
     "auth": {
@@ -106,24 +112,18 @@
     "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
     "containerId": "",
     "name": "Deletar",
-    "url": "{{host}}/servico/usuario?usuario=1111",
+    "url": "{{host}}/servico/usuario",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-05T00:43:36.213Z",
-    "modified": "2022-07-07T14:05:58.340Z",
+    "modified": "2022-07-05T00:43:52.527Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [
-      {
-        "name": "usuario",
-        "value": "1111",
-        "isPath": false
-      }
-    ],
+    "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"

@@ -25,11 +25,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         private long _value;
         private bool _isValid;
 
-        public static implicit operator string(LongInput input) => input.ToString();
-        public static implicit operator LongInput(string input) => new LongInput(input);
+        public static explicit operator string(LongInput input) => input.ToString();
+        public static explicit operator LongInput(string input) => new LongInput(input);
 
-        public static implicit operator long(LongInput input) => input._value;
-        public static implicit operator LongInput(long input) => new LongInput(input);
+        public static explicit operator long(LongInput input) => input._value;
+        public static explicit operator LongInput(long input) => new LongInput(input);
 
         /// <summary>
         /// Return value string.Empty

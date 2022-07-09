@@ -25,11 +25,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         private int _value;
         private bool _isValid;
 
-        public static implicit operator string(IntInput input) => input.ToString();
-        public static implicit operator IntInput(string input) => new IntInput(input);
+        public static explicit operator string(IntInput input) => input.ToString();
+        public static explicit operator IntInput(string input) => new IntInput(input);
 
-        public static implicit operator int(IntInput input) => input._value;
-        public static implicit operator IntInput(int input) => new IntInput(input);
+        public static explicit operator int(IntInput input) => input._value;
+        public static explicit operator IntInput(int input) => new IntInput(input);
 
         /// <summary>
         /// Return value string.Empty

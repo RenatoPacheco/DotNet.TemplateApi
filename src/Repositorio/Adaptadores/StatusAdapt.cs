@@ -30,10 +30,5 @@ namespace DotNetCore.API.Template.Repositorio.Adaptadores
         {
             return valor.Select(x => EnumParaSql(x)).ToArray();
         }
-
-        public static string[] EnumParaSql(IEnumerable<EnumInput<Status>> valor)
-        {
-            return valor.Select(x => EnumParaSql(x)).ToArray();
-        }
     }
 }

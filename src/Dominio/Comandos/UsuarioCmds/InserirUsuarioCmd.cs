@@ -76,7 +76,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         public void Aplicar(ref Usuario dados)
         {
             dados = new Usuario(
-                Nome, Email, Status.Value)
+                Nome, Email, (Status)Status)
             {
                 Telefone = Telefone
             };
