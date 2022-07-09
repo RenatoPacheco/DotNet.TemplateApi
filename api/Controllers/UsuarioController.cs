@@ -54,12 +54,14 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// </summary>
         [HttpPost]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario>))]
-        public IActionResult Post([FromBody] InserirUsuarioCmd body)
+        public IActionResult Post([FromBody] InserirUsuarioDataModel body)
         {
             InvocarSeNulo(ref body);
-            body.ExtrairModelStateParaBody(ModelState);
 
-            Usuario resultado = _appUsuario.Inserir(body);
+            InserirUsuarioCmd cmd = _mapper.Map<InserirUsuarioCmd>(body);
+            cmd.ExtrairModelStateParaBody(ModelState);
+
+            Usuario resultado = _appUsuario.Inserir(cmd);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);
@@ -70,12 +72,14 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// </summary>
         [HttpPatch]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario>))]
-        public IActionResult Patch([FromBody] EditarUsuarioCmd body)
+        public IActionResult Patch([FromBody] EditarUsuarioDataModel body)
         {
             InvocarSeNulo(ref body);
-            body.ExtrairModelStateParaBody(ModelState);
 
-            Usuario resultado = _appUsuario.Editar(body);
+            EditarUsuarioCmd cmd = _mapper.Map<EditarUsuarioCmd>(body);
+            cmd.ExtrairModelStateParaBody(ModelState);
+
+            Usuario resultado = _appUsuario.Editar(cmd);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);

@@ -26,12 +26,12 @@
             Filtro de usuários
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Post(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Post(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
             <summary>
             Inserir usuário
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Patch(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Patch(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
             <summary>
             Editar usuário
             </summary>
@@ -39,6 +39,31 @@
         <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Nome">
+            <summary>
+            Nome de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Email">
+            <summary>
+            E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Telefone">
+            <summary>
+            Telefone de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Status">
+            <summary>
+            Status de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
@@ -52,6 +77,31 @@
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Nome">
+            <summary>
+            Nome de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Email">
+            <summary>
+            E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
+            <summary>
+            Telefone de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>

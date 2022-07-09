@@ -8,8 +8,17 @@ namespace DotNetCore.API.Template.Site.AutoMapper
     {
         public UsuarioProfile()
         {
-            CreateMap<FiltrarUsuarioDataModel, FiltrarUsuarioCmd>();
-            CreateMap<ExcluirUsuarioDataModel, ExcluirUsuarioCmd>();
+            CreateMap<InserirUsuarioDataModel, InserirUsuarioCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<FiltrarUsuarioDataModel, FiltrarUsuarioCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<EditarUsuarioDataModel, EditarUsuarioCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<ExcluirUsuarioDataModel, ExcluirUsuarioCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }
