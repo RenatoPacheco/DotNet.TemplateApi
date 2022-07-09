@@ -23,7 +23,15 @@ namespace DotNetCore.API.Template.Site
 
                 options.SwaggerDoc("v1", new OpenApiInfo { 
                     Title = AppSettings.Nome, 
-                    Version = "v1" 
+                    Version = "v1",
+                    Description = @"Um projeto para montrar uma estrutura base de reursos e 
+                        configuraçãções para montar uma API em .Net Core 3.1.<br> Só testando 
+                        <strong>Formatação HTML</strong> na descrição do Swagger.",
+                    Contact = new OpenApiContact() { 
+                        Name = "Renato B. Pacheco", 
+                        Email = "algumemail@algumsite.com.br",
+                        Url = new Uri("https://github.com/RenatoPacheco")
+                    },
                 });
 
                 texto.Clear();
