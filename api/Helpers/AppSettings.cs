@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
-using DotNetCore.API.Template.Dominio.Auxiliares;
 
 namespace DotNetCore.API.Template.Site.Helpers
 {

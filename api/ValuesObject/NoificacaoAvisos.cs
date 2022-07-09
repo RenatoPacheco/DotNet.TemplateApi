@@ -1,7 +1,7 @@
 ﻿using System;
 using BitHelp.Core.Validation;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Extensoes;
+using DotNetCore.API.Template.Compartilhado.Extensoes;
 
 namespace DotNetCore.API.Template.Site.ValuesObject
 {

@@ -3,7 +3,7 @@ using System.Linq;
 using BitHelp.Core.Extend;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Dominio.Extensoes;
+using DotNetCore.API.Template.Compartilhado.Extensoes;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
 
 namespace DotNetCore.API.Template.Repositorio.Auxiliares

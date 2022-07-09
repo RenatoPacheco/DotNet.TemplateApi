@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DotNetCore.API.Template.Dominio.Extensoes;
+using DotNetCore.API.Template.Compartilhado.Extensoes;
 using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Compartilhado.Json.JsonConverte

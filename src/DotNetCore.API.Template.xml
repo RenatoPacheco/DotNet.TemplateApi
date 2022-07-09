@@ -163,22 +163,22 @@
         <member name="M:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="P:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.Servidor">
+        <member name="P:DotNetCore.API.Template.DetectarServidor.Servidor">
             <summary>
             Servidor atual, sendo produção por padrão
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.EhLocal">
+        <member name="M:DotNetCore.API.Template.DetectarServidor.EhLocal">
             <summary>
             Retorna true se o servidor atual for local
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.EhHomologacao">
+        <member name="M:DotNetCore.API.Template.DetectarServidor.EhHomologacao">
             <summary>
             Retorna true se o servidor atual for de homologação
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Dominio.Auxiliares.DetectarServidor.EhProducao">
+        <member name="M:DotNetCore.API.Template.DetectarServidor.EhProducao">
             <summary>
             Retorna true se o servidor atual for de produção
             </summary>

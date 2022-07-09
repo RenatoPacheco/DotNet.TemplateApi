@@ -3,7 +3,7 @@ using System.Buffers;
 using System.Text;
 using System.Text.Json;
 
-namespace DotNetCore.API.Template.Dominio.Extensoes
+namespace DotNetCore.API.Template.Compartilhado.Extensoes
 {
     public static class Utf8JsonReaderExtensao
     {

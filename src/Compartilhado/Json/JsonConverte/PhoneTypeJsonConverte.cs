@@ -2,7 +2,7 @@
 using System.Text.Json;
 using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
-using DotNetCore.API.Template.Dominio.Extensoes;
+using DotNetCore.API.Template.Compartilhado.Extensoes;
 
 namespace DotNetCore.API.Template.Compartilhado.Json.JsonConverte
 {

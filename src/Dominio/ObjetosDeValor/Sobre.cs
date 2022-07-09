@@ -1,7 +1,4 @@
-﻿using System;
-using DotNetCore.API.Template.Recurso;
-using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Auxiliares;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 {
