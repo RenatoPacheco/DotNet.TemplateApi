@@ -1,14 +1,14 @@
-﻿using System;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using System.Collections.Generic;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
-    public class FiltrarUsuarioCmd 
+    public class FiltrarUsuarioCmd
         : Comum.FiltrarBaseCmd, ISelfValidation
     {
         public FiltrarUsuarioCmd()
@@ -16,31 +16,31 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
         }
 
-        private IntInput[] _usuario;
+        private IList<IntInput> _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IntInput[] Usuario
+        public IList<IntInput> Usuario
         {
-            get => _usuario ??= Array.Empty<IntInput>();
+            get => _usuario ??= new List<IntInput>();
             set
             {
-                _usuario = value ?? Array.Empty<IntInput>();
+                _usuario = value ?? new List<IntInput>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }
 
-        private EnumInput<Status>[] _status;
+        private IList<EnumInput<Status>> _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInput<Status>[] Status
+        public IList<EnumInput<Status>> Status
         {
-            get => _status ??= Array.Empty<EnumInput<Status>>();
+            get => _status ??= new List<EnumInput<Status>>();
             set
             {
-                _status = value ?? Array.Empty<EnumInput<Status>>();
+                _status = value ?? new List<EnumInput<Status>>();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }

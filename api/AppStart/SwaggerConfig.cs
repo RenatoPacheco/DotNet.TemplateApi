@@ -9,6 +9,7 @@ using DotNetCore.API.Template.Site.Swashbuckle;
 using Microsoft.Extensions.DependencyInjection;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Site.ValuesObject;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -89,6 +90,16 @@ namespace DotNetCore.API.Template.Site
                 options.MapType<PhoneType?>(
                     () => new OpenApiSchema { Type = "string" });
 
+                options.MapType<IntInput>(
+                    () => new OpenApiSchema { Type = "int" });
+                options.MapType<IntInput?>(
+                    () => new OpenApiSchema { Type = "int" });
+
+                options.MapType<LongInput>(
+                    () => new OpenApiSchema { Type = "long" });
+                options.MapType<LongInput?>(
+                    () => new OpenApiSchema { Type = "long" });
+
                 options.MapType<Status>(
                     () => new OpenApiSchema {
                         Type = "string",
@@ -100,15 +111,24 @@ namespace DotNetCore.API.Template.Site
                         Enum = options.IOpenApiAnyByEnum<Status>()
                     });
 
+                options.MapType<EnumInput<Status>>(
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Enum = options.IOpenApiAnyByEnum<Status>()
+                    });
+                options.MapType<EnumInput<Status>?>(
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Enum = options.IOpenApiAnyByEnum<Status>()
+                    });
+
                 options.MapType<TipoNoificacaoAvisos>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "string",
                         Enum = options.IOpenApiAnyByEnum<TipoNoificacaoAvisos>()
                     });
                 options.MapType<TipoNoificacaoAvisos?>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "string",
                         Enum = options.IOpenApiAnyByEnum<TipoNoificacaoAvisos>()
                     });

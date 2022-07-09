@@ -7,6 +7,8 @@ using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
 using DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers;
 using BitHelp.Core.Validation;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DotNetCore.API.Template.Repositorio
 {
@@ -45,7 +47,7 @@ namespace DotNetCore.API.Template.Repositorio
         {
             Notifications.Clear();
 
-            _persExcluirUsuario.Excluir(comando.Usuario);
+            _persExcluirUsuario.Excluir(comando.Usuario.Select(x => (int)x));
             Validate(_persExcluirUsuario);
         }
 

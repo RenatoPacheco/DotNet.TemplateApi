@@ -1,8 +1,9 @@
-﻿using System;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -13,17 +14,17 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<ExcluirUsuarioCmd>(this);
         }
 
-        private int[] _usuario;
+        private IList<IntInput> _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public int[] Usuario
+        public IList<IntInput> Usuario
         {
-            get => _usuario ??= Array.Empty<int>();
+            get => _usuario ??= new List<IntInput>();
             set
             {
-                _usuario = value ?? Array.Empty<int>();
+                _usuario = value ?? new List<IntInput>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }
