@@ -86,52 +86,34 @@ namespace DotNetCore.API.Template.Site
                 options.RequestBodyFilter<FiltroRequestBodyFilter>();
 
                 options.MapType<PhoneType>(
-                    () => new OpenApiSchema { Type = "string" });
+                    () => options.SchemaBasic("string", "(00) 00000-0000"));
                 options.MapType<PhoneType?>(
-                    () => new OpenApiSchema { Type = "string" });
+                    () => options.SchemaBasic("string", "(00) 00000-0000"));
 
                 options.MapType<IntInput>(
-                    () => new OpenApiSchema { Type = "int" });
+                    () => options.SchemaBasic("number", 0));
                 options.MapType<IntInput?>(
-                    () => new OpenApiSchema { Type = "int" });
+                    () => options.SchemaBasic("number", 0));
 
                 options.MapType<LongInput>(
-                    () => new OpenApiSchema { Type = "long" });
+                    () => options.SchemaBasic("number", 0));
                 options.MapType<LongInput?>(
-                    () => new OpenApiSchema { Type = "long" });
+                    () => options.SchemaBasic("number", 0));
 
                 options.MapType<Status>(
-                    () => new OpenApiSchema {
-                        Type = "string",
-                        Enum = options.IOpenApiAnyByEnum<Status>()
-                    });
+                    () => options.SchemaEnum<Status>("string"));
                 options.MapType<Status?>(
-                    () => new OpenApiSchema {
-                        Type = "string",
-                        Enum = options.IOpenApiAnyByEnum<Status>()
-                    });
+                    () => options.SchemaEnum<Status>("string"));
 
                 options.MapType<EnumInput<Status>>(
-                    () => new OpenApiSchema {
-                        Type = "string",
-                        Enum = options.IOpenApiAnyByEnum<Status>()
-                    });
+                    () => options.SchemaEnum<Status>("string"));
                 options.MapType<EnumInput<Status>?>(
-                    () => new OpenApiSchema {
-                        Type = "string",
-                        Enum = options.IOpenApiAnyByEnum<Status>()
-                    });
+                    () => options.SchemaEnum<Status>("string"));
 
                 options.MapType<TipoNoificacaoAvisos>(
-                    () => new OpenApiSchema {
-                        Type = "string",
-                        Enum = options.IOpenApiAnyByEnum<TipoNoificacaoAvisos>()
-                    });
+                    () => options.SchemaEnum<TipoNoificacaoAvisos>("string"));
                 options.MapType<TipoNoificacaoAvisos?>(
-                    () => new OpenApiSchema {
-                        Type = "string",
-                        Enum = options.IOpenApiAnyByEnum<TipoNoificacaoAvisos>()
-                    });
+                    () => options.SchemaEnum<TipoNoificacaoAvisos>("string"));
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;
                 options.IncludeXmlComments(Path.Combine(pasta, "DotNetCore.API.Template.Site.xml"));
