@@ -20,6 +20,11 @@ namespace DotNetCore.API.Template.Dominio.Escopos
             _entidade.Notifications.RequiredIsValid(_entidade, expressao);
         }
 
+        public void EhRequeridoSeOutroForNulo(Expression<Func<TClasse, object>> expressao, Expression<Func<TClasse, object>> expressaoCompare)
+        {
+            _entidade.Notifications.RequiredIfOtherNotNullIsValid(_entidade, expressao, expressaoCompare);
+        }
+
         public void LimparReferencia(Expression<Func<TClasse, object>> expressao)
         {
             _entidade.Notifications.RemoveAtReference(expressao);

@@ -97,6 +97,15 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Peso do arquivo deve ser menou ou iqual a {0} kb..
+        /// </summary>
+        public static string PesoDoArquivoEmKbInvalido {
+            get {
+                return ResourceManager.GetString("PesoDoArquivoEmKbInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ocorreu um erro na solicitação..
         /// </summary>
         public static string SolicitacaoErro {
@@ -156,6 +165,15 @@ namespace DotNetCore.API.Template.Recurso {
         public static string Status500 {
             get {
                 return ResourceManager.GetString("Status500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilas..
+        /// </summary>
+        public static string TipoDeArquivoStorageInvalido {
+            get {
+                return ResourceManager.GetString("TipoDeArquivoStorageInvalido", resourceCulture);
             }
         }
         

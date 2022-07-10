@@ -21,9 +21,24 @@
             
             </remarks>
         </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel)">
+            <summary>
+            Filtro de storages
+            </summary>
+        </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Post(DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel)">
             <summary>
-            Inserir arquivos no storage
+            Inserir storage
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Patch(DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel)">
+            <summary>
+            Editar storage
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Delete(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel)">
+            <summary>
+            Deletar um ou mais storages
             </summary>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
@@ -44,6 +59,46 @@
         <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Nome">
+            <summary>
+            Nome de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel.Referencia">
+            <summary>
+            Referência de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Referencia">
+            <summary>
+            Referência de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Status">
+            <summary>
+            Status de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel.Arquivo">

@@ -47,7 +47,7 @@ namespace DotNetCore.API.Template.Repositorio
         {
             Notifications.Clear();
 
-            _persExcluirUsuario.Excluir(comando.Usuario.Select(x => (int)x));
+            _persExcluirUsuario.Excluir(comando);
             Validate(_persExcluirUsuario);
         }
 

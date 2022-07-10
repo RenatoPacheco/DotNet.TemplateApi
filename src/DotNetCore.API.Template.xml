@@ -203,6 +203,46 @@
             Calcular a paginação
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.EditarStorageCmd.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.EditarStorageCmd.Nome">
+            <summary>
+            Nome de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.EditarStorageCmd.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ExcluirStorageCmd.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ExcluirStorageCmd.Referencia">
+            <summary>
+            Referência de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Referencia">
+            <summary>
+            Referência de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.InserirStorageCmd.Arquivo">
             <summary>
             O peso do arquivo não pode ser maior que 100 kb, 
@@ -330,6 +370,11 @@
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.PesoDoArquivoEmKbInvalido">
+            <summary>
+              Looks up a localized string similar to Peso do arquivo deve ser menou ou iqual a {0} kb..
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoErro">
             <summary>
               Looks up a localized string similar to Ocorreu um erro na solicitação..
@@ -363,6 +408,11 @@
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status500">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TipoDeArquivoStorageInvalido">
+            <summary>
+              Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilas..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TipoInvalido">
@@ -424,6 +474,16 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Storage">
+            <summary>
+              Looks up a localized string similar to Storage.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Storages">
+            <summary>
+              Looks up a localized string similar to Storages.
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Usuario">

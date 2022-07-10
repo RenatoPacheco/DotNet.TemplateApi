@@ -29,9 +29,9 @@
     "name": "Filtrar",
     "url": "{{host}}/servico/usuario?usuario=35",
     "method": "GET",
-    "sortNum": 10000,
+    "sortNum": 25000,
     "created": "2022-07-04T15:06:49.916Z",
-    "modified": "2022-07-09T12:47:07.120Z",
+    "modified": "2022-07-10T12:52:15.567Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -139,7 +139,92 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-09T15:31:01.441Z",
-    "modified": "2022-07-10T01:50:25.325Z",
+    "modified": "2022-07-10T12:20:12.711Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "arquivo",
+          "value": "..\\..\\..\\..\\Users\\Renato\\Pictures\\Novo_Avatar.jpeg"
+        }
+      ]
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "9264c6a5-ecba-4a6b-a103-28fb76d42e4e",
+    "colId": "e82401df-236a-4761-962b-172ca2dc9869",
+    "containerId": "",
+    "name": "Filtrar",
+    "url": "{{host}}/servico/storage",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-07-10T12:23:13.101Z",
+    "modified": "2022-07-10T12:23:33.184Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "ef71433f-2f9f-4b06-9d6b-ec441426638f",
+    "colId": "e82401df-236a-4761-962b-172ca2dc9869",
+    "containerId": "",
+    "name": "Editar",
+    "url": "{{host}}/servico/storage",
+    "method": "PATCH",
+    "sortNum": 30000,
+    "created": "2022-07-10T12:51:53.999Z",
+    "modified": "2022-07-10T12:52:43.801Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"storage\": 1,\n    \"nome\": \"Teste\",\n    \"status\": \"Ativo\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "4aae74f3-ad5e-45ea-af93-b765ad75d704",
+    "colId": "e82401df-236a-4761-962b-172ca2dc9869",
+    "containerId": "",
+    "name": "Deletar",
+    "url": "{{host}}/servico/storage",
+    "method": "DELETE",
+    "sortNum": 40000,
+    "created": "2022-07-10T12:53:21.894Z",
+    "modified": "2022-07-10T12:53:44.414Z",
     "headers": [
       {
         "name": "Chave-Publica",

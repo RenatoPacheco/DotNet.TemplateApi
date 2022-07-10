@@ -16,10 +16,24 @@ namespace DotNetCore.API.Template.Aplicacao
 
         protected readonly StorageServ _servStorage;
 
-        public Arquivo[] Inserir(InserirStorageCmd comando)
+        public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando)
         {
             Notifications.Clear();
-            Arquivo[] resultado = Array.Empty<Arquivo>();
+            ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
+
+            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            {
+                resultado = _servStorage.Filtrar(comando);
+                Validate(_servStorage);
+            }
+
+            return resultado;
+        }
+
+        public Storage[] Inserir(InserirStorageCmd comando)
+        {
+            Notifications.Clear();
+            Storage[] resultado = Array.Empty<Storage>();
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
@@ -28,6 +42,31 @@ namespace DotNetCore.API.Template.Aplicacao
             }
 
             return resultado;
+        }
+
+        public Storage Editar(EditarStorageCmd comando)
+        {
+            Notifications.Clear();
+            Storage resultado = null;
+
+            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            {
+                resultado = _servStorage.Editar(comando);
+                Validate(_servStorage);
+            }
+
+            return resultado;
+        }
+
+        public void Excluir(ExcluirStorageCmd comando)
+        {
+            Notifications.Clear();
+
+            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            {
+                _servStorage.Excluir(comando);
+                Validate(_servStorage);
+            }
         }
     }
 }

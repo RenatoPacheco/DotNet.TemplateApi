@@ -31,6 +31,18 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             }
         }
 
+        public void Aplicar(ref Storage dados, Arquivo arquivo)
+        {
+            dados = new Storage(arquivo);
+            arquivo.Salvar();
+        }
+
+        public void Desfazer(ref Storage dados, Arquivo arquivo)
+        {
+            dados = null;
+            arquivo.Excluir();
+        }
+
         #region Auto validação
 
         [JsonIgnore]

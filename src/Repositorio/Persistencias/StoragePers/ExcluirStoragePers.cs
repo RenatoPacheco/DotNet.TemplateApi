@@ -6,33 +6,36 @@ using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
 using DotNetCore.API.Template.Repositorio.FormatoJson;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
+using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 using System.Linq;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
+namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
 {
-    internal class ExcluirUsuarioPers : Comum.SimplesRep
+    internal class ExcluirStoragePers : Comum.SimplesRep
     {
-        public ExcluirUsuarioPers(
+        public ExcluirStoragePers(
             Conexao conexao,
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public void Excluir(ExcluirUsuarioCmd comando)
+        public void Excluir(ExcluirStorageCmd comando)
         {
             Notifications.Clear();
-            UsuarioJson json = new UsuarioJson();
+            StorageJson json = new StorageJson();
 
             string sqlString = @$"
                     UPDATE [dbo].[{json.Tabela}] SET
                             [{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
                            ,[{json.Coluna(x => x.Status)}] = @Status
                     WHERE {json.Coluna(x => x.Id)} IN @Id
+                    OR {json.Coluna(x => x.Referencia)} IN @Referencia
                 ";
 
             object sqlObject = new
             {
-                Id = comando.Usuario.Select(x => (int)x).ToList(),
+                Id = comando.Storage.Select(x => (long)x).ToList(),
+                Referencia = comando.Referencia,
                 Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
                 AlteradoEm = DateTime.Now
             };

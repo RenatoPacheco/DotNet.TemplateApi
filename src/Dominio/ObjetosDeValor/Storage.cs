@@ -1,41 +1,52 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Dominio.Interfaces;
 
-namespace DotNetCore.API.Template.Dominio.Entidades
+namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 {
-    public class Usuario
-        : ISelfValidation, IEquatable<Usuario>
+    public class Storage
+        : IArquivo, ISelfValidation, IEquatable<Storage>
     {
-        protected Usuario()
+        protected Storage()
         {
-            _escopo = new UsuarioEscp<Usuario>(this);
+            _escopo = new StorageEscp<Storage>(this);
             CriadoEm = DateTime.Now;
             AlteradoEm = DateTime.Now;
             Status = ObjetosDeValor.Status.Inativo;
         }
 
-        public Usuario(string nome, string email, Status? status)
+        public Storage(IArquivo dados)
             : this()
         {
-            Nome = nome;
-            Email = email;
-            Status = status;
+            Nome = dados.Nome;
+            Diretorio = dados.Diretorio;
+            Extensao = dados.Extensao;
+            Tipo = dados.Tipo;
+            Referencia = dados.Referencia;
+            Peso = dados.Peso;
+            Status = ObjetosDeValor.Status.Ativo;
         }
 
-        public int? Id { get; set; }
+        public long? Id { get; set; }
 
         public string Nome { get; set; }
 
-        [Display(Name = "E-mail")]
-        public string Email { get; set; }
+        [Display(Name = "Diretório")]
+        public string Diretorio { get; set; }
 
-        public PhoneType? Telefone { get; set; }
+        [Display(Name = "Extensão")]
+        public string Extensao { get; set; }
+
+        public string Tipo { get; set; }
+
+        public long Peso { get; set; }
+
+        [Display(Name = "Referência")]
+        public string Referencia { get; set; }
 
         [Display(Name = "Criado em")]
         public DateTime? CriadoEm { get; set; }
@@ -49,7 +60,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         #region Compare
 
-        public bool Equals([AllowNull] Usuario other)
+        public bool Equals([AllowNull] Storage other)
         {
             return !(other is null)
                 && other.GetHashCode() == GetHashCode();
@@ -57,7 +68,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         public override bool Equals(object obj)
         {
-            return obj is Usuario other && Equals(other);
+            return obj is Storage other && Equals(other);
         }
 
         public override int GetHashCode()
@@ -69,13 +80,13 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         #region Operadores
 
-        public static bool operator ==(Usuario a, Usuario b)
+        public static bool operator ==(Storage a, Storage b)
         {
             return (a is null) && (b is null)
                 || (!(a is null) && !(b is null) && a.Equals(b));
         }
 
-        public static bool operator !=(Usuario a, Usuario b)
+        public static bool operator !=(Storage a, Storage b)
         {
             return !((a is null) && (b is null)
                 || (!(a is null) && !(b is null) && a.Equals(b)));
@@ -85,7 +96,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         #region ISelfValidation
 
-        protected UsuarioEscp<Usuario> _escopo;
+        protected StorageEscp<Storage> _escopo;
 
         [JsonIgnore]
         public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
@@ -94,8 +105,11 @@ namespace DotNetCore.API.Template.Dominio.Entidades
         {
             _escopo.IdEhValido(x => x.Id);
             _escopo.NomeEhValido(x => x.Nome);
-            _escopo.EmailEhValido(x => x.Email);
-            _escopo.TelefoneEhValido(x => x.Telefone);
+            _escopo.DiretorioEhValido(x => x.Diretorio);
+            _escopo.ExtensaoEhValido(x => x.Extensao);
+            _escopo.TipoEhValido(x => x.Tipo);
+            _escopo.PesoEhValido(x => x.Peso);
+            _escopo.ReferenciaEhValido(x => x.Referencia);
             _escopo.StatusEhValido(x => x.Status);
 
             return Notifications.IsValid();

@@ -1,15 +1,15 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
+using Swashbuckle.AspNetCore.Annotations;
+using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
-using System.Net;
-using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Site.ViewsData;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {

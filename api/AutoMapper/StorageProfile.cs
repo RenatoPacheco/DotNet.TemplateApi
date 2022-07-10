@@ -13,6 +13,15 @@ namespace DotNetCore.API.Template.Site.AutoMapper
             CreateMap<InserirStorageDataModel, InserirStorageCmd>()
                 .ForMember(m => m.Arquivo, opt => opt.MapFrom(src => src.Arquivo.Select(x => new ArquivoUpload(x)).ToArray()))
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<FiltrarStorageDataModel, FiltrarStorageCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<EditarStorageDataModel, EditarStorageCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }
