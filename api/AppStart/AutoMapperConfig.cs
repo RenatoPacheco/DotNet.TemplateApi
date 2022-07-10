@@ -11,6 +11,7 @@ namespace DotNetCore.API.Template.Site
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<UsuarioProfile>();
+                cfg.AddProfile<StorageProfile>();
             });
 
             IMapper mapper = config.CreateMapper();

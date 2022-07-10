@@ -203,6 +203,12 @@
             Calcular a paginação
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.InserirStorageCmd.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos e planilhas.
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Usuario">
             <summary>
             Identificador de usuário

@@ -43,8 +43,6 @@ namespace DotNetCore.API.Template.Site.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Sobre>))]
         public IActionResult Get()
         {
-            Notifications.Clear();
-
             Sobre resultado = _appSobre.Obter();
             Validate(_appSobre);
 

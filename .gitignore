@@ -426,3 +426,5 @@ FodyWeavers.xsd
 #### Configuração customizada #######################################
 
 !*.pubxml
+api/storage
+test/storage

@@ -21,6 +21,11 @@
             
             </remarks>
         </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Post(DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel)">
+            <summary>
+            Inserir arquivos no storage
+            </summary>
+        </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
@@ -39,6 +44,12 @@
         <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos ou planilhas.
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">

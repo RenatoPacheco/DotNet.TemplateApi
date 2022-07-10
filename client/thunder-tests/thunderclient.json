@@ -129,5 +129,28 @@
       "bearer": "{{autorizacao}}"
     },
     "tests": []
+  },
+  {
+    "_id": "4ba40876-fa29-4012-9947-92e6325f3e73",
+    "colId": "e82401df-236a-4761-962b-172ca2dc9869",
+    "containerId": "",
+    "name": "Inserir",
+    "url": "{{host}}/servico/storage",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-07-09T15:31:01.441Z",
+    "modified": "2022-07-10T01:50:25.325Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
   }
 ]
