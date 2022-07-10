@@ -4,7 +4,7 @@
         <name>DotNetCore.API.Template.Site</name>
     </assembly>
     <members>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.SobreController.Get">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.SobreController.Get">
             <summary>
             Obter informação como nome e versão da API
             </summary>
@@ -21,44 +21,49 @@
             
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel)">
             <summary>
             Filtro de storages
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Post(DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Post(DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel)">
             <summary>
             Inserir storage
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Patch(DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Patch(DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel)">
             <summary>
             Editar storage
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Delete(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Delete(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel)">
             <summary>
             Deletar um ou mais storages
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Post(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Post(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
             <summary>
             Inserir usuário
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Patch(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Patch(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
             <summary>
             Editar usuário
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel)">
+            <summary>
+            Obter um arquivo de storages
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
@@ -96,6 +101,11 @@
             Referência de storage
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Alias">
+            <summary>
+            Alias de storage
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Status">
             <summary>
             Status de usuário
@@ -105,6 +115,16 @@
             <summary>
             O peso do arquivo não pode ser maior que 100 kb, 
             e os tipos permitidos são imagens, textos ou planilhas.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel.Alias">
+            <summary>
+            Alias de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel.Status">
+            <summary>
+            Status de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">

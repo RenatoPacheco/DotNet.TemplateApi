@@ -11,7 +11,7 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
 
-namespace DotNetCore.API.Template.Site.Controllers
+namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
     [ApiController]
     [Route("servico/[controller]")]

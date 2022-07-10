@@ -22,6 +22,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         public Storage(IArquivo dados)
             : this()
         {
+            Alias = dados.Alias;
             Nome = dados.Nome;
             Diretorio = dados.Diretorio;
             Extensao = dados.Extensao;
@@ -34,6 +35,8 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         public long? Id { get; set; }
 
         public string Nome { get; set; }
+
+        public string Alias { get; set; }
 
         [Display(Name = "Diretório")]
         public string Diretorio { get; set; }
@@ -105,6 +108,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         {
             _escopo.IdEhValido(x => x.Id);
             _escopo.NomeEhValido(x => x.Nome);
+            _escopo.AliasEhValido(x => x.Alias);
             _escopo.DiretorioEhValido(x => x.Diretorio);
             _escopo.ExtensaoEhValido(x => x.Extensao);
             _escopo.TipoEhValido(x => x.Tipo);

@@ -18,6 +18,24 @@ namespace DotNetCore.API.Template.Dominio.Servicos
 
         protected readonly IStorageRep _repStorage;
 
+        public Storage Obter(ObterStorageCmd comando)
+        {
+            Notifications.Clear();
+            Storage resultado = null;
+
+            if (Validate(comando))
+            {
+                resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd { 
+                    Alias = new List<string>() { comando.Alias },
+                    Status = comando.Status,
+                    Maximo = 1, Pagina = 1
+                });
+                Validate(_repStorage);
+            }
+
+            return resultado;
+        }
+
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando)
         {
             Notifications.Clear();

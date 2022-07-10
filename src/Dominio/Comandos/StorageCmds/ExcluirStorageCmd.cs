@@ -28,18 +28,17 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<string> _referencia;
+        private IList<string> _alias;
         /// <summary>
-        /// Referência de storage
+        /// Alias de storage
         /// </summary>
-        [Display(Name = "Referência")]
-        public IList<string> Referencia
+        public IList<string> Alias
         {
-            get => _referencia ??= new List<string>();
+            get => _alias ??= new List<string>();
             set
             {
-                _referencia = value ?? new List<string>();
-                _escopo.ReferenciaEhValido(x => x.Referencia);
+                _alias = value ?? new List<string>();
+                _escopo.AliasEhValido(x => x.Alias);
             }
         }
 
@@ -52,8 +51,8 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
 
         public virtual bool IsValid()
         {
-            _escopo.EhRequeridoSeOutroForNulo(x => x.Storage, y => y.Referencia);
-            _escopo.EhRequeridoSeOutroForNulo(x => x.Referencia, y => y.Storage);
+            _escopo.EhRequeridoSeOutroForNulo(x => x.Storage, y => y.Alias);
+            _escopo.EhRequeridoSeOutroForNulo(x => x.Alias, y => y.Storage);
 
             return Notifications.IsValid();
         }

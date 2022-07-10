@@ -20,6 +20,11 @@ namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
         public IList<string> Referencia { get; set; }
 
         /// <summary>
+        /// Alias de storage
+        /// </summary>
+        public IList<string> Alias { get; set; }
+
+        /// <summary>
         /// Status de usuário
         /// </summary>
         public IList<EnumInput<Status>> Status { get; set; }

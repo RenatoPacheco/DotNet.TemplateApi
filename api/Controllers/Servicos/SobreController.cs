@@ -7,7 +7,7 @@ using System.Net;
 using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Site.ViewsData;
 
-namespace DotNetCore.API.Template.Site.Controllers
+namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
     [ApiController, AcessoLivre]
     [Route("servico/[controller]")]

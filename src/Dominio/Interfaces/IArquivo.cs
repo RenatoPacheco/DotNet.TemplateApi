@@ -4,6 +4,8 @@
     {
         string Nome { get; set; }
 
+        string Alias { get; set; }
+
         string Diretorio { get; set; }
 
         string Extensao { get; set; }

@@ -223,9 +223,9 @@
             Identificador de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ExcluirStorageCmd.Referencia">
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ExcluirStorageCmd.Alias">
             <summary>
-            Referência de storage
+            Alias de storage
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Storage">
@@ -238,6 +238,11 @@
             Referência de storage
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Alias">
+            <summary>
+            Alias de storage
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Status">
             <summary>
             Status de usuário
@@ -247,6 +252,16 @@
             <summary>
             O peso do arquivo não pode ser maior que 100 kb, 
             e os tipos permitidos são imagens, textos e planilhas.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ObterStorageCmd.Alias">
+            <summary>
+            Alias de storage
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ObterStorageCmd.Status">
+            <summary>
+            Status de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Usuario">

@@ -14,12 +14,12 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             _formFile = formFile;
 
             Nome = formFile.FileName;
+            Extensao = formFile.FileName[formFile.FileName.LastIndexOf(".")..];
+            Tipo = formFile.ContentType; 
+            Alias = $"{Guid.NewGuid():N}{Extensao}";
             Diretorio = folder;
             Peso = formFile.Length;
-            Tipo = formFile.ContentType;
-            Extensao = formFile.FileName[formFile.FileName.LastIndexOf(".")..]; 
-            Referencia = $"{folder}/{Guid.NewGuid().ToString("N")}{Extensao}";
-            
+            Referencia = $"{Diretorio}/{Alias}";            
         }
 
         private readonly IFormFile _formFile;

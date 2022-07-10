@@ -39,6 +39,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
                 string sqlString = @$"
                     INSERT INTO [dbo].[{json.Tabela}]
                            ([{json.Coluna(x => x.Nome)}]
+                           ,[{json.Coluna(x => x.Alias)}]
                            ,[{json.Coluna(x => x.Diretorio)}]
                            ,[{json.Coluna(x => x.Referencia)}]
                            ,[{json.Coluna(x => x.Tipo)}]
@@ -49,6 +50,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
                            ,[{json.Coluna(x => x.Status)}])
                     VALUES
                            (@Nome
+                           ,@Alias
                            ,@Diretorio
                            ,@Referencia
                            ,@Tipo
@@ -63,6 +65,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
                 object sqlObject = new
                 {
                     Nome = new DbString { Value = dados.Nome, IsAnsi = true },
+                    Alias = new DbString { Value = dados.Alias, IsAnsi = true },
                     Diretorio = new DbString { Value = dados.Diretorio, IsAnsi = true },
                     Referencia = new DbString { Value = dados.Referencia, IsAnsi = true },
                     Tipo = new DbString { Value = dados.Tipo, IsAnsi = true },

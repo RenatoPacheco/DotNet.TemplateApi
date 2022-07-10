@@ -29,13 +29,13 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
                             [{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
                            ,[{json.Coluna(x => x.Status)}] = @Status
                     WHERE {json.Coluna(x => x.Id)} IN @Id
-                    OR {json.Coluna(x => x.Referencia)} IN @Referencia
+                    OR {json.Coluna(x => x.Alias)} IN @Alias
                 ";
 
             object sqlObject = new
             {
                 Id = comando.Storage.Select(x => (long)x).ToList(),
-                Referencia = comando.Referencia,
+                Alias = comando.Alias,
                 Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
                 AlteradoEm = DateTime.Now
             };

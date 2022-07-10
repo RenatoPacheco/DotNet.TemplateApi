@@ -1,60 +1,30 @@
 ﻿using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
 {
-    public class FiltrarStorageCmd
+    public class ObterStorageCmd
         : Comum.FiltrarBaseCmd, ISelfValidation
     {
-        public FiltrarStorageCmd()
+        public ObterStorageCmd()
         {
-            _escopo = new StorageEscp<FiltrarStorageCmd>(this);
+            _escopo = new StorageEscp<ObterStorageCmd>(this);
         }
 
-        private IList<LongInput> _storage;
-        /// <summary>
-        /// Identificador de storage
-        /// </summary>
-        public IList<LongInput> Storage
-        {
-            get => _storage ??= new List<LongInput>();
-            set
-            {
-                _storage = value ?? new List<LongInput>();
-                _escopo.IdEhValido(x => x.Storage);
-            }
-        }
-
-        private IList<string> _referencia;
-        /// <summary>
-        /// Referência de storage
-        /// </summary>
-        [Display(Name = "Referência")]
-        public IList<string> Referencia
-        {
-            get => _referencia ??= new List<string>();
-            set
-            {
-                _referencia = value ?? new List<string>();
-                _escopo.ReferenciaEhValido(x => x.Referencia);
-            }
-        }
-
-        private IList<string> _alias;
+        private string _alias;
         /// <summary>
         /// Alias de storage
         /// </summary>
-        public IList<string> Alias
+        public string Alias
         {
-            get => _alias ??= new List<string>();
+            get => _alias;
             set
             {
-                _alias = value ?? new List<string>();
+                _alias = value;
                 _escopo.AliasEhValido(x => x.Alias);
             }
         }
@@ -75,13 +45,14 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
 
         #region Auto validação
 
-        protected StorageEscp<FiltrarStorageCmd> _escopo;
+        protected StorageEscp<ObterStorageCmd> _escopo;
 
         [JsonIgnore]
         public ValidationNotification Notifications { get; set; } = new ValidationNotification();
 
         public virtual bool IsValid()
         {
+            this._escopo.EhRequerido(x => x.Alias);
             return Notifications.IsValid();
         }
 

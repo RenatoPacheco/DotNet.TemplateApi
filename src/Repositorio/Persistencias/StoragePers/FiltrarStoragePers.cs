@@ -60,7 +60,13 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             if (comando.Referencia.Any())
             {
                 sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Referencia)}] IN @Referencia ");
-                sqlObjeto.Add("Referencia", comando.Storage);
+                sqlObjeto.Add("Referencia", comando.Referencia);
+            }
+
+            if (comando.Alias.Any())
+            {
+                sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Alias)}] IN @Alias ");
+                sqlObjeto.Add("Alias", comando.Alias);
             }
 
             if (comando.Status.Any())

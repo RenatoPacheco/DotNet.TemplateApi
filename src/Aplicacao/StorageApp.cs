@@ -16,6 +16,20 @@ namespace DotNetCore.API.Template.Aplicacao
 
         protected readonly StorageServ _servStorage;
 
+        public Storage Obter(ObterStorageCmd comando)
+        {
+            Notifications.Clear();
+            Storage resultado = null;
+
+            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            {
+                resultado = _servStorage.Obter(comando);
+                Validate(_servStorage);
+            }
+
+            return resultado;
+        }
+
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando)
         {
             Notifications.Clear();

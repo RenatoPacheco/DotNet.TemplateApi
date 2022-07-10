@@ -6,6 +6,8 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
     {
         public string Nome { get; set; }
 
+        public string Alias { get; set; }
+
         public string Diretorio { get; set; }
 
         public string Extensao { get; set; }

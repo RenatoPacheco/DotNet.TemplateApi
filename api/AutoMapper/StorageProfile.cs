@@ -22,6 +22,9 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<ObterStorageDataModel, ObterStorageCmd>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }

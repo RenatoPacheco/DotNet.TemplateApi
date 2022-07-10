@@ -10,6 +10,7 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
         {
             Associar(x => x.Id, "Codigo_Storage");
             Associar(x => x.Nome, "Nome_Storage");
+            Associar(x => x.Alias, "Alias_Storage");
             Associar(x => x.Diretorio, "Diretorio_Storage");
             Associar(x => x.Extensao, "Extensao_Storage");
             Associar(x => x.Peso, "Peso_Storage");
@@ -31,6 +32,9 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
 
             if (NaoIgnorar(x => x.Nome))
                 resultado.Append($"{SqlParaJson(x => x.Nome)},");
+
+            if (NaoIgnorar(x => x.Alias))
+                resultado.Append($"{SqlParaJson(x => x.Alias)},");
 
             if (NaoIgnorar(x => x.Diretorio))
                 resultado.Append($"{SqlParaJson(x => x.Diretorio)},");

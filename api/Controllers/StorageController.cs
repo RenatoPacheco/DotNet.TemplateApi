@@ -9,11 +9,13 @@ using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
+using DotNetCore.API.Template.Site.Filters;
+using System.Collections.Generic;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
-    [ApiController]
-    [Route("servico/[controller]")]
+    [ApiController, AcessoLivre]
+    [Route("[controller]")]
     public class StorageController : Common.BaseController
     {
         public StorageController(
@@ -31,75 +33,27 @@ namespace DotNetCore.API.Template.Site.Controllers
         private readonly IMapper _mapper;
 
         /// <summary>
-        /// Filtro de storages
+        /// Obter um arquivo de storages
         /// </summary>
-        [HttpGet]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
-        public IActionResult Get([FromQuery] FiltrarStorageDataModel query)
-        {
-            InvocarSeNulo(ref query);
-
-            FiltrarStorageCmd cmd = _mapper.Map<FiltrarStorageCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
-            ResultadoBusca<Storage> resultado = _appStorage.Filtrar(cmd);
-            Validate(_appStorage);
-
-            return CustomResponse(resultado);
-        }
-
-        /// <summary>
-        /// Inserir storage
-        /// </summary>
-        [HttpPost]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
-        public IActionResult Post([FromForm] InserirStorageDataModel body)
-        {
-            InvocarSeNulo(ref body);
-
-            InserirStorageCmd cmd = _mapper.Map<InserirStorageCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Storage[] resultado = _appStorage.Inserir(cmd);
-            Validate(_appStorage);
-
-            return CustomResponse(resultado);
-        }
-
-        /// <summary>
-        /// Editar storage
-        /// </summary>
-        [HttpPatch]
+        [HttpGet, Route("{Alias}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage>))]
-        public IActionResult Patch([FromBody] EditarStorageDataModel body)
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "", typeof(byte[]))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(byte[]))]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(byte[]))]
+        public IActionResult Get([FromQuery]ObterStorageDataModel values)
         {
-            InvocarSeNulo(ref body);
+            InvocarSeNulo(ref values);
 
-            EditarStorageCmd cmd = _mapper.Map<EditarStorageCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Storage resultado = _appStorage.Editar(cmd);
-            Validate(_appStorage);
-
-            return CustomResponse(resultado);
-        }
-
-        /// <summary>
-        /// Deletar um ou mais storages
-        /// </summary>
-        [HttpDelete]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
-        public IActionResult Delete([FromQuery] ExcluirStorageDataModel query)
-        {
-            InvocarSeNulo(ref query);
-
-            ExcluirStorageCmd cmd = _mapper.Map<ExcluirStorageCmd>(query);
+            ObterStorageCmd cmd = _mapper.Map<ObterStorageCmd>(values);
             cmd.ExtrairModelState(ModelState);
 
-            _appStorage.Excluir(cmd);
+            Storage resultado = _appStorage.Obter(cmd);
             Validate(_appStorage);
 
-            return CustomResponse();
+            if (IsValid())
+                return CustomResponse(resultado);
+
+            return NotFound();
         }
     }
 }
