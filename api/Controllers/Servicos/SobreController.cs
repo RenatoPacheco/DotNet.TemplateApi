@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
-using DotNetCore.API.Template.Site.Filters;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using System.Net;
 using Swashbuckle.AspNetCore.Annotations;
+using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Site.ViewsData;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
     [ApiController, AcessoLivre]
-    [Route("servico/[controller]")]
+    [Route("Servico/[controller]")]
     public class SobreController : Common.BaseController
     {
         public SobreController(

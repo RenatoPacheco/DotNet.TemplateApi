@@ -13,7 +13,7 @@ using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
     [ApiController]
-    [Route("servico/[controller]")]
+    [Route("Servico/[controller]")]
     public class StorageController : Common.BaseController
     {
         public StorageController(

@@ -29,7 +29,7 @@ namespace DotNetCore.API.Template.Dominio.Servicos
                     Alias = new List<string>() { comando.Alias },
                     Status = comando.Status,
                     Maximo = 1, Pagina = 1
-                });
+                }, string.Empty, ValidationType.Error);
                 Validate(_repStorage);
             }
 

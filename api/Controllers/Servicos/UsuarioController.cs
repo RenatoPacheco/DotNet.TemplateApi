@@ -14,7 +14,7 @@ using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
     [ApiController]
-    [Route("servico/[controller]")]
+    [Route("Servico/[controller]")]
     public class UsuarioController : Common.BaseController
     {
         public UsuarioController(

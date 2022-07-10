@@ -63,7 +63,7 @@
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel)">
             <summary>
-            Obter um arquivo de storages
+            Obter um arquivo de storage
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
