@@ -108,6 +108,16 @@ namespace DotNetCore.API.Template.Site
                 options.MapType<LongInput?>(
                     () => options.SchemaBasic("number", 0));
 
+                options.MapType<GuidInput>(
+                    () => options.SchemaBasic("string", Guid.NewGuid()));
+                options.MapType<GuidInput?>(
+                    () => options.SchemaBasic("string", Guid.NewGuid()));
+
+                options.MapType<BoolInput>(
+                    () => options.SchemaBasic("boolean", false));
+                options.MapType<BoolInput?>(
+                    () => options.SchemaBasic("boolean", false));
+
                 options.MapType<Status>(
                     () => options.SchemaEnum<Status>("string"));
                 options.MapType<Status?>(
