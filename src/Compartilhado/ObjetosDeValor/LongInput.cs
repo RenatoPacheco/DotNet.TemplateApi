@@ -34,7 +34,12 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly LongInput Empty = new LongInput { _inptValue = "0" };
+        public static readonly LongInput Empty = new LongInput
+        {
+            _inptValue = "0",
+            _value = 0,
+            _isValid = true
+        };
 
         public static void Parse(string input, out LongInput output)
         {

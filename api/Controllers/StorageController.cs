@@ -53,7 +53,7 @@ namespace DotNetCore.API.Template.Site.Controllers
             // byte[] bytes = System.IO.File.ReadAllBytes(resultado.Referencia);
             // return CustomFile(bytes, resultado.Tipo, resultado.Alias, values.Download);
 
-            return CustomPhysicalFile(resultado, _webHostingEnvironment, values.Download);
+            return CustomPhysicalFile(resultado, _webHostingEnvironment, (bool)values.Download);
         }
     }
 }

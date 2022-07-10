@@ -127,6 +127,11 @@
             Status de usuário
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel.Download">
+            <summary>
+            Informe true para fazer download do arquivo 
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário

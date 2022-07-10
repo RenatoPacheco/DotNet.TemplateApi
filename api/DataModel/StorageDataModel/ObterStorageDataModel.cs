@@ -18,6 +18,9 @@ namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
         /// </summary>
         public IList<EnumInput<Status>> Status { get; set; }
 
-        public bool Download { get; set; }
+        /// <summary>
+        /// Informe true para fazer download do arquivo 
+        /// </summary>
+        public BoolInput Download { get; set; }
     }
 }

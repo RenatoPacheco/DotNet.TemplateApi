@@ -3,18 +3,18 @@ using DotNetCore.API.Template.Recurso;
 
 namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
 {
-    public struct IntInput
+    public struct BoolInput
         : IFormattable, IComparable, IConvertible,
-        IComparable<IntInput>, IComparable<int>,
-        IEquatable<IntInput>, IEquatable<int>
+        IComparable<BoolInput>, IComparable<bool>,
+        IEquatable<BoolInput>, IEquatable<bool>
     {
-        public IntInput(string input)
+        public BoolInput(string input)
         {
-            TryParse(input, out IntInput output);
+            TryParse(input, out BoolInput output);
             this = output;
         }
 
-        public IntInput(int input)
+        public BoolInput(bool input)
         {
             _inptValue = input.ToString();
             _value = input;
@@ -22,28 +22,28 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         }
 
         private string _inptValue;
-        private int _value;
+        private bool _value;
         private bool _isValid;
 
-        public static explicit operator string(IntInput input) => input.ToString();
-        public static explicit operator IntInput(string input) => new IntInput(input);
+        public static explicit operator string(BoolInput input) => input.ToString();
+        public static explicit operator BoolInput(string input) => new BoolInput(input);
 
-        public static explicit operator int(IntInput input) => input._value;
-        public static explicit operator IntInput(int input) => new IntInput(input);
+        public static explicit operator bool(BoolInput input) => input._value;
+        public static explicit operator BoolInput(bool input) => new BoolInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly IntInput Empty = new IntInput 
-        { 
-            _inptValue = "0",
-            _value = 0,
+        public static readonly BoolInput Empty = new BoolInput
+        {
+            _inptValue = false.ToString(),
+            _value = false,
             _isValid = true
         };
 
-        public static void Parse(string input, out IntInput output)
+        public static void Parse(string input, out BoolInput output)
         {
-            if (TryParse(input, out IntInput result))
+            if (TryParse(input, out BoolInput result))
             {
                 output = result;
             }
@@ -58,11 +58,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             }
         }
 
-        public static bool TryParse(string input, out IntInput output)
+        public static bool TryParse(string input, out BoolInput output)
         {
             input = input?.Trim();
-            bool result = int.TryParse(input, out int value);
-            output = new IntInput {
+            bool result = bool.TryParse(input, out bool value);
+            output = new BoolInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = value
@@ -93,28 +93,28 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             return $"{_inptValue}:{GetType()}".GetHashCode();
         }
 
-        public bool Equals(IntInput other)
+        public bool Equals(BoolInput other)
         {
             return _inptValue == other._inptValue;
         }
 
-        public bool Equals(int other)
+        public bool Equals(bool other)
         {
             return _inptValue == other.ToString();
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is IntInput typeA && Equals(typeA))
-                || (obj is int typeB && Equals(typeB));
+            return (obj is BoolInput typeA && Equals(typeA))
+                || (obj is bool typeB && Equals(typeB));
         }
 
-        public int CompareTo(IntInput other)
+        public int CompareTo(BoolInput other)
         {
             return _inptValue.CompareTo(other._inptValue);
         }
 
-        public int CompareTo(int other)
+        public int CompareTo(bool other)
         {
             return _inptValue.CompareTo(other.ToString());
         }
@@ -126,12 +126,12 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 return 1;
             }
 
-            if (obj is IntInput typeA)
+            if (obj is BoolInput typeA)
             {
                 return CompareTo(typeA);
             }
 
-            if (obj is int typeB)
+            if (obj is bool typeB)
             {
                 return CompareTo(typeB);
             }
@@ -140,22 +140,22 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 nameof(obj), AvisosResx.TipoInvalido);
         }
 
-        public static bool operator ==(IntInput left, IntInput right)
+        public static bool operator ==(BoolInput left, BoolInput right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(IntInput left, IntInput right)
+        public static bool operator !=(BoolInput left, BoolInput right)
         {
             return !(left == right);
         }
 
-        public static bool operator >(IntInput left, IntInput right)
+        public static bool operator >(BoolInput left, BoolInput right)
         {
             return left.CompareTo(right) == 1;
         }
 
-        public static bool operator <(IntInput left, IntInput right)
+        public static bool operator <(BoolInput left, BoolInput right)
         {
             return left.CompareTo(right) == -1;
         }

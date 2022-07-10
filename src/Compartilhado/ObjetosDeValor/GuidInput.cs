@@ -3,18 +3,18 @@ using DotNetCore.API.Template.Recurso;
 
 namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
 {
-    public struct IntInput
+    public struct GuidInput
         : IFormattable, IComparable, IConvertible,
-        IComparable<IntInput>, IComparable<int>,
-        IEquatable<IntInput>, IEquatable<int>
+        IComparable<GuidInput>, IComparable<Guid>,
+        IEquatable<GuidInput>, IEquatable<Guid>
     {
-        public IntInput(string input)
+        public GuidInput(string input)
         {
-            TryParse(input, out IntInput output);
+            TryParse(input, out GuidInput output);
             this = output;
         }
 
-        public IntInput(int input)
+        public GuidInput(Guid input)
         {
             _inptValue = input.ToString();
             _value = input;
@@ -22,28 +22,28 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
         }
 
         private string _inptValue;
-        private int _value;
+        private Guid _value;
         private bool _isValid;
 
-        public static explicit operator string(IntInput input) => input.ToString();
-        public static explicit operator IntInput(string input) => new IntInput(input);
+        public static explicit operator string(GuidInput input) => input.ToString();
+        public static explicit operator GuidInput(string input) => new GuidInput(input);
 
-        public static explicit operator int(IntInput input) => input._value;
-        public static explicit operator IntInput(int input) => new IntInput(input);
+        public static explicit operator Guid(GuidInput input) => input._value;
+        public static explicit operator GuidInput(Guid input) => new GuidInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly IntInput Empty = new IntInput 
+        public static readonly GuidInput Empty = new GuidInput 
         { 
-            _inptValue = "0",
-            _value = 0,
-            _isValid = true
+            _inptValue = Guid.Empty.ToString(), 
+            _value = Guid.Empty,
+            _isValid = true 
         };
 
-        public static void Parse(string input, out IntInput output)
+        public static void Parse(string input, out GuidInput output)
         {
-            if (TryParse(input, out IntInput result))
+            if (TryParse(input, out GuidInput result))
             {
                 output = result;
             }
@@ -58,11 +58,11 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             }
         }
 
-        public static bool TryParse(string input, out IntInput output)
+        public static bool TryParse(string input, out GuidInput output)
         {
             input = input?.Trim();
-            bool result = int.TryParse(input, out int value);
-            output = new IntInput {
+            bool result = Guid.TryParse(input, out Guid value);
+            output = new GuidInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = value
@@ -93,28 +93,28 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
             return $"{_inptValue}:{GetType()}".GetHashCode();
         }
 
-        public bool Equals(IntInput other)
+        public bool Equals(GuidInput other)
         {
             return _inptValue == other._inptValue;
         }
 
-        public bool Equals(int other)
+        public bool Equals(Guid other)
         {
             return _inptValue == other.ToString();
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is IntInput typeA && Equals(typeA))
-                || (obj is int typeB && Equals(typeB));
+            return (obj is GuidInput typeA && Equals(typeA))
+                || (obj is Guid typeB && Equals(typeB));
         }
 
-        public int CompareTo(IntInput other)
+        public int CompareTo(GuidInput other)
         {
             return _inptValue.CompareTo(other._inptValue);
         }
 
-        public int CompareTo(int other)
+        public int CompareTo(Guid other)
         {
             return _inptValue.CompareTo(other.ToString());
         }
@@ -126,12 +126,12 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 return 1;
             }
 
-            if (obj is IntInput typeA)
+            if (obj is GuidInput typeA)
             {
                 return CompareTo(typeA);
             }
 
-            if (obj is int typeB)
+            if (obj is Guid typeB)
             {
                 return CompareTo(typeB);
             }
@@ -140,22 +140,22 @@ namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
                 nameof(obj), AvisosResx.TipoInvalido);
         }
 
-        public static bool operator ==(IntInput left, IntInput right)
+        public static bool operator ==(GuidInput left, GuidInput right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(IntInput left, IntInput right)
+        public static bool operator !=(GuidInput left, GuidInput right)
         {
             return !(left == right);
         }
 
-        public static bool operator >(IntInput left, IntInput right)
+        public static bool operator >(GuidInput left, GuidInput right)
         {
             return left.CompareTo(right) == 1;
         }
 
-        public static bool operator <(IntInput left, IntInput right)
+        public static bool operator <(GuidInput left, GuidInput right)
         {
             return left.CompareTo(right) == -1;
         }
