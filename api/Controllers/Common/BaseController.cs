@@ -66,7 +66,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
                 HttpStatusCode.OK, Notifications, data);
         }
 
-        protected IActionResult CustomResponseFile(Storage data, IWebHostEnvironment webHostingEnvironment)
+        protected IActionResult CustomPhysicalFile(Storage data, IWebHostEnvironment webHostingEnvironment, bool download = false)
         {
             if (!IsValid())
             {
@@ -74,16 +74,43 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
                 {
                     Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                     return MontarResultado.Json(
-                        HttpStatusCode.Unauthorized, Notifications, data);
+                        HttpStatusCode.Unauthorized, Notifications);
                 }
 
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return MontarResultado.Json(
-                    HttpStatusCode.BadRequest, Notifications, data);
+                    HttpStatusCode.BadRequest, Notifications);
             }
 
             string contentRootPath = webHostingEnvironment.ContentRootPath;
-            return PhysicalFile($"{contentRootPath}\\{data.Referencia}", data.Tipo);
+            string finalPath = $"{contentRootPath}\\{data.Referencia}";
+
+            if (download)
+                return PhysicalFile(finalPath, data.Tipo, data.Alias);
+            else
+                return PhysicalFile(finalPath, data.Tipo);
+        }
+
+        protected IActionResult CustomFile(byte[] bytes, string type, string name, bool download = false)
+        {
+            if (!IsValid())
+            {
+                if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
+                {
+                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                    return MontarResultado.Json(
+                        HttpStatusCode.Unauthorized, Notifications);
+                }
+
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return MontarResultado.Json(
+                    HttpStatusCode.BadRequest, Notifications);
+            }
+
+            if (download)
+                return File(bytes, type, name);
+            else
+                return File(bytes, type);
         }
     }
 }

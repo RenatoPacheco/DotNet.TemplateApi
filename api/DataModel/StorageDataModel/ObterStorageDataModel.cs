@@ -17,5 +17,7 @@ namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
         /// Status de usuário
         /// </summary>
         public IList<EnumInput<Status>> Status { get; set; }
+
+        public bool Download { get; set; }
     }
 }

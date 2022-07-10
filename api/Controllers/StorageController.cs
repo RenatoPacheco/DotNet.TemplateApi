@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using DotNetCore.API.Template.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Site.Filters;
-using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
@@ -40,7 +39,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// </summary>
         [HttpGet, Route("{Alias}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(byte[]))]
-        public IActionResult Get([FromQuery]ObterStorageDataModel values)
+        public IActionResult Get([FromQuery] ObterStorageDataModel values)
         {
             InvocarSeNulo(ref values);
 
@@ -50,7 +49,11 @@ namespace DotNetCore.API.Template.Site.Controllers
             Storage resultado = _appStorage.Obter(cmd);
             Validate(_appStorage);
 
-            return CustomResponseFile(resultado, _webHostingEnvironment);
+            // Um exemplo caso precise carregar um arquivo que esteja em bytes
+            // byte[] bytes = System.IO.File.ReadAllBytes(resultado.Referencia);
+            // return CustomFile(bytes, resultado.Tipo, resultado.Alias, values.Download);
+
+            return CustomPhysicalFile(resultado, _webHostingEnvironment, values.Download);
         }
     }
 }
