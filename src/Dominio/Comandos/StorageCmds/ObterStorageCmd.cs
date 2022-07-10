@@ -1,6 +1,7 @@
 ﻿using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using BitHelp.Core.Validation.Extends;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
@@ -40,6 +41,22 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             {
                 _status = value ?? new List<EnumInput<Status>>();
                 _escopo.StatusEhValido(x => x.Status);
+            }
+        }
+
+        private BoolInput _download = (BoolInput)false;
+        /// <summary>
+        /// Informe true para fazer download do arquivo 
+        /// </summary>
+        public BoolInput Download
+        {
+            get => _download;
+            set
+            {
+                _download = value;
+                this.RemoveAtReference(x => x.Download);
+                this.RequiredIsValid(x => x.Download);
+                this.BoolIsValid(x => x.Download);
             }
         }
 

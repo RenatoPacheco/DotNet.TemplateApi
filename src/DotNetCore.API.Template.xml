@@ -370,6 +370,11 @@
             Status de usuário
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ObterStorageCmd.Download">
+            <summary>
+            Informe true para fazer download do arquivo 
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Usuario">
             <summary>
             Identificador de usuário

@@ -51,9 +51,9 @@ namespace DotNetCore.API.Template.Site.Controllers
 
             // Um exemplo caso precise carregar um arquivo que esteja em bytes
             // byte[] bytes = System.IO.File.ReadAllBytes(resultado.Referencia);
-            // return CustomFile(bytes, resultado.Tipo, resultado.Alias, values.Download);
+            // return CustomFile(bytes, resultado.Tipo, resultado.Alias, (bool)cmd.Download);
 
-            return CustomPhysicalFile(resultado, _webHostingEnvironment, (bool)values.Download);
+            return CustomPhysicalFile(resultado, _webHostingEnvironment, (bool)cmd.Download);
         }
     }
 }

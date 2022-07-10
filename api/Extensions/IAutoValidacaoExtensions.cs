@@ -2,6 +2,7 @@
 using DotNetCore.API.Template.Recurso;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
+using BitHelp.Core.Validation.Extends;
 using System.Text.RegularExpressions;
 
 namespace DotNetCore.API.Template.Site.Extensions
@@ -21,9 +22,13 @@ namespace DotNetCore.API.Template.Site.Extensions
                 erros = dados[chave].Errors;
                 referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
                 errosTotal = erros.Count();
-                for (int e = 0; e < errosTotal; e++)
+                if (erros.Any())
                 {
-                    entidade.Notifications.AddError(erros[e].ErrorMessage.ToString(), referencia);
+                    entidade.Notifications.RemoveAtReference(referencia);
+                    for (int e = 0; e < errosTotal; e++)
+                    {
+                        entidade.Notifications.AddError(erros[e].ErrorMessage.ToString(), referencia);
+                    }
                 }
             }
 
@@ -41,6 +46,7 @@ namespace DotNetCore.API.Template.Site.Extensions
                 if (dados[chave].Errors.Any())
                 {
                     referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
+                    entidade.Notifications.RemoveAtReference(referencia);
                     entidade.Notifications.AddError(
                         string.Format(AvisosResx.ValorNoFormatoInvalido, chave), referencia);
                 }
