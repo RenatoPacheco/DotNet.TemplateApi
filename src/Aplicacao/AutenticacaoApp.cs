@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using DotNetCore.API.Template.Dominio.Notacoes;
 using DotNetCore.API.Template.Dominio.Entidades;
+using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
 
 namespace DotNetCore.API.Template.Aplicacao
 {
@@ -31,6 +32,27 @@ namespace DotNetCore.API.Template.Aplicacao
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
                 resultado = _servAutenticacao.Obter();
+                Validate(_servAutenticacao);
+            }
+
+            return resultado;
+        }
+
+
+        /// <summary>
+        /// Permite iniciar a autenticação pelo token e a chave pública.
+        /// </summary>
+        [AcessoLivre]
+        [Display(Name = "Iniciar autenticação")]
+        [Description("Permite iniciar a autenticação pelo token e a chave pública.")]
+        public Autenticacao Iniciar(IniciarAutenticacaoCmd comando)
+        {
+            Notifications.Clear();
+            Autenticacao resultado = null;
+
+            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            {
+                resultado = _servAutenticacao.Iniciar(comando);
                 Validate(_servAutenticacao);
             }
 

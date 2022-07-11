@@ -1,4 +1,5 @@
 ﻿using System;
+using DotNetCore.API.Template.Site.ValuesObject;
 
 namespace DotNetCore.API.Template.Site.Filters
 {
@@ -14,5 +15,10 @@ namespace DotNetCore.API.Template.Site.Filters
         public Type Classe { get; private set; }
 
         public string Metodo { get; private set; }
+
+        public Requisito ExtrairRequisito()
+        {
+            return new Requisito(Classe, Metodo);
+        }
     }
 }

@@ -9,6 +9,11 @@
             Permite listar os dados da autenticação atual.
             </summary>
         </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.AutenticacaoApp.Iniciar(DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds.IniciarAutenticacaoCmd)">
+            <summary>
+            Permite iniciar a autenticação pelo token e a chave pública.
+            </summary>
+        </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.AutorizacaoApp.Listar">
             <summary>
             Lista todas as autorizações existentes
@@ -347,6 +352,16 @@
         <member name="M:DotNetCore.API.Template.DetectarServidor.EhProducao">
             <summary>
             Retorna true se o servidor atual for de produção
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds.IniciarAutenticacaoCmd.Token">
+            <summary>
+            Token de acesso
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds.IniciarAutenticacaoCmd.ChavePublica">
+            <summary>
+            Chave pública
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.Comum.FiltrarBaseCmd.Texto">

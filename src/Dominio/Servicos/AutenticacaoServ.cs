@@ -1,5 +1,7 @@
-﻿using DotNetCore.API.Template.Dominio.Entidades;
+﻿using System;
+using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
+using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
 
 namespace DotNetCore.API.Template.Dominio.Servicos
 {
@@ -21,6 +23,11 @@ namespace DotNetCore.API.Template.Dominio.Servicos
             resultado.Autorizacoes = _repAutorizacao.Listar();
 
             return resultado;
+        }
+
+        public Autenticacao Iniciar(IniciarAutenticacaoCmd comando)
+        {
+            return Obter();
         }
     }
 }

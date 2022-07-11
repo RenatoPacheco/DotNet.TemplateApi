@@ -27,24 +27,18 @@
     "colId": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
     "containerId": "",
     "name": "Filtrar",
-    "url": "{{host}}/servico/usuario?usuario=35",
+    "url": "{{host}}/servico/usuario",
     "method": "GET",
     "sortNum": 25000,
     "created": "2022-07-04T15:06:49.916Z",
-    "modified": "2022-07-10T12:52:15.567Z",
+    "modified": "2022-07-11T11:38:04.468Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [
-      {
-        "name": "usuario",
-        "value": "35",
-        "isPath": false
-      }
-    ],
+    "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"

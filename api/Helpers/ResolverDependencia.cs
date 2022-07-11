@@ -11,7 +11,7 @@ namespace DotNetCore.API.Template.Site.Helpers
             _services = services;
         }
 
-        private readonly IServiceCollection _services;
+        private  readonly IServiceCollection _services;
 
         #region unico
 

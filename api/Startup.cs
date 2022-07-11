@@ -23,6 +23,8 @@ namespace DotNetCore.API.Template.Site
             CorsConfig.Config(services);
             IdCConfig.Config(services);
 
+            services.AddHttpContextAccessor();
+
             services.AddControllers(options => {
                 // Aplicando filtrdo customizados
                 FiltersConfig.Config(options);

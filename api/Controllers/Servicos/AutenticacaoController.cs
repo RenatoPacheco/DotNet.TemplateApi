@@ -4,10 +4,10 @@ using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Site.ViewsData;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Notacoes;
 using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Dominio.Entidades;
+using DotNetCore.API.Template.Site.ApiServices;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
@@ -16,15 +16,15 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
     public class AutenticacaoController : Common.BaseController
     {
         public AutenticacaoController(
-            AutenticacaoApp appAutenticacao,
+            AutenticacaoApiServ apiServAutenticacao,
             ILogger<AutenticacaoController> logger)
         {
             _logger = logger;
-            _appAutenticacao = appAutenticacao;
+            _apiServAutenticacao = apiServAutenticacao;
         }
 
         private readonly ILogger<AutenticacaoController> _logger;
-        private readonly AutenticacaoApp _appAutenticacao;
+        private readonly AutenticacaoApiServ _apiServAutenticacao;
 
         /// <summary>
         /// Obter os dados da autenticação atual
@@ -34,8 +34,8 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Autenticacao>))]
         public IActionResult Get()
         {
-            Autenticacao resultado = _appAutenticacao.Obter();
-            Validate(_appAutenticacao);
+            Autenticacao resultado = _apiServAutenticacao.Obter();
+            Validate(_apiServAutenticacao);
 
             return CustomResponse(resultado);
         }
