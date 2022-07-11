@@ -4,6 +4,11 @@
         <name>DotNetCore.API.Template</name>
     </assembly>
     <members>
+        <member name="M:DotNetCore.API.Template.Aplicacao.AutenticacaoApp.Obter">
+            <summary>
+            Permite listar os dados da autenticação atual.
+            </summary>
+        </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.AutorizacaoApp.Listar">
             <summary>
             Lista todas as autorizações existentes

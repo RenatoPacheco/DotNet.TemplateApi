@@ -4,6 +4,11 @@
         <name>DotNetCore.API.Template.Site</name>
     </assembly>
     <members>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.AutenticacaoController.Get">
+            <summary>
+            Obter os dados da autenticação atual
+            </summary>
+        </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.AutorizacaoController.Get">
             <summary>
             Listar todas autorizações existentes
