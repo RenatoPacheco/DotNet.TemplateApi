@@ -4,6 +4,11 @@
         <name>DotNetCore.API.Template</name>
     </assembly>
     <members>
+        <member name="M:DotNetCore.API.Template.Aplicacao.AutorizacaoApp.Listar">
+            <summary>
+            Lista todas as autorizações existentes
+            </summary>
+        </member>
         <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.BoolInput.Empty">
             <summary>
             Return value string.Empty
@@ -600,6 +605,16 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Autorizacao">
+            <summary>
+              Looks up a localized string similar to Autorização.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Autorizacoes">
+            <summary>
+              Looks up a localized string similar to Autorizações.
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Storage">

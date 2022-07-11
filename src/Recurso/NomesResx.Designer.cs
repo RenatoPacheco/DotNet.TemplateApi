@@ -61,6 +61,24 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Autorização.
+        /// </summary>
+        public static string Autorizacao {
+            get {
+                return ResourceManager.GetString("Autorizacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autorizações.
+        /// </summary>
+        public static string Autorizacoes {
+            get {
+                return ResourceManager.GetString("Autorizacoes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Storage.
         /// </summary>
         public static string Storage {
