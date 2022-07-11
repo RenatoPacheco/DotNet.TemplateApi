@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using DotNetCore.API.Template.Recurso;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using DotNetCore.API.Template.Site.ApiServices;
+using DotNetCore.API.Template.Site.ApiApplications;
 using DotNetCore.API.Template.Site.ValuesObject;
 using DotNetCore.API.Template.Dominio.Entidades;
 
@@ -15,12 +15,12 @@ namespace DotNetCore.API.Template.Site.Filters
     {
 
         public ValidarAutorizacaoFilter(
-            AutenticacaoApiServ autenticacaoApiServ)
+            AutenticacaoApiApp autenticacaoApiServ)
         {
             _autenticacaoApiServ = autenticacaoApiServ;
         }
 
-        protected readonly AutenticacaoApiServ _autenticacaoApiServ;
+        protected readonly AutenticacaoApiApp _autenticacaoApiServ;
 
         public int Order { get; set; } = int.MaxValue - 10;
 

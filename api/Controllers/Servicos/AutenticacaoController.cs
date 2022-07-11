@@ -7,7 +7,7 @@ using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Dominio.Notacoes;
 using DotNetCore.API.Template.Site.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Site.ApiServices;
+using DotNetCore.API.Template.Site.ApiApplications;
 using DotNetCore.API.Template.Site.ValuesObject;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
@@ -17,7 +17,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
     public class AutenticacaoController : Common.BaseController
     {
         public AutenticacaoController(
-            AutenticacaoApiServ apiServAutenticacao,
+            AutenticacaoApiApp apiServAutenticacao,
             ILogger<AutenticacaoController> logger)
         {
             _logger = logger;
@@ -25,7 +25,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         }
 
         private readonly ILogger<AutenticacaoController> _logger;
-        private readonly AutenticacaoApiServ _apiServAutenticacao;
+        private readonly AutenticacaoApiApp _apiServAutenticacao;
 
         /// <summary>
         /// Obter os dados da autenticação atual

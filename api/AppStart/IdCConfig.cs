@@ -1,7 +1,8 @@
 ﻿using DotNetCore.API.Template.IdC;
 using DotNetCore.API.Template.Site.Helpers;
-using DotNetCore.API.Template.Site.ApiServices;
+using DotNetCore.API.Template.Site.ApiApplications;
 using Microsoft.Extensions.DependencyInjection;
+using DotNetCore.API.Template.Site.ApiServices;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -12,7 +13,10 @@ namespace DotNetCore.API.Template.Site
             ResolverDependencia dependencia = new ResolverDependencia(services);
             Injecao.Carregar(dependencia);
 
-            dependencia.Escopo<AutenticacaoApiServ>();
+            dependencia.Escopo<AutorizacaoApiServ>();
+            dependencia.Escopo<RequestApiServ>();
+
+            dependencia.Escopo<AutenticacaoApiApp>();
         }
     }
 }
