@@ -4,6 +4,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DotNetCore.API.Template.Compartilhado.Json;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -24,6 +26,9 @@ namespace DotNetCore.API.Template.Site
             IdCConfig.Config(services);
 
             services.AddHttpContextAccessor();
+
+            services.TryAddSingleton<IApiDescriptionGroupCollectionProvider, ApiDescriptionGroupCollectionProvider>();
+            services.TryAddEnumerable(ServiceDescriptor.Transient<IApiDescriptionProvider, DefaultApiDescriptionProvider>());
 
             services.AddControllers(options => {
                 // Aplicando filtrdo customizados

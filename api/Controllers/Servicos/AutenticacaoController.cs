@@ -8,6 +8,7 @@ using DotNetCore.API.Template.Dominio.Notacoes;
 using DotNetCore.API.Template.Site.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Site.ApiServices;
+using DotNetCore.API.Template.Site.ValuesObject;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
@@ -34,7 +35,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Autenticacao>))]
         public IActionResult Get()
         {
-            Autenticacao resultado = _apiServAutenticacao.Obter();
+            AutenticacaoApi resultado = _apiServAutenticacao.Obter();
             Validate(_apiServAutenticacao);
 
             return CustomResponse(resultado);
