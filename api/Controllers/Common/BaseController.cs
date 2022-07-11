@@ -9,6 +9,7 @@ using DotNetCore.API.Template.Site.ViewsData;
 using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using Microsoft.AspNetCore.Hosting;
+using DotNetCore.API.Template.Recurso;
 
 namespace DotNetCore.API.Template.Site.Controllers.Common
 {
@@ -85,10 +86,18 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
             string contentRootPath = webHostingEnvironment.ContentRootPath;
             string finalPath = $"{contentRootPath}\\{data.Referencia}";
 
-            if (download)
-                return PhysicalFile(finalPath, data.Tipo, data.Alias);
-            else
-                return PhysicalFile(finalPath, data.Tipo);
+            if (System.IO.File.Exists(finalPath))
+            {
+                if (download)
+                    return PhysicalFile(finalPath, data.Tipo, data.Alias);
+                else
+                    return PhysicalFile(finalPath, data.Tipo);
+            }
+
+            Notifications.AddError(string.Format(AvisosResx.XNaoEncontrado, NomesResx.Storage));
+            Response.StatusCode = (int)HttpStatusCode.NotFound;
+            return MontarResultado.Json(
+                HttpStatusCode.NotFound, Notifications);
         }
 
         protected IActionResult CustomFile(byte[] bytes, string type, string name, bool download = false)
