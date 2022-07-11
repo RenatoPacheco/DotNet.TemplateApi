@@ -25,7 +25,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             return resultado;
         }
 
-        public static Autenticacao GerarInterno()
+        public static Autenticacao GerarInterno(bool haChavePublica)
         {
             Autenticacao resultado = new Autenticacao
             {
@@ -33,7 +33,9 @@ namespace DotNetCore.API.Template.Dominio.Entidades
                 Nome = "Usuário interno",
                 Interno = true,
                 Autenticado = true,
-                ExpiraEm = null
+                ExpiraEm = null,
+                HaChavePublica = haChavePublica
+                
             };
 
             resultado.AtualizarToken();
@@ -41,7 +43,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             return resultado;
         }
 
-        public static Autenticacao GerarNaoAutenticado()
+        public static Autenticacao GerarNaoAutenticado(bool haChavePublica)
         {
             Autenticacao resultado = new Autenticacao
             {
@@ -49,7 +51,8 @@ namespace DotNetCore.API.Template.Dominio.Entidades
                 Nome = "Usuário não autenticado",
                 Interno = false,
                 Autenticado = false,
-                ExpiraEm = null
+                ExpiraEm = null,
+                HaChavePublica = haChavePublica
             };
 
             resultado.AtualizarToken();
@@ -85,6 +88,9 @@ namespace DotNetCore.API.Template.Dominio.Entidades
         public bool Interno { get; set; }
 
         public bool Autenticado { get; set; }
+
+        [Display(Name = "Há chave pública")]
+        public bool HaChavePublica { get; set; }
 
         [Display(Name = "Criado em")]
         public DateTime? CriadoEm { get; set; }

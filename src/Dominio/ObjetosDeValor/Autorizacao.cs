@@ -4,6 +4,7 @@ using System.Reflection;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Notacoes;
+using DotNetCore.API.Template.Dominio.Entidades;
 
 namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 {
@@ -11,9 +12,17 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
     {
         protected internal Autorizacao() { }
 
-        public Autorizacao(MethodInfo metodo, bool acessoLivre)
+        public Autorizacao(MethodInfo metodo, bool acessoLivre, bool acessoBasico)
             : this()
         {
+            acessoLivre = (metodo.GetCustomAttributes(
+                typeof(AcessoLivreAttribute), true)
+                .FirstOrDefault() != null) || acessoLivre;
+
+            acessoBasico = (metodo.GetCustomAttributes(
+                typeof(AcessoBasicoAttribute), true)
+                .FirstOrDefault() != null) || acessoBasico;
+
             Grupo = metodo.DeclaringType.ToString();
             Acao = metodo.Name;
 
@@ -29,9 +38,10 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
                 typeof(DescriptionAttribute), true)
                 .FirstOrDefault() as DescriptionAttribute)?.Description?.Trim();
 
-            AcessoLivre = acessoLivre || (metodo.GetCustomAttributes(
-                typeof(AcessoLivreAttribute), true)
-                .FirstOrDefault() != null);
+            RequerAutenticacao = acessoLivre ? false 
+                : acessoBasico ? false : true;
+
+            RequerChavePublica = acessoLivre ? false : true;
 
             Id = ToString();
         }
@@ -48,11 +58,20 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
-        [Display(Name = "Acesso livre")]
-        public bool AcessoLivre { get; set; }
+        [Display(Name = "Requer autenticação")]
+        public bool RequerAutenticacao { get; set; } = true;
+
+        [Display(Name = "Requer chave pública")]
+        public bool RequerChavePublica { get; set; } = true;
 
         public string Obsoleto { get; set; }
 
         public override string ToString() => $"{Grupo}.{Acao}";
+
+        public bool EstaAutorizado(Autenticacao autenticacao)
+        {
+            return (!RequerAutenticacao || (RequerAutenticacao == autenticacao.Autenticado))
+                && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
+        }
     }
 }

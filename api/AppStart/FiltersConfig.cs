@@ -10,9 +10,7 @@ namespace DotNetCore.API.Template.Site
             // Incluindo filtro para customizar erro 500 da API
             options.Filters.Add<HttpResponseExceptionFilter>();
             // Bloqueando acesso a todas as rotas por padrão
-            options.Filters.Add<RequerAutorizacaoFilter>();
-            options.Filters.Add<RequerChavePublicaFilter>();
-
+            options.Filters.Add<ValidarAutorizacaoFilter>();
         }
     }
 }

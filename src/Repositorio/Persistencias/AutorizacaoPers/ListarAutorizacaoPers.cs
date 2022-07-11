@@ -35,6 +35,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers
                 Autorizacao[] resultado = Array.Empty<Autorizacao>();
                 IEnumerable<Autorizacao> autorizacoes = new List<Autorizacao>();
                 bool acessoLivre = false;
+                bool acessoBasico = false;
 
                 Type[] classes = Assembly.GetExecutingAssembly().GetTypes()
                     .Where(
@@ -52,13 +53,17 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers
                         typeof(AcessoLivreAttribute), true)
                         .FirstOrDefault() != null);
 
+                    acessoBasico = (classe.GetCustomAttributes(
+                        typeof(AcessoBasicoAttribute), true)
+                        .FirstOrDefault() != null);
+
                     autorizacoes = classe.GetMethods().Where(
                         metodo => !(metodo is null)
                         && metodo.IsPublic
                         && metodo.DeclaringType == metodo.ReflectedType
                         && !metodo.IsStatic
                         && !metodo.IsSpecialName
-                        ).ToArray().Select(metodo => new Autorizacao(metodo, acessoLivre));
+                        ).ToArray().Select(metodo => new Autorizacao(metodo, acessoLivre, acessoBasico));
                     // Sem aplicar o ToArray() antes de selecionar a lista, ele estava ignorando o filtro where
 
                     resultado = resultado.Concat(autorizacoes).ToArray();

@@ -5,7 +5,7 @@ using DotNetCore.API.Template.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Site.Filters;
+using DotNetCore.API.Template.Site.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Site.ApiServices;
 

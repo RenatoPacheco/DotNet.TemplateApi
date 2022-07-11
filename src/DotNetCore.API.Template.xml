@@ -510,6 +510,16 @@
             Status de usuário
             </summary>
         </member>
+        <member name="T:DotNetCore.API.Template.Dominio.Notacoes.AcessoBasicoAttribute">
+            <summary>
+            Não precisa estar autenticado, mas precisa enviar a chave pública
+            </summary>
+        </member>
+        <member name="T:DotNetCore.API.Template.Dominio.Notacoes.AcessoLivreAttribute">
+            <summary>
+            Não precisa estar autenticado, nem precisa enviar a chave pública
+            </summary>
+        </member>
         <member name="T:DotNetCore.API.Template.Dominio.ObjetosDeValor.Sobre">
             <summary>
             Obtém informações básicas sobre a aplicação
@@ -554,6 +564,11 @@
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.AcessoNaoAutorizado">
             <summary>
               Looks up a localized string similar to Acesso não autorizado..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ChavePublicaNaoRecebiada">
+            <summary>
+              Looks up a localized string similar to A chave pública não foi recebida..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.FormatoInvalido">
@@ -619,6 +634,11 @@
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TipoInvalido">
             <summary>
               Looks up a localized string similar to Tipo inválido..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TokenDeAutenticacaoNaoRecebido">
+            <summary>
+              Looks up a localized string similar to O token de autenticação não foi recebido..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ValorNoFormatoInvalido">

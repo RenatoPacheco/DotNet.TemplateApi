@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using DotNetCore.API.Template.Site.ApiServices;
 using DotNetCore.API.Template.Site.ValuesObject;
+using DotNetCore.API.Template.Dominio.Entidades;
 
 namespace DotNetCore.API.Template.Site.Filters
 {
-    public class RequerAutorizacaoFilter
+    public class ValidarAutorizacaoFilter
         : IAuthorizationFilter, IOrderedFilter
     {
 
-        public RequerAutorizacaoFilter(
+        public ValidarAutorizacaoFilter(
             AutenticacaoApiServ autenticacaoApiServ)
         {
             _autenticacaoApiServ = autenticacaoApiServ;
@@ -33,8 +34,14 @@ namespace DotNetCore.API.Template.Site.Filters
 
             if (!_autenticacaoApiServ.EstaAutorizado(action))
             {
+                string mensagem = !_autenticacaoApiServ.HaChavePublica()
+                    ? AvisosResx.ChavePublicaNaoRecebiada
+                    : !_autenticacaoApiServ.HaToken()
+                    ? AvisosResx.TokenDeAutenticacaoNaoRecebido
+                    : AvisosResx.AcessoNaoAutorizado;
+
                 ValidationNotification notificacao = new ValidationNotification();
-                notificacao.AddError(AvisosResx.AcessoNaoAutorizado);
+                notificacao.AddError(mensagem);
                 HttpStatusCode codigo = HttpStatusCode.Unauthorized;
                 Avisos avisos = new Avisos((int)codigo, notificacao);
                 string dados = null;

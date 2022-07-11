@@ -10,7 +10,7 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
 using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Site.Filters;
+using DotNetCore.API.Template.Site.DataAnnotations;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {

@@ -120,6 +120,9 @@
   <data name="AcessoNaoAutorizado" xml:space="preserve">
     <value>Acesso não autorizado.</value>
   </data>
+  <data name="ChavePublicaNaoRecebiada" xml:space="preserve">
+    <value>A chave pública não foi recebida.</value>
+  </data>
   <data name="FormatoInvalido" xml:space="preserve">
     <value>Formato inválido.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="TipoInvalido" xml:space="preserve">
     <value>Tipo inválido.</value>
+  </data>
+  <data name="TokenDeAutenticacaoNaoRecebido" xml:space="preserve">
+    <value>O token de autenticação não foi recebido.</value>
   </data>
   <data name="ValorNoFormatoInvalido" xml:space="preserve">
     <value>Valor não está no formato válido.</value>

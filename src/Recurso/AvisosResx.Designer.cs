@@ -70,6 +70,15 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A chave pública não foi recebida..
+        /// </summary>
+        public static string ChavePublicaNaoRecebiada {
+            get {
+                return ResourceManager.GetString("ChavePublicaNaoRecebiada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Formato inválido..
         /// </summary>
         public static string FormatoInvalido {
@@ -183,6 +192,15 @@ namespace DotNetCore.API.Template.Recurso {
         public static string TipoInvalido {
             get {
                 return ResourceManager.GetString("TipoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O token de autenticação não foi recebido..
+        /// </summary>
+        public static string TokenDeAutenticacaoNaoRecebido {
+            get {
+                return ResourceManager.GetString("TokenDeAutenticacaoNaoRecebido", resourceCulture);
             }
         }
         

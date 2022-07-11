@@ -10,7 +10,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
-using DotNetCore.API.Template.Site.Filters;
+using DotNetCore.API.Template.Site.DataAnnotations;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {

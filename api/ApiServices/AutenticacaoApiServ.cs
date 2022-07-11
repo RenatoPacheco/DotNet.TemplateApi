@@ -4,12 +4,12 @@ using DotNetCore.API.Template.Aplicacao;
 using Microsoft.AspNetCore.Http;
 using DotNetCore.API.Template.Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Site.ValuesObject;
 using System.Reflection;
 using System.Collections.Generic;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
+using DotNetCore.API.Template.Site.DataAnnotations;
 
 namespace DotNetCore.API.Template.Site.ApiServices
 {
@@ -51,6 +51,10 @@ namespace DotNetCore.API.Template.Site.ApiServices
 
             return Autenticacao;
         }
+
+        public bool HaToken() => !string.IsNullOrWhiteSpace(ExtrairToken());
+
+        public bool HaChavePublica() => !string.IsNullOrWhiteSpace(ExtrairChavePublica());
 
         public bool EstaAutorizado(ControllerActionDescriptor action)
         {

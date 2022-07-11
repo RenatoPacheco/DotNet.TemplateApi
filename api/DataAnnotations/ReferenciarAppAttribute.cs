@@ -1,7 +1,7 @@
 ﻿using System;
 using DotNetCore.API.Template.Site.ValuesObject;
 
-namespace DotNetCore.API.Template.Site.Filters
+namespace DotNetCore.API.Template.Site.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public sealed class ReferenciarAppAttribute : Attribute
