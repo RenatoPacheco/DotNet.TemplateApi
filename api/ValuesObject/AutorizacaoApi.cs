@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Site.DataAnnotations;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.ValuesObject
 {
@@ -20,7 +21,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
             Prefixo = actionDescriptor.ControllerName;
             Nome = ExtrairNome(Metodo);
-            Requisitos = ExtrairRequisitos(Metodo);
+            Requisito = ExtrairRequisito(Metodo);
             Verbo = apiInfo.HttpMethod.ToString();
             Rota = apiInfo.RelativePath;
             ExtrairObsoleto(Metodo);
@@ -33,7 +34,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
         public readonly Type Classe;
 
-        public readonly Requisito[] Requisitos = new Requisito[] { };
+        public readonly Requisito Requisito = null;
 
         public string Id { get; set; }
 
@@ -50,18 +51,14 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
         public bool Obsoleto { get; set; }
 
-        public bool EstaAutorizado(Dominio.ObjetosDeValor.Autorizacao[] compare)
+        public bool EstaAutorizado(Autorizacao[] compare)
         {
-            bool resultado = true;
+            bool resultado = false;
 
-            foreach (Requisito item in Requisitos)
+            if (!(Requisito is null))
             {
-                if (compare.Where(x => x.Grupo.Equals(item.Classe.FullName)
-                     && x.Acao.Equals(item.Metodo)).FirstOrDefault() == null)
-                {
-                    resultado = false;
-                    break;
-                }
+                resultado = compare.Where(x => x.Grupo.Equals(Requisito.Classe.FullName)
+                     && x.Acao.Equals(Requisito.Metodo)).FirstOrDefault() != null;
             }
 
             return resultado;
@@ -80,20 +77,20 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             return resultado;
         }
 
-        private Requisito[] ExtrairRequisitos(MethodInfo metodo)
+        private Requisito ExtrairRequisito(MethodInfo metodo)
         {
-            IList<Requisito> resultado = new List<Requisito>();
+            Requisito resultado = null;
 
-            IEnumerable<ReferenciarAppAttribute> atributo = metodo.GetCustomAttributes(
+            ReferenciarAppAttribute atributo = metodo.GetCustomAttributes(
                 typeof(ReferenciarAppAttribute), true)
-                .Select(x => x as ReferenciarAppAttribute);
+                .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
 
-            foreach (ReferenciarAppAttribute c in atributo)
+            if (!(atributo is null))
             {
-                resultado.Add(new Requisito(c.Classe, c.Metodo));
+                resultado = new Requisito(atributo.Classe, atributo.Metodo);
             }
 
-            return resultado.ToArray();
+            return resultado;
         }
 
         private void ExtrairObsoleto(MethodInfo metodo)

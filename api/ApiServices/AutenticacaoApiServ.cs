@@ -75,12 +75,12 @@ namespace DotNetCore.API.Template.Site.ApiServices
 
         public bool EstaAutorizado(ControllerActionDescriptor action)
         {
-            Requisito requisito = ExtrairRequisitos(action.MethodInfo).FirstOrDefault();
+            Requisito requisito = ExtrairRequisito(action.MethodInfo);
 
             AutorizacaoApi[] autorizacoes = Autenticacao?.Autorizacoes ?? Array.Empty<AutorizacaoApi>();
 
             bool resultado = !(requisito is null) && autorizacoes.Any(
-                x => x.Requisitos.Any(r => r.Metodo == requisito.Metodo && r.Classe == requisito.Classe));
+                x => x.Requisito.Metodo == requisito.Metodo && x.Requisito.Classe == requisito.Classe);
 
             return resultado;
         }
@@ -126,20 +126,20 @@ namespace DotNetCore.API.Template.Site.ApiServices
             return chavePublica;
         }
 
-        private Requisito[] ExtrairRequisitos(MethodInfo metodo)
+        private Requisito ExtrairRequisito(MethodInfo metodo)
         {
-            IList<Requisito> resultado = new List<Requisito>();
+            Requisito resultado = null;
 
-            IEnumerable<ReferenciarAppAttribute> atributo = metodo.GetCustomAttributes(
+            ReferenciarAppAttribute atributo = metodo.GetCustomAttributes(
                 typeof(ReferenciarAppAttribute), true)
-                .Select(x => x as ReferenciarAppAttribute);
+                .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
 
-            foreach (ReferenciarAppAttribute c in atributo)
+            if (!(atributo is null))
             {
-                resultado.Add(new Requisito(c.Classe, c.Metodo));
+                resultado = new Requisito(atributo.Classe, atributo.Metodo);
             }
 
-            return resultado.ToArray();
+            return resultado;
         }
 
         private AutorizacaoApi[] ExtrairAutorizacoes()
