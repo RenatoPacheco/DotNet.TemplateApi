@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -20,8 +19,9 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             Classe = actionDescriptor.ControllerTypeInfo;
 
             Prefixo = actionDescriptor.ControllerName;
-            Nome = ExtrairNome(Metodo);
             Requisito = ExtrairRequisito(Metodo);
+            Nome = Requisito?.Nome;
+            Descricao = Requisito?.Descricao;
             Verbo = apiInfo.HttpMethod.ToString();
             Rota = apiInfo.RelativePath;
             ExtrairObsoleto(Metodo);
@@ -53,28 +53,16 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
         public bool EstaAutorizado(Autorizacao[] compare)
         {
-            bool resultado = false;
-
-            if (!(Requisito is null))
-            {
-                resultado = compare.Where(x => x.Grupo.Equals(Requisito.Classe.FullName)
-                     && x.Acao.Equals(Requisito.Metodo)).FirstOrDefault() != null;
-            }
-
-            return resultado;
+            return !(Requisito is null) && compare.Any(x => x.Id == Requisito.Id);
         }
 
         private string ExtrairNome(MethodInfo metodo)
         {
-            string resultado = metodo.Name;
-
             DisplayAttribute atributo = metodo.GetCustomAttributes(
                 typeof(DisplayAttribute), true)
                 .FirstOrDefault() as DisplayAttribute;
 
-            resultado = atributo?.Name ?? metodo.Name;
-
-            return resultado;
+            return atributo?.Name;
         }
 
         private Requisito ExtrairRequisito(MethodInfo metodo)
@@ -100,7 +88,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
                 .FirstOrDefault() as ObsoleteAttribute;
 
             Obsoleto = !(info is null);
-            Descricao = info?.Message;
+            Descricao = info?.Message ?? Descricao;
         }
     }
 }
