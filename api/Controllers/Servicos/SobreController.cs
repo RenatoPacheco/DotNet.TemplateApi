@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Notacoes;
+using DotNetCore.API.Template.Site.Filters;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
@@ -40,6 +41,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// 
         /// </remarks>
         [HttpGet]
+        [ReferenciarApp(typeof(SobreApp), nameof(SobreApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Sobre>))]
         public IActionResult Get()
         {

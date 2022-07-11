@@ -10,6 +10,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
+using DotNetCore.API.Template.Site.Filters;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
@@ -35,6 +36,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Filtro de usuários
         /// </summary>
         [HttpGet]
+        [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario[]>))]
         public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query)
         {
@@ -53,6 +55,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Inserir usuário
         /// </summary>
         [HttpPost]
+        [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario>))]
         public IActionResult Post([FromBody] InserirUsuarioDataModel body)
         {
@@ -71,6 +74,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Editar usuário
         /// </summary>
         [HttpPatch]
+        [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Usuario>))]
         public IActionResult Patch([FromBody] EditarUsuarioDataModel body)
         {
@@ -89,6 +93,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Deletar um ou mais usuários
         /// </summary>
         [HttpDelete]
+        [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
         public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query)
         {

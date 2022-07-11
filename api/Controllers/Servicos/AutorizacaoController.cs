@@ -6,6 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Notacoes;
+using DotNetCore.API.Template.Site.Filters;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
@@ -28,6 +29,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Listar todas autorizações existentes
         /// </summary>
         [HttpGet]
+        [ReferenciarApp(typeof(AutorizacaoApp), nameof(AutorizacaoApp.Listar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Autorizacao>))]
         public IActionResult Get()
         {

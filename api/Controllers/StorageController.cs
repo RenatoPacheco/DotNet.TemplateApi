@@ -10,6 +10,7 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
 using DotNetCore.API.Template.Dominio.Notacoes;
+using DotNetCore.API.Template.Site.Filters;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
@@ -38,6 +39,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// Obter um arquivo de storage
         /// </summary>
         [HttpGet, Route("{Alias}")]
+        [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(byte[]))]
         public IActionResult Get([FromQuery] ObterStorageDataModel values)
         {

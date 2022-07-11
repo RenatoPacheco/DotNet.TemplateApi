@@ -9,6 +9,7 @@ using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
+using DotNetCore.API.Template.Site.Filters;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
@@ -34,6 +35,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Filtro de storages
         /// </summary>
         [HttpGet]
+        [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
         public IActionResult Get([FromQuery] FiltrarStorageDataModel query)
         {
@@ -52,6 +54,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Inserir storage
         /// </summary>
         [HttpPost]
+        [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
         public IActionResult Post([FromForm] InserirStorageDataModel body)
         {
@@ -70,6 +73,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Editar storage
         /// </summary>
         [HttpPatch]
+        [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage>))]
         public IActionResult Patch([FromBody] EditarStorageDataModel body)
         {
@@ -88,6 +92,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Deletar um ou mais storages
         /// </summary>
         [HttpDelete]
+        [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
         public IActionResult Delete([FromQuery] ExcluirStorageDataModel query)
         {
