@@ -11,7 +11,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
     {
         protected internal Autorizacao() { }
 
-        public Autorizacao(MethodInfo metodo)
+        public Autorizacao(MethodInfo metodo, bool acessoLivre)
             : this()
         {
             Grupo = metodo.DeclaringType.ToString();
@@ -29,7 +29,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
                 typeof(DescriptionAttribute), true)
                 .FirstOrDefault() as DescriptionAttribute)?.Description?.Trim();
 
-            AcessoLivre = (metodo.GetCustomAttributes(
+            AcessoLivre = acessoLivre || (metodo.GetCustomAttributes(
                 typeof(AcessoLivreAttribute), true)
                 .FirstOrDefault() != null);
 

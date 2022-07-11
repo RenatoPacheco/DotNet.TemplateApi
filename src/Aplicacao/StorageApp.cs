@@ -3,9 +3,13 @@ using System.Reflection;
 using DotNetCore.API.Template.Dominio.Servicos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
+using DotNetCore.API.Template.Dominio.Notacoes;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace DotNetCore.API.Template.Aplicacao
 {
+    [AcessoLivre]
     public class StorageApp : Comum.BaseApp
     {
         public StorageApp(
@@ -16,6 +20,11 @@ namespace DotNetCore.API.Template.Aplicacao
 
         protected readonly StorageServ _servStorage;
 
+        /// <summary>
+        /// Permite obter um arquivo do storage apartir do seu alias. 
+        /// </summary>
+        [Display(Name = "Obter arquivo do storage")]
+        [Description("Permite obter um arquivo do storage apartir do seu alias.")]
         public Storage Obter(ObterStorageCmd comando)
         {
             Notifications.Clear();
@@ -30,6 +39,11 @@ namespace DotNetCore.API.Template.Aplicacao
             return resultado;
         }
 
+        /// <summary>
+        /// Permite filtrar os arquivos disponíveis no storage.
+        /// </summary>
+        [Display(Name = "Filtrar arquivos do storage")]
+        [Description("Permite filtrar os arquivos disponíveis no storage.")]
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando)
         {
             Notifications.Clear();
@@ -44,6 +58,11 @@ namespace DotNetCore.API.Template.Aplicacao
             return resultado;
         }
 
+        /// <summary>
+        /// Permite inserir um ou mais arquivos ao storage.
+        /// </summary>
+        [Display(Name = "Inserir arquivo do storage")]
+        [Description("Permite inserir um ou mais arquivos ao storage.")]
         public Storage[] Inserir(InserirStorageCmd comando)
         {
             Notifications.Clear();
@@ -58,6 +77,11 @@ namespace DotNetCore.API.Template.Aplicacao
             return resultado;
         }
 
+        /// <summary>
+        /// Permite editar alguns dados de um storage específico.
+        /// </summary>
+        [Display(Name = "Editar arquivo do storage")]
+        [Description("Permite editar alguns dados de um storage específico.")]
         public Storage Editar(EditarStorageCmd comando)
         {
             Notifications.Clear();
@@ -72,6 +96,11 @@ namespace DotNetCore.API.Template.Aplicacao
             return resultado;
         }
 
+        /// <summary>
+        /// Permite excluir um ou mais arquivos do storage.
+        /// </summary>
+        [Display(Name = "Excluir arquivo do storage")]
+        [Description("Permite excluir um ou mais arquivos do storage.")]
         public void Excluir(ExcluirStorageCmd comando)
         {
             Notifications.Clear();

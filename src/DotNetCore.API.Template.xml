@@ -9,6 +9,56 @@
             Lista todas as autorizações existentes
             </summary>
         </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.SobreApp.Obter">
+            <summary>
+            Permite obter alguns dados sobre a aplicação.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.StorageApp.Obter(DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ObterStorageCmd)">
+            <summary>
+            Permite obter um arquivo do storage apartir do seu alias. 
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.StorageApp.Filtrar(DotNetCore.API.Template.Dominio.Comandos.StorageCmds.FiltrarStorageCmd)">
+            <summary>
+            Permite filtrar os arquivos disponíveis no storage.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.StorageApp.Inserir(DotNetCore.API.Template.Dominio.Comandos.StorageCmds.InserirStorageCmd)">
+            <summary>
+            Permite inserir um ou mais arquivos ao storage.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.StorageApp.Editar(DotNetCore.API.Template.Dominio.Comandos.StorageCmds.EditarStorageCmd)">
+            <summary>
+            Permite editar alguns dados de um storage específico.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.StorageApp.Excluir(DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ExcluirStorageCmd)">
+            <summary>
+            Permite excluir um ou mais arquivos do storage.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.UsuarioApp.Filtrar(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd)">
+            <summary>
+            Permite filtrar os usuários.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.UsuarioApp.Inserir(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd)">
+            <summary>
+            Permite inserir um novo usuário.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.UsuarioApp.Editar(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd)">
+            <summary>
+            Permite editar um usuário específico.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.UsuarioApp.Excluir(DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.ExcluirUsuarioCmd)">
+            <summary>
+            Permite excluir um ou mais usuários.
+            </summary>
+        </member>
         <member name="F:DotNetCore.API.Template.Compartilhado.ObjetosDeValor.BoolInput.Empty">
             <summary>
             Return value string.Empty
