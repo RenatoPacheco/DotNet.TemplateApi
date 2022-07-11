@@ -24,7 +24,7 @@ namespace DotNetCore.API.Template.Dominio.Servicos
             {
                 _autenticacao = Autenticacao.GerarInterno(false);
                 _autenticacao.Autorizacoes = _repAutorizacao.Listar().Where(
-                    x => _autenticacao.Autenticado || !x.RequerAutenticacao).ToArray();
+                    x => _autenticacao.EstaAutenticado || !x.RequerAutenticacao).ToArray();
             }
 
             return _autenticacao;

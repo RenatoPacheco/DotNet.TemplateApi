@@ -9,11 +9,6 @@
             Obter os dados da autenticação atual
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.AutorizacaoController.Get">
-            <summary>
-            Listar todas autorizações existentes
-            </summary>
-        </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.SobreController.Get">
             <summary>
             Obter informação como nome e versão da API

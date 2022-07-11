@@ -70,7 +70,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 
         public bool EstaAutorizado(Autenticacao autenticacao)
         {
-            return (!RequerAutenticacao || (RequerAutenticacao == autenticacao.Autenticado))
+            return (!RequerAutenticacao || (RequerAutenticacao == autenticacao.EstaAutenticado))
                 && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
         }
     }

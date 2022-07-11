@@ -14,11 +14,6 @@
             Permite iniciar a autenticação pelo token e a chave pública.
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Aplicacao.AutorizacaoApp.Listar">
-            <summary>
-            Lista todas as autorizações existentes
-            </summary>
-        </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.SobreApp.Obter">
             <summary>
             Permite obter alguns dados sobre a aplicação.

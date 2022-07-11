@@ -31,8 +31,8 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             {
                 Id = Guid.Empty.ToString(),
                 Nome = "Usuário interno",
-                Interno = true,
-                Autenticado = true,
+                EhInterno = true,
+                EstaAutenticado = true,
                 ExpiraEm = null,
                 HaChavePublica = haChavePublica
                 
@@ -49,8 +49,8 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             {
                 Id = Guid.Empty.ToString(),
                 Nome = "Usuário não autenticado",
-                Interno = false,
-                Autenticado = false,
+                EhInterno = false,
+                EstaAutenticado = false,
                 ExpiraEm = null,
                 HaChavePublica = haChavePublica
             };
@@ -72,7 +72,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             Id = id;
             Nome = nome;
             Email = email;
-            Autenticado = true;
+            EstaAutenticado = true;
             AtualizarToken();
         }
 
@@ -85,9 +85,11 @@ namespace DotNetCore.API.Template.Dominio.Entidades
 
         public string Token { get; set; }
 
-        public bool Interno { get; set; }
+        [Display(Name = "É interno")]
+        public bool EhInterno { get; set; }
 
-        public bool Autenticado { get; set; }
+        [Display(Name = "Está autenticado")]
+        public bool EstaAutenticado { get; set; }
 
         [Display(Name = "Há chave pública")]
         public bool HaChavePublica { get; set; }
@@ -113,7 +115,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
             Autorizacoes = Array.Empty<Autorizacao>();
             Token = null;
 
-            if (!Interno && Autenticado)
+            if (!EhInterno && EstaAutenticado)
             {
                 Token = ContratoJson.Serializar(this);
                 Token = Codificacao.Encriptar(Token);
