@@ -8,6 +8,7 @@ using DotNetCore.API.Template.Recurso;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using DotNetCore.API.Template.Site.ValuesObject;
+using DotNetCore.API.Template.Dominio.Notacoes;
 
 namespace DotNetCore.API.Template.Site.Filters
 {

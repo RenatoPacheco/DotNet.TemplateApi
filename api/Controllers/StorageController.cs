@@ -5,11 +5,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
 using DotNetCore.API.Template.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Site.Extensions;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
+using DotNetCore.API.Template.Dominio.Notacoes;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {

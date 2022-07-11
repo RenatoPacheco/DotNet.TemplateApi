@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotNetCore.API.Template.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Site.Filters;
 using DotNetCore.API.Template.Site.ViewsData;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Dominio.Notacoes;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {

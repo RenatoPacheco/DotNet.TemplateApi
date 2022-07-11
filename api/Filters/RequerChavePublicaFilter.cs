@@ -2,6 +2,7 @@
 using System.Net;
 using System.Reflection;
 using BitHelp.Core.Validation;
+using DotNetCore.API.Template.Dominio.Notacoes;
 using DotNetCore.API.Template.Recurso;
 using DotNetCore.API.Template.Site.ValuesObject;
 using Microsoft.AspNetCore.Http;
