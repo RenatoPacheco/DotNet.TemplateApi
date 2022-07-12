@@ -11,6 +11,8 @@ namespace DotNetCore.API.Template.Site.ValuesObject
     {
         public Avisos(int codigo)
         {
+            Data = DateTime.Now;
+            Rastreio = Guid.NewGuid();
             if (codigo < 300)
             {
                 Mensagem = AvisosResx.SolicitacaoSucesso;

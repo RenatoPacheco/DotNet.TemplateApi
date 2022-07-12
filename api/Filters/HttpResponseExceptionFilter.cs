@@ -1,8 +1,7 @@
 ﻿using System.Net;
 using BitHelp.Core.Validation;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using DotNetCore.API.Template.Site.ValuesObject;
+using DotNetCore.API.Template.Site.Helpers;
 
 namespace DotNetCore.API.Template.Site.Filters
 {
@@ -16,16 +15,11 @@ namespace DotNetCore.API.Template.Site.Filters
         {
             if (!(context?.Exception is null))
             {
+                HttpStatusCode codigo = HttpStatusCode.InternalServerError;
                 ValidationNotification notificacao = new ValidationNotification();
                 notificacao.AddFatal(context.Exception);
-                HttpStatusCode codigo = HttpStatusCode.InternalServerError;
-                Avisos avisos = new Avisos((int)codigo, notificacao);
-                string dados = null;
 
-                context.Result = new ObjectResult(new { 
-                    avisos, dados
-                });
-
+                context.Result = MontarResultado.Json(codigo, notificacao);
                 context.ExceptionHandled = true;
             }
         }
