@@ -35,6 +35,8 @@ namespace DotNetCore.API.Template.Dominio.Entidades
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
+        public string Senha { get; set; }
+
         public PhoneType? Telefone { get; set; }
 
         [Display(Name = "Criado em")]

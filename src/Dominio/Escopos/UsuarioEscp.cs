@@ -32,6 +32,13 @@ namespace DotNetCore.API.Template.Dominio.Escopos
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
+        public void SenhaEhValido(Expression<Func<TClasse, object>> expressao)
+        {
+            _entidade.RemoveAtReference(expressao);
+            _entidade.RangeCharactersIsValid(expressao, 8, 30);
+            _entidade.PasswordIsValid(expressao);
+        }
+
         public void TelefoneEhValido(Expression<Func<TClasse, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);

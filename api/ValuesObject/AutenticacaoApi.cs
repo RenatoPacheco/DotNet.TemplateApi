@@ -18,12 +18,20 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             CriadoEm = dados.CriadoEm;
             ExpiraEm = dados.ExpiraEm;
             Token = dados.Token;
+            EstaAutenticado = dados.EstaAutenticado;
+            HaChavePublica = dados.HaChavePublica;
         }
 
         public string Nome { get; set; }
 
         [Display(Name = "E-mail")]
         public string Email { get; set; }
+
+        [Display(Name = "Está autenticado")]
+        public bool EstaAutenticado { get; set; }
+
+        [Display(Name = "Há chave pública")]
+        public bool HaChavePublica { get; set; }
 
         [Display(Name = "Criado em")]
         public DateTime? CriadoEm { get; set; }

@@ -45,6 +45,20 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
+        private string _senha;
+        /// <summary>
+        /// Senha de usuário
+        /// </summary>
+        public string Senha
+        {
+            get => _senha;
+            set
+            {
+                _senha = value;
+                _escopo.SenhaEhValido(x => x.Senha);
+            }
+        }
+
         private PhoneType? _telefone;
         /// <summary>
         /// Telefone de usuário
@@ -78,6 +92,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             dados = new Usuario(
                 Nome, Email, (Status)Status)
             {
+                Senha = Senha,
                 Telefone = Telefone
             };
         }
@@ -95,6 +110,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
         {
             _escopo.EhRequerido(x => x.Nome);
             _escopo.EhRequerido(x => x.Email);
+            _escopo.EhRequerido(x => x.Senha);
             _escopo.EhRequerido(x => x.Status);
 
             return Notifications.IsValid();

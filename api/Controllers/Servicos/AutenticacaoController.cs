@@ -32,7 +32,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// </summary>
         [HttpGet]
         [ReferenciarApp(typeof(AutenticacaoApp), nameof(AutenticacaoApp.Obter))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Autenticacao>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<AutenticacaoApi>))]
         public IActionResult Get()
         {
             AutenticacaoApi resultado = _apiServAutenticacao.Obter();

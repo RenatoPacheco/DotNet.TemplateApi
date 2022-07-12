@@ -64,6 +64,21 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
+        private string _senha;
+        /// <summary>
+        /// Senha de usuário
+        /// </summary>
+        public string Senha
+        {
+            get => _senha;
+            set
+            {
+                _senha = value;
+                RegistrarCampo(nameof(Senha));
+                _escopo.SenhaEhValido(x => x.Senha);
+            }
+        }
+
         private PhoneType? _telefone;
         /// <summary>
         /// Telefone de usuário
@@ -104,6 +119,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             if (CampoFoiRegistrado(nameof(Email)))
             {
                 dados.Email = Email;
+            }
+
+            if (CampoFoiRegistrado(nameof(Senha)))
+            {
+                dados.Senha = Senha;
             }
 
             if (CampoFoiRegistrado(nameof(Telefone)))

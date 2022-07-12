@@ -1,6 +1,6 @@
 USE [Testando]
 GO
-/****** Object:  Table [dbo].[Storage]    Script Date: 10/07/2022 10:23:00 ******/
+/****** Object:  Table [dbo].[Storage]    Script Date: 12/07/2022 10:27:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23,7 +23,7 @@ CREATE TABLE [dbo].[Storage](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 10/07/2022 10:23:00 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 12/07/2022 10:27:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -36,6 +36,7 @@ CREATE TABLE [dbo].[Usuario](
 	[DataAlteracao_Usuario] [datetime] NULL,
 	[Status_Usuario] [char](1) NULL,
 	[Telefone_Usuario] [varchar](255) NULL,
+	[Senha_Usuario] [varchar](255) NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
 (
 	[Codigo_Usuario] ASC

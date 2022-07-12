@@ -33,6 +33,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
                 Nome = "Usuário interno",
                 EhInterno = true,
                 EstaAutenticado = true,
+                CriadoEm = null,
                 ExpiraEm = null,
                 HaChavePublica = haChavePublica
                 
@@ -51,6 +52,7 @@ namespace DotNetCore.API.Template.Dominio.Entidades
                 Nome = "Usuário não autenticado",
                 EhInterno = false,
                 EstaAutenticado = false,
+                CriadoEm = null,
                 ExpiraEm = null,
                 HaChavePublica = haChavePublica
             };

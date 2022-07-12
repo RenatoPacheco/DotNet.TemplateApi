@@ -115,6 +115,15 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], []A-Z], [a-z] e [-_$%#@!*.+={}]..
+        /// </summary>
+        public static string SenhaDeveConter {
+            get {
+                return ResourceManager.GetString("SenhaDeveConter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ocorreu um erro na solicitação..
         /// </summary>
         public static string SolicitacaoErro {

@@ -7,17 +7,18 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Site.DataAnnotations;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using DotNetCore.API.Template.Aplicacao;
 
 namespace DotNetCore.API.Template.Site.ValuesObject
 {
-    public class AutorizacaoApi
+    public class AutorizacaoApi : ICloneable
     {
-        public AutorizacaoApi(ApiDescription apiInfo)
+        public AutorizacaoApi(ApiDescription apiInfo, AutorizacaoApp appAutorizacao)
         {
             ControllerActionDescriptor actionDescriptor = (ControllerActionDescriptor)apiInfo.ActionDescriptor;
             Metodo = actionDescriptor.MethodInfo;
             Classe = actionDescriptor.ControllerTypeInfo;
-
+            
             Prefixo = actionDescriptor.ControllerName;
             Requisito = ExtrairRequisito(Metodo);
             Nome = Requisito?.Nome;
@@ -28,7 +29,11 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
             Id = Regex.Match(apiInfo.RelativePath, @"^[^?]+").Value;
             Id = Regex.Replace(Id, @"{[^}]+}", "{Param}").ToLower();
+
+            Referencia = appAutorizacao.Listar().Where(x => x.Id == Requisito?.Id).FirstOrDefault();
         }
+
+        public readonly Autorizacao Referencia;
 
         public readonly MethodInfo Metodo;
 
@@ -49,6 +54,12 @@ namespace DotNetCore.API.Template.Site.ValuesObject
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
+        [Display(Name = "Requer autenticação")]
+        public bool? RequerAutenticacao => Referencia?.RequerAutenticacao;
+
+        [Display(Name = "Requer chave pública")]
+        public bool? RequerChavePublica => Referencia?.RequerChavePublica;
+
         public bool Obsoleto { get; set; }
 
         public bool EstaAutorizado(Autorizacao[] compare)
@@ -63,7 +74,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
                 .FirstOrDefault() as DisplayAttribute;
 
             return atributo?.Name;
-        }
+        }        
 
         private Requisito ExtrairRequisito(MethodInfo metodo)
         {
@@ -89,6 +100,11 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
             Obsoleto = !(info is null);
             Descricao = info?.Message ?? Descricao;
+        }
+
+        public object Clone()
+        {
+            return (AutorizacaoApi)MemberwiseClone();
         }
     }
 }

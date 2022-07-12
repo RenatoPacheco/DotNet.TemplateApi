@@ -15,6 +15,7 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
             Associar(x => x.AlteradoEm, "DataAlteracao_Usuario");
             Associar(x => x.Status, "Status_Usuario");
             Associar(x => x.Telefone, "Telefone_Usuario");
+            Associar(x => x.Senha, "Senha_Usuario");
         }
 
         public override string Tabela => "Usuario";

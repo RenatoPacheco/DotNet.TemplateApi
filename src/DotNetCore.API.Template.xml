@@ -465,6 +465,11 @@
             E-mail de usuário
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Senha">
+            <summary>
+            Senha de usuário
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Telefone">
             <summary>
             Telefone de usuário
@@ -498,6 +503,11 @@
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Email">
             <summary>
             E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Senha">
+            <summary>
+            Senha de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Telefone">
@@ -589,6 +599,11 @@
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.PesoDoArquivoEmKbInvalido">
             <summary>
               Looks up a localized string similar to Peso do arquivo deve ser menou ou iqual a {0} kb..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SenhaDeveConter">
+            <summary>
+              Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], []A-Z], [a-z] e [-_$%#@!*.+={}]..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoErro">

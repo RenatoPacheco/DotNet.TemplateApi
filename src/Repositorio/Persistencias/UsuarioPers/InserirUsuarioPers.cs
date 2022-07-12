@@ -40,6 +40,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
                     INSERT INTO [dbo].[{json.Tabela}]
                            ([{json.Coluna(x => x.Nome)}]
                            ,[{json.Coluna(x => x.Email)}]
+                           ,[{json.Coluna(x => x.Senha)}]
                            ,[{json.Coluna(x => x.Telefone)}]
                            ,[{json.Coluna(x => x.CriadoEm)}]
                            ,[{json.Coluna(x => x.AlteradoEm)}]
@@ -47,6 +48,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
                     VALUES
                            (@Nome
                            ,@Email
+                           ,@Senha
                            ,@Telefone
                            ,@CriadoEm
                            ,@AlteradoEm
@@ -58,6 +60,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
                 {
                     Nome = new DbString { Value = dados.Nome, IsAnsi = true },
                     Email = new DbString { Value = dados.Email, IsAnsi = true },
+                    Senha = new DbString { Value = dados.Senha, IsAnsi = true },
                     Telefone = new DbString { Value = dados.Telefone, IsAnsi = true },
                     Status = new DbString { Value = StatusAdapt.EnumParaSql(dados.Status), IsAnsi = true },
                     CriadoEm = dados.CriadoEm,
