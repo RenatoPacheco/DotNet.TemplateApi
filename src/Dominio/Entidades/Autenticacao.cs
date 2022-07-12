@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Seguranca;
+using DotNetCore.API.Template.Compartilhado.Seguranca;
 using DotNetCore.API.Template.Compartilhado.Json;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 

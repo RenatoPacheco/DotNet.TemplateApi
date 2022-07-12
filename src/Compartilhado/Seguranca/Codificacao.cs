@@ -2,7 +2,7 @@
 using BitHelp.Core.Security;
 using System.Text.RegularExpressions;
 
-namespace DotNetCore.API.Template.Dominio.Seguranca
+namespace DotNetCore.API.Template.Compartilhado.Seguranca
 {
     public class Codificacao
     {
