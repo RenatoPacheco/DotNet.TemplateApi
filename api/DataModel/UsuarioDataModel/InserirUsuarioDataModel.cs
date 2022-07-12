@@ -8,12 +8,6 @@ namespace DotNetCore.API.Template.Site.DataModel.UsuarioDataModel
     public class InserirUsuarioDataModel
     {
         /// <summary>
-        /// Identificador de usuário
-        /// </summary>
-        [Display(Name = "Usuário")]
-        public IntInput? Usuario { get; set; }
-
-        /// <summary>
         /// Nome de usuário
         /// </summary>
         public string Nome { get; set; }
@@ -28,6 +22,11 @@ namespace DotNetCore.API.Template.Site.DataModel.UsuarioDataModel
         /// Telefone de usuário
         /// </summary>
         public PhoneType? Telefone { get; set; }
+
+        /// <summary>
+        /// Senha de usuário
+        /// </summary>
+        public string Senha { get; set; }
 
         /// <summary>
         /// Status de usuário

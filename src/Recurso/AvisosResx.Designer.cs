@@ -115,7 +115,7 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], []A-Z], [a-z] e [-_$%#@!*.+={}]..
+        ///   Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
         /// </summary>
         public static string SenhaDeveConter {
             get {
@@ -273,6 +273,15 @@ namespace DotNetCore.API.Template.Recurso {
         public static string XPropriedadeNaoConfigurada {
             get {
                 return ResourceManager.GetString("XPropriedadeNaoConfigurada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
+        /// </summary>
+        public static string XSenhaDeveConter {
+            get {
+                return ResourceManager.GetString("XSenhaDeveConter", resourceCulture);
             }
         }
         

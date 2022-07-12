@@ -30,6 +30,11 @@ namespace DotNetCore.API.Template.Site.DataModel.UsuarioDataModel
         public PhoneType? Telefone { get; set; }
 
         /// <summary>
+        /// Senha de usuário
+        /// </summary>
+        public string Senha { get; set; }
+
+        /// <summary>
         /// Status de usuário
         /// </summary>
         public EnumInput<Status>? Status { get; set; }

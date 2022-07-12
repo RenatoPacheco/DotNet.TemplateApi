@@ -136,7 +136,7 @@
     <value>Peso do arquivo deve ser menou ou iqual a {0} kb.</value>
   </data>
   <data name="SenhaDeveConter" xml:space="preserve">
-    <value>A senha deve conter um de cada dos conjuntos  [0-9], []A-Z], [a-z] e [-_$%#@!*.+={}].</value>
+    <value>A senha deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=].</value>
   </data>
   <data name="SolicitacaoErro" xml:space="preserve">
     <value>Ocorreu um erro na solicitação.</value>
@@ -188,6 +188,9 @@
   </data>
   <data name="XPropriedadeNaoConfigurada" xml:space="preserve">
     <value>A propriedade "{0}" ainda não foi configurada.</value>
+  </data>
+  <data name="XSenhaDeveConter" xml:space="preserve">
+    <value>{0} deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=].</value>
   </data>
   <data name="XValorNaoPodeSerVazio" xml:space="preserve">
     <value>O valor de "{0}" não pode ser vazio.</value>

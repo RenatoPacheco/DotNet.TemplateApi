@@ -603,7 +603,7 @@
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SenhaDeveConter">
             <summary>
-              Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], []A-Z], [a-z] e [-_$%#@!*.+={}]..
+              Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoErro">
@@ -689,6 +689,11 @@
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XPropriedadeNaoConfigurada">
             <summary>
               Looks up a localized string similar to A propriedade &quot;{0}&quot; ainda não foi configurada..
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XSenhaDeveConter">
+            <summary>
+              Looks up a localized string similar to {0} deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XValorNaoPodeSerVazio">

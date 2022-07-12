@@ -157,6 +157,11 @@
             Telefone de usuário
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Senha">
+            <summary>
+            Senha de usuário
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Status">
             <summary>
             Status de usuário
@@ -177,11 +182,6 @@
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Usuario">
-            <summary>
-            Identificador de usuário
-            </summary>
-        </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Nome">
             <summary>
             Nome de usuário
@@ -195,6 +195,11 @@
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
             <summary>
             Telefone de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Senha">
+            <summary>
+            Senha de usuário
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Status">

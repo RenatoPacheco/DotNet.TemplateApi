@@ -12,7 +12,7 @@ namespace DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes
         public PasswordIsValidAttribute() : base()
         {
             ErrorMessageResourceType = typeof(AvisosResx);
-            ErrorMessageResourceName = nameof(AvisosResx.SenhaDeveConter);
+            ErrorMessageResourceName = nameof(AvisosResx.XSenhaDeveConter);
         }
 
         protected override bool Check(object value)
@@ -20,12 +20,12 @@ namespace DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes
             string input = Convert.ToString(value);
             bool result = false;
 
-            if (!Regex.IsMatch(input, @"^\w\-_$%#@!*\.+=\{\}$"))
+            if (!Regex.IsMatch(input, @"^\w\-_$%#@!*\.+=$"))
                 if (Regex.IsMatch(input, @"[A-Z]"))
                     if (Regex.IsMatch(input, @"[a-z]"))
                         if (Regex.IsMatch(input, @"[0-9]"))
-                            if (Regex.IsMatch(input, @"\-_$%#@!*\.+=\{\}"))
-                                if (!Regex.IsMatch(input, @"0{2}|1{2}|2{2}|3{2}|4{2}|5{2}|6{2}|7{2}|8{2}|9{2}"))
+                            if (Regex.IsMatch(input, @"[\-_\$%#@!\*\.+=]"))
+                                if (!Regex.IsMatch(input, @"0{3}|1{3}|2{3}|3{3}|4{3}|5{3}|6{3}|7{3}|8{3}|9{3}"))
                                     result = true;
 
             return result;
