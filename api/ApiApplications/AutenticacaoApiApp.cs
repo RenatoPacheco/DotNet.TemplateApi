@@ -11,7 +11,7 @@ using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
 
 namespace DotNetCore.API.Template.Site.ApiApplications
 {
-    public class AutenticacaoApiApp : Aplicacao.Comum.BaseApp
+    public class AutenticacaoApiApp : Common.BaseApiApp
     {
         public AutenticacaoApiApp(
                AutenticacaoApp appAutenticacao,

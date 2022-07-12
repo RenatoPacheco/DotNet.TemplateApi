@@ -6,7 +6,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 
 namespace DotNetCore.API.Template.Site.ApiServices
 {
-    public class AutorizacaoApiServ : Aplicacao.Comum.BaseApp
+    public class AutorizacaoApiServ : Common.baseApiServ
     {
         public AutorizacaoApiServ(
             IApiDescriptionGroupCollectionProvider apiExplorer)
