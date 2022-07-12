@@ -4,8 +4,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DotNetCore.API.Template.Compartilhado.Json;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace DotNetCore.API.Template.Site
 {
@@ -22,13 +20,10 @@ namespace DotNetCore.API.Template.Site
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            CorsConfig.Config(services);
-            IdCConfig.Config(services);
-
             services.AddHttpContextAccessor();
 
-            services.TryAddSingleton<IApiDescriptionGroupCollectionProvider, ApiDescriptionGroupCollectionProvider>();
-            services.TryAddEnumerable(ServiceDescriptor.Transient<IApiDescriptionProvider, DefaultApiDescriptionProvider>());
+            CorsConfig.Config(services);
+            IdCConfig.Config(services);
 
             services.AddControllers(options => {
                 // Aplicando filtrdo customizados
