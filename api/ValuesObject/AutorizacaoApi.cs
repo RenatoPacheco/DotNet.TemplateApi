@@ -23,12 +23,13 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             Requisito = ExtrairRequisito(Metodo);
             Nome = Requisito?.Nome;
             Descricao = Requisito?.Descricao;
-            Verbo = apiInfo.HttpMethod.ToString();
+            Http = apiInfo.HttpMethod.ToString();
             Rota = apiInfo.RelativePath;
             ExtrairObsoleto(Metodo);
 
             Id = Regex.Match(apiInfo.RelativePath, @"^[^?]+").Value;
             Id = Regex.Replace(Id, @"{[^}]+}", "{Param}").ToLower();
+            Id = $"{Http.ToLower()}:{Id}";
 
             Referencia = appAutorizacao.Listar().Where(x => x.Id == Requisito?.Id).FirstOrDefault();
         }
@@ -49,7 +50,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
         public string Nome { get; set; }
 
-        public string Verbo { get; set; }
+        public string Http { get; set; }
 
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
