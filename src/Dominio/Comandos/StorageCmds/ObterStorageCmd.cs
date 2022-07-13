@@ -30,25 +30,25 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<EnumInput<Status>> _status;
+        private IList<Status> _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<EnumInput<Status>> Status
+        public IList<Status> Status
         {
-            get => _status ??= new List<EnumInput<Status>>();
+            get => _status ??= new List<Status>();
             set
             {
-                _status = value ?? new List<EnumInput<Status>>();
+                _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
-        private BoolInput _download = (BoolInput)false;
+        private bool _download = false;
         /// <summary>
         /// Informe true para fazer download do arquivo 
         /// </summary>
-        public BoolInput Download
+        public bool Download
         {
             get => _download;
             set
@@ -56,7 +56,6 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
                 _download = value;
                 this.RemoveAtReference(x => x.Download);
                 this.RequiredIsValid(x => x.Download);
-                this.BoolIsValid(x => x.Download);
             }
         }
 

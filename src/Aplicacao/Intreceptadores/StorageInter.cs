@@ -20,7 +20,7 @@ namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
             {
                 if (!comando.HasNotification(x => x.Status))
                 {
-                    comando.Status = new List<EnumInput<Status>>() { (EnumInput<Status>)Status.Ativo };
+                    comando.Status = new List<Status>() { Status.Ativo };
                 }
             }
         }
@@ -31,7 +31,7 @@ namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
             {
                 if (!comando.HasNotification(x => x.Status))
                 {
-                    comando.Status = new List<EnumInput<Status>>() { (EnumInput<Status>)Status.Ativo };
+                    comando.Status = new List<Status>() { Status.Ativo };
                 }
             }
         }

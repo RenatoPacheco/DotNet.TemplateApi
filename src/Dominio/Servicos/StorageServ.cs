@@ -88,7 +88,7 @@ namespace DotNetCore.API.Template.Dominio.Servicos
             {
                 resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd
                 {
-                    Storage = new LongInput[] { comando.Storage.Value },
+                    Storage = new long[] { comando.Storage.Value },
                     Maximo = 1,
                     Pagina = 1
                 }, nameof(comando.Storage), ValidationType.Error);

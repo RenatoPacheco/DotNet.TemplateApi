@@ -14,16 +14,16 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             _escopo = new StorageEscp<ExcluirStorageCmd>(this);
         }
 
-        private IList<LongInput> _storage;
+        private IList<long> _storage;
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public IList<LongInput> Storage
+        public IList<long> Storage
         {
-            get => _storage ??= new List<LongInput>();
+            get => _storage ??= new List<long>();
             set
             {
-                _storage = value ?? new List<LongInput>();
+                _storage = value ?? new List<long>();
                 _escopo.IdEhValido(x => x.Storage);
             }
         }

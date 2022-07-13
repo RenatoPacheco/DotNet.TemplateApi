@@ -163,18 +163,29 @@
     "colId": "e82401df-236a-4761-962b-172ca2dc9869",
     "containerId": "",
     "name": "Filtrar",
-    "url": "{{host}}/servico/storage",
+    "url": "{{host}}/servico/storage?status=sssss&storage=sssssss",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-07-10T12:23:13.101Z",
-    "modified": "2022-07-10T12:23:33.184Z",
+    "modified": "2022-07-13T15:14:14.670Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [],
+    "params": [
+      {
+        "name": "status",
+        "value": "sssss",
+        "isPath": false
+      },
+      {
+        "name": "storage",
+        "value": "sssssss",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"
@@ -226,6 +237,40 @@
       }
     ],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "502b7583-04e7-4e5f-9feb-9818eaf9a9ec",
+    "colId": "e82401df-236a-4761-962b-172ca2dc9869",
+    "containerId": "",
+    "name": "Obter",
+    "url": "{{host}}/storage/eteytyeyet.jpg?status=Ativo&download=true",
+    "method": "GET",
+    "sortNum": 5000,
+    "created": "2022-07-13T14:53:53.034Z",
+    "modified": "2022-07-13T14:55:18.341Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [
+      {
+        "name": "status",
+        "value": "Ativo",
+        "isPath": false
+      },
+      {
+        "name": "download",
+        "value": "true",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"

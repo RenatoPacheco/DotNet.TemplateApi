@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
 {
@@ -14,11 +13,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             _escopo = new StorageEscp<EditarStorageCmd>(this);
         }
 
-        private LongInput? _storage;
+        private long? _storage;
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public LongInput? Storage
+        public long? Storage
         {
             get => _storage;
             set
@@ -44,11 +43,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             }
         }
 
-        private EnumInput<Status>? _status;
+        private Status? _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInput<Status>? Status
+        public Status? Status
         {
             get => _status;
             set

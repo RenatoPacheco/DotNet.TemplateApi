@@ -4,7 +4,6 @@ using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
 {
@@ -16,16 +15,16 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             _escopo = new StorageEscp<FiltrarStorageCmd>(this);
         }
 
-        private IList<LongInput> _storage;
+        private IList<long> _storage;
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public IList<LongInput> Storage
+        public IList<long> Storage
         {
-            get => _storage ??= new List<LongInput>();
+            get => _storage ??= new List<long>();
             set
             {
-                _storage = value ?? new List<LongInput>();
+                _storage = value ?? new List<long>();
                 _escopo.IdEhValido(x => x.Storage);
             }
         }
@@ -59,16 +58,16 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<EnumInput<Status>> _status;
+        private IList<Status> _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<EnumInput<Status>> Status
+        public IList<Status> Status
         {
-            get => _status ??= new List<EnumInput<Status>>();
+            get => _status ??= new List<Status>();
             set
             {
-                _status = value ?? new List<EnumInput<Status>>();
+                _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
