@@ -37,6 +37,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interUsuario.Filtrar(comando);
                 resultado = _servUsuario.Filtrar(comando);
                 Validate(_servUsuario);
             }
@@ -56,6 +57,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interUsuario.Inserir(comando);
                 resultado = _servUsuario.Inserir(comando);
                 Validate(_servUsuario);
             }
@@ -75,6 +77,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interUsuario.Editar(comando);
                 resultado = _servUsuario.Editar(comando);
                 Validate(_servUsuario);
             }
@@ -93,6 +96,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interUsuario.Excluir(comando);
                 _servUsuario.Excluir(comando);
                 Validate(_servUsuario);
             }

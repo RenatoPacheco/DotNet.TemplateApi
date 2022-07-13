@@ -79,6 +79,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interStorage.Inserir(comando);
                 resultado = _servStorage.Inserir(comando);
                 Validate(_servStorage);
             }
@@ -98,6 +99,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interStorage.Editar(comando);
                 resultado = _servStorage.Editar(comando);
                 Validate(_servStorage);
             }
@@ -116,6 +118,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interStorage.Excluir(comando);
                 _servStorage.Excluir(comando);
                 Validate(_servStorage);
             }

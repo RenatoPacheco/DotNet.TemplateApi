@@ -4,6 +4,7 @@ using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using System.Collections.Generic;
 using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using System;
 
 namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
 {
@@ -13,7 +14,7 @@ namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
             AutenticacaoServ servAutenticacao)
             : base(servAutenticacao) { }
 
-        public void Obter(ObterStorageCmd comando)
+        internal void Obter(ObterStorageCmd comando)
         {
             if (!_servAutenticacao.EstaAutenticado())
             {
@@ -24,7 +25,7 @@ namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
             }
         }
 
-        public void Filtrar(FiltrarStorageCmd comando)
+        internal void Filtrar(FiltrarStorageCmd comando)
         {
             if (!_servAutenticacao.EstaAutenticado())
             {
@@ -33,6 +34,21 @@ namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
                     comando.Status = new List<EnumInput<Status>>() { (EnumInput<Status>)Status.Ativo };
                 }
             }
+        }
+
+        internal void Excluir(ExcluirStorageCmd comando)
+        {
+
+        }
+
+        internal void Editar(EditarStorageCmd comando)
+        {
+
+        }
+
+        internal void Inserir(InserirStorageCmd comando)
+        {
+
         }
     }
 }

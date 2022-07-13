@@ -54,6 +54,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interAutenticacao.Iniciar(comando);
                 resultado = _servAutenticacao.Iniciar(comando);
                 Validate(_servAutenticacao);
             }
