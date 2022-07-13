@@ -31,7 +31,7 @@
     "method": "GET",
     "sortNum": 25000,
     "created": "2022-07-04T15:06:49.916Z",
-    "modified": "2022-07-11T14:10:39.534Z",
+    "modified": "2022-07-13T15:48:09.372Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -163,29 +163,18 @@
     "colId": "e82401df-236a-4761-962b-172ca2dc9869",
     "containerId": "",
     "name": "Filtrar",
-    "url": "{{host}}/servico/storage?status=sssss&storage=sssssss",
+    "url": "{{host}}/servico/storage",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-07-10T12:23:13.101Z",
-    "modified": "2022-07-13T15:14:14.670Z",
+    "modified": "2022-07-13T15:47:39.394Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [
-      {
-        "name": "status",
-        "value": "sssss",
-        "isPath": false
-      },
-      {
-        "name": "storage",
-        "value": "sssssss",
-        "isPath": false
-      }
-    ],
+    "params": [],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"

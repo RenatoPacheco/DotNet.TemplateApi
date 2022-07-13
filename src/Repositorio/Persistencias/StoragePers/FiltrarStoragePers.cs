@@ -54,7 +54,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             if (comando.Storage.Any())
             {
                 sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Id)}] IN @Storage ");
-                sqlObjeto.Add("Storage", comando.Storage.Select(x => (long)x));
+                sqlObjeto.Add("Storage", comando.Storage);
             }
 
             if (comando.Referencia.Any())
@@ -72,7 +72,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             if (comando.Status.Any())
             {
                 sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Status)}] IN @Status ");
-                sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status.Select(x => (Status)x)));
+                sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
             if (textos.Any())

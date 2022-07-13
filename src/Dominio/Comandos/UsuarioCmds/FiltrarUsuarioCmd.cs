@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 using System.Collections.Generic;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
@@ -16,31 +15,31 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
         }
 
-        private IList<IntInput> _usuario;
+        private IList<int> _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<IntInput> Usuario
+        public IList<int> Usuario
         {
-            get => _usuario ??= new List<IntInput>();
+            get => _usuario ??= new List<int>();
             set
             {
-                _usuario = value ?? new List<IntInput>();
+                _usuario = value ?? new List<int>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }
 
-        private IList<EnumInput<Status>> _status;
+        private IList<Status> _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<EnumInput<Status>> Status
+        public IList<Status> Status
         {
-            get => _status ??= new List<EnumInput<Status>>();
+            get => _status ??= new List<Status>();
             set
             {
-                _status = value ?? new List<EnumInput<Status>>();
+                _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }

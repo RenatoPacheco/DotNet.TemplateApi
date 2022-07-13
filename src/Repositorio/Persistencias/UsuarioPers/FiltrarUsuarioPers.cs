@@ -55,13 +55,13 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
             if (comando.Usuario.Any())
             {
                 sqlFiltro.Append($" AND usu.[{_jsonUsuario.Coluna(x => x.Id)}] IN @Usuario ");
-                sqlObjeto.Add("Usuario", comando.Usuario.Select(x => (int)x));
+                sqlObjeto.Add("Usuario", comando);
             }
 
             if (comando.Status.Any())
             {
                 sqlFiltro.Append($" AND usu.[{_jsonUsuario.Coluna(x => x.Status)}] IN @Status ");
-                sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status.Select(x => (Status)x)));
+                sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
             if (textos.Any())

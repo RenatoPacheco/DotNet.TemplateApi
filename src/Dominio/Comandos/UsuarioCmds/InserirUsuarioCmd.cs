@@ -73,11 +73,11 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             }
         }
 
-        private EnumInput<Status>? _status;
+        private Status? _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInput<Status>? Status
+        public Status? Status
         {
             get => _status;
             set

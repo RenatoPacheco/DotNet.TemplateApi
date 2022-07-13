@@ -34,7 +34,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
 
             object sqlObject = new
             {
-                Id = comando.Storage.Select(x => (long)x).ToList(),
+                Id = comando.Storage,
                 Alias = comando.Alias,
                 Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
                 AlteradoEm = DateTime.Now

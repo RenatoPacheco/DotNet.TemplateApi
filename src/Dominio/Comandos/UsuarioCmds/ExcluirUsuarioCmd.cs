@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 {
@@ -14,17 +13,17 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<ExcluirUsuarioCmd>(this);
         }
 
-        private IList<IntInput> _usuario;
+        private IList<int> _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<IntInput> Usuario
+        public IList<int> Usuario
         {
-            get => _usuario ??= new List<IntInput>();
+            get => _usuario ??= new List<int>();
             set
             {
-                _usuario = value ?? new List<IntInput>();
+                _usuario = value ?? new List<int>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }

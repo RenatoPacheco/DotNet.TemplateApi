@@ -32,7 +32,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
 
             object sqlObject = new
             {
-                Id = comando.Usuario.Select(x => (int)x).ToList(),
+                Id = comando.Usuario,
                 Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
                 AlteradoEm = DateTime.Now
             };
