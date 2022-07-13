@@ -44,7 +44,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite iniciar a autenticação pelo token e a chave pública.
         /// </summary>
-        [NaoRequerAutorizacao]
+        [NaoRequerAutorizacao, NaoRequerChavePublica]
         [Display(Name = "Iniciar autenticação")]
         [Description("Permite iniciar a autenticação pelo token e a chave pública.")]
         public Autenticacao Iniciar(IniciarAutenticacaoCmd comando)

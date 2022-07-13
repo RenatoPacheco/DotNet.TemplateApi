@@ -2,6 +2,10 @@
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
 using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
+using System.Reflection;
+using DotNetCore.API.Template.Recurso;
+using BitHelp.Core.Validation;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Dominio.Servicos
 {
@@ -54,6 +58,38 @@ namespace DotNetCore.API.Template.Dominio.Servicos
                 x => x.EstaAutorizado(_autenticacao)).ToArray();
 
             return _autenticacao;
+        }
+
+        public bool EstaAutorizado(MethodBase metodo, ValidationType erro = ValidationType.Error)
+        {
+            Notifications.Clear();
+            Autorizacao requisito = _repAutorizacao.Listar().Where(x => x.Metodo == metodo).FirstOrDefault();
+            
+            bool chavePublica = !requisito.RequerChavePublica || _autenticacao.HaChavePublica;
+            bool autorizacao = !requisito.RequerAutorizacao || _autenticacao.Autorizacoes.Any(x => x.Metodo == metodo);
+
+            if (!chavePublica || !autorizacao)
+            {
+                Notifications.Add(
+                    new ValidationMessage(
+                        AvisosResx.AcessoNaoAutorizado, null, erro));
+            }
+
+            return Notifications.IsValid();
+        }
+
+        public bool EstaAutenticado()
+        {
+            Notifications.Clear();
+            bool resultado = _autenticacao?.EstaAutenticado ?? false;
+
+            if (!resultado)
+            {
+                Notifications.AddAlert(
+                    AvisosResx.AcessoNaoAutenticado);
+            }
+
+            return resultado;
         }
     }
 }

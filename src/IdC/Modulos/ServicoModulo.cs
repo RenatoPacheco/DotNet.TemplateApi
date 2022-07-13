@@ -9,7 +9,10 @@ namespace DotNetCore.API.Template.IdC.Modulos
     {
         internal static Type[] _singleton = Array.Empty<Type>();
 
-        internal static Type[] _scoped = Array.Empty<Type>();
+        internal static Type[] _scoped = new Type[]
+        {
+            typeof(AutenticacaoServ)
+        };
 
         internal static void Carregar(IResolverDependencia recipiente)
         {

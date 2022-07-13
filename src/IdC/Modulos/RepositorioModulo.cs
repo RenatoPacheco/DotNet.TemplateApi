@@ -17,7 +17,8 @@ namespace DotNetCore.API.Template.IdC.Modulos
         {
             typeof(Conexao),
             typeof(ITransicao),
-            typeof(IUnidadeTrabalho)
+            typeof(IUnidadeTrabalho),
+            typeof(AutorizacaoRep)
         };
 
         internal static void Carregar(IResolverDependencia recipiente)

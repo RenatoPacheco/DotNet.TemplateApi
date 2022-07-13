@@ -15,6 +15,9 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         public Autorizacao(MethodInfo metodo, Type classe)
             : this()
         {
+            Classe = classe;
+            Metodo = metodo;
+
             // Analizando classe
 
             bool naoRequerAutorizacao = (classe.GetCustomAttributes(
@@ -58,6 +61,10 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 
             Id = ToString();
         }
+
+        public readonly Type Classe;
+
+        public readonly MethodInfo Metodo;
 
         public string Id { get; set; }
 

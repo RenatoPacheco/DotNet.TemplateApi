@@ -38,6 +38,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interStorage.Obter(comando);
                 resultado = _servStorage.Obter(comando);
                 Validate(_servStorage);
             }
@@ -48,6 +49,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite filtrar os arquivos disponíveis no storage.
         /// </summary>
+        [NaoRequerAutorizacao]
         [Display(Name = "Filtrar arquivos do storage")]
         [Description("Permite filtrar os arquivos disponíveis no storage.")]
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando)
@@ -57,6 +59,7 @@ namespace DotNetCore.API.Template.Aplicacao
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
+                _interStorage.Filtrar(comando);
                 resultado = _servStorage.Filtrar(comando);
                 Validate(_servStorage);
             }

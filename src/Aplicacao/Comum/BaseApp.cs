@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using BitHelp.Core.Validation;
 using DotNetCore.API.Template.Dominio.Servicos;
+using DotNetCore.API.Template.Recurso;
 
 namespace DotNetCore.API.Template.Aplicacao.Comum
 {
@@ -30,7 +31,9 @@ namespace DotNetCore.API.Template.Aplicacao.Comum
 
         public bool EhAutorizado(MethodBase metodo)
         {
-            return true;
+            Notifications.Clear();
+            _servAutenticacao.EstaAutorizado(metodo, ValidationType.Unauthorized);
+            return Validate(_servAutenticacao);
         }
     }
 }

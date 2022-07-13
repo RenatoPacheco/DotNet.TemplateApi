@@ -561,6 +561,11 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.AcessoNaoAutenticado">
+            <summary>
+              Looks up a localized string similar to Aceso não autenticado..
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.AcessoNaoAutorizado">
             <summary>
               Looks up a localized string similar to Acesso não autorizado..

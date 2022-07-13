@@ -61,6 +61,15 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aceso não autenticado..
+        /// </summary>
+        public static string AcessoNaoAutenticado {
+            get {
+                return ResourceManager.GetString("AcessoNaoAutenticado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Acesso não autorizado..
         /// </summary>
         public static string AcessoNaoAutorizado {
