@@ -19,7 +19,6 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             Metodo = actionDescriptor.MethodInfo;
             Classe = actionDescriptor.ControllerTypeInfo;
             
-            Prefixo = actionDescriptor.ControllerName;
             Requisito = ExtrairRequisito(Metodo);
             Nome = Requisito?.Nome;
             Descricao = Requisito?.Descricao;
@@ -42,25 +41,47 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
         public readonly Requisito Requisito = null;
 
+        /// <summary>
+        /// Identificador únido da autorização.
+        /// </summary>
         public string Id { get; set; }
 
-        public string Prefixo { get; set; }
-
+        /// <summary>
+        /// Endpoint referente a essa autorização.
+        /// </summary>
         public string Rota { get; set; }
 
+        /// <summary>
+        /// Nome da autorirização.
+        /// </summary>
         public string Nome { get; set; }
 
+        /// <summary>
+        /// Tipo de requisição do endpoint.
+        /// </summary>
         public string Http { get; set; }
 
+        /// <summary>
+        /// Uma breve descrição do que o endpoint faz.
+        /// </summary>
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
+        /// <summary>
+        /// Se true, quer dizer que só pode ser acessado recebendo uma autorização válida.
+        /// </summary>
         [Display(Name = "Requer autenticação")]
         public bool? RequerAutenticacao => Referencia?.RequerAutenticacao;
 
+        /// <summary>
+        /// Se true, quer dizer que só pode ser acessado recebendo uma chave pública válida.
+        /// </summary>
         [Display(Name = "Requer chave pública")]
         public bool? RequerChavePublica => Referencia?.RequerChavePublica;
 
+        /// <summary>
+        /// Indica se esse endpoint está obsoleto.
+        /// </summary>
         public bool Obsoleto { get; set; }
 
         public bool EstaAutorizado(Autorizacao[] compare)
