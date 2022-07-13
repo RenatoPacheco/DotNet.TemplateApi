@@ -13,8 +13,10 @@ namespace DotNetCore.API.Template.Aplicacao
     public class StorageApp : Comum.BaseApp
     {
         public StorageApp(
+            AutenticacaoServ servAutenticacao,
             StorageServ servStorage,
             StorageInter interStorage)
+            : base(servAutenticacao)
         {
             _servStorage = servStorage;
             _interStorage = interStorage;

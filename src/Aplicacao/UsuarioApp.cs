@@ -13,8 +13,10 @@ namespace DotNetCore.API.Template.Aplicacao
     public class UsuarioApp : Comum.BaseApp
     {
         public UsuarioApp(
+            AutenticacaoServ servAutenticacao,
             UsuarioServ servUsuario,
             UsuarioInter interUsuario)
+            : base(servAutenticacao)
         {
             _servUsuario = servUsuario;
             _interUsuario = interUsuario;

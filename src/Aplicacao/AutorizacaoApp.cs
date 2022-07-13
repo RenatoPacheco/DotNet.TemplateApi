@@ -12,8 +12,10 @@ namespace DotNetCore.API.Template.Aplicacao
     public class AutorizacaoApp : Comum.BaseApp
     {
         public AutorizacaoApp(
+            AutenticacaoServ servAutenticacao,
             AutorizacaoServ servAutorizacao,
             AutorizacaoInter interAutorizacao)
+            : base(servAutenticacao)
         {
             _servAutorizacao = servAutorizacao;
             _interAutorizacao = interAutorizacao;

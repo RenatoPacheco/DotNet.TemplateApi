@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace DotNetCore.API.Template.Site.ApiServices
 {
-    public class RequestApiServ : Aplicacao.Comum.BaseApp
+    public class RequestApiServ : Common.baseApiServ
     {
         public RequestApiServ(
                IHttpContextAccessor httpAccessor)

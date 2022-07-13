@@ -14,12 +14,11 @@ namespace DotNetCore.API.Template.Aplicacao
         public AutenticacaoApp(
             AutenticacaoServ servAutenticacao,
             AutenticacaoInter interAutenticacao)
+            : base(servAutenticacao)
         {
-            _servAutenticacao = servAutenticacao;
             _interAutenticacao = interAutenticacao;
         }
 
-        protected readonly AutenticacaoServ _servAutenticacao;
         protected readonly AutenticacaoInter _interAutenticacao;
 
         /// <summary>

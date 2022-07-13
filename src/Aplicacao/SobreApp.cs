@@ -11,8 +11,10 @@ namespace DotNetCore.API.Template.Aplicacao
     public class SobreApp : Comum.BaseApp
     {
         public SobreApp(
+            AutenticacaoServ servAutenticacao,
             SobreServ servSobre,
             SobreInter interSobre)
+            : base(servAutenticacao)
         {
             _servSobre = servSobre;
             _interSobre = interSobre;
