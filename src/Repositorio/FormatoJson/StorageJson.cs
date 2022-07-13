@@ -18,6 +18,7 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
             Associar(x => x.Referencia, "Referencia_Storage");
             Associar(x => x.CriadoEm, "DataCriacao_Storage");
             Associar(x => x.AlteradoEm, "DataAlteracao_Storage");
+            Associar(x => x.Checksum, "Checksum_Storage");
             Associar(x => x.Status, "Status_Storage");
         }
 
@@ -44,6 +45,9 @@ namespace DotNetCore.API.Template.Repositorio.FormatoJson
 
             if (NaoIgnorar(x => x.Tipo))
                 resultado.Append($"{SqlParaJson(x => x.Tipo)},");
+
+            if (NaoIgnorar(x => x.Checksum))
+                resultado.Append($"{SqlParaJson(x => x.Checksum)},");
 
             if (NaoIgnorar(x => x.Peso))
                 resultado.Append($"{SqlParaJson(x => x.Peso)},");

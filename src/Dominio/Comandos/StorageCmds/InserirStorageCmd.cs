@@ -33,8 +33,8 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
 
         public void Aplicar(ref Storage dados, Arquivo arquivo)
         {
-            dados = new Storage(arquivo);
             arquivo.Salvar();
+            dados = new Storage(arquivo);
         }
 
         public void Desfazer(ref Storage dados, Arquivo arquivo)

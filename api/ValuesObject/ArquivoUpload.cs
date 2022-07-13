@@ -2,6 +2,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using BitHelp.Core.ManageFile;
 
 namespace DotNetCore.API.Template.Site.ValuesObject
 {
@@ -44,6 +45,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 
             using (FileStream filestream = File.Create(Referencia))
             {
+                Checksum = CheckSUM.GetMD5Hash(filestream);
                 _formFile.CopyTo(filestream);
                 filestream.Flush();
             }

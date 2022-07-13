@@ -39,6 +39,13 @@ namespace DotNetCore.API.Template.Dominio.Escopos
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
+
+        public void ChecksumEhValido(Expression<Func<TClasse, object>> expressao)
+        {
+            _entidade.RemoveAtReference(expressao);
+            _entidade.MaxCharactersIsValid(expressao, 1000);
+        }
+
         public void ExtensaoEhValido(Expression<Func<TClasse, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);

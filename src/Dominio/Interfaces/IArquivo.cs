@@ -14,6 +14,8 @@
 
         long Peso { get; set; }
 
+        string Checksum { get; set; }
+
         string Referencia { get; set; }
     }
 }

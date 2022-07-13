@@ -41,6 +41,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
                            ,[{json.Coluna(x => x.Diretorio)}] = @Diretorio
                            ,[{json.Coluna(x => x.Referencia)}] = @Referencia
                            ,[{json.Coluna(x => x.Tipo)}] = @Tipo
+                           ,[{json.Coluna(x => x.Checksum)}] = @Checksum
                            ,[{json.Coluna(x => x.Peso)}] = @Peso
                            ,[{json.Coluna(x => x.Extensao)}] = @Extensao
                            ,[{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
@@ -55,6 +56,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
                     Diretorio = new DbString { Value = dados.Diretorio, IsAnsi = true },
                     Referencia = new DbString { Value = dados.Referencia, IsAnsi = true },
                     Tipo = new DbString { Value = dados.Tipo, IsAnsi = true },
+                    Checksum = new DbString { Value = dados.Checksum, IsAnsi = true },
                     Peso = dados.Peso,
                     Extensao = new DbString { Value = dados.Extensao, IsAnsi = true },
                     Status = new DbString { Value = StatusAdapt.EnumParaSql(dados.Status), IsAnsi = true },

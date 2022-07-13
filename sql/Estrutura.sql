@@ -1,6 +1,6 @@
 USE [Testando]
 GO
-/****** Object:  Table [dbo].[Storage]    Script Date: 12/07/2022 10:27:38 ******/
+/****** Object:  Table [dbo].[Storage]    Script Date: 13/07/2022 16:30:26 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -17,13 +17,14 @@ CREATE TABLE [dbo].[Storage](
 	[Status_Storage] [char](1) NULL,
 	[DataCriacao_Storage] [datetime] NULL,
 	[DataAlteracao_Storage] [datetime] NULL,
+	[Checksum_Storage] [varchar](1000) NULL,
  CONSTRAINT [PK_Storage] PRIMARY KEY CLUSTERED 
 (
 	[Codigo_Storage] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 12/07/2022 10:27:38 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 13/07/2022 16:30:26 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

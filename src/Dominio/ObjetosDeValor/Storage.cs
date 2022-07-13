@@ -27,6 +27,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
             Diretorio = dados.Diretorio;
             Extensao = dados.Extensao;
             Tipo = dados.Tipo;
+            Checksum = dados.Checksum;
             Referencia = dados.Referencia;
             Peso = dados.Peso;
             Status = ObjetosDeValor.Status.Ativo;
@@ -43,6 +44,8 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 
         [Display(Name = "Extensão")]
         public string Extensao { get; set; }
+
+        public string Checksum { get; set; }
 
         public string Tipo { get; set; }
 

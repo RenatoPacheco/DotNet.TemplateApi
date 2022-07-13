@@ -14,6 +14,8 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
 
         public string Tipo { get; set; }
 
+        public string Checksum { get; set; }
+
         public long Peso { get; set; }
         
         public string Referencia { get; set; }
