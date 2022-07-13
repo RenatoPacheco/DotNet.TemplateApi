@@ -4,18 +4,22 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using DotNetCore.API.Template.Dominio.Notacoes;
+using DotNetCore.API.Template.Aplicacao.Intreceptadores;
 
 namespace DotNetCore.API.Template.Aplicacao
 {
     public class SobreApp : Comum.BaseApp
     {
         public SobreApp(
-            SobreServ servSobre)
+            SobreServ servSobre,
+            SobreInter interSobre)
         {
             _servSobre = servSobre;
+            _interSobre = interSobre;
         }
 
         protected readonly SobreServ _servSobre;
+        protected readonly SobreInter _interSobre;
 
         /// <summary>
         /// Permite obter alguns dados sobre a aplicação.

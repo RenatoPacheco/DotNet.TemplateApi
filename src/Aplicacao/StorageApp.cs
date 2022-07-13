@@ -6,18 +6,22 @@ using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Dominio.Notacoes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using DotNetCore.API.Template.Aplicacao.Intreceptadores;
 
 namespace DotNetCore.API.Template.Aplicacao
 {
     public class StorageApp : Comum.BaseApp
     {
         public StorageApp(
-            StorageServ servStorage)
+            StorageServ servStorage,
+            StorageInter interStorage)
         {
             _servStorage = servStorage;
+            _interStorage = interStorage;
         }
 
         protected readonly StorageServ _servStorage;
+        protected readonly StorageInter _interStorage;
 
         /// <summary>
         /// Permite obter um arquivo do storage apartir do seu alias. 

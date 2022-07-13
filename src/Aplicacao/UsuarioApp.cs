@@ -6,18 +6,22 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using DotNetCore.API.Template.Aplicacao.Intreceptadores;
 
 namespace DotNetCore.API.Template.Aplicacao
 {
     public class UsuarioApp : Comum.BaseApp
     {
         public UsuarioApp(
-            UsuarioServ servUsuario)
+            UsuarioServ servUsuario,
+            UsuarioInter interUsuario)
         {
             _servUsuario = servUsuario;
+            _interUsuario = interUsuario;
         }
 
         protected readonly UsuarioServ _servUsuario;
+        protected readonly UsuarioInter _interUsuario;
 
         /// <summary>
         /// Permite filtrar os usuários.

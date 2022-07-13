@@ -5,18 +5,22 @@ using System.ComponentModel;
 using DotNetCore.API.Template.Dominio.Notacoes;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
+using DotNetCore.API.Template.Aplicacao.Intreceptadores;
 
 namespace DotNetCore.API.Template.Aplicacao
 {
     public class AutenticacaoApp : Comum.BaseApp
     {
         public AutenticacaoApp(
-            AutenticacaoServ servAutenticacao)
+            AutenticacaoServ servAutenticacao,
+            AutenticacaoInter interAutenticacao)
         {
             _servAutenticacao = servAutenticacao;
+            _interAutenticacao = interAutenticacao;
         }
 
         protected readonly AutenticacaoServ _servAutenticacao;
+        protected readonly AutenticacaoInter _interAutenticacao;
 
         /// <summary>
         /// Permite listar os dados da autenticação atual.
@@ -37,7 +41,6 @@ namespace DotNetCore.API.Template.Aplicacao
 
             return resultado;
         }
-
 
         /// <summary>
         /// Permite iniciar a autenticação pelo token e a chave pública.
