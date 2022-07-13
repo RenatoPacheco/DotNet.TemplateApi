@@ -40,7 +40,7 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// </summary>
         /// <remarks>
         /// <p>Permite carregar um arquivo do storage pelo seu alias, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
-        /// <p>Há opção de baixar o arquivo, basta indicar donwload para true na query, o padrão é false.</p>
+        /// <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
         /// </remarks>
         [HttpGet, Route("{Alias}")]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Obter))]
@@ -59,7 +59,7 @@ namespace DotNetCore.API.Template.Site.Controllers
             // byte[] bytes = System.IO.File.ReadAllBytes(resultado.Referencia);
             // return CustomFile(bytes, resultado.Tipo, resultado.Alias, (bool)cmd.Download);
 
-            return CustomPhysicalFile(resultado, _webHostingEnvironment, (bool)cmd.Download);
+            return CustomPhysicalFile(resultado, _webHostingEnvironment, cmd.Download);
         }
     }
 }

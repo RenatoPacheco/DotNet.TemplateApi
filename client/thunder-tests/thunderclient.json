@@ -133,7 +133,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-09T15:31:01.441Z",
-    "modified": "2022-07-10T15:40:48.228Z",
+    "modified": "2022-07-13T20:45:21.262Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -148,7 +148,7 @@
       "files": [
         {
           "name": "arquivo",
-          "value": "..\\..\\..\\..\\Users\\Renato\\Desktop\\Pagamento-20220613.pdf"
+          "value": "..\\..\\..\\..\\Users\\Renato\\Pictures\\Novo_Avatar.jpeg"
         }
       ]
     },
@@ -237,11 +237,11 @@
     "colId": "e82401df-236a-4761-962b-172ca2dc9869",
     "containerId": "",
     "name": "Obter",
-    "url": "{{host}}/storage/eteytyeyet.jpg?status=Ativo&download=true",
+    "url": "{{host}}/storage/{alias}",
     "method": "GET",
     "sortNum": 5000,
     "created": "2022-07-13T14:53:53.034Z",
-    "modified": "2022-07-13T14:55:18.341Z",
+    "modified": "2022-07-13T23:30:19.721Z",
     "headers": [
       {
         "name": "Chave-Publica",
@@ -250,14 +250,9 @@
     ],
     "params": [
       {
-        "name": "status",
-        "value": "Ativo",
-        "isPath": false
-      },
-      {
-        "name": "download",
-        "value": "true",
-        "isPath": false
+        "name": "alias",
+        "value": "b1e455b3cdc24e85b7008e8fc74b2755.jpeg",
+        "isPath": true
       }
     ],
     "auth": {

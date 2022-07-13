@@ -21,6 +21,6 @@ namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
         /// <summary>
         /// Informe true para fazer download do arquivo 
         /// </summary>
-        public BoolInput Download { get; set; } = (BoolInput)false;
+        public BoolInput? Download { get; set; }
     }
 }

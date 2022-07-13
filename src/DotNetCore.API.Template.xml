@@ -447,7 +447,7 @@
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.ObterStorageCmd.Download">
             <summary>
-            Informe true para fazer download do arquivo 
+            Informe true para fazer download do arquivo , valor padrão é true
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds.EditarUsuarioCmd.Usuario">

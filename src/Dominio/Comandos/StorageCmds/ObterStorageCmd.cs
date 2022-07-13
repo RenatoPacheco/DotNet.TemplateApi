@@ -44,9 +44,9 @@ namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
             }
         }
 
-        private bool _download = false;
+        private bool _download = true;
         /// <summary>
-        /// Informe true para fazer download do arquivo 
+        /// Informe true para fazer download do arquivo , valor padrão é true
         /// </summary>
         public bool Download
         {

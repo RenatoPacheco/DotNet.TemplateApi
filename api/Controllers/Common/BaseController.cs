@@ -88,6 +88,9 @@ namespace DotNetCore.API.Template.Site.Controllers.Common
 
             if (System.IO.File.Exists(finalPath))
             {
+                if (!string.IsNullOrWhiteSpace(data?.Checksum))
+                    Response.Headers.Add("Checksum", data.Checksum);
+
                 if (download)
                     return PhysicalFile(finalPath, data.Tipo, data.Alias);
                 else

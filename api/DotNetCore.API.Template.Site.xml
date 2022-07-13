@@ -110,7 +110,7 @@
             </summary>
             <remarks>
             <p>Permite carregar um arquivo do storage pelo seu alias, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
-            <p>Há opção de baixar o arquivo, basta indicar donwload para true na query, o padrão é false.</p>
+            <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
             </remarks>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">

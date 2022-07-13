@@ -52,12 +52,12 @@ namespace DotNetCore.API.Template.Site.AutoMapper
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Storage?.IsValid() ?? false;
 
-                        if (!ehValido)
+                        if (!(src.Storage is null) && !ehValido)
                             dest.AddErrorNotification(x => x.Storage);
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (long)src.Storage);
+                    opts.MapFrom(src => (long?)src.Storage);
                 })
                 .ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
@@ -93,14 +93,14 @@ namespace DotNetCore.API.Template.Site.AutoMapper
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
                 .ForMember(cmd => cmd.Download, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Download.IsValid();
+                        bool ehValido = (src.Download?.IsValid() ?? false);
 
-                        if (!ehValido)
+                        if (!(src.Download is null) && !ehValido)
                             dest.AddErrorNotification(x => x.Download);
-                        
+
                         return ehValido;
                     });
-                    opts.MapFrom(src => (bool)src.Download);
+                    opts.MapFrom(src => (bool?)src.Download);
                 })
                 .ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
