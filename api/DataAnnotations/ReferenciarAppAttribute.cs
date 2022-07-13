@@ -1,4 +1,8 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Site.ValuesObject;
 
 namespace DotNetCore.API.Template.Site.DataAnnotations
@@ -9,16 +13,17 @@ namespace DotNetCore.API.Template.Site.DataAnnotations
         public ReferenciarAppAttribute(Type classe, string metodo)
         {
             Classe = classe;
-            Metodo = metodo;
+            Metodo = classe.GetMethods().Where(x => x.Name == metodo).FirstOrDefault();
         }
 
-        public Type Classe { get; private set; }
+        public readonly Type Classe;
 
-        public string Metodo { get; private set; }
+        [Display(Name = "Método")]
+        public readonly MethodInfo Metodo;
 
-        public Requisito ExtrairRequisito()
+        public Autorizacao ExtrairAutorizacao()
         {
-            return new Requisito(Classe, Metodo);
+            return new Autorizacao(Metodo, Classe);
         }
     }
 }

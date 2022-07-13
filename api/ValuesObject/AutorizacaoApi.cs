@@ -13,15 +13,13 @@ namespace DotNetCore.API.Template.Site.ValuesObject
 {
     public class AutorizacaoApi : ICloneable
     {
-        public AutorizacaoApi(ApiDescription apiInfo, AutorizacaoApp appAutorizacao)
+        public AutorizacaoApi(ApiDescription apiInfo)
         {
             ControllerActionDescriptor actionDescriptor = (ControllerActionDescriptor)apiInfo.ActionDescriptor;
             Metodo = actionDescriptor.MethodInfo;
             Classe = actionDescriptor.ControllerTypeInfo;
-            
-            Requisito = ExtrairRequisito(Metodo);
-            Nome = Requisito?.Nome;
-            Descricao = Requisito?.Descricao;
+
+            Referencia = ExtrairReferencia(Metodo);
             Http = apiInfo.HttpMethod.ToString();
             Rota = apiInfo.RelativePath;
             ExtrairObsoleto(Metodo);
@@ -29,8 +27,6 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             Id = Regex.Match(apiInfo.RelativePath, @"^[^?]+").Value;
             Id = Regex.Replace(Id, @"{[^}]+}", "{Param}").ToLower();
             Id = $"{Http.ToLower()}:{Id}";
-
-            Referencia = appAutorizacao.Listar().Where(x => x.Id == Requisito?.Id).FirstOrDefault();
         }
 
         public readonly Autorizacao Referencia;
@@ -38,8 +34,6 @@ namespace DotNetCore.API.Template.Site.ValuesObject
         public readonly MethodInfo Metodo;
 
         public readonly Type Classe;
-
-        public readonly Requisito Requisito = null;
 
         /// <summary>
         /// Identificador únido da autorização.
@@ -54,7 +48,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
         /// <summary>
         /// Nome da autorirização.
         /// </summary>
-        public string Nome { get; set; }
+        public string Nome => Referencia?.Nome;
 
         /// <summary>
         /// Tipo de requisição do endpoint.
@@ -65,7 +59,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
         /// Uma breve descrição do que o endpoint faz.
         /// </summary>
         [Display(Name = "Descrição")]
-        public string Descricao { get; set; }
+        public string Descricao => Referencia?.Descricao;
 
         /// <summary>
         /// Se true, quer dizer que só pode ser acessado recebendo uma autorização válida.
@@ -84,9 +78,20 @@ namespace DotNetCore.API.Template.Site.ValuesObject
         /// </summary>
         public bool Obsoleto { get; set; }
 
+        /// <summary>
+        /// Alguma descrição complememntar caso esteja obsoleto.
+        /// </summary>
+        [Display(Name = "Observação")]
+        public string Observacao { get; set; }
+
         public bool EstaAutorizado(Autorizacao[] compare)
         {
-            return !(Requisito is null) && compare.Any(x => x.Id == Requisito.Id);
+            return !(Referencia is null) && compare.Any(x => x.Id == Referencia.Id);
+        }
+
+        public bool EstaAutorizado(Autorizacao compare)
+        {
+            return !(Referencia is null) && compare?.Id == Referencia.Id;
         }
 
         private string ExtrairNome(MethodInfo metodo)
@@ -98,20 +103,13 @@ namespace DotNetCore.API.Template.Site.ValuesObject
             return atributo?.Name;
         }        
 
-        private Requisito ExtrairRequisito(MethodInfo metodo)
+        private Autorizacao ExtrairReferencia(MethodInfo metodo)
         {
-            Requisito resultado = null;
-
             ReferenciarAppAttribute atributo = metodo.GetCustomAttributes(
                 typeof(ReferenciarAppAttribute), true)
                 .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
 
-            if (!(atributo is null))
-            {
-                resultado = new Requisito(atributo.Classe, atributo.Metodo);
-            }
-
-            return resultado;
+            return atributo?.ExtrairAutorizacao();
         }
 
         private void ExtrairObsoleto(MethodInfo metodo)
@@ -121,7 +119,7 @@ namespace DotNetCore.API.Template.Site.ValuesObject
                 .FirstOrDefault() as ObsoleteAttribute;
 
             Obsoleto = !(info is null);
-            Descricao = info?.Message ?? Descricao;
+            Observacao = info?.Message;
         }
 
         public object Clone()

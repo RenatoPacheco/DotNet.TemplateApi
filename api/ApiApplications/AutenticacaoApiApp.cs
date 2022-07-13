@@ -8,6 +8,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Site.ValuesObject;
 using DotNetCore.API.Template.Site.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.ApiApplications
 {
@@ -59,16 +60,22 @@ namespace DotNetCore.API.Template.Site.ApiApplications
 
         public bool HaChavePublica() => !string.IsNullOrWhiteSpace(ExtrairChavePublica());
 
-        public bool EstaAutorizado(ControllerActionDescriptor action)
+        public bool ExtaAutorizado(ControllerActionDescriptor action)
         {
-            Requisito requisito = ExtrairRequisito(action.MethodInfo);
+            Autorizacao autorizacao = ExtrairAutorizacao(action);
 
             AutorizacaoApi[] autorizacoes = Autenticacao?.Autorizacoes ?? Array.Empty<AutorizacaoApi>();
 
-            bool resultado = !(requisito is null) && autorizacoes.Any(
-                x => x.Requisito.Metodo == requisito.Metodo && x.Requisito.Classe == requisito.Classe);
+            return autorizacoes.Where(x => x.EstaAutorizado(autorizacao)).FirstOrDefault() != null;
+        }
 
-            return resultado;
+        public Autorizacao ExtrairAutorizacao(ControllerActionDescriptor action)
+        {
+            ReferenciarAppAttribute atributo = action.MethodInfo.GetCustomAttributes(
+                typeof(ReferenciarAppAttribute), true)
+                .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
+
+            return atributo?.ExtrairAutorizacao();
         }
 
         private string ExtrairToken()
@@ -84,22 +91,6 @@ namespace DotNetCore.API.Template.Site.ApiApplications
         private string ExtrairChavePublica()
         {
             return _apiServRequest.GetHeader("Chave-Publica").FirstOrDefault()?.Trim();
-        }
-
-        private Requisito ExtrairRequisito(MethodInfo metodo)
-        {
-            Requisito resultado = null;
-
-            ReferenciarAppAttribute atributo = metodo.GetCustomAttributes(
-                typeof(ReferenciarAppAttribute), true)
-                .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
-
-            if (!(atributo is null))
-            {
-                resultado = new Requisito(atributo.Classe, atributo.Metodo);
-            }
-
-            return resultado;
         }
     }
 }

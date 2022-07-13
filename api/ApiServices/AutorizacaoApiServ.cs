@@ -33,7 +33,7 @@ namespace DotNetCore.API.Template.Site.ApiServices
                 ApiDescription[] itens = grupo.Items.ToArray();
                 foreach (ApiDescription item in itens)
                 {
-                    resultado.Add(new AutorizacaoApi(item, appAutorizacao));
+                    resultado.Add(new AutorizacaoApi(item));
                 }
             }
 

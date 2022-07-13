@@ -305,5 +305,10 @@
             Indica se esse endpoint está obsoleto.
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Observacao">
+            <summary>
+            Alguma descrição complememntar caso esteja obsoleto.
+            </summary>
+        </member>
     </members>
 </doc>

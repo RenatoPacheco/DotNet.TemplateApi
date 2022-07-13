@@ -12,6 +12,20 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
     {
         protected internal Autorizacao() { }
 
+        public Autorizacao(MethodInfo metodo, Type classe)
+            : this()
+        {
+            bool acessoLivre = (classe.GetCustomAttributes(
+                typeof(AcessoLivreAttribute), true)
+                .FirstOrDefault() != null);
+
+            bool acessoBasico = (classe.GetCustomAttributes(
+                typeof(AcessoBasicoAttribute), true)
+                .FirstOrDefault() != null);
+
+            Inicializar(metodo, acessoLivre, acessoBasico);
+        }
+
         public Autorizacao(MethodInfo metodo, bool acessoLivre, bool acessoBasico)
             : this()
         {
@@ -23,27 +37,7 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
                 typeof(AcessoBasicoAttribute), true)
                 .FirstOrDefault() != null) || acessoBasico;
 
-            Grupo = metodo.DeclaringType.ToString();
-            Acao = metodo.Name;
-
-            Obsoleto = (metodo.GetCustomAttributes(
-                typeof(ObsoleteAttribute), true)
-                .FirstOrDefault() as ObsoleteAttribute)?.Message?.Trim();
-
-            Nome = (metodo.GetCustomAttributes(
-                typeof(DisplayAttribute), true)
-                .FirstOrDefault() as DisplayAttribute)?.Name?.Trim() ?? Acao;
-
-            Descricao = (metodo.GetCustomAttributes(
-                typeof(DescriptionAttribute), true)
-                .FirstOrDefault() as DescriptionAttribute)?.Description?.Trim();
-
-            RequerAutenticacao = acessoLivre ? false 
-                : acessoBasico ? false : true;
-
-            RequerChavePublica = acessoLivre ? false : true;
-
-            Id = ToString();
+            Inicializar(metodo, acessoLivre, acessoBasico);
         }
 
         public string Id { get; set; }
@@ -72,6 +66,31 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         {
             return (!RequerAutenticacao || (RequerAutenticacao == autenticacao.EstaAutenticado))
                 && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
+        }
+
+        private void Inicializar(MethodInfo metodo, bool acessoLivre, bool acessoBasico)
+        {
+            Grupo = metodo.DeclaringType.ToString();
+            Acao = metodo.Name;
+
+            Obsoleto = (metodo.GetCustomAttributes(
+                typeof(ObsoleteAttribute), true)
+                .FirstOrDefault() as ObsoleteAttribute)?.Message?.Trim();
+
+            Nome = (metodo.GetCustomAttributes(
+                typeof(DisplayAttribute), true)
+                .FirstOrDefault() as DisplayAttribute)?.Name?.Trim() ?? Acao;
+
+            Descricao = (metodo.GetCustomAttributes(
+                typeof(DescriptionAttribute), true)
+                .FirstOrDefault() as DescriptionAttribute)?.Description?.Trim();
+
+            RequerAutenticacao = acessoLivre ? false
+                : acessoBasico ? false : true;
+
+            RequerChavePublica = acessoLivre ? false : true;
+
+            Id = ToString();
         }
     }
 }

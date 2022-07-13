@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using DotNetCore.API.Template.Site.Helpers;
 using DotNetCore.API.Template.Site.ApiApplications;
+using DotNetCore.API.Template.Site.ValuesObject;
+using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.Filters
 {
@@ -30,16 +32,22 @@ namespace DotNetCore.API.Template.Site.Filters
 
             _autenticacaoApiServ.Iniciar();
 
-            if (!_autenticacaoApiServ.EstaAutorizado(action))
+            if (!_autenticacaoApiServ.ExtaAutorizado(action))
             {
-                string mensagem = !_autenticacaoApiServ.HaChavePublica()
-                    ? AvisosResx.ChavePublicaNaoRecebiada
-                    : !_autenticacaoApiServ.HaToken()
-                    ? AvisosResx.TokenDeAutenticacaoNaoRecebido
-                    : AvisosResx.AcessoNaoAutorizado;
-
+                Autorizacao requisito = _autenticacaoApiServ.ExtrairAutorizacao(action);
                 ValidationNotification notificacao = new ValidationNotification();
-                notificacao.AddError(mensagem);
+                if (!_autenticacaoApiServ.HaChavePublica() && requisito.RequerChavePublica)
+                {
+                    notificacao.AddError(AvisosResx.ChavePublicaNaoRecebiada);
+                }
+                if (!_autenticacaoApiServ.HaToken() && requisito.RequerAutenticacao)
+                {
+                    notificacao.AddError(AvisosResx.TokenDeAutenticacaoNaoRecebido);
+                }
+                if (notificacao.IsValid())
+                {
+                    notificacao.AddError(AvisosResx.AcessoNaoAutorizado);
+                }
                 HttpStatusCode codigo = HttpStatusCode.Unauthorized;
 
                 context.HttpContext.Response.StatusCode = (int)codigo;
