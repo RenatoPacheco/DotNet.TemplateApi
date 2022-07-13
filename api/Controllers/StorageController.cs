@@ -14,7 +14,7 @@ using DotNetCore.API.Template.Site.DataAnnotations;
 
 namespace DotNetCore.API.Template.Site.Controllers
 {
-    [ApiController, AcessoLivre]
+    [ApiController, NaoRequerAutorizacao]
     [Route("[controller]")]
     public class StorageController : Common.BaseController
     {

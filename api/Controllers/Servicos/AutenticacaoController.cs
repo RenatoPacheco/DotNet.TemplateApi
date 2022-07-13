@@ -12,7 +12,7 @@ using DotNetCore.API.Template.Site.ValuesObject;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
-    [ApiController, AcessoLivre]
+    [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
     public class AutenticacaoController : Common.BaseController
     {
@@ -43,7 +43,7 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Se não enviar a <strong>chave pública</strong>, a <strong>autorização</strong> será ignorada.</p>
         /// <p>Uma vez listada suas opções de endpoit, taz as informações de requisito para cada uma, podendo ser:</p>
         /// <ul>
-        /// <li><strong>requerAutenticacao:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>autorização</strong> válida.</li>
+        /// <li><strong>requerAutorizacao:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>autorização</strong> válida.</li>
         /// <li><strong>requerChavePublica:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>chave pública</strong> válida.</li>
         /// </ul>
         /// <p>Lembre-se também que enviar a <strong>autorizações</strong> válida, não garante acesso a todos os endpoint, esse acesso será avaliado de acordo a <strong>autorização</strong> enviada.</p>

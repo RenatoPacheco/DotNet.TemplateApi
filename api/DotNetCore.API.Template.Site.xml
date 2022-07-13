@@ -21,7 +21,7 @@
             Se não enviar a <strong>chave pública</strong>, a <strong>autorização</strong> será ignorada.</p>
             <p>Uma vez listada suas opções de endpoit, taz as informações de requisito para cada uma, podendo ser:</p>
             <ul>
-            <li><strong>requerAutenticacao:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>autorização</strong> válida.</li>
+            <li><strong>requerAutorizacao:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>autorização</strong> válida.</li>
             <li><strong>requerChavePublica:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>chave pública</strong> válida.</li>
             </ul>
             <p>Lembre-se também que enviar a <strong>autorizações</strong> válida, não garante acesso a todos os endpoint, esse acesso será avaliado de acordo a <strong>autorização</strong> enviada.</p>
@@ -290,7 +290,7 @@
             Uma breve descrição do que o endpoint faz.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.RequerAutenticacao">
+        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.RequerAutorizacao">
             <summary>
             Se true, quer dizer que só pode ser acessado recebendo uma autorização válida.
             </summary>

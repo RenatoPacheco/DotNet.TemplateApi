@@ -21,7 +21,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite listar os dados da autenticação atual.
         /// </summary>
-        [AcessoLivre]
+        [NaoRequerAutorizacao, NaoRequerChavePublica]
         [Display(Name = "Obter dados da autenticação atual")]
         [Description("Permite listar os dados da autenticação atual.")]
         public Autenticacao Obter()
@@ -42,7 +42,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite iniciar a autenticação pelo token e a chave pública.
         /// </summary>
-        [AcessoBasico]
+        [NaoRequerAutorizacao]
         [Display(Name = "Iniciar autenticação")]
         [Description("Permite iniciar a autenticação pelo token e a chave pública.")]
         public Autenticacao Iniciar(IniciarAutenticacaoCmd comando)

@@ -40,7 +40,7 @@ namespace DotNetCore.API.Template.Site.Filters
                 {
                     notificacao.AddError(AvisosResx.ChavePublicaNaoRecebiada);
                 }
-                if (!_autenticacaoApiServ.HaToken() && requisito.RequerAutenticacao)
+                if (!_autenticacaoApiServ.HaToken() && requisito.RequerAutorizacao)
                 {
                     notificacao.AddError(AvisosResx.TokenDeAutenticacaoNaoRecebido);
                 }

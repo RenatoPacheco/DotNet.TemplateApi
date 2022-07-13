@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using DotNetCore.API.Template.Recurso;
 using DotNetCore.API.Template.Aplicacao;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Notacoes;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers
 {
@@ -34,8 +33,6 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers
                 string referencia = typeof(SobreApp).Namespace;
                 Autorizacao[] resultado = Array.Empty<Autorizacao>();
                 IEnumerable<Autorizacao> autorizacoes = new List<Autorizacao>();
-                bool acessoLivre = false;
-                bool acessoBasico = false;
 
                 Type[] classes = Assembly.GetExecutingAssembly().GetTypes()
                     .Where(
@@ -49,21 +46,13 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers
 
                 foreach (Type classe in classes)
                 {
-                    acessoLivre = (classe.GetCustomAttributes(
-                        typeof(AcessoLivreAttribute), true)
-                        .FirstOrDefault() != null);
-
-                    acessoBasico = (classe.GetCustomAttributes(
-                        typeof(AcessoBasicoAttribute), true)
-                        .FirstOrDefault() != null);
-
                     autorizacoes = classe.GetMethods().Where(
                         metodo => !(metodo is null)
                         && metodo.IsPublic
                         && metodo.DeclaringType == metodo.ReflectedType
                         && !metodo.IsStatic
                         && !metodo.IsSpecialName
-                        ).ToArray().Select(metodo => new Autorizacao(metodo, acessoLivre, acessoBasico));
+                        ).ToArray().Select(metodo => new Autorizacao(metodo, classe));
                     // Sem aplicar o ToArray() antes de selecionar a lista, ele estava ignorando o filtro where
 
                     resultado = resultado.Concat(autorizacoes).ToArray();

@@ -64,14 +64,14 @@ namespace DotNetCore.API.Template.Site.ValuesObject
         /// <summary>
         /// Se true, quer dizer que só pode ser acessado recebendo uma autorização válida.
         /// </summary>
-        [Display(Name = "Requer autenticação")]
-        public bool? RequerAutenticacao => Referencia?.RequerAutenticacao;
+        [Display(Name = "Requer autorização")]
+        public bool RequerAutorizacao => Referencia?.RequerAutorizacao ?? true;
 
         /// <summary>
         /// Se true, quer dizer que só pode ser acessado recebendo uma chave pública válida.
         /// </summary>
         [Display(Name = "Requer chave pública")]
-        public bool? RequerChavePublica => Referencia?.RequerChavePublica;
+        public bool RequerChavePublica => Referencia?.RequerChavePublica ?? true;
 
         /// <summary>
         /// Indica se esse endpoint está obsoleto.

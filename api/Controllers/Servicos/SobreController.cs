@@ -10,7 +10,7 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.Controllers.Servicos
 {
-    [ApiController, AcessoLivre]
+    [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
     public class SobreController : Common.BaseController
     {

@@ -22,7 +22,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite obter um arquivo do storage apartir do seu alias. 
         /// </summary>
-        [AcessoBasico]
+        [NaoRequerAutorizacao]
         [Display(Name = "Obter arquivo do storage")]
         [Description("Permite obter um arquivo do storage apartir do seu alias.")]
         public Storage Obter(ObterStorageCmd comando)

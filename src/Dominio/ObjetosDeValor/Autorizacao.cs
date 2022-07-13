@@ -15,61 +15,28 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
         public Autorizacao(MethodInfo metodo, Type classe)
             : this()
         {
-            bool acessoLivre = (classe.GetCustomAttributes(
-                typeof(AcessoLivreAttribute), true)
+            // Analizando classe
+
+            bool naoRequerAutorizacao = (classe.GetCustomAttributes(
+                typeof(NaoRequerAutorizacaoAttribute), true)
                 .FirstOrDefault() != null);
 
-            bool acessoBasico = (classe.GetCustomAttributes(
-                typeof(AcessoBasicoAttribute), true)
+            bool naoRequerChavePublica = (classe.GetCustomAttributes(
+                typeof(NaoRequerChavePublicaAttribute), true)
                 .FirstOrDefault() != null);
 
-            Inicializar(metodo, acessoLivre, acessoBasico);
-        }
+            // Analizando o método
 
-        public Autorizacao(MethodInfo metodo, bool acessoLivre, bool acessoBasico)
-            : this()
-        {
-            acessoLivre = (metodo.GetCustomAttributes(
-                typeof(AcessoLivreAttribute), true)
-                .FirstOrDefault() != null) || acessoLivre;
+            naoRequerAutorizacao = (metodo.GetCustomAttributes(
+                typeof(NaoRequerAutorizacaoAttribute), true)
+                .FirstOrDefault() != null) || naoRequerAutorizacao;
 
-            acessoBasico = (metodo.GetCustomAttributes(
-                typeof(AcessoBasicoAttribute), true)
-                .FirstOrDefault() != null) || acessoBasico;
+            naoRequerChavePublica = (metodo.GetCustomAttributes(
+                typeof(NaoRequerChavePublicaAttribute), true)
+                .FirstOrDefault() != null) || naoRequerChavePublica;
 
-            Inicializar(metodo, acessoLivre, acessoBasico);
-        }
+            // Aplicando resultados
 
-        public string Id { get; set; }
-
-        public string Grupo { get; set; }
-
-        [Display(Name = "Ação")]
-        public string Acao { get; set; }
-
-        public string Nome { get; set; }
-
-        [Display(Name = "Descrição")]
-        public string Descricao { get; set; }
-
-        [Display(Name = "Requer autenticação")]
-        public bool RequerAutenticacao { get; set; } = true;
-
-        [Display(Name = "Requer chave pública")]
-        public bool RequerChavePublica { get; set; } = true;
-
-        public string Obsoleto { get; set; }
-
-        public override string ToString() => $"{Grupo}.{Acao}";
-
-        public bool EstaAutorizado(Autenticacao autenticacao)
-        {
-            return (!RequerAutenticacao || (RequerAutenticacao == autenticacao.EstaAutenticado))
-                && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
-        }
-
-        private void Inicializar(MethodInfo metodo, bool acessoLivre, bool acessoBasico)
-        {
             Grupo = metodo.DeclaringType.ToString();
             Acao = metodo.Name;
 
@@ -85,12 +52,39 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
                 typeof(DescriptionAttribute), true)
                 .FirstOrDefault() as DescriptionAttribute)?.Description?.Trim();
 
-            RequerAutenticacao = acessoLivre ? false
-                : acessoBasico ? false : true;
+            RequerAutorizacao = !naoRequerAutorizacao;
 
-            RequerChavePublica = acessoLivre ? false : true;
+            RequerChavePublica = !naoRequerChavePublica;
 
             Id = ToString();
+        }
+
+        public string Id { get; set; }
+
+        public string Grupo { get; set; }
+
+        [Display(Name = "Ação")]
+        public string Acao { get; set; }
+
+        public string Nome { get; set; }
+
+        [Display(Name = "Descrição")]
+        public string Descricao { get; set; }
+
+        [Display(Name = "Requer autorização")]
+        public bool RequerAutorizacao { get; set; } = true;
+
+        [Display(Name = "Requer chave pública")]
+        public bool RequerChavePublica { get; set; } = true;
+
+        public string Obsoleto { get; set; }
+
+        public override string ToString() => $"{Grupo}.{Acao}";
+
+        public bool EstaAutorizado(Autenticacao autenticacao)
+        {
+            return (!RequerAutorizacao || (RequerAutorizacao == autenticacao.EstaAutenticado))
+                && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
         }
     }
 }

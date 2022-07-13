@@ -520,16 +520,6 @@
             Status de usuário
             </summary>
         </member>
-        <member name="T:DotNetCore.API.Template.Dominio.Notacoes.AcessoBasicoAttribute">
-            <summary>
-            Não precisa estar autenticado, mas precisa enviar a chave pública
-            </summary>
-        </member>
-        <member name="T:DotNetCore.API.Template.Dominio.Notacoes.AcessoLivreAttribute">
-            <summary>
-            Não precisa estar autenticado, nem precisa enviar a chave pública
-            </summary>
-        </member>
         <member name="T:DotNetCore.API.Template.Dominio.ObjetosDeValor.Sobre">
             <summary>
             Obtém informações básicas sobre a aplicação

@@ -21,7 +21,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite listar todas as autorizações existentes.
         /// </summary>
-        [AcessoLivre]
+        [NaoRequerAutorizacao, NaoRequerChavePublica]
         [Display(Name = "Listar autorizações")]
         [Description("Permite listar todas as autorizações existentes.")]
         public Autorizacao[] Listar()
