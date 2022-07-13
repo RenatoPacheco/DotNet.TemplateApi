@@ -32,37 +32,54 @@
             Obter informação como nome e versão da API
             </summary>
             <remarks>
-            Essa consulta vai permitir obter dados como:
-            
-            <code>
-            "dados": {
-                "nome": "Projeto teste API",
-                "versao": "1.0.0",
-                "servidor": "local"
-            } 
-            </code>
-            
+            <p>Essa consulta vai permitir obter dados como:</p>
+            <ul>
+                <li><strong>nome:</strong> nome da aplicação</li>
+                <li><strong>versão:</strong> número da versão atual da aplicação</li>
+                <li><strong>servidor:</strong> tipo de servidor que a aplicação está rodando, que pode ser: 
+                <strong>local</strong>, <strong>homologacao</strong> ou <strong>producao</strong></li>
+            </ul>
             </remarks>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel)">
             <summary>
             Filtro de storages
             </summary>
+            <remarks>
+            <p>Permite fazer uma busca pelos arquivos indexados no banco, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
+            </remarks>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Post(DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel)">
             <summary>
             Inserir storage
             </summary>
+            <remarks>
+            <p>Permite enviar arquivos para o storage, desde que se tenha permissão para isso.</p>
+            <p>Os tipos de arquivos permitidos são:</p>
+            <ul>
+                <li>Arquivos de texto (.txt)</li>
+                <li>Documentos (.doc ou .docx, .pdf)</li>
+                <li>Planilhas (.xls ou .xslx)</li>
+                <li>Imagens (.jpg, .jpeg ou .png)</li>
+            </ul>
+            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+            </remarks>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Patch(DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel)">
             <summary>
             Editar storage
             </summary>
+            <remarks>
+            <p>Permite editar dados básicos de um arquivo, como nome e status</p>
+            </remarks>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Delete(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel)">
             <summary>
             Deletar um ou mais storages
             </summary>
+            <remarks>
+            <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
+            </remarks>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
@@ -83,11 +100,18 @@
             <summary>
             Deletar um ou mais usuários
             </summary>
+            <remarks>
+            <p>Permite excluir um ou mais usuários, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
+            </remarks>
         </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel)">
             <summary>
             Obter um arquivo de storage
             </summary>
+            <remarks>
+            <p>Permite carregar um arquivo do storage pelo seu alias, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
+            <p>Há opção de baixar o arquivo, basta indicar donwload para true na query, o padrão é false.</p>
+            </remarks>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
             <summary>

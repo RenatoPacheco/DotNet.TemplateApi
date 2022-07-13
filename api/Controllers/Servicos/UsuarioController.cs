@@ -92,6 +92,9 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// <summary>
         /// Deletar um ou mais usuários
         /// </summary>
+        /// <remarks>
+        /// <p>Permite excluir um ou mais usuários, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
+        /// </remarks>
         [HttpDelete]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]

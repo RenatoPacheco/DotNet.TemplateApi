@@ -38,6 +38,10 @@ namespace DotNetCore.API.Template.Site.Controllers
         /// <summary>
         /// Obter um arquivo de storage
         /// </summary>
+        /// <remarks>
+        /// <p>Permite carregar um arquivo do storage pelo seu alias, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
+        /// <p>Há opção de baixar o arquivo, basta indicar donwload para true na query, o padrão é false.</p>
+        /// </remarks>
         [HttpGet, Route("{Alias}")]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(byte[]))]

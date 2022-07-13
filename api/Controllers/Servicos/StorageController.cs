@@ -34,6 +34,9 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// <summary>
         /// Filtro de storages
         /// </summary>
+        /// <remarks>
+        /// <p>Permite fazer uma busca pelos arquivos indexados no banco, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
+        /// </remarks>
         [HttpGet]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
@@ -53,6 +56,17 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// <summary>
         /// Inserir storage
         /// </summary>
+        /// <remarks>
+        /// <p>Permite enviar arquivos para o storage, desde que se tenha permissão para isso.</p>
+        /// <p>Os tipos de arquivos permitidos são:</p>
+        /// <ul>
+        ///     <li>Arquivos de texto (.txt)</li>
+        ///     <li>Documentos (.doc ou .docx, .pdf)</li>
+        ///     <li>Planilhas (.xls ou .xslx)</li>
+        ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
+        /// </ul>
+        /// <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+        /// </remarks>
         [HttpPost]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
@@ -72,6 +86,9 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// <summary>
         /// Editar storage
         /// </summary>
+        /// <remarks>
+        /// <p>Permite editar dados básicos de um arquivo, como nome e status</p>
+        /// </remarks>
         [HttpPatch]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage>))]
@@ -91,6 +108,9 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// <summary>
         /// Deletar um ou mais storages
         /// </summary>
+        /// <remarks>
+        /// <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
+        /// </remarks>
         [HttpDelete]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]

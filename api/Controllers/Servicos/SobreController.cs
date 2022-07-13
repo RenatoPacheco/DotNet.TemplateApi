@@ -29,16 +29,13 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
         /// Obter informação como nome e versão da API
         /// </summary>
         /// <remarks>
-        /// Essa consulta vai permitir obter dados como:
-        /// 
-        /// <code>
-        /// "dados": {
-        ///     "nome": "Projeto teste API",
-        ///     "versao": "1.0.0",
-        ///     "servidor": "local"
-        /// } 
-        /// </code>
-        /// 
+        /// <p>Essa consulta vai permitir obter dados como:</p>
+        /// <ul>
+        ///     <li><strong>nome:</strong> nome da aplicação</li>
+        ///     <li><strong>versão:</strong> número da versão atual da aplicação</li>
+        ///     <li><strong>servidor:</strong> tipo de servidor que a aplicação está rodando, que pode ser: 
+        ///     <strong>local</strong>, <strong>homologacao</strong> ou <strong>producao</strong></li>
+        /// </ul>
         /// </remarks>
         [HttpGet]
         [ReferenciarApp(typeof(SobreApp), nameof(SobreApp.Obter))]
