@@ -12,40 +12,47 @@ namespace DotNetCore.API.Template.Site.AutoMapper
     {
         public StorageProfile()
         {
+            #region InserirStorageCmd
+
             CreateMap<InserirStorageDataModel, InserirStorageCmd>()
                 .ForMember(m => m.Arquivo, opts => {
                     opts.MapFrom(src => (src.Arquivo == null) ? null : src.Arquivo.Select(x => new ArquivoUpload(x)).ToList());
-                })
-                .ForAllMembers(opts => {
-                    opts.Condition((src, dest, srcMember) => srcMember != null);
+                }).ForAllMembers(opts => {
+                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
+
+            #endregion
+
+            #region FiltrarStorageCmd
 
             CreateMap<FiltrarStorageDataModel, FiltrarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.MapFrom(src => (src.Storage == null) ? null : src.Storage.Select(x => (long)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Storage.Any() && !src.Storage.Any(x => !x.IsValid());
+                        bool ehValido = !src.Storage?.Any(x => !x.IsValid()) ?? false;
 
-                        if (!ehValido)
+                        if ((src.Storage != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Storage);
 
                         return ehValido;
                     });
-                })
-                .ForMember(cmd => cmd.Status, opts => {
+                }).ForMember(cmd => cmd.Status, opts => {
                     opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Status.Any() && !src.Status.Any(x => !x.IsValid());
+                        bool ehValido = !src.Status?.Any(x => !x.IsValid()) ?? false;
 
-                        if (!ehValido)
+                        if ((src.Status != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Status);
 
                         return ehValido;
                     });
-                })
-                .ForAllMembers(opts => {
-                    opts.Condition((src, dest, srcMember) => srcMember != null);
+                }).ForAllMembers(opts => {
+                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
+
+            #endregion
+
+            #region EditarStorageCmd
 
             CreateMap<EditarStorageDataModel, EditarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
@@ -53,42 +60,47 @@ namespace DotNetCore.API.Template.Site.AutoMapper
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Storage?.IsValid() ?? false;
 
-                        if (!ehValido)
+                        if ((src.Storage != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Storage);
 
                         return ehValido;
                     });
-                })
-                .ForMember(cmd => cmd.Status, opts => {
+                }).ForMember(cmd => cmd.Status, opts => {
                     opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
-                        if (!ehValido)
+                        if ((src.Status != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Status);
 
                         return ehValido;
                     });
-                })
-                .ForAllMembers(opts => {
-                    opts.Condition((src, dest, srcMember) => srcMember != null);
+                }).ForAllMembers(opts => {
+                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
+
+            #endregion
+
+            #region ExcluirStorageCmd
 
             CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.MapFrom(src => (src.Storage == null) ? null : src.Storage.Select(x => (long)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Storage.Any() && !src.Storage.Any(x => !x.IsValid());
+                        bool ehValido = !src.Storage?.Any(x => !x.IsValid()) ?? false;
 
-                        if (!ehValido)
+                        if ((src.Storage != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Storage);
 
                         return ehValido;
                     });
-                })
-                .ForAllMembers(opts => {
-                    opts.Condition((src, dest, srcMember) => srcMember != null);
+                }).ForAllMembers(opts => {
+                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
+
+            #endregion
+
+            #region ObterStorageCmd
 
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
                 .ForMember(cmd => cmd.Download, opts => {
@@ -96,26 +108,26 @@ namespace DotNetCore.API.Template.Site.AutoMapper
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Download?.IsValid() ?? false;
 
-                        if (!ehValido)
+                        if ((src.Download != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Download);
 
                         return ehValido;
                     });
-                })
-                .ForMember(cmd => cmd.Status, opts => {
-                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
+                }).ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null: src.Status.Select(x => (Status)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Status.Any() && !src.Status.Any(x => !x.IsValid());
+                        bool ehValido = !src.Status?.Any(x => !x.IsValid()) ?? false;
 
-                        if (!ehValido)
+                        if ((src.Status != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Status);
 
                         return ehValido;
                     });
-                })
-                .ForAllMembers(opts => {
-                    opts.Condition((src, dest, srcMember) => srcMember != null);
+                }).ForAllMembers(opts => {
+                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
+
+            #endregion
         }
     }
 }
