@@ -24,7 +24,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite listar os dados da autenticação atual.
         /// </summary>
-        [NaoRequerAutorizacao, NaoRequerChavePublica]
+        [AcessoLivre]
         [Display(Name = "Obter dados da autenticação atual")]
         [Description("Permite listar os dados da autenticação atual.")]
         public Autenticacao Obter()

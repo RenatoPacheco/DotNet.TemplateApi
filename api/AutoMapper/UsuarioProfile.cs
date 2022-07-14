@@ -16,12 +16,12 @@ namespace DotNetCore.API.Template.Site.AutoMapper
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
-                        if (!(src.Status is null) && !ehValido)
+                        if (!ehValido)
                             dest.AddErrorNotification(x => x.Status);
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (Status?)src.Status);
+                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -37,7 +37,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => src.Usuario.Select(x => (int)x));
+                    opts.MapFrom(src => (src.Usuario == null) ? null : src.Usuario.Select(x => (int)x).ToList());
                 })
                 .ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
@@ -48,7 +48,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => src.Status.Select(x => (Status)x));
+                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -59,12 +59,12 @@ namespace DotNetCore.API.Template.Site.AutoMapper
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Usuario?.IsValid() ?? false;
 
-                        if (!(src.Usuario is null) && !ehValido)
+                        if (!ehValido)
                             dest.AddErrorNotification(x => x.Usuario);
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (int?)src.Usuario);
+                    opts.MapFrom(src => (src.Usuario == null) ? null : (int?)src.Usuario);
                 })
                 .ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
@@ -75,7 +75,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (Status?)src.Status);
+                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -91,7 +91,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => src.Usuario.Select(x => (int)x));
+                    opts.MapFrom(src => (src.Usuario == null) ? null : src.Usuario.Select(x => (int)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);

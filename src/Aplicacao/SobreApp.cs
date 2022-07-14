@@ -26,7 +26,7 @@ namespace DotNetCore.API.Template.Aplicacao
         /// <summary>
         /// Permite obter alguns dados sobre a aplicação.
         /// </summary>
-        [NaoRequerAutorizacao, NaoRequerChavePublica]
+        [AcessoLivre]
         [Display(Name = "Obter dados da aplicação")]
         [Description("Permite obter alguns dados sobre a aplicação.")]
         public Sobre Obter()

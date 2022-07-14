@@ -28,6 +28,10 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
                 typeof(NaoRequerChavePublicaAttribute), true)
                 .FirstOrDefault() != null);
 
+            bool acessoLivre = (classe.GetCustomAttributes(
+                typeof(AcessoLivreAttribute), true)
+                .FirstOrDefault() != null);
+
             // Analizando o método
 
             naoRequerAutorizacao = (metodo.GetCustomAttributes(
@@ -37,6 +41,13 @@ namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
             naoRequerChavePublica = (metodo.GetCustomAttributes(
                 typeof(NaoRequerChavePublicaAttribute), true)
                 .FirstOrDefault() != null) || naoRequerChavePublica;
+
+            acessoLivre = (metodo.GetCustomAttributes(
+                typeof(AcessoLivreAttribute), true)
+                .FirstOrDefault() != null) || acessoLivre;
+
+            naoRequerAutorizacao = naoRequerAutorizacao || acessoLivre;
+            naoRequerChavePublica = naoRequerChavePublica || acessoLivre;
 
             // Aplicando resultados
 
