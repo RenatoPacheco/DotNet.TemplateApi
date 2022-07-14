@@ -19,6 +19,26 @@
             Permite listar todas as autorizações existentes.
             </summary>
         </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Filtrar(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.FiltrarConteudoCmd)">
+            <summary>
+            Permite filtrar os usuários.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Inserir(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.InserirConteudoCmd)">
+            <summary>
+            Permite inserir um novo usuário.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Editar(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd)">
+            <summary>
+            Permite editar um usuário específico.
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Excluir(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.ExcluirConteudoCmd)">
+            <summary>
+            Permite excluir um ou mais usuários.
+            </summary>
+        </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.SobreApp.Obter">
             <summary>
             Permite obter alguns dados sobre a aplicação.
@@ -384,6 +404,66 @@
             Calcular a paginação
             </summary>
         </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Conteudo">
+            <summary>
+            Identificador de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Titulo">
+            <summary>
+            Título de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Alias">
+            <summary>
+            Alias de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Texto">
+            <summary>
+            Texto de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.ExcluirConteudoCmd.Conteudo">
+            <summary>
+            Identificador de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.FiltrarConteudoCmd.Conteudo">
+            <summary>
+            Identificador de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.FiltrarConteudoCmd.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.InserirConteudoCmd.Titulo">
+            <summary>
+            Título de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.InserirConteudoCmd.Alias">
+            <summary>
+            Alias de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.InserirConteudoCmd.Texto">
+            <summary>
+            Texto de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.InserirConteudoCmd.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
+        </member>
         <member name="P:DotNetCore.API.Template.Dominio.Comandos.StorageCmds.EditarStorageCmd.Storage">
             <summary>
             Identificador de storage
@@ -720,6 +800,16 @@
         <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Autorizacoes">
             <summary>
               Looks up a localized string similar to Autorizações.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Conteudo">
+            <summary>
+              Looks up a localized string similar to Conteúdo.
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Conteudos">
+            <summary>
+              Looks up a localized string similar to Conteúdos.
             </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Storage">

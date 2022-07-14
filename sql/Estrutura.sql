@@ -1,6 +1,25 @@
 USE [Testando]
 GO
-/****** Object:  Table [dbo].[Storage]    Script Date: 13/07/2022 16:30:26 ******/
+/****** Object:  Table [dbo].[Conteudo]    Script Date: 14/07/2022 18:49:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Conteudo](
+	[Codigo_Conteudo] [int] IDENTITY(1,1) NOT NULL,
+	[Titulo_Conteudo] [varchar](255) NULL,
+	[Alias_Conteudo] [varchar](255) NULL,
+	[Texto_Conteudo] [varchar](max) NULL,
+	[DataCriacao_Conteudo] [datetime] NULL,
+	[DataAlteracao_Conteudo] [datetime] NULL,
+	[Status_Conteudo] [char](1) NULL,
+ CONSTRAINT [PK_Conteudo] PRIMARY KEY CLUSTERED 
+(
+	[Codigo_Conteudo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Storage]    Script Date: 14/07/2022 18:49:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -24,7 +43,7 @@ CREATE TABLE [dbo].[Storage](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 13/07/2022 16:30:26 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 14/07/2022 18:49:24 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

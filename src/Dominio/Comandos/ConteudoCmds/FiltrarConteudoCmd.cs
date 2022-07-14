@@ -5,34 +5,34 @@ using System.ComponentModel.DataAnnotations;
 using DotNetCore.API.Template.Dominio.Escopos;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
+namespace DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds
 {
-    public class FiltrarUsuarioCmd
+    public class FiltrarConteudoCmd
         : Comum.FiltrarBaseCmd, ISelfValidation
     {
-        public FiltrarUsuarioCmd()
+        public FiltrarConteudoCmd()
         {
-            _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
+            _escopo = new ConteudoEscp<FiltrarConteudoCmd>(this);
         }
 
-        private IList<int> _usuario;
+        private IList<int> _Conteudo;
         /// <summary>
-        /// Identificador de usuário
+        /// Identificador de conteúdo
         /// </summary>
-        [Display(Name = "Usuário")]
-        public IList<int> Usuario
+        [Display(Name = "Conteúdo")]
+        public IList<int> Conteudo
         {
-            get => _usuario ??= new List<int>();
+            get => _Conteudo ??= new List<int>();
             set
             {
-                _usuario = value ?? new List<int>();
-                _escopo.IdEhValido(x => x.Usuario);
+                _Conteudo = value ?? new List<int>();
+                _escopo.IdEhValido(x => x.Conteudo);
             }
         }
 
         private IList<Status> _status;
         /// <summary>
-        /// Status de usuário
+        /// Status de conteúdo
         /// </summary>
         public IList<Status> Status
         {
@@ -46,7 +46,7 @@ namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
 
         #region Auto validação
 
-        protected UsuarioEscp<FiltrarUsuarioCmd> _escopo;
+        protected ConteudoEscp<FiltrarConteudoCmd> _escopo;
 
         [JsonIgnore]
         public ValidationNotification Notifications { get; set; } = new ValidationNotification();

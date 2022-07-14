@@ -123,6 +123,12 @@
   <data name="Autorizacoes" xml:space="preserve">
     <value>Autorizações</value>
   </data>
+  <data name="Conteudo" xml:space="preserve">
+    <value>Conteúdo</value>
+  </data>
+  <data name="Conteudos" xml:space="preserve">
+    <value>Conteúdos</value>
+  </data>
   <data name="Storage" xml:space="preserve">
     <value>Storage</value>
   </data>

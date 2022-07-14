@@ -11,6 +11,7 @@ namespace DotNetCore.API.Template.Site
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<UsuarioProfile>();
+                cfg.AddProfile<ConteudoProfile>();
                 cfg.AddProfile<StorageProfile>();
             });
 

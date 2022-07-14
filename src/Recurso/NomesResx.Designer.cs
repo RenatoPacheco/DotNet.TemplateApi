@@ -79,6 +79,24 @@ namespace DotNetCore.API.Template.Recurso {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Conteúdo.
+        /// </summary>
+        public static string Conteudo {
+            get {
+                return ResourceManager.GetString("Conteudo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conteúdos.
+        /// </summary>
+        public static string Conteudos {
+            get {
+                return ResourceManager.GetString("Conteudos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Storage.
         /// </summary>
         public static string Storage {

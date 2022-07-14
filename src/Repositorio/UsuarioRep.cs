@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BitHelp.Core.Validation;
 using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
@@ -6,9 +6,6 @@ using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
 using DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers;
-using BitHelp.Core.Validation;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace DotNetCore.API.Template.Repositorio
 {

@@ -27,6 +27,29 @@
             <p>Lembre-se também que enviar a <strong>autorizações</strong> válida, não garante acesso a todos os endpoint, esse acesso será avaliado de acordo a <strong>autorização</strong> enviada.</p>
             </remarks>
         </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Get(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.FiltrarConteudoDataModel)">
+            <summary>
+            Filtro de conteúdos
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Post(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel)">
+            <summary>
+            Inserir conteúdo
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Patch(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel)">
+            <summary>
+            Editar conteúdo
+            </summary>
+        </member>
+        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Delete(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.ExcluirConteudoDataModel)">
+            <summary>
+            Deletar um ou mais conteúdos
+            </summary>
+            <remarks>
+            <p>Permite excluir um ou mais conteúdos, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
+            </remarks>
+        </member>
         <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.SobreController.Get">
             <summary>
             Obter informação como nome e versão da API
@@ -112,6 +135,66 @@
             <p>Permite carregar um arquivo do storage pelo seu alias, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
             <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
             </remarks>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
+            <summary>
+            Identificador de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Titulo">
+            <summary>
+            Título de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Alias">
+            <summary>
+            Alias de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Texto">
+            <summary>
+            Texto de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Titulo">
+            <summary>
+            Título de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Alias">
+            <summary>
+            Alias de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Texto">
+            <summary>
+            Texto de conteúdo
+            </summary>
+        </member>
+        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
         </member>
         <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
             <summary>
