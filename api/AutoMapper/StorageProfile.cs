@@ -14,7 +14,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
         {
             CreateMap<InserirStorageDataModel, InserirStorageCmd>()
                 .ForMember(m => m.Arquivo, opts => {
-                    opts.MapFrom(src => src.Arquivo.Select(x => new ArquivoUpload(x)).ToArray());
+                    opts.MapFrom(src => (src.Arquivo == null) ? null : src.Arquivo.Select(x => new ArquivoUpload(x)).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -22,6 +22,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<FiltrarStorageDataModel, FiltrarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
+                    opts.MapFrom(src => (src.Storage == null) ? null : src.Storage.Select(x => (long)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Storage.Any() && !src.Storage.Any(x => !x.IsValid());
 
@@ -30,9 +31,9 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Storage == null) ? null : src.Storage.Select(x => (long)x).ToList());
                 })
                 .ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status.Any() && !src.Status.Any(x => !x.IsValid());
 
@@ -41,7 +42,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -49,6 +49,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<EditarStorageDataModel, EditarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
+                    opts.MapFrom(src => (src.Storage == null) ? null : (long?)src.Storage);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Storage?.IsValid() ?? false;
 
@@ -57,9 +58,9 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Storage == null) ? null : (long?)src.Storage);
                 })
                 .ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
@@ -68,7 +69,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -76,6 +76,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
+                    opts.MapFrom(src => (src.Storage == null) ? null : src.Storage.Select(x => (long)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Storage.Any() && !src.Storage.Any(x => !x.IsValid());
 
@@ -84,7 +85,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Storage == null) ? null : src.Storage.Select(x => (long)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -92,6 +92,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
                 .ForMember(cmd => cmd.Download, opts => {
+                    opts.MapFrom(src => (src.Download == null) ? null : (bool?)src.Download);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Download?.IsValid() ?? false;
 
@@ -100,9 +101,9 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (bool?)src.Download);
                 })
                 .ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status.Any() && !src.Status.Any(x => !x.IsValid());
 
@@ -111,7 +112,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);

@@ -13,6 +13,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
         {
             CreateMap<InserirUsuarioDataModel, InserirUsuarioCmd>()
                 .ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
@@ -21,7 +22,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -29,6 +29,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<FiltrarUsuarioDataModel, FiltrarUsuarioCmd>()
                 .ForMember(cmd => cmd.Usuario, opts => {
+                    opts.MapFrom(src => (src.Usuario == null) ? null : src.Usuario.Select(x => (int)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Usuario.Any() && !src.Usuario.Any(x => !x.IsValid());
 
@@ -37,9 +38,9 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Usuario == null) ? null : src.Usuario.Select(x => (int)x).ToList());
                 })
                 .ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status.Any() && !src.Status.Any(x => !x.IsValid());
 
@@ -48,7 +49,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -56,6 +56,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<EditarUsuarioDataModel, EditarUsuarioCmd>()
                 .ForMember(cmd => cmd.Usuario, opts => {
+                    opts.MapFrom(src => (src.Usuario == null) ? null : (int?)src.Usuario);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Usuario?.IsValid() ?? false;
 
@@ -64,9 +65,9 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Usuario == null) ? null : (int?)src.Usuario);
                 })
                 .ForMember(cmd => cmd.Status, opts => {
+                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
@@ -75,7 +76,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
@@ -83,6 +83,7 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
             CreateMap<ExcluirUsuarioDataModel, ExcluirUsuarioCmd>()
                 .ForMember(cmd => cmd.Usuario, opts => {
+                    opts.MapFrom(src => (src.Usuario == null) ? null : src.Usuario.Select(x => (int)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Usuario.Any() && !src.Usuario.Any(x => !x.IsValid());
 
@@ -91,7 +92,6 @@ namespace DotNetCore.API.Template.Site.AutoMapper
 
                         return ehValido;
                     });
-                    opts.MapFrom(src => (src.Usuario == null) ? null : src.Usuario.Select(x => (int)x).ToList());
                 })
                 .ForAllMembers(opts => {
                     opts.Condition((src, dest, srcMember) => srcMember != null);
