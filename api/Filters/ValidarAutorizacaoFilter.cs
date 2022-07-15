@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using DotNetCore.API.Template.Site.Helpers;
 using DotNetCore.API.Template.Site.ApiApplications;
-using DotNetCore.API.Template.Site.ValuesObject;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
 namespace DotNetCore.API.Template.Site.Filters
@@ -22,7 +21,7 @@ namespace DotNetCore.API.Template.Site.Filters
 
         protected readonly AutenticacaoApiApp _autenticacaoApiServ;
 
-        public int Order { get; set; } = int.MaxValue - 10;
+        public int Order { get; set; } = int.MaxValue - 100;
 
         public void OnActionExecuting(ActionExecutingContext context) { }
 
@@ -30,9 +29,7 @@ namespace DotNetCore.API.Template.Site.Filters
         {
             ControllerActionDescriptor action = context.ActionDescriptor as ControllerActionDescriptor;
 
-            _autenticacaoApiServ.Iniciar();
-
-            if (!_autenticacaoApiServ.ExtaAutorizado(action))
+            if (!_autenticacaoApiServ.EstaAutorizado(action))
             {
                 Autorizacao requisito = _autenticacaoApiServ.ExtrairAutorizacao(action);
                 ValidationNotification notificacao = new ValidationNotification();

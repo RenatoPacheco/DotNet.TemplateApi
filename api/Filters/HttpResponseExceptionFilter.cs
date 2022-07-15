@@ -7,7 +7,7 @@ namespace DotNetCore.API.Template.Site.Filters
 {
     public class HttpResponseExceptionFilter : IActionFilter, IOrderedFilter
     {
-        public int Order { get; set; } = int.MaxValue - 10;
+        public int Order { get; set; } = int.MaxValue - 98;
 
         public void OnActionExecuting(ActionExecutingContext context) { }
 

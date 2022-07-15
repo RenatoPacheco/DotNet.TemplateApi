@@ -71,7 +71,7 @@ namespace DotNetCore.API.Template.Site.ApiApplications
 
         public bool HaChavePublica() => !string.IsNullOrWhiteSpace(ExtrairChavePublica());
 
-        public bool ExtaAutorizado(ControllerActionDescriptor action)
+        public bool EstaAutorizado(ControllerActionDescriptor action)
         {
             Autorizacao autorizacao = ExtrairAutorizacao(action);
 
