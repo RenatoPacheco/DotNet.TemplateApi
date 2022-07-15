@@ -34,11 +34,22 @@ namespace DotNetCore.API.Template.Site.ApiApplications
         {
             Notifications.Clear();
 
-            Autenticacao origem = _appAutenticacao.Obter();
+            Autenticacao core = _appAutenticacao.Obter();
             Validate(_appAutenticacao);
 
-            Autenticacao = _apiServAutorizacao.Aplicar(origem);
+            Autenticacao = _apiServAutorizacao.Aplicar(core);
             return Autenticacao;
+        }
+
+        public Autenticacao ObterCore()
+        {
+            Notifications.Clear();
+
+            Autenticacao core = _appAutenticacao.Obter();
+            Validate(_appAutenticacao);
+
+            Autenticacao = _apiServAutorizacao.Aplicar(core);
+            return core;
         }
 
         public AutenticacaoApi Iniciar()

@@ -58,5 +58,24 @@ namespace DotNetCore.API.Template.Site.Controllers.Servicos
 
             return CustomResponse(resultado);
         }
+
+        /// <summary>
+        /// Obter os dados da autenticação atual no core da aplicação
+        /// </summary>
+        /// <remarks>
+        /// <p>Esse recurso serve mais como curiosidade sobre as autorizações de acesso.</p>
+        /// <p>O dados exibidos aqui, seguem as mesmas regras de <strong>GET /Servico/Autenticacao</strong>, que mostras nas autorizações, as rotas que você tem acesso.</p>
+        /// <p>Essas rotas da API são interfaces de acesso, as classe e métodos da aplicação, e nesse endereço, <strong>GET /Servico/Autenticacao/Core</strong>, são as mesmas autorizações, só que no core do site.</p>
+        /// </remarks>
+        [HttpGet, Route("Core")]
+        [ReferenciarApp(typeof(AutenticacaoApp), nameof(AutenticacaoApp.Obter))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<AutenticacaoApi>))]
+        public IActionResult GetCore()
+        {
+            Autenticacao resultado = _apiServAutenticacao.ObterCore();
+            Validate(_apiServAutenticacao);
+
+            return CustomResponse(resultado);
+        }
     }
 }

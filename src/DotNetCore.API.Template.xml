@@ -21,22 +21,22 @@
         </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Filtrar(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.FiltrarConteudoCmd)">
             <summary>
-            Permite filtrar os usuários.
+            Permite filtrar os conteúdos.
             </summary>
         </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Inserir(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.InserirConteudoCmd)">
             <summary>
-            Permite inserir um novo usuário.
+            Permite inserir um novo conteúdo.
             </summary>
         </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Editar(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd)">
             <summary>
-            Permite editar um usuário específico.
+            Permite editar um conteúdo específico.
             </summary>
         </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.ConteudoApp.Excluir(DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds.ExcluirConteudoCmd)">
             <summary>
-            Permite excluir um ou mais usuários.
+            Permite excluir um ou mais conteúdos.
             </summary>
         </member>
         <member name="M:DotNetCore.API.Template.Aplicacao.SobreApp.Obter">
