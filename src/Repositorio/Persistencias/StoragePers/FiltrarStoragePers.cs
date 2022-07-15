@@ -8,7 +8,7 @@ using DotNetCore.API.Template.Recurso;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Compartilhado.Json;
@@ -22,7 +22,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private StorageJson _jsonStorage;
+        private StorageMapSql _jsonStorage;
 
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia)
         {
@@ -45,7 +45,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonStorage = new StorageJson { RefSql = "sto" };
+            _jsonStorage = new StorageMapSql { RefSql = "sto" };
 
             bool haPaginacao = HaPaginacao(comando);
 

@@ -1,12 +1,12 @@
 ﻿using System.Text;
 using DotNetCore.API.Template.Dominio.Entidades;
 
-namespace DotNetCore.API.Template.Repositorio.FormatoJson
+namespace DotNetCore.API.Template.Repositorio.MapeamentoSql
 {
-    internal class ConteudoJson
-        : Auxiliares.FormatoJsonBase<Conteudo>
+    internal class ConteudoMapSql
+        : Auxiliares.MapeamentoSqlBase<Conteudo>
     {
-        public ConteudoJson()
+        public ConteudoMapSql()
         {
             Associar(x => x.Id, "Codigo_Conteudo");
             Associar(x => x.Titulo, "Titulo_Conteudo");

@@ -7,7 +7,7 @@ using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
 {
@@ -33,7 +33,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
         private bool ReferenciaEhUnico(Storage dados)
         {
             Notifications.Clear();
-            StorageJson json = new StorageJson();
+            StorageMapSql json = new StorageMapSql();
 
             if (!(dados?.Referencia is null))
             {

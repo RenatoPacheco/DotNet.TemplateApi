@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
         public void Excluir(ExcluirUsuarioCmd comando)
         {
             Notifications.Clear();
-            UsuarioJson json = new UsuarioJson();
+            UsuarioMapSql json = new UsuarioMapSql();
 
             string sqlString = @$"
                     UPDATE [dbo].[{json.Tabela}] SET

@@ -8,7 +8,7 @@ using DotNetCore.API.Template.Repositorio.Adaptadores;
 
 namespace DotNetCore.API.Template.Repositorio.Auxiliares
 {
-    internal abstract class FormatoJsonBase<T>
+    internal abstract class MapeamentoSqlBase<T>
         where T : class
     {
         public abstract string Tabela { get; }
@@ -33,7 +33,7 @@ namespace DotNetCore.API.Template.Repositorio.Auxiliares
 
         private readonly IDictionary<string, string> _propriedades = new Dictionary<string, string>();
 
-        public FormatoJsonBase<T> Ignorar<P>(Expression<Func<T, P>> expression)
+        public MapeamentoSqlBase<T> Ignorar<P>(Expression<Func<T, P>> expression)
         {
             _ignorar = _ignorar.Concat(new string[] { expression.PropertyPath() }).ToArray();
             return this;

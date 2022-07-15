@@ -4,7 +4,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
 {
@@ -24,7 +24,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
         public void Inserir(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoJson json = new ConteudoJson();
+            ConteudoMapSql json = new ConteudoMapSql();
 
             Validate(dados);
 

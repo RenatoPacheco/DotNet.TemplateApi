@@ -1,12 +1,12 @@
 ﻿using System.Text;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Repositorio.FormatoJson
+namespace DotNetCore.API.Template.Repositorio.MapeamentoSql
 {
-    internal class StorageJson
-        : Auxiliares.FormatoJsonBase<Storage>
+    internal class StorageMapSql
+        : Auxiliares.MapeamentoSqlBase<Storage>
     {
-        public StorageJson()
+        public StorageMapSql()
         {
             Associar(x => x.Id, "Codigo_Storage");
             Associar(x => x.Nome, "Nome_Storage");

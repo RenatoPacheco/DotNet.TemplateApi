@@ -4,7 +4,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
 {
@@ -24,7 +24,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
         public void Editar(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioJson json = new UsuarioJson();
+            UsuarioMapSql json = new UsuarioMapSql();
 
             Validate(dados);
 

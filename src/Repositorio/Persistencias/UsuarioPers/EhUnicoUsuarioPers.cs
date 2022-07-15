@@ -8,7 +8,7 @@ using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
 {
@@ -34,7 +34,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
         private bool EmailEhUnico(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioJson json = new UsuarioJson();
+            UsuarioMapSql json = new UsuarioMapSql();
 
             if (!(dados?.Email is null))
             {

@@ -1,12 +1,12 @@
 ﻿using System.Text;
 using DotNetCore.API.Template.Dominio.Entidades;
 
-namespace DotNetCore.API.Template.Repositorio.FormatoJson
+namespace DotNetCore.API.Template.Repositorio.MapeamentoSql
 {
-    internal class UsuarioJson
-        : Auxiliares.FormatoJsonBase<Usuario>
+    internal class UsuarioMapSql
+        : Auxiliares.MapeamentoSqlBase<Usuario>
     {
-        public UsuarioJson()
+        public UsuarioMapSql()
         {
             Associar(x => x.Id, "Codigo_Usuario");
             Associar(x => x.Nome, "Nome_Usuario");

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
 using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
@@ -22,7 +22,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
         public void Excluir(ExcluirStorageCmd comando)
         {
             Notifications.Clear();
-            StorageJson json = new StorageJson();
+            StorageMapSql json = new StorageMapSql();
 
             string sqlString = @$"
                     UPDATE [dbo].[{json.Tabela}] SET

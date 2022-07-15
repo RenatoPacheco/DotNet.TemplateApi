@@ -8,7 +8,7 @@ using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 
 namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
 {
@@ -34,7 +34,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
         private bool AliasEhUnico(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoJson json = new ConteudoJson();
+            ConteudoMapSql json = new ConteudoMapSql();
 
             if (!(dados?.Alias is null))
             {

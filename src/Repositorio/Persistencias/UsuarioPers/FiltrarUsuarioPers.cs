@@ -9,7 +9,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.FormatoJson;
+using DotNetCore.API.Template.Repositorio.MapeamentoSql;
 using DotNetCore.API.Template.Repositorio.Adaptadores;
 using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
 using DotNetCore.API.Template.Compartilhado.Json;
@@ -23,7 +23,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private UsuarioJson _jsonUsuario;
+        private UsuarioMapSql _jsonUsuario;
 
         public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia)
         {
@@ -46,7 +46,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonUsuario = new UsuarioJson { RefSql = "usu" };
+            _jsonUsuario = new UsuarioMapSql { RefSql = "usu" };
 
             bool haPaginacao = HaPaginacao(comando);
 
