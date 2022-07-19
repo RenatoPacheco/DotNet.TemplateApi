@@ -3,7 +3,7 @@ using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 
 namespace DotNetCore.API.Template.Site.ValuesObject
 {

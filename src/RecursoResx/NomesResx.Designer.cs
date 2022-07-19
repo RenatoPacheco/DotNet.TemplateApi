@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DotNetCore.API.Template.Recurso {
+namespace DotNetCore.API.Template.RecursoResx {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DotNetCore.API.Template.Recurso {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotNetCore.API.Template.Recurso.NomesResx", typeof(NomesResx).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DotNetCore.API.Template.RecursoResx.NomesResx", typeof(NomesResx).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Notations;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 
 namespace DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes
 {

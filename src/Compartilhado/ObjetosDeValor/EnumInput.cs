@@ -1,5 +1,5 @@
 ﻿using System;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 
 namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
 {

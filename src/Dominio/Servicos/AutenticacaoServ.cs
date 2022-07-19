@@ -3,7 +3,7 @@ using DotNetCore.API.Template.Dominio.Entidades;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
 using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
 using System.Reflection;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using BitHelp.Core.Validation;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 

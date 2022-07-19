@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using BitHelp.Core.Validation;
 using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 
 namespace DotNetCore.API.Template.Aplicacao.Comum
 {

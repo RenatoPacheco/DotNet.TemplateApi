@@ -9,7 +9,7 @@ using DotNetCore.API.Template.Site.ViewsData;
 using Swashbuckle.AspNetCore.Annotations;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using Microsoft.AspNetCore.Hosting;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 
 namespace DotNetCore.API.Template.Site.Controllers.Common
 {

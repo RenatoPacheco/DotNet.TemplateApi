@@ -625,209 +625,209 @@
             Opções de status
             </summary>
         </member>
-        <member name="T:DotNetCore.API.Template.Recurso.AvisosResx">
+        <member name="T:DotNetCore.API.Template.RecursoResx.AvisosResx">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ResourceManager">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Culture">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.AcessoNaoAutenticado">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.AcessoNaoAutenticado">
             <summary>
               Looks up a localized string similar to Aceso não autenticado..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.AcessoNaoAutorizado">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.AcessoNaoAutorizado">
             <summary>
               Looks up a localized string similar to Acesso não autorizado..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ChavePublicaNaoRecebiada">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.ChavePublicaNaoRecebiada">
             <summary>
               Looks up a localized string similar to A chave pública não foi recebida..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.FormatoInvalido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.FormatoInvalido">
             <summary>
               Looks up a localized string similar to Formato inválido..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.NaoPodeSerNulo">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.NaoPodeSerNulo">
             <summary>
               Looks up a localized string similar to Não pode ser nulo..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.OcorreuUmErroInterno">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.OcorreuUmErroInterno">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.PesoDoArquivoEmKbInvalido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.PesoDoArquivoEmKbInvalido">
             <summary>
               Looks up a localized string similar to Peso do arquivo deve ser menou ou iqual a {0} kb..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SenhaDeveConter">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.SenhaDeveConter">
             <summary>
               Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoErro">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.SolicitacaoErro">
             <summary>
               Looks up a localized string similar to Ocorreu um erro na solicitação..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoNaoAutorizada">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.SolicitacaoNaoAutorizada">
             <summary>
               Looks up a localized string similar to Solicitação não autorizada..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.SolicitacaoSucesso">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.SolicitacaoSucesso">
             <summary>
               Looks up a localized string similar to Solicitação realizada com sucesso..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status200">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.Status200">
             <summary>
               Looks up a localized string similar to Solicitação realizada com sucesso..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status400">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.Status400">
             <summary>
               Looks up a localized string similar to Ocorreu algum erro na solicitação..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status401">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.Status401">
             <summary>
               Looks up a localized string similar to Solicitação não autorizada..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.Status500">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.Status500">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TipoDeArquivoStorageInvalido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.TipoDeArquivoStorageInvalido">
             <summary>
               Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilas..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TipoInvalido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.TipoInvalido">
             <summary>
               Looks up a localized string similar to Tipo inválido..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.TokenDeAutenticacaoNaoRecebido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.TokenDeAutenticacaoNaoRecebido">
             <summary>
               Looks up a localized string similar to O token de autenticação não foi recebido..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.ValorNoFormatoInvalido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.ValorNoFormatoInvalido">
             <summary>
               Looks up a localized string similar to Valor não está no formato válido..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XHeObrigatorio">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XHeObrigatorio">
             <summary>
               Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório. .
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEhUnico">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XNaoEhUnico">
             <summary>
               Looks up a localized string similar to O valor de {0} não é únido..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEhValido">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XNaoEhValido">
             <summary>
               Looks up a localized string similar to {0} não é válido(a)..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEncontrado">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XNaoEncontrado">
             <summary>
               Looks up a localized string similar to {0} não encontrado(a)..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XNaoEncontrados">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XNaoEncontrados">
             <summary>
               Looks up a localized string similar to {0} não encontrados(as)..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XPropriedadeNaoConfigurada">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XPropriedadeNaoConfigurada">
             <summary>
               Looks up a localized string similar to A propriedade &quot;{0}&quot; ainda não foi configurada..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XSenhaDeveConter">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XSenhaDeveConter">
             <summary>
               Looks up a localized string similar to {0} deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.AvisosResx.XValorNaoPodeSerVazio">
+        <member name="P:DotNetCore.API.Template.RecursoResx.AvisosResx.XValorNaoPodeSerVazio">
             <summary>
               Looks up a localized string similar to O valor de &quot;{0}&quot; não pode ser vazio..
             </summary>
         </member>
-        <member name="T:DotNetCore.API.Template.Recurso.NomesResx">
+        <member name="T:DotNetCore.API.Template.RecursoResx.NomesResx">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.ResourceManager">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Culture">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Autorizacao">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Autorizacao">
             <summary>
               Looks up a localized string similar to Autorização.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Autorizacoes">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Autorizacoes">
             <summary>
               Looks up a localized string similar to Autorizações.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Conteudo">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Conteudo">
             <summary>
               Looks up a localized string similar to Conteúdo.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Conteudos">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Conteudos">
             <summary>
               Looks up a localized string similar to Conteúdos.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Storage">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Storage">
             <summary>
               Looks up a localized string similar to Storage.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Storages">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Storages">
             <summary>
               Looks up a localized string similar to Storages.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Usuario">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Usuario">
             <summary>
               Looks up a localized string similar to Usuário.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Recurso.NomesResx.Usuarios">
+        <member name="P:DotNetCore.API.Template.RecursoResx.NomesResx.Usuarios">
             <summary>
               Looks up a localized string similar to Usuários.
             </summary>

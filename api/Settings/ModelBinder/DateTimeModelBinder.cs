@@ -1,5 +1,5 @@
 ﻿using System;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using System.Threading.Tasks;
 using System.Globalization;
 using DotNetCore.API.Template.Site.Extensions;

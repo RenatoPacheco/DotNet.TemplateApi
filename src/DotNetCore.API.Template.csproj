@@ -24,12 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Recurso\AvisosResx.Designer.cs">
+    <Compile Update="RecursoResx\AvisosResx.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AvisosResx.resx</DependentUpon>
     </Compile>
-    <Compile Update="Recurso\NomesResx.Designer.cs">
+    <Compile Update="RecursoResx\NomesResx.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>NomesResx.resx</DependentUpon>
@@ -37,11 +37,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Recurso\NomesResx.resx">
+    <EmbeddedResource Update="RecursoResx\NomesResx.resx">
       <LastGenOutput>NomesResx.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Recurso\AvisosResx.resx">
+    <EmbeddedResource Update="RecursoResx\AvisosResx.resx">
       <LastGenOutput>AvisosResx.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

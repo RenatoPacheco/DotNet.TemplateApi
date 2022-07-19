@@ -1,5 +1,5 @@
 ﻿using System;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using System.Threading.Tasks;
 using DotNetCore.API.Template.Site.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

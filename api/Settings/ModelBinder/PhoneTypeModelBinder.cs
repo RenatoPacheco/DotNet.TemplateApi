@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using BitHelp.Core.Type.pt_BR;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using DotNetCore.API.Template.Site.Extensions;
 

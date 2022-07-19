@@ -2,7 +2,7 @@
 using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using BitHelp.Core.Validation.Extends;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 using DotNetCore.API.Template.Compartilhado.Validacoes.Extensoes;

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using DotNetCore.API.Template.Aplicacao;
 using DotNetCore.API.Template.Dominio.ObjetosDeValor;
 

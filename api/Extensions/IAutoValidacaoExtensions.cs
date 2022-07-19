@@ -1,5 +1,5 @@
 ﻿using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Recurso;
+using DotNetCore.API.Template.RecursoResx;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
 using BitHelp.Core.Validation.Extends;
