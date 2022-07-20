@@ -142,6 +142,112 @@
         <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.BoolInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
+        <member name="F:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.Empty">
+            <summary>
+            Return value string.Empty
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToString(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToBoolean(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToChar(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToSByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToUInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToUInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToUInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToSingle(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToDouble(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToDecimal(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToDateTime(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DecimalInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="F:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.Empty">
+            <summary>
+            Return value string.Empty
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToString(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToBoolean(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToChar(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToSByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToUInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToUInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToUInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToSingle(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToDouble(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToDecimal(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToDateTime(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.DoubleInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+            <internalonly/>
+        </member>
         <member name="F:TemplateApi.Compartilhado.ObjetosDeValor.EnumInput`1.Empty">
             <summary>
             Return value string.Empty
