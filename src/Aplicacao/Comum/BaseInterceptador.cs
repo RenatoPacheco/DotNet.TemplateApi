@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using BitHelp.Core.Validation;
-using TemplateApi.Dominio.Servicos;
+﻿using TemplateApi.Dominio.Servicos;
 
 namespace TemplateApi.Aplicacao.Comum
 {
-    public abstract class BaseInterceptador : ISelfValidation
+    public abstract class BaseInterceptador
+        : Dominio.Servicos.Comum.BaseServico
     {
         public BaseInterceptador(
             AutenticacaoServ servAutenticacao)
@@ -13,24 +12,5 @@ namespace TemplateApi.Aplicacao.Comum
         }
 
         protected readonly AutenticacaoServ _servAutenticacao;
-
-        public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
-
-        public bool Validate(ISelfValidation valor)
-        {
-            bool resultado = valor.IsValid();
-            Notifications.Add(valor);
-            return resultado;
-        }
-
-        public bool IsValid()
-        {
-            return Notifications.IsValid();
-        }
-
-        public bool EhAutorizado(MethodBase metodo)
-        {
-            return true;
-        }
     }
 }

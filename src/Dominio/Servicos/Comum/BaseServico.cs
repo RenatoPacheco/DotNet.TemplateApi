@@ -6,7 +6,7 @@ namespace TemplateApi.Dominio.Servicos.Comum
     {
         public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
 
-        public bool Validate(ISelfValidation valor)
+        public bool IsValid(ISelfValidation valor)
         {
             bool resultado = valor.IsValid();
             Notifications.Add(valor);

@@ -7,7 +7,8 @@ using System.Text.RegularExpressions;
 
 namespace TemplateApi.Repositorio.Comum
 {
-    internal abstract class BuscaRepositorio : SimplesRepositorio
+    internal abstract class BuscaRepositorio 
+        : SimplesRepositorio
     {
         public BuscaRepositorio(
            Conexao conexao,

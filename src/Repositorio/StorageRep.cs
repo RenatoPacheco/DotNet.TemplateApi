@@ -36,7 +36,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             _persEditarStorage.Editar(dados);
-            Validate(_persEditarStorage);
+            IsValid(_persEditarStorage);
         }
 
         public void Excluir(ExcluirStorageCmd comando)
@@ -44,7 +44,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             _persExcluirStorage.Excluir(comando);
-            Validate(_persExcluirStorage);
+            IsValid(_persExcluirStorage);
         }
 
         public ResultadoBusca<Storage> Filtrar(
@@ -66,7 +66,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             ResultadoBusca<Storage> resultado = _persFiltrarStorage.Filtrar(comando, referencia, tipo);
-            Validate(_persFiltrarStorage);
+            IsValid(_persFiltrarStorage);
 
             return resultado;
         }
@@ -76,7 +76,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             _persInserirStorage.Inserir(dados);
-            Validate(_persInserirStorage);
+            IsValid(_persInserirStorage);
         }
     }
 }

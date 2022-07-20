@@ -38,7 +38,7 @@ namespace TemplateApi.Aplicacao
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
                 resultado = _servAutorizacao.Listar();
-                Validate(_servAutorizacao);
+                IsValid(_servAutorizacao);
             }
 
             return resultado;

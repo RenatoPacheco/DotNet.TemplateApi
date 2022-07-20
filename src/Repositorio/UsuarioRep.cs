@@ -37,7 +37,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             _persEditarUsuario.Editar(dados);
-            Validate(_persEditarUsuario);
+            IsValid(_persEditarUsuario);
         }
 
         public void Excluir(ExcluirUsuarioCmd comando)
@@ -45,7 +45,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             _persExcluirUsuario.Excluir(comando);
-            Validate(_persExcluirUsuario);
+            IsValid(_persExcluirUsuario);
         }
 
         public ResultadoBusca<Usuario> Filtrar(
@@ -67,7 +67,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             ResultadoBusca<Usuario> resultado = _persFiltrarUsuario.Filtrar(comando, referencia, tipo);
-            Validate(_persFiltrarUsuario);
+            IsValid(_persFiltrarUsuario);
 
             return resultado;
         }
@@ -77,7 +77,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             _persInserirUsuario.Inserir(dados);
-            Validate(_persInserirUsuario);
+            IsValid(_persInserirUsuario);
         }
     }
 }

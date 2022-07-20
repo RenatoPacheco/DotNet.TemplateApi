@@ -7,7 +7,8 @@ using TemplateApi.Repositorio.Auxiliares;
 
 namespace TemplateApi.Repositorio.Comum
 {
-    internal abstract class SimplesRepositorio : BaseRepositorio
+    internal abstract class SimplesRepositorio 
+        : BaseRepositorio
     {
         public SimplesRepositorio(
             Conexao conexao,

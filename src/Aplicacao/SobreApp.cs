@@ -37,7 +37,7 @@ namespace TemplateApi.Aplicacao
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
                 resultado = _servSobre.Obter();
-                Validate(_servSobre);
+                IsValid(_servSobre);
             }
 
             return resultado;

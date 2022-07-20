@@ -35,7 +35,7 @@ namespace TemplateApi.Aplicacao
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
                 resultado = _servAutenticacao.Obter();
-                Validate(_servAutenticacao);
+                IsValid(_servAutenticacao);
             }
 
             return resultado;
@@ -56,7 +56,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interAutenticacao.Iniciar(comando);
                 resultado = _servAutenticacao.Iniciar(comando);
-                Validate(_servAutenticacao);
+                IsValid(_servAutenticacao);
             }
 
             return resultado;

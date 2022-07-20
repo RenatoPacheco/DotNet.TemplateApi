@@ -26,10 +26,10 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
             Notifications.Clear();
             ConteudoMap json = new ConteudoMap();
 
-            Validate(dados);
+            IsValid(dados);
 
             _persEhUnicoConteudo.EhUnico(dados);
-            Validate(_persEhUnicoConteudo);
+            IsValid(_persEhUnicoConteudo);
 
             if (IsValid())
             {

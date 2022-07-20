@@ -23,14 +23,14 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             Storage resultado = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd { 
                     Alias = new List<string>() { comando.Alias },
                     Status = comando.Status,
                     Maximo = 1, Pagina = 1
                 }, string.Empty, ValidationType.Error);
-                Validate(_repStorage);
+                IsValid(_repStorage);
             }
 
             return resultado;
@@ -41,10 +41,10 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = _repStorage.Filtrar(comando);
-                Validate(_repStorage);
+                IsValid(_repStorage);
             }
 
             return resultado;
@@ -56,7 +56,7 @@ namespace TemplateApi.Dominio.Servicos
             IList<Storage> resultado = new List<Storage>();
             Storage storage = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 foreach (Arquivo item in comando.Arquivo)
                 {
@@ -84,7 +84,7 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             Storage resultado = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd
                 {
@@ -92,13 +92,13 @@ namespace TemplateApi.Dominio.Servicos
                     Maximo = 1,
                     Pagina = 1
                 }, nameof(comando.Storage), ValidationType.Error);
-                Validate(_repStorage);
+                IsValid(_repStorage);
 
                 if (IsValid())
                 {
                     comando.Aplicar(ref resultado);
                     _repStorage.Editar(resultado);
-                    Validate(_repStorage);
+                    IsValid(_repStorage);
                 }
             }
 
@@ -112,10 +112,10 @@ namespace TemplateApi.Dominio.Servicos
         {
             Notifications.Clear();
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 _repStorage.Excluir(comando);
-                Validate(_repStorage);
+                IsValid(_repStorage);
             }
         }
     }

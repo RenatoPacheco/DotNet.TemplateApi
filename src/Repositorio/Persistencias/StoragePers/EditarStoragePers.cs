@@ -26,10 +26,10 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             Notifications.Clear();
             StorageMap json = new StorageMap();
 
-            Validate(dados);
+            IsValid(dados);
 
             _persEhUnicoStorage.EhUnico(dados);
-            Validate(_persEhUnicoStorage);
+            IsValid(_persEhUnicoStorage);
 
             if (IsValid())
             {

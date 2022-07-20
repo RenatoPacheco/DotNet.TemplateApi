@@ -17,7 +17,7 @@ namespace TemplateApi.Dominio.Servicos
         {
             Notifications.Clear();
             Autorizacao[] resultado = _repAutorizacao.Listar();
-            Validate(_repAutorizacao);
+            IsValid(_repAutorizacao);
 
             return resultado;
         }

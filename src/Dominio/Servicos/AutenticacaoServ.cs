@@ -40,7 +40,7 @@ namespace TemplateApi.Dominio.Servicos
 
             _autenticacao = Autenticacao.GerarNaoAutenticado(false);
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 bool haChavePublica = AppSettings.ChavePublica == comando.ChavePublica;
 

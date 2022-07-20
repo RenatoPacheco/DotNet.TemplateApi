@@ -35,7 +35,7 @@ namespace TemplateApi.Api.ApiApplications
             Notifications.Clear();
 
             Autenticacao core = _appAutenticacao.Obter();
-            Validate(_appAutenticacao);
+            IsValid(_appAutenticacao);
 
             Autenticacao = _apiServAutorizacao.Aplicar(core);
             return Autenticacao;
@@ -46,7 +46,7 @@ namespace TemplateApi.Api.ApiApplications
             Notifications.Clear();
 
             Autenticacao core = _appAutenticacao.Obter();
-            Validate(_appAutenticacao);
+            IsValid(_appAutenticacao);
 
             Autenticacao = _apiServAutorizacao.Aplicar(core);
             return core;
@@ -61,7 +61,7 @@ namespace TemplateApi.Api.ApiApplications
                 Token = ExtrairToken(),
                 ChavePublica = ExtrairChavePublica(),
             });
-            Validate(_appAutenticacao);
+            IsValid(_appAutenticacao);
 
             Autenticacao = _apiServAutorizacao.Aplicar(origem);
             return Autenticacao;

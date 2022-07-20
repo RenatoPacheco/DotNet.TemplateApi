@@ -26,10 +26,10 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             Notifications.Clear();
             UsuarioMap json = new UsuarioMap();
 
-            Validate(dados);
+            IsValid(dados);
 
             _persEhUnicoUsuario.EhUnico(dados);
-            Validate(_persEhUnicoUsuario);
+            IsValid(_persEhUnicoUsuario);
 
             if (IsValid())
             {

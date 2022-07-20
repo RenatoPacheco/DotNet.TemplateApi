@@ -38,7 +38,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interConteudo.Filtrar(comando);
                 resultado = _servConteudo.Filtrar(comando);
-                Validate(_servConteudo);
+                IsValid(_servConteudo);
             }
 
             return resultado;
@@ -58,7 +58,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interConteudo.Inserir(comando);
                 resultado = _servConteudo.Inserir(comando);
-                Validate(_servConteudo);
+                IsValid(_servConteudo);
             }
 
             return resultado;
@@ -78,7 +78,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interConteudo.Editar(comando);
                 resultado = _servConteudo.Editar(comando);
-                Validate(_servConteudo);
+                IsValid(_servConteudo);
             }
 
             return resultado;
@@ -97,7 +97,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interConteudo.Excluir(comando);
                 _servConteudo.Excluir(comando);
-                Validate(_servConteudo);
+                IsValid(_servConteudo);
             }
         }
     }

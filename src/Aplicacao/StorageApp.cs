@@ -40,7 +40,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interStorage.Obter(comando);
                 resultado = _servStorage.Obter(comando);
-                Validate(_servStorage);
+                IsValid(_servStorage);
             }
 
             return resultado;
@@ -61,7 +61,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interStorage.Filtrar(comando);
                 resultado = _servStorage.Filtrar(comando);
-                Validate(_servStorage);
+                IsValid(_servStorage);
             }
 
             return resultado;
@@ -81,7 +81,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interStorage.Inserir(comando);
                 resultado = _servStorage.Inserir(comando);
-                Validate(_servStorage);
+                IsValid(_servStorage);
             }
 
             return resultado;
@@ -101,7 +101,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interStorage.Editar(comando);
                 resultado = _servStorage.Editar(comando);
-                Validate(_servStorage);
+                IsValid(_servStorage);
             }
 
             return resultado;
@@ -120,7 +120,7 @@ namespace TemplateApi.Aplicacao
             {
                 _interStorage.Excluir(comando);
                 _servStorage.Excluir(comando);
-                Validate(_servStorage);
+                IsValid(_servStorage);
             }
         }
     }

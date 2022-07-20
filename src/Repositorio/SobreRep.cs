@@ -20,7 +20,7 @@ namespace TemplateApi.Repositorio
             Notifications.Clear();
 
             Sobre resultado = _persObterSobre.Obter();
-            Validate(_persObterSobre);
+            IsValid(_persObterSobre);
 
 
             return resultado;

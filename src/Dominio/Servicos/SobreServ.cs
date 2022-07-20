@@ -17,7 +17,7 @@ namespace TemplateApi.Dominio.Servicos
         {
             Notifications.Clear();
             Sobre resultado = _repSobre.Obter();
-            Validate(_repSobre);
+            IsValid(_repSobre);
 
             return resultado;
         }

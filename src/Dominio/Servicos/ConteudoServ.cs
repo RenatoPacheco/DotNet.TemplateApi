@@ -22,10 +22,10 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             ResultadoBusca<Conteudo> resultado = new ResultadoBusca<Conteudo>();
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = _repConteudo.Filtrar(comando);
-                Validate(_repConteudo);
+                IsValid(_repConteudo);
             }
 
             return resultado;
@@ -36,11 +36,11 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 comando.Aplicar(ref resultado);
                 _repConteudo.Inserir(resultado);
-                Validate(_repConteudo);
+                IsValid(_repConteudo);
             }
 
             if (!IsValid())
@@ -54,19 +54,19 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = (Conteudo)_repConteudo.Filtrar(new FiltrarConteudoCmd {
                     Conteudo = new int[] { comando.Conteudo.Value },
                     Maximo = 1, Pagina = 1
                 }, nameof(comando.Conteudo), ValidationType.Error);
-                Validate(_repConteudo);
+                IsValid(_repConteudo);
 
                 if (IsValid())
                 {
                     comando.Aplicar(ref resultado);
                     _repConteudo.Editar(resultado);
-                    Validate(_repConteudo);
+                    IsValid(_repConteudo);
                 }
             }
 
@@ -80,10 +80,10 @@ namespace TemplateApi.Dominio.Servicos
         {
             Notifications.Clear();
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 _repConteudo.Excluir(comando);
-                Validate(_repConteudo);
+                IsValid(_repConteudo);
             }
         }
     }

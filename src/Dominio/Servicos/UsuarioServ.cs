@@ -23,10 +23,10 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = _repUsuario.Filtrar(comando);
-                Validate(_repUsuario);
+                IsValid(_repUsuario);
             }
 
             return resultado;
@@ -37,11 +37,11 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 comando.Aplicar(ref resultado);
                 _repUsuario.Inserir(resultado);
-                Validate(_repUsuario);
+                IsValid(_repUsuario);
             }
 
             if (!IsValid())
@@ -55,19 +55,19 @@ namespace TemplateApi.Dominio.Servicos
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 resultado = (Usuario)_repUsuario.Filtrar(new FiltrarUsuarioCmd {
                     Usuario = new int[] { comando.Usuario.Value },
                     Maximo = 1, Pagina = 1
                 }, nameof(comando.Usuario), ValidationType.Error);
-                Validate(_repUsuario);
+                IsValid(_repUsuario);
 
                 if (IsValid())
                 {
                     comando.Aplicar(ref resultado);
                     _repUsuario.Editar(resultado);
-                    Validate(_repUsuario);
+                    IsValid(_repUsuario);
                 }
             }
 
@@ -81,10 +81,10 @@ namespace TemplateApi.Dominio.Servicos
         {
             Notifications.Clear();
 
-            if (Validate(comando))
+            if (IsValid(comando))
             {
                 _repUsuario.Excluir(comando);
-                Validate(_repUsuario);
+                IsValid(_repUsuario);
             }
         }
     }
