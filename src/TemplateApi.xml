@@ -69,6 +69,11 @@
             Permite excluir um ou mais arquivos do storage.
             </summary>
         </member>
+        <member name="M:TemplateApi.Aplicacao.TesteApp.Formatos(TemplateApi.Dominio.Comandos.TesteCmds.FormatosTesteCmd)">
+            <summary>
+            Permite testar o recebimento de vários pormatos de dados.
+            </summary>
+        </member>
         <member name="M:TemplateApi.Aplicacao.UsuarioApp.Filtrar(TemplateApi.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd)">
             <summary>
             Permite filtrar os usuários.

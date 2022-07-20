@@ -13,6 +13,7 @@ namespace TemplateApi.Api
                 cfg.AddProfile<UsuarioProfile>();
                 cfg.AddProfile<ConteudoProfile>();
                 cfg.AddProfile<StorageProfile>();
+                cfg.AddProfile<TesteProfile>();
             });
 
             IMapper mapper = config.CreateMapper();

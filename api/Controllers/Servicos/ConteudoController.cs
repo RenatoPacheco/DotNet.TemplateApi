@@ -19,8 +19,8 @@ namespace TemplateApi.Api.Controllers.Servicos
     public class ConteudoController : Common.BaseController
     {
         public ConteudoController(
-            ConteudoApp appConteudo,
             IMapper mapper,
+            ConteudoApp appConteudo,
             ILogger<ConteudoController> logger)
         {
             _logger = logger;

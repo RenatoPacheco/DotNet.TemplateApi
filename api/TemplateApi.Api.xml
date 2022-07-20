@@ -114,6 +114,31 @@
             <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
+        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromQuery(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromQuery
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromBody(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromBody
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromForm(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromForm
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromHeader(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromHeader
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.WithoutFrom(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados ser usar nenhum dos tipos From
+            </summary>
+        </member>
         <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Get(TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
