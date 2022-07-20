@@ -6,6 +6,7 @@ using DotNetCore.API.Template.Dominio.Interfaces;
 using DotNetCore.API.Template.Repositorio.Contexto;
 using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
 using DotNetCore.API.Template.Repositorio.Persistencias.SobrePers;
+using DotNetCore.API.Template.Repositorio.Interfaces;
 
 namespace DotNetCore.API.Template.IdC.Modulos
 {
@@ -15,6 +16,7 @@ namespace DotNetCore.API.Template.IdC.Modulos
 
         internal static Type[] _scoped = new Type[]
         {
+            typeof(IConexao),
             typeof(Conexao),
             typeof(ITransicao),
             typeof(IUnidadeTrabalho),
@@ -23,6 +25,7 @@ namespace DotNetCore.API.Template.IdC.Modulos
 
         internal static void Carregar(IResolverDependencia recipiente)
         {
+            Injecao.Registrar<IConexao, Conexao>(recipiente);
             Injecao.Registrar<Conexao>(recipiente);
             Injecao.Registrar<ITransicao, Transicao>(recipiente);
             Injecao.Registrar<IUnidadeTrabalho, UnidadeTrabalho>(recipiente);

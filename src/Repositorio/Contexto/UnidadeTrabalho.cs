@@ -1,26 +1,27 @@
 ﻿using System;
 using DotNetCore.API.Template.Dominio.Interfaces;
+using DotNetCore.API.Template.Repositorio.Interfaces;
 
 namespace DotNetCore.API.Template.Repositorio.Contexto
 {
     public sealed class UnidadeTrabalho
         : IUnidadeTrabalho
     {
-        public UnidadeTrabalho(Conexao connexao)
+        public UnidadeTrabalho(IConexao connexao)
         {
-            _connexao = connexao;
+            _conexao = connexao;
         }
 
-        private readonly Conexao _connexao;
+        private readonly IConexao _conexao;
         private bool _possoEncerrar = true;
 
         public void Dispose()
         {
-            if (_connexao.HaSessao())
+            if (_conexao.HaSessao())
             {
-                if (_connexao.HaTransicao())
+                if (_conexao.HaTransicao())
                 {
-                    _connexao.FecharTransicao();
+                    _conexao.SalvarTransicao();
                 }
             }
 
@@ -29,12 +30,12 @@ namespace DotNetCore.API.Template.Repositorio.Contexto
 
         public ITransicao Requisitar()
         {
-            Transicao reultado = new Transicao(_connexao, _possoEncerrar);
+            ITransicao reultado = new Transicao(_conexao, _possoEncerrar);
             _possoEncerrar = false;
             return reultado;
         }
 
-        public bool DevoInicializar()
+        public bool PossoIniciar()
         {
             return !_possoEncerrar;
         }

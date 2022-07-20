@@ -10,14 +10,14 @@ namespace DotNetCore.API.Template.Repositorio.Auxiliares
         public IniciarTransicao(IUnidadeTrabalho udt, ISelfValidation referencia)
         {
             _referencia = referencia;
-            if ((udt as UnidadeTrabalho).DevoInicializar())
+            if (udt.PossoIniciar())
             {
-                _transicao = udt.Requisitar() as Transicao;
-                _transicao.Inicializar();
+                _transicao = udt.Requisitar();
+                _transicao.Iniciar();
             }
         }
 
-        private readonly Transicao _transicao;
+        private readonly ITransicao _transicao;
         private readonly ISelfValidation _referencia;
 
         public void Dispose()

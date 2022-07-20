@@ -1,37 +1,37 @@
 ﻿using System;
 using DotNetCore.API.Template.Dominio.Interfaces;
-
+using DotNetCore.API.Template.Repositorio.Interfaces;
 
 namespace DotNetCore.API.Template.Repositorio.Contexto
 {
     public class Transicao : ITransicao
     {
-        public Transicao(Conexao connexao)
+        public Transicao(IConexao connexao)
         {
-            _connexao = connexao;
+            _conexao = connexao;
             _possoEncerrar = false;
         }
 
         internal Transicao(
-            Conexao connexao,
+            IConexao connexao,
             bool possoEncerrar)
         {
-            _connexao = connexao;
+            _conexao = connexao;
             _possoEncerrar = possoEncerrar;
         }
 
-        private Conexao _connexao;
+        private IConexao _conexao;
         private readonly bool _possoEncerrar;
 
         public void Dispose()
         {
-            if (!object.Equals(_connexao, null) && _possoEncerrar)
+            if (_conexao != null && _possoEncerrar)
             {
-                if (_connexao.HaSessao())
+                if (_conexao.HaSessao())
                 {
-                    if (_connexao.HaTransicao())
+                    if (_conexao.HaTransicao())
                     {
-                        _connexao.FecharTransicao();
+                        _conexao.SalvarTransicao();
                     }
                 }
             }
@@ -39,13 +39,13 @@ namespace DotNetCore.API.Template.Repositorio.Contexto
             GC.SuppressFinalize(this);
         }
 
-        internal void Inicializar()
+        public void Iniciar()
         {
-            if (_connexao.HaSessao())
+            if (_conexao?.HaSessao() ?? false)
             {
-                if (!_connexao.HaTransicao())
+                if (!_conexao.HaTransicao())
                 {
-                    _connexao.IniciarTransicao();
+                    _conexao.IniciarTransicao();
                 }
             }
         }
@@ -54,15 +54,15 @@ namespace DotNetCore.API.Template.Repositorio.Contexto
         {
             if (_possoEncerrar)
             {
-                if (_connexao.HaSessao())
+                if (_conexao?.HaSessao() ?? false)
                 {
-                    if (_connexao.HaTransicao())
+                    if (_conexao.HaTransicao())
                     {
-                        _connexao.FecharTransicao();
+                        _conexao.SalvarTransicao();
                     }
                 }
 
-                _connexao = null;
+                _conexao = null;
             }
         }
 
@@ -70,15 +70,15 @@ namespace DotNetCore.API.Template.Repositorio.Contexto
         {
             if (_possoEncerrar)
             {
-                if (_connexao.HaSessao())
+                if (_conexao?.HaSessao() ?? false)
                 {
-                    if (_connexao.HaTransicao())
+                    if (_conexao.HaTransicao())
                     {
-                        _connexao.DesfazerTransicao();
+                        _conexao.DesfazerTransicao();
                     }
                 }
 
-                _connexao = null;
+                _conexao = null;
             }
         }
     }

@@ -3,5 +3,7 @@
     public interface IUnidadeTrabalho
     {
         ITransicao Requisitar();
+
+        bool PossoIniciar();
     }
 }

@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Data.SqlClient;
-
+using DotNetCore.API.Template.Repositorio.Interfaces;
 namespace DotNetCore.API.Template.Repositorio.Contexto
 {
-    public class Conexao : IDisposable
+    public class Conexao 
+        : IConexao, IDisposable
     {
         private SqlConnection _sessao;
         public SqlConnection Sessao
         {
-            get => Sessao1 ?? IniciarSessao();
-            private set => Sessao1 = value;
+            get => _sessao ?? IniciarSessao();
+            private set => _sessao = value;
         }
 
         public SqlTransaction Transicao { get; private set; }
-        public SqlConnection Sessao1 { get => _sessao; set => _sessao = value; }
 
         public void Dispose()
         {
@@ -24,44 +24,44 @@ namespace DotNetCore.API.Template.Repositorio.Contexto
 
         public bool HaSessao()
         {
-            return !(Sessao1 is null);
+            return _sessao != null;
         }
 
         public SqlConnection IniciarSessao()
         {
             if (!HaSessao())
             {
-                Sessao1 = new SqlConnection(ConnectionStrings.Testando);
-                Sessao1.Open();
+                _sessao = new SqlConnection(ConnectionStrings.Testando);
+                _sessao.Open();
             }
-            return Sessao1;
+            return _sessao;
         }
 
         public void FecharSessao()
         {
             if (HaSessao())
             {
-                FecharTransicao();
-                Sessao1.Close();
-                Sessao1.Dispose();
-                Sessao1 = null;
+                SalvarTransicao();
+                _sessao.Close();
+                _sessao.Dispose();
+                _sessao = null;
             }
         }
 
         public bool HaTransicao()
         {
-            return !(Transicao is null);
+            return Transicao != null;
         }
 
         public void IniciarTransicao()
         {
             if (!HaTransicao())
             {
-                Transicao = Sessao1.BeginTransaction();
+                Transicao = Sessao.BeginTransaction();
             }
         }
 
-        public void FecharTransicao()
+        public void SalvarTransicao()
         {
             if (HaTransicao())
             {
