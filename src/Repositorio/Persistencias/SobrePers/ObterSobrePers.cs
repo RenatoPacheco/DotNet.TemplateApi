@@ -1,6 +1,6 @@
-﻿using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+﻿using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.SobrePers
+namespace TemplateApi.Repositorio.Persistencias.SobrePers
 {
     internal class ObterSobrePers : Comum.BaseRep
     {

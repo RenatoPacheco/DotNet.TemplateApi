@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace DotNetCore.API.Template.Site.ApiServices
+namespace TemplateApi.Api.ApiServices
 {
     public class RequestApiServ : Common.baseApiServ
     {

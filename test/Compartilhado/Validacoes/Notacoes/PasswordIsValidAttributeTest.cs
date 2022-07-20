@@ -1,12 +1,7 @@
-﻿using DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TemplateApi.Compartilhado.Validacoes.Notacoes;
 using Xunit;
 
-namespace DotNetCore.API.Template.Test.Compartilhado.Validacoes.Notacoes
+namespace TemplateApi.Teste.Compartilhado.Validacoes.Notacoes
 {
     public class PasswordIsValidAttributeTest
     {

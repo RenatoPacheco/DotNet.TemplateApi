@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public enum TipoNoificacaoAvisos
     {

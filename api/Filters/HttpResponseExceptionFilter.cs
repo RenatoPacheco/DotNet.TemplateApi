@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc.Filters;
-using DotNetCore.API.Template.Site.Helpers;
+using TemplateApi.Api.Helpers;
 
-namespace DotNetCore.API.Template.Site.Filters
+namespace TemplateApi.Api.Filters
 {
     public class HttpResponseExceptionFilter : IActionFilter, IOrderedFilter
     {

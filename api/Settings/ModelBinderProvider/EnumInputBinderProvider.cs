@@ -1,10 +1,10 @@
 ﻿using System;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
-using DotNetCore.API.Template.Site.Settings.ModelBinder;
+using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Api.Settings.ModelBinder;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
-namespace DotNetCore.API.Template.Site.Settings.ModelBinderProvider
+namespace TemplateApi.Api.Settings.ModelBinderProvider
 {
     public class EnumInputBinderProvider<T> : IModelBinderProvider
         where T : struct

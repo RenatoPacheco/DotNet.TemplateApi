@@ -1,7 +1,7 @@
-﻿using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
+﻿using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Interfaces.Repositorios;
 
-namespace DotNetCore.API.Template.Dominio.Servicos
+namespace TemplateApi.Dominio.Servicos
 {
     public class SobreServ : Comum.BaseServ
     {

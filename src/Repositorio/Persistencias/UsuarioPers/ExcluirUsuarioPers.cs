@@ -1,15 +1,15 @@
 ﻿using System;
 using Dapper;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using System.Linq;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
     internal class ExcluirUsuarioPers : Comum.SimplesRep
     {
@@ -21,7 +21,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
         public void Excluir(ExcluirUsuarioCmd comando)
         {
             Notifications.Clear();
-            UsuarioMapSql json = new UsuarioMapSql();
+            UsuarioMap json = new UsuarioMap();
 
             string sqlString = @$"
                     UPDATE [dbo].[{json.Tabela}] SET

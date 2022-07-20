@@ -1,7 +1,7 @@
 ﻿using System;
 using BitHelp.Core.Validation.Notations;
 
-namespace DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes
+namespace TemplateApi.Compartilhado.Validacoes.Notacoes
 {
     [AttributeUsage(AttributeTargets.Property |
            AttributeTargets.Field, AllowMultiple = false)]

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BitHelp.Core.Type.pt_BR;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.DataModel.UsuarioDataModel
+namespace TemplateApi.Api.DataModel.UsuarioDataModel
 {
     public class EditarUsuarioDataModel
     {

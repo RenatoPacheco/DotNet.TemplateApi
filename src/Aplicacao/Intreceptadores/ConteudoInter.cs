@@ -1,7 +1,7 @@
-﻿using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds;
+﻿using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Intreceptadores
 {
     public class ConteudoInter : Comum.BaseInter
     {

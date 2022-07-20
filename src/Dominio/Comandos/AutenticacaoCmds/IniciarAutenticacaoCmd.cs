@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using BitHelp.Core.Validation.Extends;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds
+namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
 {
     public class IniciarAutenticacaoCmd
         : Comum.FiltrarBaseCmd, ISelfValidation

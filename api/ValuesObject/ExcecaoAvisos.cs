@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public class ExcecaoAvisos
     {

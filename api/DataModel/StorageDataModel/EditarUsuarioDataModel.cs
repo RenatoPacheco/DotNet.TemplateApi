@@ -1,7 +1,7 @@
-﻿using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+﻿using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
+namespace TemplateApi.Api.DataModel.StorageDataModel
 {
     public class EditarStorageDataModel
     {

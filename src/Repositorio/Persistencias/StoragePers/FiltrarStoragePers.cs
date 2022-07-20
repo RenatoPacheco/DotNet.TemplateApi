@@ -4,16 +4,16 @@ using System.Text;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using DotNetCore.API.Template.RecursoResx;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Compartilhado.Json;
+using TemplateApi.RecursoResx;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Compartilhado.Json;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
+namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
     internal class FiltrarStoragePers : Comum.BuscaResp
     {
@@ -22,7 +22,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private StorageMapSql _jsonStorage;
+        private StorageMap _jsonStorage;
 
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia)
         {
@@ -45,7 +45,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonStorage = new StorageMapSql { RefSql = "sto" };
+            _jsonStorage = new StorageMap { RefSql = "sto" };
 
             bool haPaginacao = HaPaginacao(comando);
 

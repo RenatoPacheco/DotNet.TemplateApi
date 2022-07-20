@@ -2,11 +2,11 @@
 using BitHelp.Core.Security;
 using System.Text.RegularExpressions;
 
-namespace DotNetCore.API.Template.Compartilhado.Seguranca
+namespace TemplateApi.Compartilhado.Seguranca
 {
     public class Codificacao
     {
-        private static readonly string Chave = "DotNetCore.API.Template";
+        private static readonly string Chave = "TemplateApi";
         private static readonly string Senha = "74Ixdj9AnA5d1cTP";
 
         public static string Encriptar(string value)

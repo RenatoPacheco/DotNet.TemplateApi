@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
 
-namespace DotNetCore.API.Template.Site.Extensions
+namespace TemplateApi.Api.Extensions
 {
     public static class ModelStateExtensions
     {

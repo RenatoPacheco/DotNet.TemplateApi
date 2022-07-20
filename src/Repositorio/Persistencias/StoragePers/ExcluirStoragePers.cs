@@ -1,16 +1,14 @@
 ﻿using System;
 using Dapper;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
-using System.Linq;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
+namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
     internal class ExcluirStoragePers : Comum.SimplesRep
     {
@@ -22,7 +20,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
         public void Excluir(ExcluirStorageCmd comando)
         {
             Notifications.Clear();
-            StorageMapSql json = new StorageMapSql();
+            StorageMap json = new StorageMap();
 
             string sqlString = @$"
                     UPDATE [dbo].[{json.Tabela}] SET

@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Repositorio.Auxiliares;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Repositorio.Auxiliares;
 
-namespace DotNetCore.API.Template.Repositorio.Comum
+namespace TemplateApi.Repositorio.Comum
 {
     internal abstract class SimplesRep : BaseRep
     {

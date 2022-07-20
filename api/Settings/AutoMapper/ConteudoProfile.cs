@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using System.Linq;
 using BitHelp.Core.Validation.Extends;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds;
-using DotNetCore.API.Template.Site.DataModel.ConteudoDataModel;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Api.DataModel.ConteudoDataModel;
 
-namespace DotNetCore.API.Template.Site.Settings.AutoMapper
+namespace TemplateApi.Api.Settings.AutoMapper
 {
     public class ConteudoProfile : Profile
     {

@@ -1,13 +1,13 @@
 ﻿using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Repositorio.Persistencias.UsuarioPers;
 
-namespace DotNetCore.API.Template.Repositorio
+namespace TemplateApi.Repositorio
 {
     internal class UsuarioRep
         : Comum.SimplesRep, IUsuarioRep

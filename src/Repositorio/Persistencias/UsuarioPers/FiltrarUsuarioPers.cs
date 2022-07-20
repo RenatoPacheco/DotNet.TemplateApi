@@ -4,17 +4,17 @@ using System.Text;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using DotNetCore.API.Template.RecursoResx;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
-using DotNetCore.API.Template.Compartilhado.Json;
+using TemplateApi.RecursoResx;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Compartilhado.Json;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
     internal class FiltrarUsuarioPers : Comum.BuscaResp
     {
@@ -23,7 +23,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private UsuarioMapSql _jsonUsuario;
+        private UsuarioMap _jsonUsuario;
 
         public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia)
         {
@@ -46,7 +46,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonUsuario = new UsuarioMapSql { RefSql = "usu" };
+            _jsonUsuario = new UsuarioMap { RefSql = "usu" };
 
             bool haPaginacao = HaPaginacao(comando);
 

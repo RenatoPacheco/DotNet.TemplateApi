@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 
-namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
+namespace TemplateApi.Api.DataModel.StorageDataModel
 {
     public class InserirStorageDataModel
     {

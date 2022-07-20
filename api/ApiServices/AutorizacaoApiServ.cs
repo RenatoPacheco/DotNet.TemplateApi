@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using DotNetCore.API.Template.Site.ValuesObject;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Aplicacao;
+using TemplateApi.Api.ValuesObject;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Aplicacao;
 
-namespace DotNetCore.API.Template.Site.ApiServices
+namespace TemplateApi.Api.ApiServices
 {
     public class AutorizacaoApiServ : Common.baseApiServ
     {

@@ -1,13 +1,13 @@
 ﻿using System.Net;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using DotNetCore.API.Template.Site.Helpers;
-using DotNetCore.API.Template.Site.ApiApplications;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Api.Helpers;
+using TemplateApi.Api.ApiApplications;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.Filters
+namespace TemplateApi.Api.Filters
 {
     public class ValidarAutorizacaoFilter
         : IAuthorizationFilter, IOrderedFilter

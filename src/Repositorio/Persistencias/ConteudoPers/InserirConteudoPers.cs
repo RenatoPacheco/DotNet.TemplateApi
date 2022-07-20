@@ -1,12 +1,12 @@
 ﻿using System;
 using Dapper;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Repositorio.Mapeamentos;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
+namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
     internal class InserirConteudoPers : Comum.SimplesRep
     {
@@ -24,7 +24,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
         public void Inserir(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoMapSql json = new ConteudoMapSql();
+            ConteudoMap json = new ConteudoMap();
 
             Validate(dados);
 

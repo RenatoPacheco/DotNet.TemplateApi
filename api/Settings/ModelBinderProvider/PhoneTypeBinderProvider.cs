@@ -1,10 +1,10 @@
 ﻿using System;
 using BitHelp.Core.Type.pt_BR;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using DotNetCore.API.Template.Site.Settings.ModelBinder;
+using TemplateApi.Api.Settings.ModelBinder;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
-namespace DotNetCore.API.Template.Site.Settings.ModelBinderProvider
+namespace TemplateApi.Api.Settings.ModelBinderProvider
 {
     public class PhoneTypeBinderProvider : IModelBinderProvider
     {

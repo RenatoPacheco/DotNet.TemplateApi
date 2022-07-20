@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DotNetCore.API.Template.Compartilhado.Json;
+using TemplateApi.Compartilhado.Json;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public class Startup
     {

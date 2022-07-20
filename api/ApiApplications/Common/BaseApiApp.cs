@@ -1,5 +1,5 @@
 ﻿using BitHelp.Core.Validation;
-namespace DotNetCore.API.Template.Site.ApiApplications.Common
+namespace TemplateApi.Api.ApiApplications.Common
 {
     public abstract class BaseApiApp : ISelfValidation
     {

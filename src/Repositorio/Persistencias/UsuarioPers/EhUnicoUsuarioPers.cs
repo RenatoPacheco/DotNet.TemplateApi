@@ -2,15 +2,15 @@
 using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using DotNetCore.API.Template.RecursoResx;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
+using TemplateApi.RecursoResx;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Repositorio.Mapeamentos;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
     class EhUnicoUsuarioPers : Comum.SimplesRep
     {
@@ -34,7 +34,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.UsuarioPers
         private bool EmailEhUnico(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioMapSql json = new UsuarioMapSql();
+            UsuarioMap json = new UsuarioMap();
 
             if (!(dados?.Email is null))
             {

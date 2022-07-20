@@ -1,11 +1,11 @@
 ﻿using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Escopos;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds
+namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 {
     public class InserirConteudoCmd : ISelfValidation
     {

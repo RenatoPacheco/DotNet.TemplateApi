@@ -1,8 +1,8 @@
-﻿using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Repositorio.Persistencias.SobrePers;
+﻿using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Repositorio.Persistencias.SobrePers;
 
-namespace DotNetCore.API.Template.Repositorio
+namespace TemplateApi.Repositorio
 {
     internal class SobreRep
         : Comum.BaseRep, ISobreRep

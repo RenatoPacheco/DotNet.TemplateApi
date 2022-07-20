@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using DotNetCore.API.Template.Site.Settings.AutoMapper;
+using TemplateApi.Api.Settings.AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class AutoMapperConfig
     {

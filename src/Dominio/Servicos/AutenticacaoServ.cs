@@ -1,13 +1,13 @@
 ﻿using System.Linq;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
 using System.Reflection;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Servicos
+namespace TemplateApi.Dominio.Servicos
 {
     public class AutenticacaoServ : Comum.BaseServ
     {

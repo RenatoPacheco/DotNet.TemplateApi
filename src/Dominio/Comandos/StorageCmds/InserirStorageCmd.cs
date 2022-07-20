@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Extends;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
+namespace TemplateApi.Dominio.Comandos.StorageCmds
 {
     public class InserirStorageCmd : ISelfValidation
     {

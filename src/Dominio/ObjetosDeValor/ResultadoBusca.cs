@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Compartilhado.Json;
+using TemplateApi.Compartilhado.Json;
 
-namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
+namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public class ResultadoBusca
     {

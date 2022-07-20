@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNetCore.API.Template
+namespace TemplateApi
 {
     public class DetectarServidor
     {

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.DataModel.ConteudoDataModel
+namespace TemplateApi.Api.DataModel.ConteudoDataModel
 {
     public class InserirConteudoDataModel
     {

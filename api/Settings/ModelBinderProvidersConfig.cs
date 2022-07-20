@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Site.Settings.ModelBinderProvider;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Api.Settings.ModelBinderProvider;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class ModelBinderProvidersConfig
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using DotNetCore.API.Template.IdC;
+using TemplateApi.IdC;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotNetCore.API.Template.Site.Helpers
+namespace TemplateApi.Api.Helpers
 {
     public class ResolverDependencia : IResolverDependencia
     {

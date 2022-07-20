@@ -4,14 +4,14 @@ using System.Linq;
 using System.Reflection;
 using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
-using DotNetCore.API.Template.Site.Helpers;
-using DotNetCore.API.Template.Site.ViewsData;
+using TemplateApi.Api.Helpers;
+using TemplateApi.Api.ViewsData;
 using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 using Microsoft.AspNetCore.Hosting;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 
-namespace DotNetCore.API.Template.Site.Controllers.Common
+namespace TemplateApi.Api.Controllers.Common
 {
     [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(ComumViewsData))]
     [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(ComumViewsData))]

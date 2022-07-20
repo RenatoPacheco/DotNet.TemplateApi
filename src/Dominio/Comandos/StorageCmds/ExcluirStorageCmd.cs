@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.Escopos;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.StorageCmds
+namespace TemplateApi.Dominio.Comandos.StorageCmds
 {
     public class ExcluirStorageCmd : ISelfValidation
     {

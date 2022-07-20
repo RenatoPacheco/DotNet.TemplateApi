@@ -1,6 +1,6 @@
 ﻿using BitHelp.Core.Validation;
 
-namespace DotNetCore.API.Template.Repositorio.Comum
+namespace TemplateApi.Repositorio.Comum
 {
     internal abstract class BaseRep : ISelfValidation
     {

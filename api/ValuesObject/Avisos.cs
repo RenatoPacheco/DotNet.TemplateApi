@@ -3,9 +3,9 @@ using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public class Avisos
     {

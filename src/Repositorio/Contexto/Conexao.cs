@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
-using DotNetCore.API.Template.Repositorio.Interfaces;
-namespace DotNetCore.API.Template.Repositorio.Contexto
+using TemplateApi.Repositorio.Interfaces;
+namespace TemplateApi.Repositorio.Contexto
 {
     public class Conexao 
         : IConexao, IDisposable

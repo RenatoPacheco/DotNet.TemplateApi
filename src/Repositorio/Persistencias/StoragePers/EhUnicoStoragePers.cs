@@ -2,14 +2,14 @@
 using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using DotNetCore.API.Template.RecursoResx;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
+using TemplateApi.RecursoResx;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Repositorio.Mapeamentos;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
+namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
     class EhUnicoStoragePers : Comum.SimplesRep
     {
@@ -33,7 +33,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
         private bool ReferenciaEhUnico(Storage dados)
         {
             Notifications.Clear();
-            StorageMapSql json = new StorageMapSql();
+            StorageMap json = new StorageMap();
 
             if (!(dados?.Referencia is null))
             {

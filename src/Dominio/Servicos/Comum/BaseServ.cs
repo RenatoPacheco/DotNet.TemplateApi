@@ -1,6 +1,6 @@
 ﻿using BitHelp.Core.Validation;
 
-namespace DotNetCore.API.Template.Dominio.Servicos.Comum
+namespace TemplateApi.Dominio.Servicos.Comum
 {
     public abstract class BaseServ : ISelfValidation
     {

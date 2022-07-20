@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class CultureInfoConfig
     {

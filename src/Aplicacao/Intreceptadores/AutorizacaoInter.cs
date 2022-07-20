@@ -1,6 +1,6 @@
-﻿using DotNetCore.API.Template.Dominio.Servicos;
+﻿using TemplateApi.Dominio.Servicos;
 
-namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Intreceptadores
 {
     public class AutorizacaoInter : Comum.BaseInter
     {

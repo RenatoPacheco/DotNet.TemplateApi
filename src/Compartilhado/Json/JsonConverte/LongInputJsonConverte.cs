@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using DotNetCore.API.Template.Compartilhado.Extensoes;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Compartilhado.Json.JsonConverte
+namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
     public class LongInputJsonConverte : JsonConverter<LongInput>
     {

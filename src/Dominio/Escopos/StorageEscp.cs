@@ -2,12 +2,12 @@
 using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 using BitHelp.Core.Validation.Extends;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.Validacoes.Extensoes;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.Validacoes.Extensoes;
 
-namespace DotNetCore.API.Template.Dominio.Escopos
+namespace TemplateApi.Dominio.Escopos
 {
     public class StorageEscp<TClasse> : BaseEscp<TClasse>
         where TClasse : ISelfValidation

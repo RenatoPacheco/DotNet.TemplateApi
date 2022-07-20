@@ -1,11 +1,11 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.Interfaces.Repositorios;
 
-namespace DotNetCore.API.Template.Dominio.Servicos
+namespace TemplateApi.Dominio.Servicos
 {
     public class ConteudoServ : Comum.BaseServ
     {

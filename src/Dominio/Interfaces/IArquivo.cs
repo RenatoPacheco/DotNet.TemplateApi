@@ -1,4 +1,4 @@
-﻿namespace DotNetCore.API.Template.Dominio.Interfaces
+﻿namespace TemplateApi.Dominio.Interfaces
 {
     public interface IArquivo
     {

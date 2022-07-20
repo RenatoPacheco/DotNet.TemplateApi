@@ -1,13 +1,13 @@
 ﻿using System.Reflection;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Aplicacao.Intreceptadores;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace DotNetCore.API.Template.Aplicacao
+namespace TemplateApi.Aplicacao
 {
     public class UsuarioApp : Comum.BaseApp
     {

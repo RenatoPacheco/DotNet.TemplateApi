@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
+using TemplateApi.Dominio.Escopos;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 {
     public class ExcluirUsuarioCmd : ISelfValidation
     {

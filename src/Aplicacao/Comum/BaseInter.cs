@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Servicos;
+using TemplateApi.Dominio.Servicos;
 
-namespace DotNetCore.API.Template.Aplicacao.Comum
+namespace TemplateApi.Aplicacao.Comum
 {
     public abstract class BaseInter : ISelfValidation
     {

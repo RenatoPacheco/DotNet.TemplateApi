@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.Dominio.Servicos;
+using TemplateApi.RecursoResx;
 
-namespace DotNetCore.API.Template.Aplicacao.Comum
+namespace TemplateApi.Aplicacao.Comum
 {
     public abstract class BaseApp : ISelfValidation
     {

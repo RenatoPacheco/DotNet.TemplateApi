@@ -1,10 +1,10 @@
 ﻿using System;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 using System.Threading.Tasks;
-using DotNetCore.API.Template.Site.Extensions;
+using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace DotNetCore.API.Template.Site.Settings.ModelBinder
+namespace TemplateApi.Api.Settings.ModelBinder
 {
     public class GuidModelBinder : IModelBinder
     {

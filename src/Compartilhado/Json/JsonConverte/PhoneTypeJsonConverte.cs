@@ -2,9 +2,9 @@
 using System.Text.Json;
 using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
-using DotNetCore.API.Template.Compartilhado.Extensoes;
+using TemplateApi.Compartilhado.Extensoes;
 
-namespace DotNetCore.API.Template.Compartilhado.Json.JsonConverte
+namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
     public class PhoneTypeJsonConverte : JsonConverter<PhoneType>
     {

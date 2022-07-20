@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Reflection;
-using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Dominio.Notacoes;
+using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.Notacoes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using DotNetCore.API.Template.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Intreceptadores;
 
-namespace DotNetCore.API.Template.Aplicacao
+namespace TemplateApi.Aplicacao
 {
     public class StorageApp : Comum.BaseApp
     {

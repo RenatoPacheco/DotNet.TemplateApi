@@ -1,7 +1,7 @@
 ﻿using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Interfaces.Repositorios
+namespace TemplateApi.Dominio.Interfaces.Repositorios
 {
     public interface IAutorizacaoRep : ISelfValidation
     {

@@ -1,12 +1,12 @@
 ﻿using BitHelp.Core.Validation.Extends;
-using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 using System;
 
-namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Intreceptadores
 {
     public class StorageInter : Comum.BaseInter
     {

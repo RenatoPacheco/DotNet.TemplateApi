@@ -3,10 +3,10 @@ using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Dominio.Interfaces;
+using TemplateApi.Dominio.Escopos;
+using TemplateApi.Dominio.Interfaces;
 
-namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
+namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public class Storage
         : IArquivo, ISelfValidation, IEquatable<Storage>

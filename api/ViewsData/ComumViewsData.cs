@@ -1,6 +1,6 @@
-﻿using DotNetCore.API.Template.Site.ValuesObject;
+﻿using TemplateApi.Api.ValuesObject;
 
-namespace DotNetCore.API.Template.Site.ViewsData
+namespace TemplateApi.Api.ViewsData
 {
     public class ComumViewsData
     {

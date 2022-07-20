@@ -1,9 +1,9 @@
 ﻿using System;
 using BitHelp.Core.Validation;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Compartilhado.Extensoes;
+using TemplateApi.Compartilhado.Extensoes;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public class NoificacaoAvisos
     {

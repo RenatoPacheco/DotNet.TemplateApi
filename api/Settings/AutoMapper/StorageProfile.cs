@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using System.Linq;
 using BitHelp.Core.Validation.Extends;
-using DotNetCore.API.Template.Site.ValuesObject;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
+using TemplateApi.Api.ValuesObject;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Api.DataModel.StorageDataModel;
 
-namespace DotNetCore.API.Template.Site.Settings.AutoMapper
+namespace TemplateApi.Api.Settings.AutoMapper
 {
     public class StorageProfile : Profile
     {

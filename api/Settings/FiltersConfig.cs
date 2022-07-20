@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DotNetCore.API.Template.Site.Filters;
+using TemplateApi.Api.Filters;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class FiltersConfig
     {

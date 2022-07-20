@@ -1,12 +1,12 @@
 ﻿using System.Text;
-using DotNetCore.API.Template.Dominio.Entidades;
+using TemplateApi.Dominio.Entidades;
 
-namespace DotNetCore.API.Template.Repositorio.MapeamentoSql
+namespace TemplateApi.Repositorio.Mapeamentos
 {
-    internal class ConteudoMapSql
+    internal class ConteudoMap
         : Auxiliares.MapeamentoSqlBase<Conteudo>
     {
-        public ConteudoMapSql()
+        public ConteudoMap()
         {
             Associar(x => x.Id, "Codigo_Conteudo");
             Associar(x => x.Titulo, "Titulo_Conteudo");

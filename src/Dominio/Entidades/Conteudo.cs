@@ -3,10 +3,10 @@ using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Escopos;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Entidades
+namespace TemplateApi.Dominio.Entidades
 {
     public class Conteudo
         : ISelfValidation, IEquatable<Conteudo>

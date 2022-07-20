@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using BitHelp.Core.Validation;
 using BitHelp.Core.Validation.Extends;
 
-namespace DotNetCore.API.Template.Dominio.Escopos
+namespace TemplateApi.Dominio.Escopos
 {
     public class BaseEscp<TClasse>
         where TClasse : ISelfValidation

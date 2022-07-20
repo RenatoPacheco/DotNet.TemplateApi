@@ -3,11 +3,11 @@ using System.Linq;
 using System.Reflection;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using DotNetCore.API.Template.RecursoResx;
-using DotNetCore.API.Template.Aplicacao;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.RecursoResx;
+using TemplateApi.Aplicacao;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers
+namespace TemplateApi.Repositorio.Persistencias.AutorizacaoPers
 {
     internal class ListarAutorizacaoPers : Comum.BaseRep
     {

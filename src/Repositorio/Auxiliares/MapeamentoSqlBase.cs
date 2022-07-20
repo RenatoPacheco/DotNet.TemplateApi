@@ -3,10 +3,10 @@ using System.Linq;
 using BitHelp.Core.Extend;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Compartilhado.Extensoes;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
+using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Repositorio.Adaptadores;
 
-namespace DotNetCore.API.Template.Repositorio.Auxiliares
+namespace TemplateApi.Repositorio.Auxiliares
 {
     internal abstract class MapeamentoSqlBase<T>
         where T : class

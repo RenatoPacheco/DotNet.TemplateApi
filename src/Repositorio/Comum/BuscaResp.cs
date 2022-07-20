@@ -1,13 +1,14 @@
-﻿using DotNetCore.API.Template.Dominio.Comandos.Comum;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
+﻿using TemplateApi.Dominio.Comandos.Comum;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using TemplateApi.Repositorio.Interfaces;
 
-namespace DotNetCore.API.Template.Repositorio.Comum
+namespace TemplateApi.Repositorio.Comum
 {
     internal abstract class BuscaResp : SimplesRep
     {

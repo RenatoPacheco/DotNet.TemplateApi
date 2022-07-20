@@ -1,4 +1,4 @@
-﻿namespace DotNetCore.API.Template.Compartilhado.Extensoes
+﻿namespace TemplateApi.Compartilhado.Extensoes
 {
     public static class StringExtensao
     {

@@ -3,9 +3,9 @@ using System.Linq.Expressions;
 using BitHelp.Core.Validation;
 using BitHelp.Core.Validation.Helpers;
 using BitHelp.Core.Validation.Resources;
-using DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes;
+using TemplateApi.Compartilhado.Validacoes.Notacoes;
 
-namespace DotNetCore.API.Template.Compartilhado.Validacoes.Extensoes
+namespace TemplateApi.Compartilhado.Validacoes.Extensoes
 {
     public static class EnumForStringIsValidExt
     {

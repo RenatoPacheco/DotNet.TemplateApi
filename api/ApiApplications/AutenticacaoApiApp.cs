@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DotNetCore.API.Template.Aplicacao;
+using TemplateApi.Aplicacao;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using DotNetCore.API.Template.Site.ApiServices;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Site.ValuesObject;
-using DotNetCore.API.Template.Site.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Api.ApiServices;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Api.ValuesObject;
+using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.ApiApplications
+namespace TemplateApi.Api.ApiApplications
 {
     public class AutenticacaoApiApp : Common.BaseApiApp
     {

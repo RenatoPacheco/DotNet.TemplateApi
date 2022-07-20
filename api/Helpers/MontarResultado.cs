@@ -1,11 +1,11 @@
 ﻿using System.Net;
 using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
-using DotNetCore.API.Template.Site.ViewsData;
-using DotNetCore.API.Template.Site.ValuesObject;
-using DotNetCore.API.Template.Compartilhado.Json;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Api.ValuesObject;
+using TemplateApi.Compartilhado.Json;
 
-namespace DotNetCore.API.Template.Site.Helpers
+namespace TemplateApi.Api.Helpers
 {
     public static class MontarResultado
     {

@@ -1,4 +1,4 @@
-﻿namespace DotNetCore.API.Template
+﻿namespace TemplateApi
 {
     public static class ConnectionStrings
     {

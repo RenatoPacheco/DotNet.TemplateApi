@@ -1,6 +1,6 @@
-﻿using DotNetCore.API.Template.Dominio.Interfaces;
+﻿using TemplateApi.Dominio.Interfaces;
 
-namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
+namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public abstract class Arquivo : IArquivo
     {

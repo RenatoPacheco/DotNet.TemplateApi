@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 
-namespace DotNetCore.API.Template.Repositorio.Adaptadores
+namespace TemplateApi.Repositorio.Adaptadores
 {
     internal static class CharAdapt
     {

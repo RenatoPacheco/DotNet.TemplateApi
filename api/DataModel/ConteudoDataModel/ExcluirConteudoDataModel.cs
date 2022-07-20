@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.DataModel.ConteudoDataModel
+namespace TemplateApi.Api.DataModel.ConteudoDataModel
 {
     public class ExcluirConteudoDataModel
     {

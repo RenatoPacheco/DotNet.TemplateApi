@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using Microsoft.AspNetCore.Http;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.ManageFile;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public class ArquivoUpload : Arquivo
     {

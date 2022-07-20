@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 using System.Collections.Generic;
 
-namespace DotNetCore.API.Template.Site.Extensions
+namespace TemplateApi.Api.Extensions
 {
     public static class SwaggerGenOptionsExtensions
     {

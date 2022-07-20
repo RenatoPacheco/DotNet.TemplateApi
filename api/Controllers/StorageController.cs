@@ -3,16 +3,16 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
-using DotNetCore.API.Template.Aplicacao;
+using TemplateApi.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Site.Extensions;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Site.DataModel.StorageDataModel;
-using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Site.DataAnnotations;
+using TemplateApi.Api.Extensions;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Api.DataModel.StorageDataModel;
+using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Api.DataAnnotations;
 
-namespace DotNetCore.API.Template.Site.Controllers
+namespace TemplateApi.Api.Controllers
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("[controller]")]

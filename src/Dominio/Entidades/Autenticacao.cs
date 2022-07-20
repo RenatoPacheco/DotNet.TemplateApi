@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Compartilhado.Seguranca;
-using DotNetCore.API.Template.Compartilhado.Json;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.Seguranca;
+using TemplateApi.Compartilhado.Json;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Entidades
+namespace TemplateApi.Dominio.Entidades
 {
     public class Autenticacao
     {

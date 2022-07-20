@@ -1,4 +1,4 @@
-﻿namespace DotNetCore.API.Template.Repositorio.Auxiliares
+﻿namespace TemplateApi.Repositorio.Auxiliares
 {
     internal static class MediaType
     {

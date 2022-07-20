@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Notations;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 
-namespace DotNetCore.API.Template.Compartilhado.Validacoes.Notacoes
+namespace TemplateApi.Compartilhado.Validacoes.Notacoes
 {
     [AttributeUsage(AttributeTargets.Property |
            AttributeTargets.Field, AllowMultiple = false)]

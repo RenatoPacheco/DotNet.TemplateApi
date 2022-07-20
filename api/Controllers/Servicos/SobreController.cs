@@ -1,14 +1,14 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using DotNetCore.API.Template.Aplicacao;
+using TemplateApi.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Site.ViewsData;
-using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Site.DataAnnotations;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Servicos
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]

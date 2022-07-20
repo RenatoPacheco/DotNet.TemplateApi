@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
+namespace TemplateApi.Dominio.ObjetosDeValor
 {
     /// <summary>
     /// Obtém informações básicas sobre a aplicação

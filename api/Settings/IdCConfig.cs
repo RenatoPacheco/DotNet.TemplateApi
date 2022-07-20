@@ -1,12 +1,12 @@
-﻿using DotNetCore.API.Template.IdC;
-using DotNetCore.API.Template.Site.Helpers;
-using DotNetCore.API.Template.Site.ApiApplications;
+﻿using TemplateApi.IdC;
+using TemplateApi.Api.Helpers;
+using TemplateApi.Api.ApiApplications;
 using Microsoft.Extensions.DependencyInjection;
-using DotNetCore.API.Template.Site.ApiServices;
+using TemplateApi.Api.ApiServices;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class IdCConfig
     {

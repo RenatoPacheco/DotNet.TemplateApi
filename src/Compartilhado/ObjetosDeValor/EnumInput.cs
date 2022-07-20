@@ -1,7 +1,7 @@
 ﻿using System;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 
-namespace DotNetCore.API.Template.Compartilhado.ObjetosDeValor
+namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public struct EnumInput<T>
         : IFormattable, IComparable, IConvertible,

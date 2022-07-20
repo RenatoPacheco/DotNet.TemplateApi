@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DotNetCore.API.Template.Dominio.Servicos;
+using TemplateApi.Dominio.Servicos;
 
-namespace DotNetCore.API.Template.IdC.Modulos
+namespace TemplateApi.IdC.Modulos
 {
     internal static class ServicoModulo
     {

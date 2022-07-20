@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.Interfaces.Repositorios;
 
-namespace DotNetCore.API.Template.Dominio.Servicos
+namespace TemplateApi.Dominio.Servicos
 {
     public class StorageServ : Comum.BaseServ
     {

@@ -1,7 +1,7 @@
-﻿using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
+﻿using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Intreceptadores
 {
     public class UsuarioInter : Comum.BaseInter
     {

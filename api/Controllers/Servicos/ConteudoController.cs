@@ -2,17 +2,17 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using DotNetCore.API.Template.Aplicacao;
+using TemplateApi.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
-using DotNetCore.API.Template.Site.ViewsData;
-using DotNetCore.API.Template.Site.Extensions;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds;
-using DotNetCore.API.Template.Site.DataModel.ConteudoDataModel;
-using DotNetCore.API.Template.Site.DataAnnotations;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Api.Extensions;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Api.DataModel.ConteudoDataModel;
+using TemplateApi.Api.DataAnnotations;
 
-namespace DotNetCore.API.Template.Site.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Servicos
 {
     [ApiController]
     [Route("Servico/[controller]")]

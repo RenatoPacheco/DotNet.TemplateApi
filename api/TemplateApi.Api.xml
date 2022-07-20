@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>DotNetCore.API.Template.Site</name>
+        <name>TemplateApi.Api</name>
     </assembly>
     <members>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.AutenticacaoController.Get">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.AutenticacaoController.Get">
             <summary>
             Obter os dados da autenticação atual
             </summary>
@@ -27,7 +27,7 @@
             <p>Lembre-se também que enviar a <strong>autorizações</strong> válida, não garante acesso a todos os endpoint, esse acesso será avaliado de acordo a <strong>autorização</strong> enviada.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.AutenticacaoController.GetCore">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.AutenticacaoController.GetCore">
             <summary>
             Obter os dados da autenticação atual no core da aplicação
             </summary>
@@ -37,22 +37,22 @@
             <p>Essas rotas da API são interfaces de acesso, as classe e métodos da aplicação, e nesse endereço, <strong>GET /Servico/Autenticacao/Core</strong>, são as mesmas autorizações, só que no core do site.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Get(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.FiltrarConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Get(TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel)">
             <summary>
             Filtro de conteúdos
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Post(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Post(TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel)">
             <summary>
             Inserir conteúdo
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Patch(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Patch(TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel)">
             <summary>
             Editar conteúdo
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.ConteudoController.Delete(DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.ExcluirConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Delete(TemplateApi.Api.DataModel.ConteudoDataModel.ExcluirConteudoDataModel)">
             <summary>
             Deletar um ou mais conteúdos
             </summary>
@@ -60,7 +60,7 @@
             <p>Permite excluir um ou mais conteúdos, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.SobreController.Get">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.SobreController.Get">
             <summary>
             Obter informação como nome e versão da API
             </summary>
@@ -74,7 +74,7 @@
             </ul>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Get(TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel)">
             <summary>
             Filtro de storages
             </summary>
@@ -82,7 +82,7 @@
             <p>Permite fazer uma busca pelos arquivos indexados no banco, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Post(DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Post(TemplateApi.Api.DataModel.StorageDataModel.InserirStorageDataModel)">
             <summary>
             Inserir storage
             </summary>
@@ -98,7 +98,7 @@
             <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Patch(DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Patch(TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel)">
             <summary>
             Editar storage
             </summary>
@@ -106,7 +106,7 @@
             <p>Permite editar dados básicos de um arquivo, como nome e status</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.StorageController.Delete(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Delete(TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel)">
             <summary>
             Deletar um ou mais storages
             </summary>
@@ -114,22 +114,22 @@
             <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Get(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Get(TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Post(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Post(TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
             <summary>
             Inserir usuário
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Patch(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Patch(TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
             <summary>
             Editar usuário
             </summary>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.Servicos.UsuarioController.Delete(DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Delete(TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
             </summary>
@@ -137,7 +137,7 @@
             <p>Permite excluir um ou mais usuários, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:DotNetCore.API.Template.Site.Controllers.StorageController.Get(DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.StorageController.Get(TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel)">
             <summary>
             Obter um arquivo de storage
             </summary>
@@ -146,283 +146,283 @@
             <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
             </remarks>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
             <summary>
             Identificador de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Titulo">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Titulo">
             <summary>
             Título de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Alias">
             <summary>
             Alias de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Texto">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Texto">
             <summary>
             Texto de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.EditarConteudoDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Status">
             <summary>
             Status de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Titulo">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Titulo">
             <summary>
             Título de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Alias">
             <summary>
             Alias de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Texto">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Texto">
             <summary>
             Texto de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.ConteudoDataModel.InserirConteudoDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Status">
             <summary>
             Status de conteúdo
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
             <summary>
             Identificador de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Nome">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel.Nome">
             <summary>
             Nome de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.EditarStorageDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel.Storage">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel.Storage">
             <summary>
             Identificador de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ExcluirStorageDataModel.Referencia">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel.Referencia">
             <summary>
             Referência de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Storage">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Storage">
             <summary>
             Identificador de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Referencia">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Referencia">
             <summary>
             Referência de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Alias">
             <summary>
             Alias de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.FiltrarStorageDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.InserirStorageDataModel.Arquivo">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.InserirStorageDataModel.Arquivo">
             <summary>
             O peso do arquivo não pode ser maior que 100 kb, 
             e os tipos permitidos são imagens, textos ou planilhas.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel.Alias">
             <summary>
             Alias de storage
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.StorageDataModel.ObterStorageDataModel.Download">
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel.Download">
             <summary>
             Informe true para fazer download do arquivo 
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Nome">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Nome">
             <summary>
             Nome de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Email">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Email">
             <summary>
             E-mail de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Telefone">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Telefone">
             <summary>
             Telefone de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Senha">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Senha">
             <summary>
             Senha de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Nome">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Nome">
             <summary>
             Nome de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Email">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Email">
             <summary>
             E-mail de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
             <summary>
             Telefone de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Senha">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Senha">
             <summary>
             Senha de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.Nome">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Nome">
             <summary>
             Informa o nome de quem se autenticou.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.Email">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Email">
             <summary>
             Informa o e-mail de quem se autenicou.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.EstaAutenticado">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.EstaAutenticado">
             <summary>
             Informa se a autenticação recebida foi validade ou não.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.HaChavePublica">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.HaChavePublica">
             <summary>
             Informa se uma chave de acessó válida foi enviada ou não.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.CriadoEm">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.CriadoEm">
             <summary>
             Data em que a autenticação foi criada.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.ExpiraEm">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.ExpiraEm">
             <summary>
             Data que o token dessa autenticação vai expirar.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.Token">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Token">
             <summary>
             Token gerado a partir dos dados da autenticação, deve ser usado no header de autorização.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutenticacaoApi.Autorizacoes">
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Autorizacoes">
             <summary>
             Lista de autorização que essa autenticação tem acesso.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Id">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Id">
             <summary>
             Identificador únido da autorização.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Rota">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Rota">
             <summary>
             Endpoint referente a essa autorização.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Nome">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Nome">
             <summary>
             Nome da autorirização.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Http">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Http">
             <summary>
             Tipo de requisição do endpoint.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Descricao">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Descricao">
             <summary>
             Uma breve descrição do que o endpoint faz.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.RequerAutorizacao">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.RequerAutorizacao">
             <summary>
             Se true, quer dizer que só pode ser acessado recebendo uma autorização válida.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.RequerChavePublica">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.RequerChavePublica">
             <summary>
             Se true, quer dizer que só pode ser acessado recebendo uma chave pública válida.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Obsoleto">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Obsoleto">
             <summary>
             Indica se esse endpoint está obsoleto.
             </summary>
         </member>
-        <member name="P:DotNetCore.API.Template.Site.ValuesObject.AutorizacaoApi.Observacao">
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Observacao">
             <summary>
             Alguma descrição complememntar caso esteja obsoleto.
             </summary>

@@ -4,14 +4,14 @@ using System.Text;
 using BitHelp.Core.Type.pt_BR;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
-using DotNetCore.API.Template.Site.Extensions;
-using DotNetCore.API.Template.Site.Settings.Swashbuckle;
+using TemplateApi.Api.Extensions;
+using TemplateApi.Api.Settings.Swashbuckle;
 using Microsoft.Extensions.DependencyInjection;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Site.ValuesObject;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Api.ValuesObject;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class SwaggerConfig
     {
@@ -134,8 +134,8 @@ namespace DotNetCore.API.Template.Site
                     () => options.SchemaEnum<TipoNoificacaoAvisos>("string"));
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;
-                options.IncludeXmlComments(Path.Combine(pasta, "DotNetCore.API.Template.Site.xml"));
-                options.IncludeXmlComments(Path.Combine(pasta, "DotNetCore.API.Template.xml"));
+                options.IncludeXmlComments(Path.Combine(pasta, "TemplateApi.Api.xml"));
+                options.IncludeXmlComments(Path.Combine(pasta, "TemplateApi.xml"));
             });
         }
 

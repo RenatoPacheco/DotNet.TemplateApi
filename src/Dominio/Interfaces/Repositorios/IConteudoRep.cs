@@ -1,9 +1,9 @@
 ﻿using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Interfaces.Repositorios
+namespace TemplateApi.Dominio.Interfaces.Repositorios
 {
     public interface IConteudoRep : ISelfValidation
     {

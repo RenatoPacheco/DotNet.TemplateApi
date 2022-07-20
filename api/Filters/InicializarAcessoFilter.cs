@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
-using DotNetCore.API.Template.Site.ApiApplications;
+using TemplateApi.Api.ApiApplications;
 
-namespace DotNetCore.API.Template.Site.Filters
+namespace TemplateApi.Api.Filters
 {
     public class InicializarAcessoFilter
         : IAuthorizationFilter, IOrderedFilter

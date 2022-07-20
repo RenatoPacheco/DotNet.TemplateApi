@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Microsoft.Extensions.Configuration;
 
-namespace DotNetCore.API.Template.Site.Helpers
+namespace TemplateApi.Api.Helpers
 {
     public class AppSettings : IAppSettings
     {

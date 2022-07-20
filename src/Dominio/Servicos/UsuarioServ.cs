@@ -1,12 +1,12 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Servicos
+namespace TemplateApi.Dominio.Servicos
 {
     public class UsuarioServ : Comum.BaseServ
     {

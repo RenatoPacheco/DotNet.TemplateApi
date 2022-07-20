@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Text;
 using System.Collections.Generic;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Repositorio.Adaptadores
+namespace TemplateApi.Repositorio.Adaptadores
 {
     internal static class StatusAdapt
     {

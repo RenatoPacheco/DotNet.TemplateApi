@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DotNetCore.API.Template.Aplicacao;
-using DotNetCore.API.Template.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacao.Intreceptadores;
 
-namespace DotNetCore.API.Template.IdC.Modulos
+namespace TemplateApi.IdC.Modulos
 {
     internal static class AplicacaoModulo
     {

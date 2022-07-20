@@ -1,7 +1,7 @@
-﻿using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
+﻿using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
 
-namespace DotNetCore.API.Template.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Intreceptadores
 {
     public class AutenticacaoInter : Comum.BaseInter
     {

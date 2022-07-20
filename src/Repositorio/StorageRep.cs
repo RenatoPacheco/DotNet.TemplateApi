@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Repositorio.Persistencias.StoragePers;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Repositorio.Persistencias.StoragePers;
 
-namespace DotNetCore.API.Template.Repositorio
+namespace TemplateApi.Repositorio
 {
     internal class StorageRep
         : Comum.SimplesRep, IStorageRep

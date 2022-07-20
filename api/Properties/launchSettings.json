@@ -18,7 +18,7 @@
       },
       "ancmHostingModel": "OutOfProcess"
     },
-    "DotNetCore.API.Template.Site": {
+    "TemplateApi.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

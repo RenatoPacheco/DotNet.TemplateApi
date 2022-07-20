@@ -4,17 +4,17 @@ using System.Text;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using DotNetCore.API.Template.RecursoResx;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Compartilhado.Json;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.RecursoResx;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Compartilhado.Json;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
+namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
     internal class FiltrarConteudoPers : Comum.BuscaResp
     {
@@ -23,7 +23,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private ConteudoMapSql _jsonConteudo;
+        private ConteudoMap _jsonConteudo;
 
         public ResultadoBusca<Conteudo> Filtrar(FiltrarConteudoCmd comando, string referencia)
         {
@@ -46,7 +46,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.ConteudoPers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonConteudo = new ConteudoMapSql { RefSql = "usu" };
+            _jsonConteudo = new ConteudoMap { RefSql = "usu" };
 
             bool haPaginacao = HaPaginacao(comando);
 

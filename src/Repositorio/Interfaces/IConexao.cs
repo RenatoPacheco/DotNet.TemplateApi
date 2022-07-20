@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNetCore.API.Template.Repositorio.Interfaces
+namespace TemplateApi.Repositorio.Interfaces
 {
     public interface IConexao 
         : IDisposable

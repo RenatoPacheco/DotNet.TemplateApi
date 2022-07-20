@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.Comum
+namespace TemplateApi.Dominio.Comandos.Comum
 {
     public abstract class EditarBaseCmd
     {

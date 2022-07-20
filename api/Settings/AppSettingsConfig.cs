@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace DotNetCore.API.Template.Site
+namespace TemplateApi.Api
 {
     public static class AppSettingsConfig
     {

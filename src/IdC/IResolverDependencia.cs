@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNetCore.API.Template.IdC
+namespace TemplateApi.IdC
 {
     public interface IResolverDependencia
     {

@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using System.Linq;
 using BitHelp.Core.Validation.Extends;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds;
-using DotNetCore.API.Template.Site.DataModel.UsuarioDataModel;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Api.DataModel.UsuarioDataModel;
 
-namespace DotNetCore.API.Template.Site.Settings.AutoMapper
+namespace TemplateApi.Api.Settings.AutoMapper
 {
     public class UsuarioProfile : Profile
     {

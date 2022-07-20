@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Site.DataModel.StorageDataModel
+namespace TemplateApi.Api.DataModel.StorageDataModel
 {
     public class ExcluirStorageDataModel
     {

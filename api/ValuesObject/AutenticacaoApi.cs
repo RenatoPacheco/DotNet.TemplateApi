@@ -1,11 +1,11 @@
-﻿using DotNetCore.API.Template.Dominio.Entidades;
+﻿using TemplateApi.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public class AutenticacaoApi
     {

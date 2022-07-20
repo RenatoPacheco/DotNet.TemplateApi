@@ -1,8 +1,8 @@
-﻿using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Repositorio.Persistencias.AutorizacaoPers;
+﻿using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Repositorio.Persistencias.AutorizacaoPers;
 
-namespace DotNetCore.API.Template.Repositorio
+namespace TemplateApi.Repositorio
 {
     internal class AutorizacaoRep
         : Comum.BaseRep, IAutorizacaoRep

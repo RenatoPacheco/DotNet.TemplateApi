@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace DotNetCore.API.Template.Site.Settings.Swashbuckle
+namespace TemplateApi.Api.Settings.Swashbuckle
 {
     public class FiltroOperationFilter : IOperationFilter
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace DotNetCore.API.Template.Site.Extensions
+namespace TemplateApi.Api.Extensions
 {
     public static class ModelBindingContextExtensions
     {

@@ -2,12 +2,12 @@
 using System.Reflection;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Aplicacao.Intreceptadores;
+using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Aplicacao.Intreceptadores;
 
-namespace DotNetCore.API.Template.Aplicacao
+namespace TemplateApi.Aplicacao
 {
     public class AutorizacaoApp : Comum.BaseApp
     {

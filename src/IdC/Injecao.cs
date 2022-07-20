@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using DotNetCore.API.Template.IdC.Modulos;
+using TemplateApi.IdC.Modulos;
 
-namespace DotNetCore.API.Template.IdC
+namespace TemplateApi.IdC
 {
     public static class Injecao
     {

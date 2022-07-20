@@ -1,12 +1,12 @@
 ﻿using System.Text;
-using DotNetCore.API.Template.Dominio.Entidades;
+using TemplateApi.Dominio.Entidades;
 
-namespace DotNetCore.API.Template.Repositorio.MapeamentoSql
+namespace TemplateApi.Repositorio.Mapeamentos
 {
-    internal class UsuarioMapSql
+    internal class UsuarioMap
         : Auxiliares.MapeamentoSqlBase<Usuario>
     {
-        public UsuarioMapSql()
+        public UsuarioMap()
         {
             Associar(x => x.Id, "Codigo_Usuario");
             Associar(x => x.Nome, "Nome_Usuario");

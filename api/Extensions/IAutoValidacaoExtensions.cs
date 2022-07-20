@@ -1,11 +1,11 @@
 ﻿using BitHelp.Core.Validation;
-using DotNetCore.API.Template.RecursoResx;
+using TemplateApi.RecursoResx;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
 using BitHelp.Core.Validation.Extends;
 using System.Text.RegularExpressions;
 
-namespace DotNetCore.API.Template.Site.Extensions
+namespace TemplateApi.Api.Extensions
 {
     public static class IAutoValidacaoExtensions
     {

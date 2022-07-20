@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Escopos;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 {
     public class FiltrarUsuarioCmd
         : Comum.FiltrarBaseCmd, ISelfValidation

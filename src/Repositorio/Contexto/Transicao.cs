@@ -1,8 +1,8 @@
 ﻿using System;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Interfaces;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Interfaces;
 
-namespace DotNetCore.API.Template.Repositorio.Contexto
+namespace TemplateApi.Repositorio.Contexto
 {
     public class Transicao : ITransicao
     {

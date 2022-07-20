@@ -2,12 +2,12 @@
 using BitHelp.Core.Type.pt_BR;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Escopos;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.Escopos;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.UsuarioCmds
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 {
     public class EditarUsuarioCmd 
         : Comum.EditarBaseCmd, ISelfValidation

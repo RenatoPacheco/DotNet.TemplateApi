@@ -1,9 +1,9 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
 
-namespace DotNetCore.API.Template.Repositorio.Auxiliares
+namespace TemplateApi.Repositorio.Auxiliares
 {
     public class IniciarTransicao : IDisposable
     {

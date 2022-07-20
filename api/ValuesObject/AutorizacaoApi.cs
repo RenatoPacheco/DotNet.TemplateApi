@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Site.DataAnnotations;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Aplicacao;
+using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Aplicacao;
 
-namespace DotNetCore.API.Template.Site.ValuesObject
+namespace TemplateApi.Api.ValuesObject
 {
     public class AutorizacaoApi : ICloneable
     {

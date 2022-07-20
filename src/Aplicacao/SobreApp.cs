@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
-using DotNetCore.API.Template.Dominio.Servicos;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Servicos;
+using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Aplicacao.Intreceptadores;
+using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Aplicacao.Intreceptadores;
 
-namespace DotNetCore.API.Template.Aplicacao
+namespace TemplateApi.Aplicacao
 {
     public class SobreApp : Comum.BaseApp
     {

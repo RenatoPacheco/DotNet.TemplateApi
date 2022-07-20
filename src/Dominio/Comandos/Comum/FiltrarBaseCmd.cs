@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DotNetCore.API.Template.Dominio.Comandos.Comum
+namespace TemplateApi.Dominio.Comandos.Comum
 {
     public abstract class FiltrarBaseCmd
     {

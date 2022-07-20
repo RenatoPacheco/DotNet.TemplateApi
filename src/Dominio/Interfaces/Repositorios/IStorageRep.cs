@@ -1,8 +1,8 @@
 ﻿using BitHelp.Core.Validation;
-using DotNetCore.API.Template.Dominio.Comandos.StorageCmds;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Dominio.Interfaces.Repositorios
+namespace TemplateApi.Dominio.Interfaces.Repositorios
 {
     public interface IStorageRep : ISelfValidation
     {

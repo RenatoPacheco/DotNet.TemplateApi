@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
-using DotNetCore.API.Template.Site.ValuesObject;
+using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Api.ValuesObject;
 
-namespace DotNetCore.API.Template.Site.DataAnnotations
+namespace TemplateApi.Api.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public sealed class ReferenciarAppAttribute : Attribute

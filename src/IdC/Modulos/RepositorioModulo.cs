@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DotNetCore.API.Template.Repositorio;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Dominio.Interfaces.Repositorios;
-using DotNetCore.API.Template.Repositorio.Persistencias.SobrePers;
-using DotNetCore.API.Template.Repositorio.Interfaces;
+using TemplateApi.Repositorio;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Repositorio.Persistencias.SobrePers;
+using TemplateApi.Repositorio.Interfaces;
 
-namespace DotNetCore.API.Template.IdC.Modulos
+namespace TemplateApi.IdC.Modulos
 {
     internal static class RepositorioModulo
     {

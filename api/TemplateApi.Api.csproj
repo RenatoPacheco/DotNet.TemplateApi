@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>.\DotNetCore.API.Template.Site.xml</DocumentationFile>
+    <DocumentationFile>.\TemplateApi.Api.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>.\DotNetCore.API.Template.Site.xml</DocumentationFile>
+    <DocumentationFile>.\TemplateApi.Api.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\DotNetCore.API.Template.csproj" />
+    <ProjectReference Include="..\src\TemplateApi.csproj" />
   </ItemGroup>
 
 

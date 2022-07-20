@@ -1,12 +1,12 @@
 ﻿using System;
 using Dapper;
-using DotNetCore.API.Template.Dominio.Interfaces;
-using DotNetCore.API.Template.Repositorio.Contexto;
-using DotNetCore.API.Template.Repositorio.Adaptadores;
-using DotNetCore.API.Template.Repositorio.MapeamentoSql;
-using DotNetCore.API.Template.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Repositorio.Adaptadores;
+using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
+namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
     internal class InserirStoragePers : Comum.SimplesRep
     {
@@ -24,7 +24,7 @@ namespace DotNetCore.API.Template.Repositorio.Persistencias.StoragePers
         public void Inserir(Storage dados)
         {
             Notifications.Clear();
-            StorageMapSql json = new StorageMapSql();
+            StorageMap json = new StorageMap();
 
             Validate(dados);
 

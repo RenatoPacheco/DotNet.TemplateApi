@@ -1,13 +1,13 @@
 ﻿using System.Reflection;
-using DotNetCore.API.Template.Dominio.Servicos;
+using TemplateApi.Dominio.Servicos;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Dominio.Entidades;
-using DotNetCore.API.Template.Dominio.Comandos.AutenticacaoCmds;
-using DotNetCore.API.Template.Aplicacao.Intreceptadores;
+using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
+using TemplateApi.Aplicacao.Intreceptadores;
 
-namespace DotNetCore.API.Template.Aplicacao
+namespace TemplateApi.Aplicacao
 {
     public class AutenticacaoApp : Comum.BaseApp
     {

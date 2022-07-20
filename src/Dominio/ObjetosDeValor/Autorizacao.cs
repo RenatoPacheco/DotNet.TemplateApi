@@ -3,10 +3,10 @@ using System.Linq;
 using System.Reflection;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using DotNetCore.API.Template.Dominio.Notacoes;
-using DotNetCore.API.Template.Dominio.Entidades;
+using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Dominio.Entidades;
 
-namespace DotNetCore.API.Template.Dominio.ObjetosDeValor
+namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public class Autorizacao
     {
