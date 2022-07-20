@@ -22,5 +22,14 @@
         public static string ChavePublica => _appSettings.GetValue<string>("app:chave-publica");
 
         public static string CultureInfo => _appSettings.GetValue<string>("app:culture-info");
+
+        public static class Autor
+        {
+            public static string Nome => _appSettings.GetValue<string>("app:autor:nome");
+
+            public static string Url => _appSettings.GetValue<string>("app:autor:url");
+
+            public static string Email => _appSettings.GetValue<string>("app:autor:email");
+        }
     }
 }

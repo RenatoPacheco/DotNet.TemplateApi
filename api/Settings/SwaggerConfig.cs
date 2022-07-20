@@ -17,6 +17,8 @@ namespace TemplateApi.Api
     {
         public static void Config(IServiceCollection services)
         {
+            Sobre sobre = new Sobre();
+
             services.AddSwaggerGen(options => {
                 
                 StringBuilder texto = new StringBuilder();
@@ -24,13 +26,24 @@ namespace TemplateApi.Api
                 options.SwaggerDoc("v1", new OpenApiInfo { 
                     Title = AppSettings.Nome, 
                     Version = "v1",
-                    Description = @"Um projeto para montrar uma estrutura base de reursos e 
-                        configuraçãções para montar uma API em .Net Core 3.1.<br> Só testando 
-                        <strong>Formatação HTML</strong> na descrição do Swagger.",
+                    Description = $@"<p>Um projeto para montrar uma estrutura base de reursos e 
+                        configuraçãções para montar uma API em .Net Core 3.1.</p> 
+                        <p>Para mais informações consulte o projeto no <strong>Github</strong>, 
+                        pelo lik do website do swagger.</p>
+                        <h3>Sobre a aplicação</h3>
+                        <p>
+                            <ul>
+                                <li><strong>Nome</strong>: {sobre.Nome}</li>
+                                <li><strong>Versao</strong>: {sobre.Versao}</li>
+                                <li><strong>Ambiente</strong>: {sobre.Ambiente}</li>
+                                <li><strong>Desenvolvimento</strong>: {sobre.EhDesenvolvimento}</li>
+                            </ul>
+                        </p>"
+                    ,
                     Contact = new OpenApiContact() { 
-                        Name = "Renato B. Pacheco", 
-                        Email = "algumemail@algumsite.com.br",
-                        Url = new Uri("https://github.com/RenatoPacheco")
+                        Name = AppSettings.Autor.Nome, 
+                        Email = AppSettings.Autor.Email,
+                        Url = new Uri(AppSettings.Autor.Url)
                     },
                 });
 
