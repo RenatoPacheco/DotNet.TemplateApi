@@ -31,7 +31,7 @@ namespace TemplateApi.Repositorio.Contexto
         {
             if (!HaSessao())
             {
-                _sessao = new SqlConnection(ConnectionStrings.Testando);
+                _sessao = new SqlConnection(ConnectionStrings.TemplateApi);
                 _sessao.Open();
             }
             return _sessao;

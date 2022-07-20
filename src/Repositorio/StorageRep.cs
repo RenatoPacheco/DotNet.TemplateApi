@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;

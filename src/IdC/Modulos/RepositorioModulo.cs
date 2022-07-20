@@ -30,8 +30,8 @@ namespace TemplateApi.IdC.Modulos
             Injecao.Registrar<ITransicao, Transicao>(recipiente);
             Injecao.Registrar<IUnidadeTrabalho, UnidadeTrabalho>(recipiente);
 
-            string bancoTestando = typeof(ObterSobrePers).Namespace;
-            bancoTestando = bancoTestando.Substring(0, bancoTestando.LastIndexOf('.'));
+            string repositorios = typeof(ObterSobrePers).Namespace;
+            repositorios = repositorios.Substring(0, repositorios.LastIndexOf('.'));
 
             Type baseType = typeof(SobreRep);
             string[] exactNamespace = new string[]
@@ -40,9 +40,8 @@ namespace TemplateApi.IdC.Modulos
             };
             string[] startNamespace = new string[]
             {
-                typeof(ObterSobrePers).Namespace.Substring(
-                    0, typeof(ObterSobrePers).Namespace.LastIndexOf('.'))
-        };
+                repositorios
+            };
             string[] interfaceNamespace = new string[]
             {
                 typeof(ISobreRep).Namespace
