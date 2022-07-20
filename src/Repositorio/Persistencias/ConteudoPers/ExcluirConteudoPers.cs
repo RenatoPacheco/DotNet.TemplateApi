@@ -21,13 +21,13 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
         public void Excluir(ExcluirConteudoCmd comando)
         {
             Notifications.Clear();
-            ConteudoMap json = new ConteudoMap();
+            ConteudoMap map = new ConteudoMap();
 
             string sqlString = @$"
-                    UPDATE [dbo].[{json.Tabela}] SET
-                            [{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{json.Coluna(x => x.Status)}] = @Status
-                    WHERE {json.Coluna(x => x.Id)} IN @Id
+                    UPDATE [dbo].[{map.Tabela}] SET
+                            [{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
+                           ,[{map.Col(x => x.Status)}] = @Status
+                    WHERE {map.Col(x => x.Id)} IN @Id
                 ";
 
             object sqlObject = new

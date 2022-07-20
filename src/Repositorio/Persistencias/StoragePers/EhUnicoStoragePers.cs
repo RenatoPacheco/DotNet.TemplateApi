@@ -33,16 +33,16 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
         private bool ReferenciaEhUnico(Storage dados)
         {
             Notifications.Clear();
-            StorageMap json = new StorageMap();
+            StorageMap map = new StorageMap();
 
             if (!(dados?.Referencia is null))
             {
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
                     SELECT TOP 1 1
-                    FROM [{json.Tabela}]
-                    Where [{json.Coluna(x => x.Referencia)}] = @Referencia
-                    AND [{json.Coluna(x => x.Id)}] <> @Id
-                    AND [{json.Coluna(x => x.Status)}] <> @Status
+                    FROM [{map.Tabela}]
+                    Where [{map.Col(x => x.Referencia)}] = @Referencia
+                    AND [{map.Col(x => x.Id)}] <> @Id
+                    AND [{map.Col(x => x.Status)}] <> @Status
                 ", new
                 {
                     Id = dados.Id ?? 0,

@@ -23,7 +23,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private UsuarioMap _jsonUsuario;
+        private UsuarioMap _map;
 
         public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia)
         {
@@ -46,21 +46,21 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonUsuario = new UsuarioMap { RefSql = "usu" };
+            _map = new UsuarioMap { RefSql = "usu" };
 
             bool haPaginacao = HaPaginacao(comando);
 
-            sql.Append($" FROM [{_jsonUsuario.Tabela}] as usu ");
+            sql.Append($" FROM [{_map.Tabela}] as usu ");
 
             if (comando.Usuario.Any())
             {
-                sqlFiltro.Append($" AND usu.[{_jsonUsuario.Coluna(x => x.Id)}] IN @Usuario ");
+                sqlFiltro.Append($" AND usu.[{_map.Col(x => x.Id)}] IN @Usuario ");
                 sqlObjeto.Add("Usuario", comando);
             }
 
             if (comando.Status.Any())
             {
-                sqlFiltro.Append($" AND usu.[{_jsonUsuario.Coluna(x => x.Status)}] IN @Status ");
+                sqlFiltro.Append($" AND usu.[{_map.Col(x => x.Status)}] IN @Status ");
                 sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
@@ -69,8 +69,8 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 sqlFiltro.Append(" AND ( ");
                 for (int i = 0; i < textos.Count; i++)
                 {
-                    sqlTextos.Append($" OR {_jsonUsuario.Coluna(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-                    sqlTextos.Append($" OR {_jsonUsuario.Coluna(x => x.Email)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Email)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
 
                     sqlObjeto.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
                 }
@@ -83,9 +83,9 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
             StringBuilder sqlConsulta = new StringBuilder();
 
-            sqlConsulta.Append($" SELECT {_jsonUsuario}");
+            sqlConsulta.Append($" SELECT {_map}");
             sqlConsulta.Append(sql);
-            sqlConsulta.Append($" ORDER BY usu.[{_jsonUsuario.Coluna(x => x.Id)}] DESC ");
+            sqlConsulta.Append($" ORDER BY usu.[{_map.Col(x => x.Id)}] DESC ");
             sqlConsulta.Append(MontarPaginacao(comando));
             sqlConsulta.Append(" FOR JSON PATH ");
 

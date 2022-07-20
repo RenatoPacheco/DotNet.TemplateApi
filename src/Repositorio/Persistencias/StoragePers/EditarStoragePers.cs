@@ -24,7 +24,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
         public void Editar(Storage dados)
         {
             Notifications.Clear();
-            StorageMap json = new StorageMap();
+            StorageMap map = new StorageMap();
 
             IsValid(dados);
 
@@ -36,17 +36,17 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    UPDATE [dbo].[{json.Tabela}] SET
-                            [{json.Coluna(x => x.Nome)}] = @Nome
-                           ,[{json.Coluna(x => x.Diretorio)}] = @Diretorio
-                           ,[{json.Coluna(x => x.Referencia)}] = @Referencia
-                           ,[{json.Coluna(x => x.Tipo)}] = @Tipo
-                           ,[{json.Coluna(x => x.Checksum)}] = @Checksum
-                           ,[{json.Coluna(x => x.Peso)}] = @Peso
-                           ,[{json.Coluna(x => x.Extensao)}] = @Extensao
-                           ,[{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{json.Coluna(x => x.Status)}] = @Status
-                    WHERE [{json.Coluna(x => x.Id)}] = @Id
+                    UPDATE [dbo].[{map.Tabela}] SET
+                            [{map.Col(x => x.Nome)}] = @Nome
+                           ,[{map.Col(x => x.Diretorio)}] = @Diretorio
+                           ,[{map.Col(x => x.Referencia)}] = @Referencia
+                           ,[{map.Col(x => x.Tipo)}] = @Tipo
+                           ,[{map.Col(x => x.Checksum)}] = @Checksum
+                           ,[{map.Col(x => x.Peso)}] = @Peso
+                           ,[{map.Col(x => x.Extensao)}] = @Extensao
+                           ,[{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
+                           ,[{map.Col(x => x.Status)}] = @Status
+                    WHERE [{map.Col(x => x.Id)}] = @Id
                 ";
 
                 object sqlObject = new

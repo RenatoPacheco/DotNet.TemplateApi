@@ -24,7 +24,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
         public void Inserir(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioMap json = new UsuarioMap();
+            UsuarioMap map = new UsuarioMap();
 
             IsValid(dados);
 
@@ -37,14 +37,14 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    INSERT INTO [dbo].[{json.Tabela}]
-                           ([{json.Coluna(x => x.Nome)}]
-                           ,[{json.Coluna(x => x.Email)}]
-                           ,[{json.Coluna(x => x.Senha)}]
-                           ,[{json.Coluna(x => x.Telefone)}]
-                           ,[{json.Coluna(x => x.CriadoEm)}]
-                           ,[{json.Coluna(x => x.AlteradoEm)}]
-                           ,[{json.Coluna(x => x.Status)}])
+                    INSERT INTO [dbo].[{map.Tabela}]
+                           ([{map.Col(x => x.Nome)}]
+                           ,[{map.Col(x => x.Email)}]
+                           ,[{map.Col(x => x.Senha)}]
+                           ,[{map.Col(x => x.Telefone)}]
+                           ,[{map.Col(x => x.CriadoEm)}]
+                           ,[{map.Col(x => x.AlteradoEm)}]
+                           ,[{map.Col(x => x.Status)}])
                     VALUES
                            (@Nome
                            ,@Email

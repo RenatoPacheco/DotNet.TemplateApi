@@ -24,7 +24,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
         public void Editar(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioMap json = new UsuarioMap();
+            UsuarioMap map = new UsuarioMap();
 
             IsValid(dados);
 
@@ -36,14 +36,14 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    UPDATE [dbo].[{json.Tabela}] SET
-                            [{json.Coluna(x => x.Nome)}] = @Nome
-                           ,[{json.Coluna(x => x.Email)}] = @Email
-                           ,[{json.Coluna(x => x.Senha)}] = @Senha
-                           ,[{json.Coluna(x => x.Telefone)}] = @Telefone
-                           ,[{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{json.Coluna(x => x.Status)}] = @Status
-                    WHERE [{json.Coluna(x => x.Id)}] = @Id
+                    UPDATE [dbo].[{map.Tabela}] SET
+                            [{map.Col(x => x.Nome)}] = @Nome
+                           ,[{map.Col(x => x.Email)}] = @Email
+                           ,[{map.Col(x => x.Senha)}] = @Senha
+                           ,[{map.Col(x => x.Telefone)}] = @Telefone
+                           ,[{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
+                           ,[{map.Col(x => x.Status)}] = @Status
+                    WHERE [{map.Col(x => x.Id)}] = @Id
                 ";
 
                 object sqlObject = new

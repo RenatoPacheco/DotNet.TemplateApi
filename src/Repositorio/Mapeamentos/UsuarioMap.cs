@@ -4,7 +4,7 @@ using TemplateApi.Dominio.Entidades;
 namespace TemplateApi.Repositorio.Mapeamentos
 {
     internal class UsuarioMap
-        : Auxiliares.MapeamentoSqlBase<Usuario>
+        : Auxiliares.MapeamentoBase<Usuario>
     {
         public UsuarioMap()
         {

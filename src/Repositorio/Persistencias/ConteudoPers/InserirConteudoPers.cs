@@ -24,7 +24,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
         public void Inserir(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoMap json = new ConteudoMap();
+            ConteudoMap map = new ConteudoMap();
 
             IsValid(dados);
 
@@ -37,13 +37,13 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    INSERT INTO [dbo].[{json.Tabela}]
-                           ([{json.Coluna(x => x.Titulo)}]
-                           ,[{json.Coluna(x => x.Alias)}]
-                           ,[{json.Coluna(x => x.Texto)}]
-                           ,[{json.Coluna(x => x.CriadoEm)}]
-                           ,[{json.Coluna(x => x.AlteradoEm)}]
-                           ,[{json.Coluna(x => x.Status)}])
+                    INSERT INTO [dbo].[{map.Tabela}]
+                           ([{map.Col(x => x.Titulo)}]
+                           ,[{map.Col(x => x.Alias)}]
+                           ,[{map.Col(x => x.Texto)}]
+                           ,[{map.Col(x => x.CriadoEm)}]
+                           ,[{map.Col(x => x.AlteradoEm)}]
+                           ,[{map.Col(x => x.Status)}])
                     VALUES
                            (@Titulo
                            ,@Alias

@@ -22,7 +22,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private StorageMap _jsonStorage;
+        private StorageMap _map;
 
         public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia)
         {
@@ -45,33 +45,33 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
             IList<string> textos = DesmebrarTexto(comando.Texto);
 
-            _jsonStorage = new StorageMap { RefSql = "sto" };
+            _map = new StorageMap { RefSql = "sto" };
 
             bool haPaginacao = HaPaginacao(comando);
 
-            sql.Append($" FROM [{_jsonStorage.Tabela}] as sto ");
+            sql.Append($" FROM [{_map.Tabela}] as sto ");
 
             if (comando.Storage.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Id)}] IN @Storage ");
+                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Id)}] IN @Storage ");
                 sqlObjeto.Add("Storage", comando.Storage);
             }
 
             if (comando.Referencia.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Referencia)}] IN @Referencia ");
+                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Referencia)}] IN @Referencia ");
                 sqlObjeto.Add("Referencia", comando.Referencia);
             }
 
             if (comando.Alias.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Alias)}] IN @Alias ");
+                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Alias)}] IN @Alias ");
                 sqlObjeto.Add("Alias", comando.Alias);
             }
 
             if (comando.Status.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_jsonStorage.Coluna(x => x.Status)}] IN @Status ");
+                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Status)}] IN @Status ");
                 sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
@@ -80,9 +80,9 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
                 sqlFiltro.Append(" AND ( ");
                 for (int i = 0; i < textos.Count; i++)
                 {
-                    sqlTextos.Append($" OR {_jsonStorage.Coluna(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-                    sqlTextos.Append($" OR {_jsonStorage.Coluna(x => x.Referencia)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-                    sqlTextos.Append($" OR {_jsonStorage.Coluna(x => x.Tipo)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Referencia)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Tipo)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
 
                     sqlObjeto.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
                 }
@@ -95,9 +95,9 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
             StringBuilder sqlConsulta = new StringBuilder();
 
-            sqlConsulta.Append($" SELECT {_jsonStorage}");
+            sqlConsulta.Append($" SELECT {_map}");
             sqlConsulta.Append(sql);
-            sqlConsulta.Append($" ORDER BY sto.[{_jsonStorage.Coluna(x => x.Id)}] DESC ");
+            sqlConsulta.Append($" ORDER BY sto.[{_map.Col(x => x.Id)}] DESC ");
             sqlConsulta.Append(MontarPaginacao(comando));
             sqlConsulta.Append(" FOR JSON PATH ");
 

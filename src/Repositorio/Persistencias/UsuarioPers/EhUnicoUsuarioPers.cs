@@ -34,16 +34,16 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
         private bool EmailEhUnico(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioMap json = new UsuarioMap();
+            UsuarioMap map = new UsuarioMap();
 
             if (!(dados?.Email is null))
             {
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
                     SELECT TOP 1 1
-                    FROM [{json.Tabela}]
-                    Where [{json.Coluna(x => x.Email)}] = @Email
-                    AND [{json.Coluna(x => x.Id)}] <> @Id
-                    AND [{json.Coluna(x => x.Status)}] <> @Status
+                    FROM [{map.Tabela}]
+                    Where [{map.Col(x => x.Email)}] = @Email
+                    AND [{map.Col(x => x.Id)}] <> @Id
+                    AND [{map.Col(x => x.Status)}] <> @Status
                 ", new
                 {
                     Id = dados.Id ?? 0,

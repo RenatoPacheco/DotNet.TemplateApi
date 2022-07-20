@@ -4,7 +4,7 @@ using TemplateApi.Dominio.Entidades;
 namespace TemplateApi.Repositorio.Mapeamentos
 {
     internal class ConteudoMap
-        : Auxiliares.MapeamentoSqlBase<Conteudo>
+        : Auxiliares.MapeamentoBase<Conteudo>
     {
         public ConteudoMap()
         {

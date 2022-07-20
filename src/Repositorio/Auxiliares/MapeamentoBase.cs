@@ -8,7 +8,7 @@ using TemplateApi.Repositorio.Adaptadores;
 
 namespace TemplateApi.Repositorio.Auxiliares
 {
-    internal abstract class MapeamentoSqlBase<T>
+    internal abstract class MapeamentoBase<T>
         where T : class
     {
         public abstract string Tabela { get; }
@@ -33,10 +33,16 @@ namespace TemplateApi.Repositorio.Auxiliares
 
         private readonly IDictionary<string, string> _propriedades = new Dictionary<string, string>();
 
-        public MapeamentoSqlBase<T> Ignorar<P>(Expression<Func<T, P>> expression)
+        public MapeamentoBase<T> Ignorar<P>(Expression<Func<T, P>> expression)
         {
             _ignorar = _ignorar.Concat(new string[] { expression.PropertyPath() }).ToArray();
             return this;
+        }
+
+        public string Col<P>(Expression<Func<T, P>> expression)
+        {
+            string referencia = expression.PropertyPath();
+            return _colunas[referencia];
         }
 
         public string Coluna<P>(Expression<Func<T, P>> expression)

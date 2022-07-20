@@ -24,7 +24,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
         public void Editar(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoMap json = new ConteudoMap();
+            ConteudoMap map = new ConteudoMap();
 
             IsValid(dados);
 
@@ -36,13 +36,13 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    UPDATE [dbo].[{json.Tabela}] SET
-                            [{json.Coluna(x => x.Titulo)}] = @Titulo
-                           ,[{json.Coluna(x => x.Alias)}] = @Alias
-                           ,[{json.Coluna(x => x.Texto)}] = @Texto
-                           ,[{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{json.Coluna(x => x.Status)}] = @Status
-                    WHERE [{json.Coluna(x => x.Id)}] = @Id
+                    UPDATE [dbo].[{map.Tabela}] SET
+                            [{map.Col(x => x.Titulo)}] = @Titulo
+                           ,[{map.Col(x => x.Alias)}] = @Alias
+                           ,[{map.Col(x => x.Texto)}] = @Texto
+                           ,[{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
+                           ,[{map.Col(x => x.Status)}] = @Status
+                    WHERE [{map.Col(x => x.Id)}] = @Id
                 ";
 
                 object sqlObject = new

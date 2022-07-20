@@ -34,16 +34,16 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
         private bool AliasEhUnico(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoMap json = new ConteudoMap();
+            ConteudoMap map = new ConteudoMap();
 
             if (!(dados?.Alias is null))
             {
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
                     SELECT TOP 1 1
-                    FROM [{json.Tabela}]
-                    Where [{json.Coluna(x => x.Alias)}] = @Alias
-                    AND [{json.Coluna(x => x.Id)}] <> @Id
-                    AND [{json.Coluna(x => x.Status)}] <> @Status
+                    FROM [{map.Tabela}]
+                    Where [{map.Col(x => x.Alias)}] = @Alias
+                    AND [{map.Col(x => x.Id)}] <> @Id
+                    AND [{map.Col(x => x.Status)}] <> @Status
                 ", new
                 {
                     Id = dados.Id ?? 0,

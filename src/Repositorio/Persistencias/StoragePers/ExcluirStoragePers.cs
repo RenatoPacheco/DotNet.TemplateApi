@@ -20,14 +20,14 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
         public void Excluir(ExcluirStorageCmd comando)
         {
             Notifications.Clear();
-            StorageMap json = new StorageMap();
+            StorageMap map = new StorageMap();
 
             string sqlString = @$"
-                    UPDATE [dbo].[{json.Tabela}] SET
-                            [{json.Coluna(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{json.Coluna(x => x.Status)}] = @Status
-                    WHERE {json.Coluna(x => x.Id)} IN @Id
-                    OR {json.Coluna(x => x.Alias)} IN @Alias
+                    UPDATE [dbo].[{map.Tabela}] SET
+                            [{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
+                           ,[{map.Col(x => x.Status)}] = @Status
+                    WHERE {map.Col(x => x.Id)} IN @Id
+                    OR {map.Col(x => x.Alias)} IN @Alias
                 ";
 
             object sqlObject = new

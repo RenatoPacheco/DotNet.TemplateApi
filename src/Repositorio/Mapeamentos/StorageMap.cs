@@ -4,7 +4,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 namespace TemplateApi.Repositorio.Mapeamentos
 {
     internal class StorageMap
-        : Auxiliares.MapeamentoSqlBase<Storage>
+        : Auxiliares.MapeamentoBase<Storage>
     {
         public StorageMap()
         {
