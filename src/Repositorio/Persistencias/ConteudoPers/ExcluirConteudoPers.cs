@@ -1,13 +1,11 @@
 ﻿using System;
 using Dapper;
-using System.Collections.Generic;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
-using System.Linq;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
