@@ -69,8 +69,8 @@
             <ul>
                 <li><strong>nome:</strong> nome da aplicação</li>
                 <li><strong>versão:</strong> número da versão atual da aplicação</li>
-                <li><strong>servidor:</strong> tipo de servidor que a aplicação está rodando, que pode ser: 
-                <strong>local</strong>, <strong>homologacao</strong> ou <strong>producao</strong></li>
+                <li><strong>ambiente:</strong> informa o tipo de ambiente que pode ser producao ou desenvolvimento</li>
+                <li><strong>ehDesenvolvimento:</strong> informa se é ambiende de desenvolvimento</li>
             </ul>
             </remarks>
         </member>

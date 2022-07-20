@@ -460,26 +460,6 @@
         <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
-        <member name="P:TemplateApi.DetectarServidor.Servidor">
-            <summary>
-            Servidor atual, sendo produção por padrão
-            </summary>
-        </member>
-        <member name="M:TemplateApi.DetectarServidor.EhLocal">
-            <summary>
-            Retorna true se o servidor atual for local
-            </summary>
-        </member>
-        <member name="M:TemplateApi.DetectarServidor.EhHomologacao">
-            <summary>
-            Retorna true se o servidor atual for de homologação
-            </summary>
-        </member>
-        <member name="M:TemplateApi.DetectarServidor.EhProducao">
-            <summary>
-            Retorna true se o servidor atual for de produção
-            </summary>
-        </member>
         <member name="P:TemplateApi.Dominio.Comandos.AutenticacaoCmds.IniciarAutenticacaoCmd.Token">
             <summary>
             Token de acesso
@@ -736,9 +716,14 @@
             Versão atual da aplicação
             </summary>
         </member>
-        <member name="P:TemplateApi.Dominio.ObjetosDeValor.Sobre.Servidor">
+        <member name="P:TemplateApi.Dominio.ObjetosDeValor.Sobre.Ambiente">
             <summary>
-            Servidor atual que a aplicação está sendo executada
+            Informa o ambiente atual que pode ser producao ou desenvovlimento
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Dominio.ObjetosDeValor.Sobre.EhDesenvolvimento">
+            <summary>
+            Informa se aplicação está em desenvolvimento ou não
             </summary>
         </member>
         <member name="T:TemplateApi.Dominio.ObjetosDeValor.Status">

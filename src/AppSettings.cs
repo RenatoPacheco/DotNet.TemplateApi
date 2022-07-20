@@ -7,14 +7,11 @@
             _appSettings = appSettings;
         }
 
-        public static IAppSettings _appSettings;
+        private static IAppSettings _appSettings;
 
-        public static class Ambiente
-        {
-            public static string Local => _appSettings.GetValue<string>("app:ambiente:local");
-
-            public static string Homologacao => _appSettings.GetValue<string>("app:ambiente:homologacao");
-        };
+        public static bool EhDesenvolvimento { get; set; }
+        
+        public static string Ambiente => EhDesenvolvimento ? "desenvolvimento" : "producao";
 
         public static string Nome => _appSettings.GetValue<string>("app:nome");
 

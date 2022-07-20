@@ -9,6 +9,6 @@
 
         private static IAppSettings _appSettings;
 
-        public static string TemplateApi => $"Application Name={AppSettings.Nome};{_appSettings.GetConnectionString("app:template-api:{ambiente}")}";
+        public static string TemplateApi => $"Application Name={AppSettings.Nome};{_appSettings.GetConnectionString($"app:template-api:{AppSettings.Ambiente}")}";
     }
 }

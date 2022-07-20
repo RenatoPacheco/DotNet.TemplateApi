@@ -17,10 +17,15 @@ namespace TemplateApi.Dominio.ObjetosDeValor
         /// </summary>
         [Display(Name = "Versão")]
         public string Versao => AppSettings.Versao;
+        
+        /// <summary>
+        /// Informa o ambiente atual que pode ser producao ou desenvovlimento
+        /// </summary>
+        public string Ambiente => AppSettings.Ambiente;
 
         /// <summary>
-        /// Servidor atual que a aplicação está sendo executada
+        /// Informa se aplicação está em desenvolvimento ou não
         /// </summary>
-        public string Servidor => DetectarServidor.Servidor;
+        public bool EhDesenvolvimento => AppSettings.EhDesenvolvimento;
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacao;
-using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
+using Microsoft.Extensions.Logging;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
+using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.Controllers.Servicos
@@ -33,8 +33,8 @@ namespace TemplateApi.Api.Controllers.Servicos
         /// <ul>
         ///     <li><strong>nome:</strong> nome da aplicação</li>
         ///     <li><strong>versão:</strong> número da versão atual da aplicação</li>
-        ///     <li><strong>servidor:</strong> tipo de servidor que a aplicação está rodando, que pode ser: 
-        ///     <strong>local</strong>, <strong>homologacao</strong> ou <strong>producao</strong></li>
+        ///     <li><strong>ambiente:</strong> informa o tipo de ambiente que pode ser producao ou desenvolvimento</li>
+        ///     <li><strong>ehDesenvolvimento:</strong> informa se é ambiende de desenvolvimento</li>
         /// </ul>
         /// </remarks>
         [HttpGet]

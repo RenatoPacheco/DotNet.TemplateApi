@@ -44,6 +44,7 @@ namespace TemplateApi.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AppSettingsConfig.Config(env);
             CultureInfoConfig.Config(app);
 
             if (env.IsDevelopment())
