@@ -15,7 +15,7 @@ using TemplateApi.Compartilhado.Json;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class FiltrarStoragePers : Comum.BuscaResp
+    internal class FiltrarStoragePers : Comum.BuscaRepositorio
     {
         public FiltrarStoragePers(
             Conexao conexao,

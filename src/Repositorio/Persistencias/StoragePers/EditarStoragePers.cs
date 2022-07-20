@@ -8,7 +8,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class EditarStoragePers : Comum.SimplesRep
+    internal class EditarStoragePers : Comum.SimplesRepositorio
     {
         public EditarStoragePers(
             Conexao conexao,

@@ -5,7 +5,7 @@ using TemplateApi.Repositorio.Persistencias.SobrePers;
 namespace TemplateApi.Repositorio
 {
     internal class SobreRep
-        : Comum.BaseRep, ISobreRep
+        : Comum.BaseRepositorio, ISobreRep
     {
         public SobreRep(
             ObterSobrePers persObterSobre)

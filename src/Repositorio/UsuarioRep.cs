@@ -10,7 +10,7 @@ using TemplateApi.Repositorio.Persistencias.UsuarioPers;
 namespace TemplateApi.Repositorio
 {
     internal class UsuarioRep
-        : Comum.SimplesRep, IUsuarioRep
+        : Comum.SimplesRepositorio, IUsuarioRep
     {
         public UsuarioRep(
             Conexao conexao,

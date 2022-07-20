@@ -9,7 +9,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Dominio.Servicos
 {
-    public class AutenticacaoServ : Comum.BaseServ
+    public class AutenticacaoServ : Comum.BaseServico
     {
         public AutenticacaoServ(
             IAutorizacaoRep repAutorizacao)

@@ -1,44 +1,23 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
-using TemplateApi.Repositorio.Auxiliares;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace TemplateApi.Repositorio.Comum
 {
-    internal abstract class SimplesRep : BaseRep
+    internal abstract class BuscaRepositorio : SimplesRepositorio
     {
-        public SimplesRep(
-            Conexao conexao,
-            IUnidadeTrabalho udt)
-        {
-            Conexao = conexao;
-            _udt = udt;
-        }
-
-        private readonly IUnidadeTrabalho _udt;
-
-        protected Conexao Conexao { get; private set; }
-
-        public IniciarTransicao IniciarTransicao()
-        {
-            return new IniciarTransicao(_udt, this);
-        }
+        public BuscaRepositorio(
+           Conexao conexao,
+           IUnidadeTrabalho udt)
+        : base(conexao, udt) { }
 
         /// <summary>
-        /// Só funciona se for adicionado após um order by
+        /// Tratar o texto para a busca 
         /// </summary>
-        public string MontarPaginacao(int pagina, int maximo)
-        {
-            pagina = pagina < 1 ? 1 : pagina;
-            return maximo < 1 ? string.Empty : $" OFFSET {(pagina - 1) * maximo} ROWS FETCH FIRST {maximo}  ROWS ONLY ";
-        }
-
-        /// <summary>
-        /// Quebra um texto em várias partes para aumentar o alcance da busca 
-        /// </summary>
-        public IList<string> DesmebrarTexto(string tratar)
+        public IList<string> DesmebrarTexto(string tratar, int minimo = 2)
         {
             List<string> resultado = new List<string>();
 
@@ -78,7 +57,34 @@ namespace TemplateApi.Repositorio.Comum
                 }
             }
 
-            return resultado.Where(x => x.Length > 2).Distinct().ToList();
+            return resultado.Where(x => x.Length > minimo).Distinct().ToList();
+        }
+
+        /// <summary>
+        /// Só funciona se for adicionado após um order by
+        /// </summary>
+        public string MontarPaginacao(FiltrarBaseCmd comando)
+        {
+            if (HaPaginacao(comando))
+            {
+                int pagina = comando.Pagina < 1 ? 1 : comando.Pagina;
+                return comando.Maximo < 1 ? string.Empty : $" OFFSET {(pagina - 1) * comando.Maximo} ROWS FETCH FIRST {comando.Maximo}  ROWS ONLY ";
+            }
+            else if (comando.Maximo > 0 && comando.Maximo < int.MaxValue)
+            {
+                return $" OFFSET 0 ROWS FETCH FIRST {comando.Maximo}  ROWS ONLY ";
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Verifica se há paginação 
+        /// </summary>
+        public bool HaPaginacao(FiltrarBaseCmd comando)
+        {
+            return comando.Paginacao == true
+                && (comando.Maximo > 0 && comando.Maximo < int.MaxValue);
         }
     }
 }

@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
 namespace TemplateApi.Aplicacao.Intreceptadores
 {
-    public class ConteudoInter : Comum.BaseInter
+    public class ConteudoInter : Comum.BaseInterceptador
     {
         public ConteudoInter(
             AutenticacaoServ servAutenticacao)

@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Aplicacao.Intreceptadores
 {
-    public class AutorizacaoInter : Comum.BaseInter
+    public class AutorizacaoInter : Comum.BaseInterceptador
     {
         public AutorizacaoInter(
             AutenticacaoServ servAutenticacao)

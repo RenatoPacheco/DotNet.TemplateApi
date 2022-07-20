@@ -9,44 +9,44 @@ using TemplateApi.Compartilhado.Validacoes.Extensoes;
 
 namespace TemplateApi.Dominio.Escopos
 {
-    public class StorageEscp<TClasse> : BaseEscp<TClasse>
-        where TClasse : ISelfValidation
+    public class StorageEscp<T> : Comum.BaseEscopo<T>
+        where T : ISelfValidation
     {
-        public StorageEscp(TClasse entidade)
+        public StorageEscp(T entidade)
             : base(entidade) { }
 
-        public void IdEhValido(Expression<Func<TClasse, object>> expressao)
+        public void IdEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.LongIsValid(expressao);
         }
 
-        public void NomeEhValido(Expression<Func<TClasse, object>> expressao)
+        public void NomeEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
-        public void AliasEhValido(Expression<Func<TClasse, object>> expressao)
+        public void AliasEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
-        public void DiretorioEhValido(Expression<Func<TClasse, object>> expressao)
+        public void DiretorioEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
 
-        public void ChecksumEhValido(Expression<Func<TClasse, object>> expressao)
+        public void ChecksumEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 1000);
         }
 
-        public void ExtensaoEhValido(Expression<Func<TClasse, object>> expressao)
+        public void ExtensaoEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 50);
@@ -54,13 +54,13 @@ namespace TemplateApi.Dominio.Escopos
                     .SetMessage(string.Format(AvisosResx.TipoDeArquivoStorageInvalido));
         }
 
-        public void TipoEhValido(Expression<Func<TClasse, object>> expressao)
+        public void TipoEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 50);
         }
 
-        public void PesoEhValido(Expression<Func<TClasse, object>> expressao)
+        public void PesoEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.LongIsValid(expressao);
@@ -68,13 +68,13 @@ namespace TemplateApi.Dominio.Escopos
                 .SetMessage(string.Format(AvisosResx.PesoDoArquivoEmKbInvalido, (100 * 1042)));
         }
 
-        public void ReferenciaEhValido(Expression<Func<TClasse, object>> expressao)
+        public void ReferenciaEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
-        public void StatusEhValido(Expression<Func<TClasse, object>> expressao)
+        public void StatusEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.EnumForStringIsValid(expressao, typeof(Status));

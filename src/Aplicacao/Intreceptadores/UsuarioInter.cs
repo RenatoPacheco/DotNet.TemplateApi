@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
 namespace TemplateApi.Aplicacao.Intreceptadores
 {
-    public class UsuarioInter : Comum.BaseInter
+    public class UsuarioInter : Comum.BaseInterceptador
     {
         public UsuarioInter(
             AutenticacaoServ servAutenticacao)

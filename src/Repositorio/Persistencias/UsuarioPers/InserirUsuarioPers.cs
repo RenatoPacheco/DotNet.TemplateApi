@@ -8,7 +8,7 @@ using TemplateApi.Repositorio.Mapeamentos;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class InserirUsuarioPers : Comum.SimplesRep
+    internal class InserirUsuarioPers : Comum.SimplesRepositorio
     {
         public InserirUsuarioPers(
             Conexao conexao,

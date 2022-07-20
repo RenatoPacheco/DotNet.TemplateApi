@@ -7,7 +7,7 @@ using TemplateApi.Dominio.Interfaces.Repositorios;
 
 namespace TemplateApi.Dominio.Servicos
 {
-    public class ConteudoServ : Comum.BaseServ
+    public class ConteudoServ : Comum.BaseServico
     {
         public ConteudoServ(
             IConteudoRep repConteudo)

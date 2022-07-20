@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Repositorio.Persistencias.SobrePers
 {
-    internal class ObterSobrePers : Comum.BaseRep
+    internal class ObterSobrePers : Comum.BaseRepositorio
     {
         public Sobre Obter()
         {

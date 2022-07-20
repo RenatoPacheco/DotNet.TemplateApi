@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Aplicacao.Intreceptadores
 {
-    public class SobreInter : Comum.BaseInter
+    public class SobreInter : Comum.BaseInterceptador
     {
         public SobreInter(
             AutenticacaoServ servAutenticacao)

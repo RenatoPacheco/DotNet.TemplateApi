@@ -10,7 +10,7 @@ using TemplateApi.Repositorio.Persistencias.ConteudoPers;
 namespace TemplateApi.Repositorio
 {
     internal class ConteudoRep
-        : Comum.SimplesRep, IConteudoRep
+        : Comum.SimplesRepositorio, IConteudoRep
     {
         public ConteudoRep(
             Conexao conexao,

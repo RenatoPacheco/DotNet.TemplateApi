@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Servicos;
+using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Aplicacao.Comum
 {
-    public abstract class BaseInter : ISelfValidation
+    public abstract class BaseAplicacao : ISelfValidation
     {
-        public BaseInter(
+        public BaseAplicacao(
             AutenticacaoServ servAutenticacao)
         {
             _servAutenticacao = servAutenticacao;
@@ -30,7 +31,9 @@ namespace TemplateApi.Aplicacao.Comum
 
         public bool EhAutorizado(MethodBase metodo)
         {
-            return true;
+            Notifications.Clear();
+            _servAutenticacao.EstaAutorizado(metodo, ValidationType.Unauthorized);
+            return Validate(_servAutenticacao);
         }
     }
 }

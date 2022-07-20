@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Interfaces.Repositorios;
 
 namespace TemplateApi.Dominio.Servicos
 {
-    public class SobreServ : Comum.BaseServ
+    public class SobreServ : Comum.BaseServico
     {
         public SobreServ(
             ISobreRep repSobre)

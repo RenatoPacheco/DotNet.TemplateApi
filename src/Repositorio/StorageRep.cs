@@ -9,7 +9,7 @@ using TemplateApi.Repositorio.Persistencias.StoragePers;
 namespace TemplateApi.Repositorio
 {
     internal class StorageRep
-        : Comum.SimplesRep, IStorageRep
+        : Comum.SimplesRepositorio, IStorageRep
     {
         public StorageRep(
             Conexao conexao,

@@ -9,7 +9,7 @@ using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
 namespace TemplateApi.Aplicacao
 {
-    public class UsuarioApp : Comum.BaseApp
+    public class UsuarioApp : Comum.BaseAplicacao
     {
         public UsuarioApp(
             AutenticacaoServ servAutenticacao,

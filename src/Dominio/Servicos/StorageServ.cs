@@ -8,7 +8,7 @@ using TemplateApi.Dominio.Interfaces.Repositorios;
 
 namespace TemplateApi.Dominio.Servicos
 {
-    public class StorageServ : Comum.BaseServ
+    public class StorageServ : Comum.BaseServico
     {
         public StorageServ(
             IStorageRep repStorage)

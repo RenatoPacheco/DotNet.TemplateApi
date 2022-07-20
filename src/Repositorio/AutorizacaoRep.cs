@@ -5,7 +5,7 @@ using TemplateApi.Repositorio.Persistencias.AutorizacaoPers;
 namespace TemplateApi.Repositorio
 {
     internal class AutorizacaoRep
-        : Comum.BaseRep, IAutorizacaoRep
+        : Comum.BaseRepositorio, IAutorizacaoRep
     {
         public AutorizacaoRep(
             ListarAutorizacaoPers persListarAutorizacao)

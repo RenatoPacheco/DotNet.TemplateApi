@@ -1,8 +1,7 @@
 ﻿using BitHelp.Core.Validation;
-
-namespace TemplateApi.Repositorio.Comum
+namespace TemplateApi.Api.ApiApplications.Common
 {
-    internal abstract class BaseRep : ISelfValidation
+    public abstract class BaseApiApplications : ISelfValidation
     {
         public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
 

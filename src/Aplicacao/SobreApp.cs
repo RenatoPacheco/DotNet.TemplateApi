@@ -8,7 +8,7 @@ using TemplateApi.Aplicacao.Intreceptadores;
 
 namespace TemplateApi.Aplicacao
 {
-    public class SobreApp : Comum.BaseApp
+    public class SobreApp : Comum.BaseAplicacao
     {
         public SobreApp(
             AutenticacaoServ servAutenticacao,

@@ -10,7 +10,7 @@ using TemplateApi.Dominio.Comandos.StorageCmds;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class ExcluirStoragePers : Comum.SimplesRep
+    internal class ExcluirStoragePers : Comum.SimplesRepositorio
     {
         public ExcluirStoragePers(
             Conexao conexao,

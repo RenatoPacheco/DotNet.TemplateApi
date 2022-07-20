@@ -16,7 +16,7 @@ using TemplateApi.Compartilhado.Json;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class FiltrarUsuarioPers : Comum.BuscaResp
+    internal class FiltrarUsuarioPers : Comum.BuscaRepositorio
     {
         public FiltrarUsuarioPers(
             Conexao conexao,

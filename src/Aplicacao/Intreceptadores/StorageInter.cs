@@ -8,7 +8,7 @@ using System;
 
 namespace TemplateApi.Aplicacao.Intreceptadores
 {
-    public class StorageInter : Comum.BaseInter
+    public class StorageInter : Comum.BaseInterceptador
     {
         public StorageInter(
             AutenticacaoServ servAutenticacao)

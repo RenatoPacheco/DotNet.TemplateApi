@@ -8,7 +8,7 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Dominio.Servicos
 {
-    public class UsuarioServ : Comum.BaseServ
+    public class UsuarioServ : Comum.BaseServico
     {
         public UsuarioServ(
             IUsuarioRep repUsuario)

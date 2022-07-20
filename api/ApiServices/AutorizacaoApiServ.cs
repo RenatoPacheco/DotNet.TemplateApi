@@ -7,7 +7,7 @@ using TemplateApi.Aplicacao;
 
 namespace TemplateApi.Api.ApiServices
 {
-    public class AutorizacaoApiServ : Common.baseApiServ
+    public class AutorizacaoApiServ : Common.BaseApiServices
     {
         public AutorizacaoApiServ(
             AutorizacaoApp appAutorizacao,

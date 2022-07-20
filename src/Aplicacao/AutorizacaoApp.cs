@@ -9,7 +9,7 @@ using TemplateApi.Aplicacao.Intreceptadores;
 
 namespace TemplateApi.Aplicacao
 {
-    public class AutorizacaoApp : Comum.BaseApp
+    public class AutorizacaoApp : Comum.BaseAplicacao
     {
         public AutorizacaoApp(
             AutenticacaoServ servAutenticacao,

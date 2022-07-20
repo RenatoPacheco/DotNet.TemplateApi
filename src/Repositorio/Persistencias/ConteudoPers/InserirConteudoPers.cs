@@ -8,7 +8,7 @@ using TemplateApi.Repositorio.Mapeamentos;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
-    internal class InserirConteudoPers : Comum.SimplesRep
+    internal class InserirConteudoPers : Comum.SimplesRepositorio
     {
         public InserirConteudoPers(
             Conexao conexao,

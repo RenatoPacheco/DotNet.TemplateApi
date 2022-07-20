@@ -847,27 +847,27 @@
               Looks up a localized string similar to Usuários.
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BuscaResp.DesmebrarTexto(System.String,System.Int32)">
+        <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.DesmebrarTexto(System.String,System.Int32)">
             <summary>
             Tratar o texto para a busca 
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BuscaResp.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
+        <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
             <summary>
             Só funciona se for adicionado após um order by
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BuscaResp.HaPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
+        <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.HaPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
             <summary>
             Verifica se há paginação 
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.SimplesRep.MontarPaginacao(System.Int32,System.Int32)">
+        <member name="M:TemplateApi.Repositorio.Comum.SimplesRepositorio.MontarPaginacao(System.Int32,System.Int32)">
             <summary>
             Só funciona se for adicionado após um order by
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.SimplesRep.DesmebrarTexto(System.String)">
+        <member name="M:TemplateApi.Repositorio.Comum.SimplesRepositorio.DesmebrarTexto(System.String)">
             <summary>
             Quebra um texto em várias partes para aumentar o alcance da busca 
             </summary>

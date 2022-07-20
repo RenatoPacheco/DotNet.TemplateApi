@@ -16,7 +16,7 @@ using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
-    internal class FiltrarConteudoPers : Comum.BuscaResp
+    internal class FiltrarConteudoPers : Comum.BuscaRepositorio
     {
         public FiltrarConteudoPers(
             Conexao conexao,

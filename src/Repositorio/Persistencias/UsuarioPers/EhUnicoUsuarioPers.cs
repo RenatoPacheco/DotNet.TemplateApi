@@ -12,7 +12,7 @@ using TemplateApi.Repositorio.Mapeamentos;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    class EhUnicoUsuarioPers : Comum.SimplesRep
+    class EhUnicoUsuarioPers : Comum.SimplesRepositorio
     {
         public EhUnicoUsuarioPers(
             Conexao conexao,

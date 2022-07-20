@@ -7,46 +7,46 @@ using TemplateApi.Compartilhado.Validacoes.Extensoes;
 
 namespace TemplateApi.Dominio.Escopos
 {
-    public class UsuarioEscp<TClasse> : BaseEscp<TClasse>
-        where TClasse : ISelfValidation
+    public class UsuarioEscp<T> : Comum.BaseEscopo<T>
+        where T : ISelfValidation
     {
-        public UsuarioEscp(TClasse entidade)
+        public UsuarioEscp(T entidade)
             : base(entidade) { }
 
-        public void IdEhValido(Expression<Func<TClasse, object>> expressao)
+        public void IdEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.IntIsValid(expressao);
         }
 
-        public void NomeEhValido(Expression<Func<TClasse, object>> expressao)
+        public void NomeEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
-        public void EmailEhValido(Expression<Func<TClasse, object>> expressao)
+        public void EmailEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.EmailIsValid(expressao);
             _entidade.MaxCharactersIsValid(expressao, 255);
         }
 
-        public void SenhaEhValido(Expression<Func<TClasse, object>> expressao)
+        public void SenhaEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.RangeCharactersIsValid(expressao, 8, 30);
             _entidade.PasswordIsValid(expressao);
         }
 
-        public void TelefoneEhValido(Expression<Func<TClasse, object>> expressao)
+        public void TelefoneEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.PhoneTypeIsValid(expressao);
             _entidade.MaxCharactersIsValid(expressao, 50);
         }
 
-        public void StatusEhValido(Expression<Func<TClasse, object>> expressao)
+        public void StatusEhValido(Expression<Func<T, object>> expressao)
         {
             _entidade.RemoveAtReference(expressao);
             _entidade.EnumForStringIsValid(expressao, typeof(Status));

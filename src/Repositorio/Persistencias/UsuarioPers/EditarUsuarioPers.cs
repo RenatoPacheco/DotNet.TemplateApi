@@ -8,7 +8,7 @@ using TemplateApi.Repositorio.Mapeamentos;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class EditarUsuarioPers : Comum.SimplesRep
+    internal class EditarUsuarioPers : Comum.SimplesRepositorio
     {
         public EditarUsuarioPers(
             Conexao conexao,

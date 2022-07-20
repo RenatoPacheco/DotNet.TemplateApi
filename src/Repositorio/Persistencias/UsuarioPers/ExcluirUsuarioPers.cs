@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class ExcluirUsuarioPers : Comum.SimplesRep
+    internal class ExcluirUsuarioPers : Comum.SimplesRepositorio
     {
         public ExcluirUsuarioPers(
             Conexao conexao,

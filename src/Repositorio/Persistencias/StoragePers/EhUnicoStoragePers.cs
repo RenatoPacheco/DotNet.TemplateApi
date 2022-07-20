@@ -11,7 +11,7 @@ using TemplateApi.Repositorio.Mapeamentos;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    class EhUnicoStoragePers : Comum.SimplesRep
+    class EhUnicoStoragePers : Comum.SimplesRepositorio
     {
         public EhUnicoStoragePers(
             Conexao conexao,

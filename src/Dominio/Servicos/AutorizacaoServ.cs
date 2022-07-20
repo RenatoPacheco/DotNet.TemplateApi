@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Interfaces.Repositorios;
 
 namespace TemplateApi.Dominio.Servicos
 {
-    public class AutorizacaoServ : Comum.BaseServ
+    public class AutorizacaoServ : Comum.BaseServico
     {
         public AutorizacaoServ(
             IAutorizacaoRep repAutorizacao)
