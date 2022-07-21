@@ -626,6 +626,11 @@
             Identificador de conteúdo
             </summary>
         </member>
+        <member name="P:TemplateApi.Dominio.Comandos.ConteudoCmds.FiltrarConteudoCmd.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
+            </summary>
+        </member>
         <member name="P:TemplateApi.Dominio.Comandos.ConteudoCmds.FiltrarConteudoCmd.Conteudo">
             <summary>
             Identificador de conteúdo
@@ -679,6 +684,11 @@
         <member name="P:TemplateApi.Dominio.Comandos.StorageCmds.ExcluirStorageCmd.Alias">
             <summary>
             Alias de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.StorageCmds.FiltrarStorageCmd.Storage">
@@ -755,6 +765,11 @@
         <member name="P:TemplateApi.Dominio.Comandos.UsuarioCmds.ExcluirUsuarioCmd.Usuario">
             <summary>
             Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.UsuarioCmds.FiltrarUsuarioCmd.Usuario">

@@ -97,7 +97,7 @@ namespace TemplateApi.Api.Controllers.Servicos
         /// </remarks>
         [HttpDelete]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Excluir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);

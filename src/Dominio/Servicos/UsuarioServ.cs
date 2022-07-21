@@ -5,6 +5,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Dominio.Servicos
 {
@@ -59,7 +60,9 @@ namespace TemplateApi.Dominio.Servicos
             {
                 resultado = (Usuario)_repUsuario.Filtrar(new FiltrarUsuarioCmd {
                     Usuario = new int[] { comando.Usuario.Value },
-                    Maximo = 1, Pagina = 1
+                    Contexto = ContextoCmd.Editar,
+                    Maximo = 1, 
+                    Pagina = 1
                 }, nameof(comando.Usuario), ValidationType.Error);
                 IsValid(_repUsuario);
 

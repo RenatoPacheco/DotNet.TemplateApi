@@ -13,6 +13,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
@@ -51,6 +52,11 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
             _map = new ConteudoMap { RefSql = "usu" };
 
             AplicarFiltro(comando, ref sql, ref sqlParametros);
+
+            if (comando.Contexto == ContextoCmd.Embutir)
+            {
+                _map.Ignorar(x => x.Texto);
+            }
 
             StringBuilder sqlConsulta = new StringBuilder();
             sqlConsulta.Append($" SELECT {_map}");

@@ -9,6 +9,11 @@ namespace TemplateApi.Api.DataModel.StorageDataModel
     public class FiltrarStorageDataModel : FiltrarBaseCmd
     {
         /// <summary>
+        /// Informe o contexto da busca, sendo que o valor padrão é Embutir
+        /// </summary>
+        public EnumInput<ContextoCmd> Contexto { get; set; }
+
+        /// <summary>
         /// Identificador de storage
         /// </summary>
         public IList<LongInput> Storage { get; set; }

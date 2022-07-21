@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Api.ViewsData
 {
-    public class ComumViewsData
+    public class ComumViewData
     {
         public Avisos Avisos { get; set; }
     }

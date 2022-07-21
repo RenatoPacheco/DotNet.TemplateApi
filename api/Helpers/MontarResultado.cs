@@ -13,7 +13,7 @@ namespace TemplateApi.Api.Helpers
         {
             Avisos avisos = new Avisos((int)codigo, notificacoes);
 
-            return new JsonResult(new ComumViewsData
+            return new JsonResult(new ComumViewData
             { 
                 Avisos = avisos
             }, ContratoJson.Configuracao);

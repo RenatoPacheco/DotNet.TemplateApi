@@ -113,7 +113,7 @@ namespace TemplateApi.Api.Controllers.Servicos
         /// </remarks>
         [HttpDelete]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Excluir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirStorageDataModel query)
         {
             InvocarSeNulo(ref query);

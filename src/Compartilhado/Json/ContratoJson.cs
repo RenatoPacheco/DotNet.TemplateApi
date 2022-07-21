@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using TemplateApi.Compartilhado.Extensoes;
 using TemplateApi.Compartilhado.Json.JsonConverte;
+using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Compartilhado.Json
@@ -30,6 +31,7 @@ namespace TemplateApi.Compartilhado.Json
             settings.Converters.Add(new DateTimeInputJsonConverte());
             settings.Converters.Add(new TimeSpanInputJsonConverte());
             settings.Converters.Add(new EnumInputJsonConverte<Status>());
+            settings.Converters.Add(new EnumInputJsonConverte<ContextoCmd>());
 
             return settings;
         }

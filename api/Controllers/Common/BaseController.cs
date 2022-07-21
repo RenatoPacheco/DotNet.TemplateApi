@@ -13,9 +13,9 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Api.Controllers.Common
 {
-    [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(ComumViewsData))]
-    [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(ComumViewsData))]
-    [SwaggerResponse((int)HttpStatusCode.InternalServerError, "", typeof(ComumViewsData))]
+    [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(ComumViewData))]
+    [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(ComumViewData))]
+    [SwaggerResponse((int)HttpStatusCode.InternalServerError, "", typeof(ComumViewData))]
     public class BaseController : ControllerBase
     {
         protected ValidationNotification Notifications { get; set; } = new ValidationNotification();

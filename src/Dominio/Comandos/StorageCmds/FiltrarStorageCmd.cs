@@ -4,6 +4,8 @@ using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
+using BitHelp.Core.Validation.Extends;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Dominio.Comandos.StorageCmds
 {
@@ -13,6 +15,20 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         public FiltrarStorageCmd()
         {
             _escopo = new StorageEscp<FiltrarStorageCmd>(this);
+        }
+
+        private ContextoCmd _contexto;
+        /// <summary>
+        /// Informe o contexto da busca, sendo que o valor padrão é Embutir
+        /// </summary>
+        public ContextoCmd Contexto
+        {
+            get => _contexto;
+            set
+            {
+                _contexto = value;
+                this.RemoveAtReference(x => x.Contexto);
+            }
         }
 
         private IList<long> _storage;

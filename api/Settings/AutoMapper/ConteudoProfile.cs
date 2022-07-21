@@ -4,6 +4,7 @@ using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Api.DataModel.ConteudoDataModel;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Api.Settings.AutoMapper
 {
@@ -50,6 +51,16 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
                         if ((src.Status != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Status);
+
+                        return ehValido;
+                    });
+                }).ForMember(cmd => cmd.Contexto, opts => {
+                    opts.MapFrom(src => (ContextoCmd)src.Contexto);
+                    opts.Condition((src, dest, srcMember) => {
+                        bool ehValido = src.Contexto.IsValid();
+
+                        if ((src.Contexto != null) && !ehValido)
+                            dest.AddErrorNotification(x => x.Contexto);
 
                         return ehValido;
                     });

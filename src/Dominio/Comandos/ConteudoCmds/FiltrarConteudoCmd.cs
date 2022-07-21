@@ -1,9 +1,11 @@
 ﻿using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
+using System.Text.Json.Serialization;
+using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.Comum;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 {
@@ -13,6 +15,20 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         public FiltrarConteudoCmd()
         {
             _escopo = new ConteudoEscp<FiltrarConteudoCmd>(this);
+        }
+
+        private ContextoCmd _contexto;
+        /// <summary>
+        /// Informe o contexto da busca, sendo que o valor padrão é Embutir
+        /// </summary>
+        public ContextoCmd Contexto
+        {
+            get => _contexto;
+            set
+            {
+                _contexto = value;
+                this.RemoveAtReference(x => x.Contexto);
+            }
         }
 
         private IList<int> _Conteudo;

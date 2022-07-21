@@ -1,6 +1,6 @@
 ﻿using BitHelp.Core.Validation;
-using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
 
 namespace TemplateApi.Dominio.Interfaces.Repositorios
 {
@@ -13,10 +13,14 @@ namespace TemplateApi.Dominio.Interfaces.Repositorios
         void Excluir(ExcluirStorageCmd comando);
 
 
-        ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia);
+        ResultadoBusca<Storage> Filtrar(
+            FiltrarStorageCmd comando, string referencia);
 
-        ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, ValidationType tipo);
+        ResultadoBusca<Storage> Filtrar(
+            FiltrarStorageCmd comando, ValidationType tipo);
 
-        ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia = "", ValidationType tipo = ValidationType.Alert);
+        ResultadoBusca<Storage> Filtrar(
+            FiltrarStorageCmd comando, string referencia = "", 
+            ValidationType tipo = ValidationType.Alert);
     }
 }

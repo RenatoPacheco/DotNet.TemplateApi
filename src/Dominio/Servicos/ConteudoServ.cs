@@ -4,6 +4,7 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Dominio.Servicos
 {
@@ -58,7 +59,9 @@ namespace TemplateApi.Dominio.Servicos
             {
                 resultado = (Conteudo)_repConteudo.Filtrar(new FiltrarConteudoCmd {
                     Conteudo = new int[] { comando.Conteudo.Value },
-                    Maximo = 1, Pagina = 1
+                    Contexto = ContextoCmd.Editar,
+                    Maximo = 1, 
+                    Pagina = 1
                 }, nameof(comando.Conteudo), ValidationType.Error);
                 IsValid(_repConteudo);
 

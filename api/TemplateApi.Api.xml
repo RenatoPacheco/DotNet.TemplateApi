@@ -201,6 +201,11 @@
             Identificador de usuário
             </summary>
         </member>
+        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
+            </summary>
+        </member>
         <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
             <summary>
             Identificador de usuário
@@ -254,6 +259,11 @@
         <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel.Referencia">
             <summary>
             Referência de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Storage">
@@ -330,6 +340,11 @@
         <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">

@@ -1,7 +1,7 @@
 ﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
 namespace TemplateApi.Dominio.Interfaces.Repositorios
 {
@@ -14,10 +14,14 @@ namespace TemplateApi.Dominio.Interfaces.Repositorios
         void Excluir(ExcluirUsuarioCmd comando);
 
 
-        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia);
+        ResultadoBusca<Usuario> Filtrar(
+            FiltrarUsuarioCmd comando, string referencia);
 
-        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, ValidationType tipo);
+        ResultadoBusca<Usuario> Filtrar(
+            FiltrarUsuarioCmd comando, ValidationType tipo);
 
-        ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia = "", ValidationType tipo = ValidationType.Alert);
+        ResultadoBusca<Usuario> Filtrar(
+            FiltrarUsuarioCmd comando, string referencia = "", 
+            ValidationType tipo = ValidationType.Alert);
     }
 }

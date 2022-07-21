@@ -5,6 +5,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Dominio.Servicos
 {
@@ -89,6 +90,7 @@ namespace TemplateApi.Dominio.Servicos
                 resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd
                 {
                     Storage = new long[] { comando.Storage.Value },
+                    Contexto = ContextoCmd.Editar,
                     Maximo = 1,
                     Pagina = 1
                 }, nameof(comando.Storage), ValidationType.Error);

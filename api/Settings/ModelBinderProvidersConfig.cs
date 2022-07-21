@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Api.Settings.ModelBinderProvider;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Api
 {
@@ -27,6 +28,8 @@ namespace TemplateApi.Api
             options.ModelBinderProviders.Insert(0, new PhoneTypeBinderProvider());
             options.ModelBinderProviders.Insert(0, new EnumBinderProvider<Status>());
             options.ModelBinderProviders.Insert(0, new EnumInputBinderProvider<Status>());
+            options.ModelBinderProviders.Insert(0, new EnumBinderProvider<ContextoCmd>());
+            options.ModelBinderProviders.Insert(0, new EnumInputBinderProvider<ContextoCmd>());
         }
     }
 }

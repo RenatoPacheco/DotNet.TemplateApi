@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Api
 {
@@ -140,6 +141,11 @@ namespace TemplateApi.Api
                     () => options.SchemaEnum<Status>("string"));
                 options.MapType<EnumInput<Status>?>(
                     () => options.SchemaEnum<Status>("string"));
+
+                options.MapType<EnumInput<ContextoCmd>>(
+                    () => options.SchemaEnum<ContextoCmd>("string"));
+                options.MapType<EnumInput<ContextoCmd>?>(
+                    () => options.SchemaEnum<ContextoCmd>("string"));
 
                 options.MapType<TipoNoificacaoAvisos>(
                     () => options.SchemaEnum<TipoNoificacaoAvisos>("string"));

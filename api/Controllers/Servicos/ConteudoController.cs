@@ -97,7 +97,7 @@ namespace TemplateApi.Api.Controllers.Servicos
         /// </remarks>
         [HttpDelete]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Excluir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirConteudoDataModel query)
         {
             InvocarSeNulo(ref query);

@@ -9,6 +9,11 @@ namespace TemplateApi.Api.DataModel.ConteudoDataModel
     public class FiltrarConteudoDataModel : FiltrarBaseCmd
     {
         /// <summary>
+        /// Informe o contexto da busca, sendo que o valor padrão é Embutir
+        /// </summary>
+        public EnumInput<ContextoCmd> Contexto { get; set; }
+
+        /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Conteúdo")]
