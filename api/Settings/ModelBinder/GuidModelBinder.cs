@@ -3,6 +3,7 @@ using TemplateApi.RecursoResx;
 using System.Threading.Tasks;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.Settings.ModelBinder
 {
@@ -31,9 +32,9 @@ namespace TemplateApi.Api.Settings.ModelBinder
                 return Task.CompletedTask;
             }
 
-            if (Guid.TryParse(value, out Guid result))
+            if (GuidInput.TryParse(value, out GuidInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success(result);
+                bindingContext.Result = ModelBindingResult.Success((Guid)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

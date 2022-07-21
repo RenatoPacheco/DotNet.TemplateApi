@@ -17,6 +17,8 @@ namespace TemplateApi.Api.DataModel.TesteDataModel
 
         public DateTimeInput? DateTime { get; set; }
 
+        public TimeSpanInput? TimeSpan { get; set; }
+
         public EnumInput<Status>? Enum { get; set; }
     }
 }

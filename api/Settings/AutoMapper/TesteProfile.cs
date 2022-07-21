@@ -1,9 +1,9 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using BitHelp.Core.Validation.Extends;
-using System;
-using TemplateApi.Api.DataModel.TesteDataModel;
-using TemplateApi.Dominio.Comandos.TesteCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.TesteCmds;
+using TemplateApi.Api.DataModel.TesteDataModel;
 
 namespace TemplateApi.Api.Settings.AutoMapper
 {
@@ -70,6 +70,16 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
                         if ((src.DateTime != null) && !ehValido)
                             dest.AddErrorNotification(x => x.DateTime);
+
+                        return ehValido;
+                    });
+                }).ForMember(cmd => cmd.DateTime, opts => {
+                    opts.MapFrom(src => (src.TimeSpan == null) ? null : (TimeSpan?)src.TimeSpan);
+                    opts.Condition((src, dest, srcMember) => {
+                        bool ehValido = src.TimeSpan?.IsValid() ?? false;
+
+                        if ((src.TimeSpan != null) && !ehValido)
+                            dest.AddErrorNotification(x => x.TimeSpan);
 
                         return ehValido;
                     });

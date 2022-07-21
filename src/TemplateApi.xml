@@ -518,6 +518,59 @@
         <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.LongInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
             <internalonly/>
         </member>
+        <member name="F:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.Empty">
+            <summary>
+            Return value string.Empty
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToString(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToBoolean(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToChar(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToSByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToByte(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToUInt16(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToUInt32(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToUInt64(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToSingle(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToDouble(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToDecimal(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToDateTime(System.IFormatProvider)">
+            <internalonly/>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.ObjetosDeValor.TimeSpanInput.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+            <internalonly/>
+        </member>
         <member name="P:TemplateApi.Dominio.Comandos.AutenticacaoCmds.IniciarAutenticacaoCmd.Token">
             <summary>
             Token de acesso

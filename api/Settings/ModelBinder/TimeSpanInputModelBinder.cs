@@ -7,8 +7,7 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.Settings.ModelBinder
 {
-    public class EnumModelBinder<T> : IModelBinder
-        where T : struct
+    public class TimeSpanInputModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -33,9 +32,9 @@ namespace TemplateApi.Api.Settings.ModelBinder
                 return Task.CompletedTask;
             }
 
-            if (EnumInput<T>.TryParse(value, out EnumInput<T> result))
+            if (TimeSpanInput.TryParse(value, out TimeSpanInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((T)result);
+                bindingContext.Result = ModelBindingResult.Success(result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
