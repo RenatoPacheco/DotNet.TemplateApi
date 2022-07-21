@@ -8,6 +8,8 @@ namespace TemplateApi.Repositorio.Mapeamentos
     {
         public StorageMap()
         {
+            DefinnirTabela("Storage");
+
             Associar(x => x.Id, "Codigo_Storage");
             Associar(x => x.Nome, "Nome_Storage");
             Associar(x => x.Alias, "Alias_Storage");
@@ -21,8 +23,6 @@ namespace TemplateApi.Repositorio.Mapeamentos
             Associar(x => x.Checksum, "Checksum_Storage");
             Associar(x => x.Status, "Status_Storage");
         }
-
-        public override string Tabela => "Storage";
 
         public override string ToString()
         {

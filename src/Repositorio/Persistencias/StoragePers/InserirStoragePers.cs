@@ -37,18 +37,18 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    INSERT INTO [dbo].[{map.Tabela}]
-                           ([{map.Col(x => x.Nome)}]
-                           ,[{map.Col(x => x.Alias)}]
-                           ,[{map.Col(x => x.Diretorio)}]
-                           ,[{map.Col(x => x.Referencia)}]
-                           ,[{map.Col(x => x.Tipo)}]
-                           ,[{map.Col(x => x.Checksum)}]
-                           ,[{map.Col(x => x.Peso)}]
-                           ,[{map.Col(x => x.Extensao)}]
-                           ,[{map.Col(x => x.CriadoEm)}]
-                           ,[{map.Col(x => x.AlteradoEm)}]
-                           ,[{map.Col(x => x.Status)}])
+                    INSERT INTO {map.Tabela}
+                           ({map.Col(x => x.Nome)}
+                           ,{map.Col(x => x.Alias)}
+                           ,{map.Col(x => x.Diretorio)}
+                           ,{map.Col(x => x.Referencia)}
+                           ,{map.Col(x => x.Tipo)}
+                           ,{map.Col(x => x.Checksum)}
+                           ,{map.Col(x => x.Peso)}
+                           ,{map.Col(x => x.Extensao)}
+                           ,{map.Col(x => x.CriadoEm)}
+                           ,{map.Col(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)})
                     VALUES
                            (@Nome
                            ,@Alias

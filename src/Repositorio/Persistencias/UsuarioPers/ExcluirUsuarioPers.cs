@@ -22,9 +22,9 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             UsuarioMap map = new UsuarioMap();
 
             string sqlString = @$"
-                    UPDATE [dbo].[{map.Tabela}] SET
-                            [{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{map.Col(x => x.Status)}] = @Status
+                    UPDATE {map.Tabela} SET
+                            {map.Col(x => x.AlteradoEm)} = @AlteradoEm
+                           ,{map.Col(x => x.Status)} = @Status
                     WHERE {map.Col(x => x.Id)} IN @Id
                 ";
 

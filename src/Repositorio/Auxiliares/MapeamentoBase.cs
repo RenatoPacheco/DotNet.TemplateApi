@@ -11,7 +11,17 @@ namespace TemplateApi.Repositorio.Auxiliares
     internal abstract class MapeamentoBase<T>
         where T : class
     {
-        public abstract string Tabela { get; }
+        private string _tabela;
+        public string Tabela
+        {
+            get
+            {
+                if (!string.IsNullOrWhiteSpace(RefSql))
+                    return $"{_tabela} AS {RefSql}";
+                else
+                    return _tabela;
+            }
+        }
 
         protected string[] _ignorar = Array.Empty<string>();
 
@@ -42,13 +52,26 @@ namespace TemplateApi.Repositorio.Auxiliares
         public string Col<P>(Expression<Func<T, P>> expression)
         {
             string referencia = expression.PropertyPath();
-            return _colunas[referencia];
+
+            if (!string.IsNullOrWhiteSpace(RefSql))
+                return $"{RefSql}.{_colunas[referencia]}";
+            else
+                return _colunas[referencia];
         }
 
         public string Coluna<P>(Expression<Func<T, P>> expression)
         {
             string referencia = expression.PropertyPath();
-            return _colunas[referencia];
+
+            if (!string.IsNullOrWhiteSpace(RefSql))
+                return $"{RefSql}.{_colunas[referencia]}";
+            else
+                return _colunas[referencia];
+        }
+
+        protected void DefinnirTabela(string tabela)
+        {
+            _tabela = tabela.Trim();
         }
 
         protected void Associar<P>(Expression<Func<T, P>> expression, string sql)

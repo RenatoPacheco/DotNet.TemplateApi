@@ -196,7 +196,7 @@ namespace TemplateApi.RecursoResx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilas..
+        ///   Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilhas..
         /// </summary>
         public static string TipoDeArquivoStorageInvalido {
             get {
@@ -241,7 +241,7 @@ namespace TemplateApi.RecursoResx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O valor de {0} não é únido..
+        ///   Looks up a localized string similar to O valor de {0} não é único..
         /// </summary>
         public static string XNaoEhUnico {
             get {

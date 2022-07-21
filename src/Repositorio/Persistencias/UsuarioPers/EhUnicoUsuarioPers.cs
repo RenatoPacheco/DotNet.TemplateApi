@@ -40,10 +40,10 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             {
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
                     SELECT TOP 1 1
-                    FROM [{map.Tabela}]
-                    Where [{map.Col(x => x.Email)}] = @Email
-                    AND [{map.Col(x => x.Id)}] <> @Id
-                    AND [{map.Col(x => x.Status)}] <> @Status
+                    FROM {map.Tabela}
+                    Where {map.Col(x => x.Email)} = @Email
+                    AND {map.Col(x => x.Id)} <> @Id
+                    AND {map.Col(x => x.Status)} <> @Status
                 ", new
                 {
                     Id = dados.Id ?? 0,

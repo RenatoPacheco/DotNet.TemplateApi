@@ -49,29 +49,29 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
             bool haPaginacao = HaPaginacao(comando);
 
-            sql.Append($" FROM [{_map.Tabela}] as sto ");
+            sql.Append($" FROM {_map.Tabela} ");
 
             if (comando.Storage.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Id)}] IN @Storage ");
+                sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Storage ");
                 sqlObjeto.Add("Storage", comando.Storage);
             }
 
             if (comando.Referencia.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Referencia)}] IN @Referencia ");
+                sqlFiltro.Append($" AND {_map.Col(x => x.Referencia)} IN @Referencia ");
                 sqlObjeto.Add("Referencia", comando.Referencia);
             }
 
             if (comando.Alias.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Alias)}] IN @Alias ");
+                sqlFiltro.Append($" AND {_map.Col(x => x.Alias)} IN @Alias ");
                 sqlObjeto.Add("Alias", comando.Alias);
             }
 
             if (comando.Status.Any())
             {
-                sqlFiltro.Append($" AND sto.[{_map.Col(x => x.Status)}] IN @Status ");
+                sqlFiltro.Append($" AND sto.{_map.Col(x => x.Status)} IN @Status ");
                 sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
@@ -97,7 +97,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
             sqlConsulta.Append($" SELECT {_map}");
             sqlConsulta.Append(sql);
-            sqlConsulta.Append($" ORDER BY sto.[{_map.Col(x => x.Id)}] DESC ");
+            sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
             sqlConsulta.Append(MontarPaginacao(comando));
             sqlConsulta.Append(" FOR JSON PATH ");
 

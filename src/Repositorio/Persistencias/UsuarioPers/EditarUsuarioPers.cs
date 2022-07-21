@@ -36,14 +36,14 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    UPDATE [dbo].[{map.Tabela}] SET
-                            [{map.Col(x => x.Nome)}] = @Nome
-                           ,[{map.Col(x => x.Email)}] = @Email
-                           ,[{map.Col(x => x.Senha)}] = @Senha
-                           ,[{map.Col(x => x.Telefone)}] = @Telefone
-                           ,[{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{map.Col(x => x.Status)}] = @Status
-                    WHERE [{map.Col(x => x.Id)}] = @Id
+                    UPDATE {map.Tabela} SET
+                            {map.Col(x => x.Nome)} = @Nome
+                           ,{map.Col(x => x.Email)} = @Email
+                           ,{map.Col(x => x.Senha)} = @Senha
+                           ,{map.Col(x => x.Telefone)} = @Telefone
+                           ,{map.Col(x => x.AlteradoEm)} = @AlteradoEm
+                           ,{map.Col(x => x.Status)} = @Status
+                    WHERE {map.Col(x => x.Id)} = @Id
                 ";
 
                 object sqlObject = new

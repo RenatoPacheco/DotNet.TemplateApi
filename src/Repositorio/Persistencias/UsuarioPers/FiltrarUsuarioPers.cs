@@ -50,17 +50,17 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
             bool haPaginacao = HaPaginacao(comando);
 
-            sql.Append($" FROM [{_map.Tabela}] as usu ");
+            sql.Append($" FROM {_map.Tabela} ");
 
             if (comando.Usuario.Any())
             {
-                sqlFiltro.Append($" AND usu.[{_map.Col(x => x.Id)}] IN @Usuario ");
-                sqlObjeto.Add("Usuario", comando);
+                sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Usuario ");
+                sqlObjeto.Add("Usuario", comando.Usuario);
             }
 
             if (comando.Status.Any())
             {
-                sqlFiltro.Append($" AND usu.[{_map.Col(x => x.Status)}] IN @Status ");
+                sqlFiltro.Append($" AND {_map.Col(x => x.Status)} IN @Status ");
                 sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
@@ -85,7 +85,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
             sqlConsulta.Append($" SELECT {_map}");
             sqlConsulta.Append(sql);
-            sqlConsulta.Append($" ORDER BY usu.[{_map.Col(x => x.Id)}] DESC ");
+            sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
             sqlConsulta.Append(MontarPaginacao(comando));
             sqlConsulta.Append(" FOR JSON PATH ");
 

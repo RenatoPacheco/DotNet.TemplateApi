@@ -163,7 +163,7 @@
     <value>Ocorreu um erro interno na solicitação.</value>
   </data>
   <data name="TipoDeArquivoStorageInvalido" xml:space="preserve">
-    <value>Os tipos de arquivos permitidos são imagens, textos ou planilas.</value>
+    <value>Os tipos de arquivos permitidos são imagens, textos ou planilhas.</value>
   </data>
   <data name="TipoInvalido" xml:space="preserve">
     <value>Tipo inválido.</value>
@@ -178,7 +178,7 @@
     <value>O valor de "{0}" é obrigatório. </value>
   </data>
   <data name="XNaoEhUnico" xml:space="preserve">
-    <value>O valor de {0} não é únido.</value>
+    <value>O valor de {0} não é único.</value>
   </data>
   <data name="XNaoEhValido" xml:space="preserve">
     <value>{0} não é válido(a).</value>

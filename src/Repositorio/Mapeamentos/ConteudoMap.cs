@@ -8,6 +8,8 @@ namespace TemplateApi.Repositorio.Mapeamentos
     {
         public ConteudoMap()
         {
+            DefinnirTabela("Conteudo");
+
             Associar(x => x.Id, "Codigo_Conteudo");
             Associar(x => x.Titulo, "Titulo_Conteudo");
             Associar(x => x.Texto, "Texto_Conteudo");
@@ -16,8 +18,6 @@ namespace TemplateApi.Repositorio.Mapeamentos
             Associar(x => x.AlteradoEm, "DataAlteracao_Conteudo");
             Associar(x => x.Status, "Status_Conteudo");
         }
-
-        public override string Tabela => "Conteudo";
 
         public override string ToString()
         {

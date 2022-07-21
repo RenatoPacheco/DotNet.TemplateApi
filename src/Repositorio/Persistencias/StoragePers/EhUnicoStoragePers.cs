@@ -39,10 +39,10 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             {
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
                     SELECT TOP 1 1
-                    FROM [{map.Tabela}]
-                    Where [{map.Col(x => x.Referencia)}] = @Referencia
-                    AND [{map.Col(x => x.Id)}] <> @Id
-                    AND [{map.Col(x => x.Status)}] <> @Status
+                    FROM {map.Tabela}
+                    Where {map.Col(x => x.Referencia)} = @Referencia
+                    AND {map.Col(x => x.Id)} <> @Id
+                    AND {map.Col(x => x.Status)} <> @Status
                 ", new
                 {
                     Id = dados.Id ?? 0,

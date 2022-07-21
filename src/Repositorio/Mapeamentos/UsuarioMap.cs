@@ -8,6 +8,8 @@ namespace TemplateApi.Repositorio.Mapeamentos
     {
         public UsuarioMap()
         {
+            DefinnirTabela("Usuario");
+
             Associar(x => x.Id, "Codigo_Usuario");
             Associar(x => x.Nome, "Nome_Usuario");
             Associar(x => x.Email, "Email_Usuario");
@@ -17,8 +19,6 @@ namespace TemplateApi.Repositorio.Mapeamentos
             Associar(x => x.Telefone, "Telefone_Usuario");
             Associar(x => x.Senha, "Senha_Usuario");
         }
-
-        public override string Tabela => "Usuario";
 
         public override string ToString()
         {

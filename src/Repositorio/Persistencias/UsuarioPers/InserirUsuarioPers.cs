@@ -37,14 +37,14 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"
-                    INSERT INTO [dbo].[{map.Tabela}]
-                           ([{map.Col(x => x.Nome)}]
-                           ,[{map.Col(x => x.Email)}]
-                           ,[{map.Col(x => x.Senha)}]
-                           ,[{map.Col(x => x.Telefone)}]
-                           ,[{map.Col(x => x.CriadoEm)}]
-                           ,[{map.Col(x => x.AlteradoEm)}]
-                           ,[{map.Col(x => x.Status)}])
+                    INSERT INTO {map.Tabela}
+                           ({map.Col(x => x.Nome)}
+                           ,{map.Col(x => x.Email)}
+                           ,{map.Col(x => x.Senha)}
+                           ,{map.Col(x => x.Telefone)}
+                           ,{map.Col(x => x.CriadoEm)}
+                           ,{map.Col(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)})
                     VALUES
                            (@Nome
                            ,@Email

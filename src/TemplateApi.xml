@@ -882,7 +882,7 @@
         </member>
         <member name="P:TemplateApi.RecursoResx.AvisosResx.TipoDeArquivoStorageInvalido">
             <summary>
-              Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilas..
+              Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilhas..
             </summary>
         </member>
         <member name="P:TemplateApi.RecursoResx.AvisosResx.TipoInvalido">
@@ -907,7 +907,7 @@
         </member>
         <member name="P:TemplateApi.RecursoResx.AvisosResx.XNaoEhUnico">
             <summary>
-              Looks up a localized string similar to O valor de {0} não é únido..
+              Looks up a localized string similar to O valor de {0} não é único..
             </summary>
         </member>
         <member name="P:TemplateApi.RecursoResx.AvisosResx.XNaoEhValido">

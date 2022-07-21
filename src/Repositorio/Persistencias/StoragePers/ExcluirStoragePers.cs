@@ -23,9 +23,9 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             StorageMap map = new StorageMap();
 
             string sqlString = @$"
-                    UPDATE [dbo].[{map.Tabela}] SET
-                            [{map.Col(x => x.AlteradoEm)}] = @AlteradoEm
-                           ,[{map.Col(x => x.Status)}] = @Status
+                    UPDATE {map.Tabela} SET
+                            {map.Col(x => x.AlteradoEm)} = @AlteradoEm
+                           ,{map.Col(x => x.Status)} = @Status
                     WHERE {map.Col(x => x.Id)} IN @Id
                     OR {map.Col(x => x.Alias)} IN @Alias
                 ";
