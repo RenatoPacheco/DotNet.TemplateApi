@@ -588,17 +588,12 @@
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.Pagina">
             <summary>
-            Página atual
+            Página atual, com valor padrão 1, sendo qulquer valor menor que 1, será considerado o valor padrão
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.Maximo">
             <summary>
-            Máximo de registros por página
-            </summary>
-        </member>
-        <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.Paginacao">
-            <summary>
-            Calcular a paginação
+            Máximo de registros por página, com valor padrão 100, sendo que, qualquer valor menor que 1, será feita a consulta, sem paginação.
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Conteudo">

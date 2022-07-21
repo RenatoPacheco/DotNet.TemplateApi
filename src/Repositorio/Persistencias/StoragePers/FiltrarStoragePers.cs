@@ -1,17 +1,17 @@
 ﻿using Dapper;
 using System.Linq;
 using System.Text;
+using TemplateApi.RecursoResx;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using TemplateApi.RecursoResx;
 using TemplateApi.Dominio.Interfaces;
+using System.Text.RegularExpressions;
+using TemplateApi.Compartilhado.Json;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Compartilhado.Json;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
@@ -24,77 +24,34 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
         private StorageMap _map;
 
-        public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia)
+        public ResultadoBusca<Storage> Filtrar(
+            FiltrarStorageCmd comando, string referencia)
         {
             return Filtrar(comando, referencia);
         }
 
-        public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, ValidationType tipo)
+        public ResultadoBusca<Storage> Filtrar(
+            FiltrarStorageCmd comando, ValidationType tipo)
         {
             return Filtrar(comando, string.Empty, tipo);
         }
 
-        public ResultadoBusca<Storage> Filtrar(FiltrarStorageCmd comando, string referencia = "", ValidationType tipo = ValidationType.Alert)
+        public ResultadoBusca<Storage> Filtrar(
+            FiltrarStorageCmd comando, string referencia = "", 
+            ValidationType tipo = ValidationType.Alert)
         {
             Notifications.Clear();
 
             ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
             StringBuilder sql = new StringBuilder();
-            StringBuilder sqlFiltro = new StringBuilder();
-            StringBuilder sqlTextos = new StringBuilder();
-            IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
-            IList<string> textos = DesmebrarTexto(comando.Texto);
+            IDictionary<string, object> sqlParametros = new Dictionary<string, object>();
+            bool haPaginacao = HaPaginacao(comando);
 
             _map = new StorageMap { RefSql = "sto" };
 
-            bool haPaginacao = HaPaginacao(comando);
-
-            sql.Append($" FROM {_map.Tabela} ");
-
-            if (comando.Storage.Any())
-            {
-                sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Storage ");
-                sqlObjeto.Add("Storage", comando.Storage);
-            }
-
-            if (comando.Referencia.Any())
-            {
-                sqlFiltro.Append($" AND {_map.Col(x => x.Referencia)} IN @Referencia ");
-                sqlObjeto.Add("Referencia", comando.Referencia);
-            }
-
-            if (comando.Alias.Any())
-            {
-                sqlFiltro.Append($" AND {_map.Col(x => x.Alias)} IN @Alias ");
-                sqlObjeto.Add("Alias", comando.Alias);
-            }
-
-            if (comando.Status.Any())
-            {
-                sqlFiltro.Append($" AND sto.{_map.Col(x => x.Status)} IN @Status ");
-                sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
-            }
-
-            if (textos.Any())
-            {
-                sqlFiltro.Append(" AND ( ");
-                for (int i = 0; i < textos.Count; i++)
-                {
-                    sqlTextos.Append($" OR {_map.Col(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-                    sqlTextos.Append($" OR {_map.Col(x => x.Referencia)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-                    sqlTextos.Append($" OR {_map.Col(x => x.Tipo)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-
-                    sqlObjeto.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
-                }
-                sqlFiltro.Append(Regex.Replace(sqlTextos.ToString(), @"^\s+OR\s+", ""));
-                sqlFiltro.Append(" ) ");
-                sqlTextos.Clear();
-            }
-
-            sql.Append(Regex.Replace(sqlFiltro.ToString(), @"^\s+AND\s+", " WHERE "));
+            AplicarFiltro(comando, ref sql, ref sqlParametros);
 
             StringBuilder sqlConsulta = new StringBuilder();
-
             sqlConsulta.Append($" SELECT {_map}");
             sqlConsulta.Append(sql);
             sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
@@ -108,7 +65,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             if (haPaginacao)
             {
                 int total = Conexao.Sessao.QuerySingleOrDefault<int>(
-                    sqlContagem.ToString(), sqlObjeto, Conexao.Transicao);
+                    sqlContagem.ToString(), sqlParametros, Conexao.Transicao);
 
                 resultado.CalcularPaginas(total, comando.Maximo);
             }
@@ -116,7 +73,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
             {
                 IEnumerable<string> json = Conexao.Sessao.Query<string>(
-                   sqlConsulta.ToString(), sqlObjeto, Conexao.Transicao);
+                   sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
                 resultado.ResultadosDaPaginaAtual = ContratoJson.Desserializar<Storage[]>(
                     json.Any() ? string.Join("", json) : "[]");
@@ -137,6 +94,58 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             }
 
             return resultado;
+        }
+
+        private void AplicarFiltro(FiltrarStorageCmd comando,
+            ref StringBuilder sql, ref IDictionary<string, object> sqlParametros)
+        {
+            StringBuilder sqlFiltro = new StringBuilder();
+            StringBuilder sqlTextos = new StringBuilder();
+            IList<string> textos = DesmebrarTexto(comando.Texto);
+
+            sql.Append($" FROM {_map.Tabela} ");
+
+            if (comando.Storage.Any())
+            {
+                sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Storage ");
+                sqlParametros.Add("Storage", comando.Storage);
+            }
+
+            if (comando.Referencia.Any())
+            {
+                sqlFiltro.Append($" AND {_map.Col(x => x.Referencia)} IN @Referencia ");
+                sqlParametros.Add("Referencia", comando.Referencia);
+            }
+
+            if (comando.Alias.Any())
+            {
+                sqlFiltro.Append($" AND {_map.Col(x => x.Alias)} IN @Alias ");
+                sqlParametros.Add("Alias", comando.Alias);
+            }
+
+            if (comando.Status.Any())
+            {
+                sqlFiltro.Append($" AND sto.{_map.Col(x => x.Status)} IN @Status ");
+                sqlParametros.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
+            }
+
+            if (textos.Any())
+            {
+                sqlFiltro.Append(" AND ( ");
+                for (int i = 0; i < textos.Count; i++)
+                {
+                    sqlTextos.Append($" OR {_map.Col(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Referencia)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Tipo)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+
+                    sqlParametros.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
+                }
+                sqlFiltro.Append(Regex.Replace(sqlTextos.ToString(), @"^\s+OR\s+", ""));
+                sqlFiltro.Append(" ) ");
+                sqlTextos.Clear();
+            }
+
+            sql.Append(Regex.Replace(sqlFiltro.ToString(), @"^\s+AND\s+", " WHERE "));
         }
     }
 }

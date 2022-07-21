@@ -1,9 +1,9 @@
-﻿using TemplateApi.Dominio.Comandos.Comum;
-using TemplateApi.Dominio.Interfaces;
-using TemplateApi.Repositorio.Contexto;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
+using TemplateApi.Dominio.Interfaces;
 using System.Text.RegularExpressions;
+using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Repositorio.Comum
 {
@@ -84,8 +84,7 @@ namespace TemplateApi.Repositorio.Comum
         /// </summary>
         public bool HaPaginacao(FiltrarBaseCmd comando)
         {
-            return comando.Paginacao == true
-                && (comando.Maximo > 0 && comando.Maximo < int.MaxValue);
+            return (comando.Maximo > 0 && comando.Maximo < int.MaxValue);
         }
     }
 }

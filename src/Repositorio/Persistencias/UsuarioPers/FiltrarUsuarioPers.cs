@@ -25,64 +25,34 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
         private UsuarioMap _map;
 
-        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia)
+        public ResultadoBusca<Usuario> Filtrar(
+            FiltrarUsuarioCmd comando, string referencia)
         {
             return Filtrar(comando, referencia);
         }
 
-        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, ValidationType tipo)
+        public ResultadoBusca<Usuario> Filtrar(
+            FiltrarUsuarioCmd comando, ValidationType tipo)
         {
             return Filtrar(comando, string.Empty, tipo);
         }
 
-        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando, string referencia = "", ValidationType tipo = ValidationType.Alert)
+        public ResultadoBusca<Usuario> Filtrar(
+            FiltrarUsuarioCmd comando, string referencia = "",
+            ValidationType tipo = ValidationType.Alert)
         {
             Notifications.Clear();
 
             ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
             StringBuilder sql = new StringBuilder();
-            StringBuilder sqlFiltro = new StringBuilder();
-            StringBuilder sqlTextos = new StringBuilder();
-            IDictionary<string, object> sqlObjeto = new Dictionary<string, object>();
-            IList<string> textos = DesmebrarTexto(comando.Texto);
+            IDictionary<string, object> sqlParametros = new Dictionary<string, object>();
+            bool haPaginacao = HaPaginacao(comando);
 
             _map = new UsuarioMap { RefSql = "usu" };
 
-            bool haPaginacao = HaPaginacao(comando);
-
-            sql.Append($" FROM {_map.Tabela} ");
-
-            if (comando.Usuario.Any())
-            {
-                sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Usuario ");
-                sqlObjeto.Add("Usuario", comando.Usuario);
-            }
-
-            if (comando.Status.Any())
-            {
-                sqlFiltro.Append($" AND {_map.Col(x => x.Status)} IN @Status ");
-                sqlObjeto.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
-            }
-
-            if (textos.Any())
-            {
-                sqlFiltro.Append(" AND ( ");
-                for (int i = 0; i < textos.Count; i++)
-                {
-                    sqlTextos.Append($" OR {_map.Col(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-                    sqlTextos.Append($" OR {_map.Col(x => x.Email)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
-
-                    sqlObjeto.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
-                }
-                sqlFiltro.Append(Regex.Replace(sqlTextos.ToString(), @"^\s+OR\s+", ""));
-                sqlFiltro.Append(" ) ");
-                sqlTextos.Clear();
-            }
-
-            sql.Append(Regex.Replace(sqlFiltro.ToString(), @"^\s+AND\s+", " WHERE "));
+            AplicarFiltro(comando, ref sql, ref sqlParametros);
 
             StringBuilder sqlConsulta = new StringBuilder();
-
             sqlConsulta.Append($" SELECT {_map}");
             sqlConsulta.Append(sql);
             sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
@@ -96,7 +66,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             if (haPaginacao)
             {
                 int total = Conexao.Sessao.QuerySingleOrDefault<int>(
-                    sqlContagem.ToString(), sqlObjeto, Conexao.Transicao);
+                    sqlContagem.ToString(), sqlParametros, Conexao.Transicao);
 
                 resultado.CalcularPaginas(total, comando.Maximo);
             }
@@ -104,7 +74,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
             {
                 IEnumerable<string> json = Conexao.Sessao.Query<string>(
-                   sqlConsulta.ToString(), sqlObjeto, Conexao.Transicao);
+                   sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
                 resultado.ResultadosDaPaginaAtual = ContratoJson.Desserializar<Usuario[]>(
                     json.Any() ? string.Join("", json) : "[]");
@@ -125,6 +95,45 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             }
 
             return resultado;
+        }
+
+        private void AplicarFiltro(FiltrarUsuarioCmd comando,
+            ref StringBuilder sql, ref IDictionary<string, object> sqlParametros)
+        {
+            StringBuilder sqlFiltro = new StringBuilder();
+            StringBuilder sqlTextos = new StringBuilder();
+            IList<string> textos = DesmebrarTexto(comando.Texto);
+
+            sql.Append($" FROM {_map.Tabela} ");
+
+            if (comando.Usuario.Any())
+            {
+                sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Usuario ");
+                sqlParametros.Add("Usuario", comando.Usuario);
+            }
+
+            if (comando.Status.Any())
+            {
+                sqlFiltro.Append($" AND {_map.Col(x => x.Status)} IN @Status ");
+                sqlParametros.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
+            }
+
+            if (textos.Any())
+            {
+                sqlFiltro.Append(" AND ( ");
+                for (int i = 0; i < textos.Count; i++)
+                {
+                    sqlTextos.Append($" OR {_map.Col(x => x.Nome)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+                    sqlTextos.Append($" OR {_map.Col(x => x.Email)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
+
+                    sqlParametros.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
+                }
+                sqlFiltro.Append(Regex.Replace(sqlTextos.ToString(), @"^\s+OR\s+", ""));
+                sqlFiltro.Append(" ) ");
+                sqlTextos.Clear();
+            }
+
+            sql.Append(Regex.Replace(sqlFiltro.ToString(), @"^\s+AND\s+", " WHERE "));
         }
     }
 }
