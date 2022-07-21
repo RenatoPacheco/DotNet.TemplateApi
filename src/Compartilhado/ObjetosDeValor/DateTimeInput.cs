@@ -4,18 +4,18 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct DecimalInput
+    public struct DateTimeInput
         : IFormattable, IComparable, IConvertible,
-        IComparable<DecimalInput>, IComparable<decimal>,
-        IEquatable<DecimalInput>, IEquatable<decimal>
+        IComparable<DateTimeInput>, IComparable<DateTime>,
+        IEquatable<DateTimeInput>, IEquatable<DateTime>
     {
-        public DecimalInput(string input)
+        public DateTimeInput(string input)
         {
-            TryParse(input, out DecimalInput output);
+            TryParse(input, out DateTimeInput output);
             this = output;
         }
 
-        public DecimalInput(decimal input)
+        public DateTimeInput(DateTime input)
         {
             _inptValue = input.ToString();
             _value = input;
@@ -23,28 +23,28 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         }
 
         private string _inptValue;
-        private decimal _value;
+        private DateTime _value;
         private bool _isValid;
 
-        public static explicit operator string(DecimalInput input) => input.ToString();
-        public static explicit operator DecimalInput(string input) => new DecimalInput(input);
+        public static explicit operator string(DateTimeInput input) => input.ToString();
+        public static explicit operator DateTimeInput(string input) => new DateTimeInput(input);
 
-        public static explicit operator decimal(DecimalInput input) => input._value;
-        public static explicit operator DecimalInput(decimal input) => new DecimalInput(input);
+        public static explicit operator DateTime(DateTimeInput input) => input._value;
+        public static explicit operator DateTimeInput(DateTime input) => new DateTimeInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly DecimalInput Empty = new DecimalInput
+        public static readonly DateTimeInput Empty = new DateTimeInput
         {
-            _inptValue = "0",
-            _value = 0,
+            _inptValue = $"{new DateTime()}",
+            _value = new DateTime(),
             _isValid = true
         };
 
-        public static void Parse(string input, out DecimalInput output)
+        public static void Parse(string input, out DateTimeInput output)
         {
-            if (TryParse(input, out DecimalInput result))
+            if (TryParse(input, out DateTimeInput result))
             {
                 output = result;
             }
@@ -59,14 +59,42 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             }
         }
 
-        public static bool TryParse(string input, out DecimalInput output)
+        public static bool TryParse(string input, out DateTimeInput output)
         {
             input = input?.Trim();
-            NumberStyles style = NumberStyles.Number;
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            bool result = decimal.TryParse(input, style, culture, out decimal value);
-            output = new DecimalInput
+            DateTimeStyles styles = DateTimeStyles.NoCurrentDateDefault;
+            IFormatProvider provider = null;
+            string[] formats = new string[]
             {
+                "dd/MM/yyyy",
+                "dd/MM/yyyy HH:mm",
+                "dd/MM/yyyy HH:mm:ss",
+                "dd-MM-yyyy",
+                "dd-MM-yyyy HH:mm",
+                "dd-MM-yyyy HH:mm:ss",
+                "yyyy/MM/dd",
+                "yyyy/MM/dd HH:mm",
+                "yyyy/MM/dd HH:mm:ss",
+                "yyyy-MM-dd",
+                "yyyy-MM-dd HH:mm",
+                "yyyy-MM-dd HH:mm:ss"
+            };
+            bool result = false;
+            DateTime value = new DateTime();
+            foreach (string format in formats)
+            {
+                if (DateTime.TryParseExact(
+                            input,
+                            format,
+                            provider,
+                            styles,
+                            out value))
+                {
+                    result = true;
+                    break;
+                }
+            }
+            output = new DateTimeInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = value
@@ -97,28 +125,28 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return $"{_inptValue}:{GetType()}".GetHashCode();
         }
 
-        public bool Equals(DecimalInput other)
+        public bool Equals(DateTimeInput other)
         {
             return _inptValue == other._inptValue;
         }
 
-        public bool Equals(decimal other)
+        public bool Equals(DateTime other)
         {
             return _inptValue == other.ToString();
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is DecimalInput typeA && Equals(typeA))
-                || (obj is decimal typeB && Equals(typeB));
+            return (obj is DateTimeInput typeA && Equals(typeA))
+                || (obj is DateTime typeB && Equals(typeB));
         }
 
-        public int CompareTo(DecimalInput other)
+        public int CompareTo(DateTimeInput other)
         {
             return _inptValue.CompareTo(other._inptValue);
         }
 
-        public int CompareTo(decimal other)
+        public int CompareTo(DateTime other)
         {
             return _inptValue.CompareTo(other.ToString());
         }
@@ -130,12 +158,12 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 return 1;
             }
 
-            if (obj is DecimalInput typeA)
+            if (obj is DateTimeInput typeA)
             {
                 return CompareTo(typeA);
             }
 
-            if (obj is decimal typeB)
+            if (obj is DateTime typeB)
             {
                 return CompareTo(typeB);
             }
@@ -144,22 +172,22 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 nameof(obj), AvisosResx.TipoInvalido);
         }
 
-        public static bool operator ==(DecimalInput left, DecimalInput right)
+        public static bool operator ==(DateTimeInput left, DateTimeInput right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(DecimalInput left, DecimalInput right)
+        public static bool operator !=(DateTimeInput left, DateTimeInput right)
         {
             return !(left == right);
         }
 
-        public static bool operator >(DecimalInput left, DecimalInput right)
+        public static bool operator >(DateTimeInput left, DateTimeInput right)
         {
             return left.CompareTo(right) == 1;
         }
 
-        public static bool operator <(DecimalInput left, DecimalInput right)
+        public static bool operator <(DateTimeInput left, DateTimeInput right)
         {
             return left.CompareTo(right) == -1;
         }

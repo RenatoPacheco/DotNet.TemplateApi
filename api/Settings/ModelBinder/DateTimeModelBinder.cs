@@ -1,9 +1,9 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
 using System.Threading.Tasks;
-using System.Globalization;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.Settings.ModelBinder
 {
@@ -32,9 +32,9 @@ namespace TemplateApi.Api.Settings.ModelBinder
                 return Task.CompletedTask;
             }
 
-            if (TryParse(value, out DateTime result))
+            if (DateTimeInput.TryParse(value, out DateTimeInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success(result);
+                bindingContext.Result = ModelBindingResult.Success((DateTime)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
@@ -46,39 +46,6 @@ namespace TemplateApi.Api.Settings.ModelBinder
             }
 
             return Task.CompletedTask;
-        }
-
-        public bool TryParse(string value, out DateTime result)
-        {
-            DateTimeStyles styles = DateTimeStyles.NoCurrentDateDefault;
-            IFormatProvider provider = null;
-            string[] formats = new string[]
-            {
-                "dd/MM/yyyy HH:mm:ss",
-                "dd/MM/yyyy",
-                "dd-MM-yyyy HH:mm:ss",
-                "dd-MM-yyyy",
-                "yyyy/MM/dd HH:mm:ss",
-                "yyyy/MM/dd",
-                "yyyy-MM-dd HH:mm:ss",
-                "yyyy-MM-dd"
-            };
-
-            foreach (string format in formats)
-            {
-                if (DateTime.TryParseExact(
-                            value,
-                            format,
-                            provider,
-                            styles,
-                            out result))
-                {
-                    return true;
-                }
-            }
-
-            result = new DateTime();
-            return false;
         }
     }
 }

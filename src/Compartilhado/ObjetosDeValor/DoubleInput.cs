@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
@@ -61,7 +62,9 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public static bool TryParse(string input, out DoubleInput output)
         {
             input = input?.Trim();
-            bool result = double.TryParse(input, out double value);
+            NumberStyles style = NumberStyles.Number;
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            bool result = double.TryParse(input, style, culture, out double value);
             output = new DoubleInput
             {
                 _isValid = result,

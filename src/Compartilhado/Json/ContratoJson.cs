@@ -27,6 +27,7 @@ namespace TemplateApi.Compartilhado.Json
             settings.Converters.Add(new DecimalInputJsonConverte());
             settings.Converters.Add(new GuidInputJsonConverte());
             settings.Converters.Add(new BoolInputJsonConverte());
+            settings.Converters.Add(new DateTimeInputJsonConverte());
             settings.Converters.Add(new EnumInputJsonConverte<Status>());
 
             return settings;

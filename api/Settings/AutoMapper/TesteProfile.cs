@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BitHelp.Core.Validation.Extends;
+using System;
 using TemplateApi.Api.DataModel.TesteDataModel;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
@@ -59,6 +60,16 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
                         if ((src.Enum != null) && !ehValido)
                             dest.AddErrorNotification(x => x.Enum);
+
+                        return ehValido;
+                    });
+                }).ForMember(cmd => cmd.DateTime, opts => {
+                    opts.MapFrom(src => (src.DateTime == null) ? null : (DateTime?)src.DateTime);
+                    opts.Condition((src, dest, srcMember) => {
+                        bool ehValido = src.DateTime?.IsValid() ?? false;
+
+                        if ((src.DateTime != null) && !ehValido)
+                            dest.AddErrorNotification(x => x.DateTime);
 
                         return ehValido;
                     });

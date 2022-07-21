@@ -7,7 +7,7 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.Settings.ModelBinder
 {
-    public class DecimalModelBinder : IModelBinder
+    public class DateTimeInputModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -32,11 +32,11 @@ namespace TemplateApi.Api.Settings.ModelBinder
                 return Task.CompletedTask;
             }
 
-            if (DecimalInput.TryParse(value, out DecimalInput result))
+            if (DateTimeInput.TryParse(value, out DateTimeInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((decimal)result);
+                bindingContext.Result = ModelBindingResult.Success(result);
             }
-            else if(!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
+            else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
                 bindingContext.ModelState.SetModelValue(modelName, valueProviderResult);
                 bindingContext.ModelState.AddModelError(

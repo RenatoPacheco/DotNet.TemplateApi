@@ -1,4 +1,5 @@
 ﻿using BitHelp.Core.Validation;
+using System;
 using System.Text.Json.Serialization;
 using TemplateApi.Dominio.ObjetosDeValor;
 
@@ -17,6 +18,8 @@ namespace TemplateApi.Dominio.Comandos.TesteCmds
         public double? Double { get; set; }
 
         public Status? Enum { get; set; }
+
+        public DateTime? DateTime { get; set; }
 
         #region Auto validação
 

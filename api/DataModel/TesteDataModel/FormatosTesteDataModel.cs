@@ -15,6 +15,8 @@ namespace TemplateApi.Api.DataModel.TesteDataModel
 
         public DoubleInput? Double { get; set; }
 
+        public DateTimeInput? DateTime { get; set; }
+
         public EnumInput<Status>? Enum { get; set; }
     }
 }
