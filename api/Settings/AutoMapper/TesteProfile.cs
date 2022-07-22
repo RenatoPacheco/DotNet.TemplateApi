@@ -1,7 +1,5 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using BitHelp.Core.Validation.Extends;
-using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 using TemplateApi.Api.DataModel.TesteDataModel;
 
