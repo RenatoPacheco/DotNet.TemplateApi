@@ -2,6 +2,7 @@
 using BitHelp.Core.Validation;
 using System.Text.Json.Serialization;
 using TemplateApi.Dominio.ObjetosDeValor;
+using BitHelp.Core.Type.pt_BR;
 
 namespace TemplateApi.Dominio.Comandos.TesteCmds
 {
@@ -17,11 +18,17 @@ namespace TemplateApi.Dominio.Comandos.TesteCmds
 
         public double? Double { get; set; }
 
-        public Status? Enum { get; set; }
+        public bool? Bool { get; set; }
 
         public DateTime? DateTime { get; set; }
 
         public TimeSpan? TimeSpan { get; set; }
+
+        public Guid? Guid { get; set; }
+
+        public Status? Enum { get; set; }
+
+        public PhoneType? Phone { get; set; }
 
         #region Auto validação
 

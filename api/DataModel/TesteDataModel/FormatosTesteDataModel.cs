@@ -1,4 +1,5 @@
-﻿using TemplateApi.Dominio.ObjetosDeValor;
+﻿using BitHelp.Core.Type.pt_BR;
+using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModel.TesteDataModel
@@ -15,10 +16,16 @@ namespace TemplateApi.Api.DataModel.TesteDataModel
 
         public DoubleInput? Double { get; set; }
 
+        public BoolInput? Bool { get; set; }
+
         public DateTimeInput? DateTime { get; set; }
 
         public TimeSpanInput? TimeSpan { get; set; }
 
+        public GuidInput? Guid { get; set; }
+
         public EnumInput<Status>? Enum { get; set; }
+
+        public PhoneType? Phone { get; set; }
     }
 }

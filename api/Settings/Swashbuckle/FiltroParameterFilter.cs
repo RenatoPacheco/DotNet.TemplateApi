@@ -7,7 +7,10 @@ namespace TemplateApi.Api.Settings.Swashbuckle
     {
         public void Apply(OpenApiParameter parameter, ParameterFilterContext context)
         {
-
+            if (parameter?.Schema?.Example != null)
+            {
+                parameter.Schema.Example = null;
+            }
         }
     }
 }

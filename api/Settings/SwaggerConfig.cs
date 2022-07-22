@@ -11,6 +11,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
+using Microsoft.OpenApi.Any;
 
 namespace TemplateApi.Api
 {
@@ -107,50 +108,210 @@ namespace TemplateApi.Api
                 options.OperationFilter<FiltroOperationFilter>();
                 options.RequestBodyFilter<FiltroRequestBodyFilter>();
 
+                // https://swagger.io/docs/specification/data-models/data-types/
+
                 options.MapType<PhoneType>(
-                    () => options.SchemaBasic("string", "(00) 00000-0000"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Format = "phone",
+                        Nullable = false,
+                        Example = new OpenApiString("(12) 93456-7890")                        
+                    });
                 options.MapType<PhoneType?>(
-                    () => options.SchemaBasic("string", "(00) 00000-0000"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Format = "phone",
+                        Nullable = true,
+                        Example = new OpenApiString("(12) 93456-7890")
+                    });
 
                 options.MapType<IntInput>(
-                    () => options.SchemaBasic("number", 0));
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "int32",
+                        Nullable = false
+                    });
                 options.MapType<IntInput?>(
-                    () => options.SchemaBasic("number", 0));
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "int32",
+                        Nullable = true
+                    });
 
                 options.MapType<LongInput>(
-                    () => options.SchemaBasic("number", 0));
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "int64",
+                        Nullable = false
+                    });
                 options.MapType<LongInput?>(
-                    () => options.SchemaBasic("number", 0));
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "int64",
+                        Nullable = true
+                    });
+
+                options.MapType<DecimalInput>(
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "decimal",
+                        Nullable = false
+                    });
+                options.MapType<DecimalInput?>(
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "decimal",
+                        Nullable = true
+                    });
+
+                options.MapType<DoubleInput>(
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "double",
+                        Nullable = false
+                    });
+                options.MapType<DoubleInput?>(
+                    () => new OpenApiSchema {
+                        Type = "number",
+                        Format = "double",
+                        Nullable = true
+                    });
+
+                options.MapType<DateTimeInput>(
+                    () => new OpenApiSchema {
+                        Type = "strting",
+                        Format = "date-time",
+                        Nullable = false,
+                        Example = new OpenApiString(DateTime.Now.ToString())
+                    });
+                options.MapType<DateTimeInput?>(
+                    () => new OpenApiSchema {
+                        Type = "strting",
+                        Format = "date-time",
+                        Nullable = true,
+                        Example = new OpenApiString(DateTime.Now.ToString())
+                    });
+
+                options.MapType<TimeSpan>(
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Format = "time",
+                        Nullable = false,
+                        Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
+                    });
+                options.MapType<TimeSpan?>(
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Format = "time",
+                        Nullable = true,
+                        Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
+                    });
+
+                options.MapType<TimeSpanInput>(
+                    () => new OpenApiSchema {
+                        Type = "strting",
+                        Format = "time",
+                        Nullable = false,
+                        Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
+                    });
+                options.MapType<TimeSpanInput?>(
+                    () => new OpenApiSchema {
+                        Type = "strting",
+                        Format = "time",
+                        Nullable = true,
+                        Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
+                    });
 
                 options.MapType<GuidInput>(
-                    () => options.SchemaBasic("string", Guid.NewGuid()));
+                    () => new OpenApiSchema {
+                        Type = "strting",
+                        Format = "uuid",
+                        Nullable = false,
+                        Example = new OpenApiString(Guid.NewGuid().ToString())
+                    });
                 options.MapType<GuidInput?>(
-                    () => options.SchemaBasic("string", Guid.NewGuid()));
+                    () => new OpenApiSchema {
+                        Type = "strting",
+                        Format = "uuid",
+                        Nullable = true,
+                        Example = new OpenApiString(Guid.NewGuid().ToString())
+                    });
 
                 options.MapType<BoolInput>(
-                    () => options.SchemaBasic("boolean", false));
+                    () => new OpenApiSchema {
+                        Type = "boolean",
+                        Nullable = false
+                    });
                 options.MapType<BoolInput?>(
-                    () => options.SchemaBasic("boolean", false));
+                    () => new OpenApiSchema {
+                        Type = "boolean",
+                        Nullable = true
+                    });
 
                 options.MapType<Status>(
-                    () => options.SchemaEnum<Status>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = false,
+                        Enum = options.OpenApiEnum<Status>()
+                    });
                 options.MapType<Status?>(
-                    () => options.SchemaEnum<Status>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = true,
+                        Enum = options.OpenApiEnum<Status>()
+                    });
 
                 options.MapType<EnumInput<Status>>(
-                    () => options.SchemaEnum<Status>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = false,
+                        Enum = options.OpenApiEnum<Status>()
+                    });
                 options.MapType<EnumInput<Status>?>(
-                    () => options.SchemaEnum<Status>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = true,
+                        Enum = options.OpenApiEnum<Status>()
+                    });
+
+                options.MapType<ContextoCmd>(
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = false,
+                        Enum = options.OpenApiEnum<ContextoCmd>()
+                    });
+                options.MapType<ContextoCmd?>(
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = true,
+                        Enum = options.OpenApiEnum<ContextoCmd>()
+                    });
 
                 options.MapType<EnumInput<ContextoCmd>>(
-                    () => options.SchemaEnum<ContextoCmd>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = false,
+                        Enum = options.OpenApiEnum<ContextoCmd>()
+                    });
                 options.MapType<EnumInput<ContextoCmd>?>(
-                    () => options.SchemaEnum<ContextoCmd>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = true,
+                        Enum = options.OpenApiEnum<ContextoCmd>()
+                    });
 
                 options.MapType<TipoNoificacaoAvisos>(
-                    () => options.SchemaEnum<TipoNoificacaoAvisos>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = false,
+                        Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
+                    });
                 options.MapType<TipoNoificacaoAvisos?>(
-                    () => options.SchemaEnum<TipoNoificacaoAvisos>("string"));
+                    () => new OpenApiSchema {
+                        Type = "string",
+                        Nullable = true,
+                        Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
+            });
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;
                 options.IncludeXmlComments(Path.Combine(pasta, "TemplateApi.Api.xml"));

@@ -73,13 +73,33 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
                         return ehValido;
                     });
-                }).ForMember(cmd => cmd.DateTime, opts => {
+                }).ForMember(cmd => cmd.TimeSpan, opts => {
                     opts.MapFrom(src => (src.TimeSpan == null) ? null : (TimeSpan?)src.TimeSpan);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.TimeSpan?.IsValid() ?? false;
 
                         if ((src.TimeSpan != null) && !ehValido)
                             dest.AddErrorNotification(x => x.TimeSpan);
+
+                        return ehValido;
+                    });
+                }).ForMember(cmd => cmd.Guid, opts => {
+                    opts.MapFrom(src => (src.Guid == null) ? null : (Guid?)src.Guid);
+                    opts.Condition((src, dest, srcMember) => {
+                        bool ehValido = src.Guid?.IsValid() ?? false;
+
+                        if ((src.Bool != null) && !ehValido)
+                            dest.AddErrorNotification(x => x.Guid);
+
+                        return ehValido;
+                    });
+                }).ForMember(cmd => cmd.Bool, opts => {
+                    opts.MapFrom(src => (src.Bool == null) ? null : (bool?)src.Bool);
+                    opts.Condition((src, dest, srcMember) => {
+                        bool ehValido = src.Bool?.IsValid() ?? false;
+
+                        if ((src.Bool != null) && !ehValido)
+                            dest.AddErrorNotification(x => x.Bool);
 
                         return ehValido;
                     });
