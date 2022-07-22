@@ -16,7 +16,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
             CreateMap<InserirConteudoDataModel, InserirConteudoCmd>()
                 .ForMember(cmd => cmd.Status, opts => {
-                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
@@ -35,7 +34,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
             CreateMap<FiltrarConteudoDataModel, FiltrarConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
-                    opts.MapFrom(src => (src.Conteudo == null) ? null : src.Conteudo.Select(x => (int)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = !src.Conteudo?.Any(x => !x.IsValid()) ?? false;
 
@@ -45,7 +43,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
                         return ehValido;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
-                    opts.MapFrom(src => (src.Status == null) ? null : src.Status.Select(x => (Status)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = !src.Status?.Any(x => !x.IsValid()) ?? false;
 
@@ -55,7 +52,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
                         return ehValido;
                     });
                 }).ForMember(cmd => cmd.Contexto, opts => {
-                    opts.MapFrom(src => (ContextoCmd)src.Contexto);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Contexto.IsValid();
 
@@ -74,7 +70,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
             CreateMap<EditarConteudoDataModel, EditarConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
-                    opts.MapFrom(src => (src.Conteudo == null) ? null : (int?)src.Conteudo);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Conteudo?.IsValid() ?? false;
 
@@ -84,7 +79,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
                         return ehValido;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
-                    opts.MapFrom(src => (src.Status == null) ? null : (Status?)src.Status);
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = src.Status?.IsValid() ?? false;
 
@@ -103,7 +97,6 @@ namespace TemplateApi.Api.Settings.AutoMapper
 
             CreateMap<ExcluirConteudoDataModel, ExcluirConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
-                    opts.MapFrom(src => (src.Conteudo == null) ? null : src.Conteudo.Select(x => (int)x).ToList());
                     opts.Condition((src, dest, srcMember) => {
                         bool ehValido = !src.Conteudo?.Any(x => !x.IsValid()) ?? false;
 
