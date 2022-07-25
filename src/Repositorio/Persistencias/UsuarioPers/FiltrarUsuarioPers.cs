@@ -25,19 +25,19 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
         private UsuarioMap _map;
 
-        public ResultadoBusca<Usuario> Filtrar(
+        public ResultadoBusca<Usuario> Executar(
             FiltrarUsuarioCmd comando, string referencia)
         {
-            return Filtrar(comando, referencia);
+            return Executar(comando, referencia);
         }
 
-        public ResultadoBusca<Usuario> Filtrar(
+        public ResultadoBusca<Usuario> Executar(
             FiltrarUsuarioCmd comando, ValidationType tipo)
         {
-            return Filtrar(comando, string.Empty, tipo);
+            return Executar(comando, string.Empty, tipo);
         }
 
-        public ResultadoBusca<Usuario> Filtrar(
+        public ResultadoBusca<Usuario> Executar(
             FiltrarUsuarioCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {

@@ -16,7 +16,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public void Excluir(ExcluirUsuarioCmd comando)
+        public void Executar(ExcluirUsuarioCmd comando)
         {
             Notifications.Clear();
             UsuarioMap map = new UsuarioMap();

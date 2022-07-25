@@ -19,7 +19,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            Autorizacao[] resultado = _persListarAutorizacao.Listar();
+            Autorizacao[] resultado = _persListarAutorizacao.Executar();
             IsValid(_persListarAutorizacao);
 
             return resultado;

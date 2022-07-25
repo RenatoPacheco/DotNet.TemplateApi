@@ -21,14 +21,14 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
         private readonly EhUnicoStoragePers _persEhUnicoStorage;
 
-        public void Inserir(Storage dados)
+        public void Executar(Storage dados)
         {
             Notifications.Clear();
             StorageMap map = new StorageMap();
 
             IsValid(dados);
 
-            _persEhUnicoStorage.EhUnico(dados);
+            _persEhUnicoStorage.Executar(dados);
             IsValid(_persEhUnicoStorage);
 
             if (IsValid())

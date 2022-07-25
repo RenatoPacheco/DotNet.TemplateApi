@@ -17,7 +17,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public void Excluir(ExcluirStorageCmd comando)
+        public void Executar(ExcluirStorageCmd comando)
         {
             Notifications.Clear();
             StorageMap map = new StorageMap();

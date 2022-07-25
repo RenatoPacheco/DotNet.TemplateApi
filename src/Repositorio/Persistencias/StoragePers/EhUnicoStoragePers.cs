@@ -18,7 +18,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public bool EhUnico(Storage dados)
+        public bool Executar(Storage dados)
         {
             ValidationNotification notificacoes = new ValidationNotification();
 

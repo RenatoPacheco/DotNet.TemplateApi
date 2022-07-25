@@ -16,7 +16,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public void Excluir(ExcluirConteudoCmd comando)
+        public void Executar(ExcluirConteudoCmd comando)
         {
             Notifications.Clear();
             ConteudoMap map = new ConteudoMap();

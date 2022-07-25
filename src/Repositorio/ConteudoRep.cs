@@ -36,7 +36,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            _persEditarConteudo.Editar(dados);
+            _persEditarConteudo.Executar(dados);
             IsValid(_persEditarConteudo);
         }
 
@@ -44,7 +44,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            _persExcluirConteudo.Excluir(comando);
+            _persExcluirConteudo.Executar(comando);
             IsValid(_persExcluirConteudo);
         }
 
@@ -66,7 +66,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            ResultadoBusca<Conteudo> resultado = _persFiltrarConteudo.Filtrar(comando, referencia, tipo);
+            ResultadoBusca<Conteudo> resultado = _persFiltrarConteudo.Executar(comando, referencia, tipo);
             IsValid(_persFiltrarConteudo);
 
             return resultado;

@@ -96,6 +96,15 @@ namespace TemplateApi.Repositorio.Auxiliares
             return $"{refSql}[{_colunas[referencia]}] AS [{refJson}{_propriedades[referencia]}]";
         }
 
+        protected string SqlParaJsonObject<P>(Expression<Func<T, P>> expression)
+        {
+            string referencia = expression.PropertyPath();
+            string refSql = string.IsNullOrWhiteSpace(RefSql) ? string.Empty : $"{RefSql}.";
+            string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
+
+            return $"JSON_QUERY({refSql}[{_colunas[referencia]}]) AS [{refJson}{_propriedades[referencia]}]";
+        }
+
         protected string CharParaStatus<P>(Expression<Func<T, P>> expression)
         {
             string referencia = expression.PropertyPath();

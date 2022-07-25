@@ -21,14 +21,14 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 
         private readonly EhUnicoConteudoPers _persEhUnicoConteudo;
 
-        public void Editar(Conteudo dados)
+        public void Executar(Conteudo dados)
         {
             Notifications.Clear();
             ConteudoMap map = new ConteudoMap();
 
             IsValid(dados);
 
-            _persEhUnicoConteudo.EhUnico(dados);
+            _persEhUnicoConteudo.Executar(dados);
             IsValid(_persEhUnicoConteudo);
 
             if (IsValid())

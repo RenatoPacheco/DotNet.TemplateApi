@@ -19,7 +19,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public bool EhUnico(Conteudo dados)
+        public bool Executar(Conteudo dados)
         {
             ValidationNotification notificacoes = new ValidationNotification();
 

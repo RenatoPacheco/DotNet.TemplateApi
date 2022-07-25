@@ -28,7 +28,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 
             IsValid(dados);
 
-            _persEhUnicoConteudo.EhUnico(dados);
+            _persEhUnicoConteudo.Executar(dados);
             IsValid(_persEhUnicoConteudo);
 
             if (IsValid())

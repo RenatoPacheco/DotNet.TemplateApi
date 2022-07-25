@@ -24,19 +24,19 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
         private StorageMap _map;
 
-        public ResultadoBusca<Storage> Filtrar(
+        public ResultadoBusca<Storage> Executar(
             FiltrarStorageCmd comando, string referencia)
         {
-            return Filtrar(comando, referencia);
+            return Executar(comando, referencia);
         }
 
-        public ResultadoBusca<Storage> Filtrar(
+        public ResultadoBusca<Storage> Executar(
             FiltrarStorageCmd comando, ValidationType tipo)
         {
-            return Filtrar(comando, string.Empty, tipo);
+            return Executar(comando, string.Empty, tipo);
         }
 
-        public ResultadoBusca<Storage> Filtrar(
+        public ResultadoBusca<Storage> Executar(
             FiltrarStorageCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {

@@ -64,22 +64,22 @@ namespace TemplateApi.Repositorio.Persistencias.AutorizacaoPers
             return new List<Autorizacao>().Concat(_dadosBase).ToArray();
         }
 
-        public Autorizacao[] Listar()
+        public Autorizacao[] Executar()
         {
-            return Listar(string.Empty, ValidationType.Alert);
+            return Executar(string.Empty, ValidationType.Alert);
         }
 
-        public Autorizacao[] Listar(string referencia)
+        public Autorizacao[] Executar(string referencia)
         {
-            return Listar(referencia, ValidationType.Alert);
+            return Executar(referencia, ValidationType.Alert);
         }
 
-        public Autorizacao[] Listar(ValidationType tipo)
+        public Autorizacao[] Executar(ValidationType tipo)
         {
-            return Listar(string.Empty, tipo);
+            return Executar(string.Empty, tipo);
         }
 
-        public Autorizacao[] Listar(string referencia, ValidationType tipo)
+        public Autorizacao[] Executar(string referencia, ValidationType tipo)
         {
             Notifications.Clear();
             Autorizacao[] resultado = Opcoes;

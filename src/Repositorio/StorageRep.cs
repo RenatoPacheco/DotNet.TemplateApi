@@ -35,7 +35,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            _persEditarStorage.Editar(dados);
+            _persEditarStorage.Executar(dados);
             IsValid(_persEditarStorage);
         }
 
@@ -43,7 +43,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            _persExcluirStorage.Excluir(comando);
+            _persExcluirStorage.Executar(comando);
             IsValid(_persExcluirStorage);
         }
 
@@ -65,7 +65,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            ResultadoBusca<Storage> resultado = _persFiltrarStorage.Filtrar(comando, referencia, tipo);
+            ResultadoBusca<Storage> resultado = _persFiltrarStorage.Executar(comando, referencia, tipo);
             IsValid(_persFiltrarStorage);
 
             return resultado;
@@ -75,7 +75,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            _persInserirStorage.Inserir(dados);
+            _persInserirStorage.Executar(dados);
             IsValid(_persInserirStorage);
         }
     }

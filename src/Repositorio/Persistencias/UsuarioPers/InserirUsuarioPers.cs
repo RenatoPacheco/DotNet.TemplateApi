@@ -21,14 +21,14 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
         private readonly EhUnicoUsuarioPers _persEhUnicoUsuario;
 
-        public void Inserir(Usuario dados)
+        public void Executar(Usuario dados)
         {
             Notifications.Clear();
             UsuarioMap map = new UsuarioMap();
 
             IsValid(dados);
 
-            _persEhUnicoUsuario.EhUnico(dados);
+            _persEhUnicoUsuario.Executar(dados);
             IsValid(_persEhUnicoUsuario);
 
             if (IsValid())

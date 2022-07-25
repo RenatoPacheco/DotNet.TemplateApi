@@ -26,19 +26,19 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 
         private ConteudoMap _map;
 
-        public ResultadoBusca<Conteudo> Filtrar(
+        public ResultadoBusca<Conteudo> Executar(
             FiltrarConteudoCmd comando, string referencia)
         {
-            return Filtrar(comando, referencia);
+            return Executar(comando, referencia);
         }
 
-        public ResultadoBusca<Conteudo> Filtrar(
+        public ResultadoBusca<Conteudo> Executar(
             FiltrarConteudoCmd comando, ValidationType tipo)
         {
-            return Filtrar(comando, string.Empty, tipo);
+            return Executar(comando, string.Empty, tipo);
         }
 
-        public ResultadoBusca<Conteudo> Filtrar(
+        public ResultadoBusca<Conteudo> Executar(
             FiltrarConteudoCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {
