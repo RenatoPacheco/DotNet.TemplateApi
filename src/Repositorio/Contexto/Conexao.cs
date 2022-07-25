@@ -1,11 +1,28 @@
 ﻿using System;
+using Dapper;
+using System.Data;
 using System.Data.SqlClient;
 using TemplateApi.Repositorio.Interfaces;
+
 namespace TemplateApi.Repositorio.Contexto
 {
     public class Conexao 
         : IConexao, IDisposable
     {
+        protected virtual string ConnectionString => ConnectionStrings.TemplateApi;
+
+        private static bool Conigurado { get; set; }
+
+        private static void Configurar()
+        {
+            if (!Conigurado)
+            {
+                SqlMapper.PurgeQueryCache();
+                SqlMapper.AddTypeMap(typeof(string), DbType.AnsiString);
+                Conigurado = true;
+            }
+        }
+
         private SqlConnection _sessao;
         public SqlConnection Sessao
         {
@@ -31,7 +48,8 @@ namespace TemplateApi.Repositorio.Contexto
         {
             if (!HaSessao())
             {
-                _sessao = new SqlConnection(ConnectionStrings.TemplateApi);
+                Configurar();
+                _sessao = new SqlConnection(ConnectionString);
                 _sessao.Open();
             }
             return _sessao;
