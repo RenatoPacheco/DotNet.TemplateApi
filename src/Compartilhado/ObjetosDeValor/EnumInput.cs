@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
@@ -20,22 +21,24 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             _inptValue = input.ToString();
             _value = input;
             _isValid = true;
+            _touched = true;
         }
 
         private string _inptValue;
         private T _value;
         private bool _isValid;
+        private bool _touched;
 
-        public static explicit operator string(EnumInput<T> input) => input.ToString();
+        public static explicit operator string(EnumInput<T> input) => input._touched ? input.ToString() :Empty.ToString();
         public static explicit operator EnumInput<T>(string input) => new EnumInput<T>(input);
 
-        public static explicit operator T(EnumInput<T> input) => input._value;
+        public static explicit operator T(EnumInput<T> input) => input._touched ? input._value : Empty._value;
         public static explicit operator EnumInput<T>(T input) => new EnumInput<T>(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly EnumInput<T> Empty = new EnumInput<T> { _inptValue = string.Empty };
+        public static readonly EnumInput<T> Empty = new EnumInput<T>(Enum.GetValues(typeof(T)).Cast<T>().First());
 
         public static void Parse(string input, out EnumInput<T> output)
         {
@@ -62,13 +65,14 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = value,
+                _touched = true
             };
 
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid() => !_touched || _isValid;
 
         public override string ToString()
         {
@@ -82,7 +86,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            return _inptValue;
+            return _touched ? _inptValue : _value.ToString();
         }
 
         public override int GetHashCode()

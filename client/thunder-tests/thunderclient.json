@@ -295,18 +295,39 @@
     "colId": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
     "containerId": "",
     "name": "Filtrar",
-    "url": "{{host}}/servico/conteudo",
+    "url": "{{host}}/servico/conteudo?Contexto=Embutir&Status=Ativo&Status=Inativo&Texto=testando",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-07-21T10:21:32.960Z",
-    "modified": "2022-07-21T10:21:53.278Z",
+    "modified": "2022-07-25T23:21:20.906Z",
     "headers": [
       {
         "name": "Chave-Publica",
         "value": "{{chave-publica}}"
       }
     ],
-    "params": [],
+    "params": [
+      {
+        "name": "Contexto",
+        "value": "Embutir",
+        "isPath": false
+      },
+      {
+        "name": "Status",
+        "value": "Ativo",
+        "isPath": false
+      },
+      {
+        "name": "Status",
+        "value": "Inativo",
+        "isPath": false
+      },
+      {
+        "name": "Texto",
+        "value": "testando",
+        "isPath": false
+      }
+    ],
     "auth": {
       "type": "bearer",
       "bearer": "{{autorizacao}}"

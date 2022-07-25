@@ -1,9 +1,8 @@
-﻿using BitHelp.Core.Validation;
+﻿using System.Linq;
+using BitHelp.Core.Validation;
 using TemplateApi.RecursoResx;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq;
-using BitHelp.Core.Validation.Extends;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace TemplateApi.Api.Extensions
 {
