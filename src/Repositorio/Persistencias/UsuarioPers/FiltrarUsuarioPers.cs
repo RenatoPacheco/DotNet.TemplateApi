@@ -2,17 +2,17 @@
 using System.Linq;
 using System.Text;
 using BitHelp.Core.Validation;
+using TemplateApi.RecursoResx;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using TemplateApi.RecursoResx;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
@@ -52,27 +52,21 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
             AplicarFiltro(comando, ref sql, ref sqlParametros);
 
-            StringBuilder sqlConsulta = new StringBuilder();
-            sqlConsulta.Append($" SELECT {_map}");
-            sqlConsulta.Append(sql);
-            sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
-            sqlConsulta.Append(MontarPaginacao(comando));
-            sqlConsulta.Append(" FOR JSON PATH ");
-
-            StringBuilder sqlContagem = new StringBuilder();
-            sqlContagem.Append($" SELECT count(*) ");
-            sqlContagem.Append(sql);
-
             if (haPaginacao)
             {
-                int total = Conexao.Sessao.QuerySingleOrDefault<int>(
-                    sqlContagem.ToString(), sqlParametros, Conexao.Transicao);
-
-                resultado.CalcularPaginas(total, comando.Maximo);
+                AplicarPaginacao(ref resultado, 
+                    sqlParametros, comando, sql);
             }
 
             if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
             {
+                StringBuilder sqlConsulta = new StringBuilder();
+                sqlConsulta.Append($" SELECT {_map}");
+                sqlConsulta.Append(sql);
+                sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
+                sqlConsulta.Append(MontarPaginacao(comando));
+                sqlConsulta.Append(" FOR JSON PATH ");
+
                 IEnumerable<string> jsonList = Conexao.Sessao.Query<string>(
                    sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
@@ -133,6 +127,21 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             }
 
             sql.Append(Regex.Replace(sqlFiltro.ToString(), @"^\s+AND\s+", " WHERE "));
+        }
+
+        private void AplicarPaginacao(
+            ref ResultadoBusca<Usuario> resultado,
+            IDictionary<string, object> sqlParametros,
+            FiltrarUsuarioCmd comando, StringBuilder sql)
+        {
+            StringBuilder sqlContagem = new StringBuilder();
+            sqlContagem.Append($" SELECT count(*) ");
+            sqlContagem.Append(sql);
+
+            int total = Conexao.Sessao.QuerySingleOrDefault<int>(
+                sqlContagem.ToString(), sqlParametros, Conexao.Transicao);
+
+            resultado.CalcularPaginas(total, comando.Maximo);
         }
     }
 }
