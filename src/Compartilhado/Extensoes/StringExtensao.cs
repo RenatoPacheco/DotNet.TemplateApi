@@ -1,4 +1,6 @@
-﻿namespace TemplateApi.Compartilhado.Extensoes
+﻿using TemplateApi.Compartilhado.Json;
+
+namespace TemplateApi.Compartilhado.Extensoes
 {
     public static class StringExtensao
     {
@@ -16,6 +18,25 @@
                 source = $"{char.ToUpper(source[0])}{source[1..]}";
 
             return source;
+        }
+
+        public static bool TryParseJson<T>(this string obj, out T result)
+        {
+            try
+            {
+                result = ContratoJson.Desserializar<T>(obj);
+                return true;
+            }
+            catch
+            {
+                result = default;
+                return false;
+            }
+        }
+
+        public static T ParseJson<T>(this string obj)
+        {
+            return ContratoJson.Desserializar<T>(obj);
         }
     }
 }

@@ -12,7 +12,7 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
-using TemplateApi.Compartilhado.Json;
+using TemplateApi.Compartilhado.Extensoes;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
@@ -73,25 +73,24 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
             if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
             {
-                IEnumerable<string> json = Conexao.Sessao.Query<string>(
+                IEnumerable<string> jsonList = Conexao.Sessao.Query<string>(
                    sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
-                resultado.ResultadosDaPaginaAtual = ContratoJson.Desserializar<Usuario[]>(
-                    json.Any() ? string.Join("", json) : "[]");
+                string jsonResult = (jsonList.Any() ? string.Join("", jsonList) : "[]");
+
+                resultado.ResultadosDaPaginaAtual = jsonResult.ParseJson<Usuario[]>();
             }
 
             if (!resultado.ResultadosDaPaginaAtual.Any())
             {
-                if (comando.Maximo != 1)
+                string mensagem = string.Format(AvisosResx.XNaoEncontrados, NomesResx.Usuarios);
+
+                if (comando.Maximo == 1)
                 {
-                    Notifications.Add(new ValidationMessage(
-                        string.Format(AvisosResx.XNaoEncontrados, NomesResx.Usuarios), referencia, tipo));
+                    mensagem = string.Format(AvisosResx.XNaoEncontrado, NomesResx.Usuario);
                 }
-                else
-                {
-                    Notifications.Add(new ValidationMessage(
-                        string.Format(AvisosResx.XNaoEncontrado, NomesResx.Usuario), referencia, tipo));
-                }
+
+                Notifications.Add(new ValidationMessage(mensagem, referencia, tipo));
             }
 
             return resultado;

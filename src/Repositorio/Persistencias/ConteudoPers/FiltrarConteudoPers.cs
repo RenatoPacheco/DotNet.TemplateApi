@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using System.Text.RegularExpressions;
 using TemplateApi.Dominio.Interfaces;
-using TemplateApi.Compartilhado.Json;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.Comandos.Comum;
+using TemplateApi.Compartilhado.Extensoes;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
@@ -39,7 +39,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
         }
 
         public ResultadoBusca<Conteudo> Filtrar(
-            FiltrarConteudoCmd comando, string referencia = "", 
+            FiltrarConteudoCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {
             Notifications.Clear();
@@ -79,32 +79,31 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 
             if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
             {
-                IEnumerable<string> json = Conexao.Sessao.Query<string>(
+                IEnumerable<string> jsonList = Conexao.Sessao.Query<string>(
                    sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
-                resultado.ResultadosDaPaginaAtual = ContratoJson.Desserializar<Conteudo[]>(
-                    json.Any() ? string.Join("", json) : "[]");
+                string jsonResult = (jsonList.Any() ? string.Join("", jsonList) : "[]");
+
+                resultado.ResultadosDaPaginaAtual = jsonResult.ParseJson<Conteudo[]>();
             }
 
             if (!resultado.ResultadosDaPaginaAtual.Any())
             {
-                if (comando.Maximo != 1)
+                string mensagem = string.Format(AvisosResx.XNaoEncontrados, NomesResx.Conteudos);
+
+                if (comando.Maximo == 1)
                 {
-                    Notifications.Add(new ValidationMessage(
-                        string.Format(AvisosResx.XNaoEncontrados, NomesResx.Conteudos), referencia, tipo));
+                    mensagem = string.Format(AvisosResx.XNaoEncontrado, NomesResx.Conteudo);
                 }
-                else
-                {
-                    Notifications.Add(new ValidationMessage(
-                        string.Format(AvisosResx.XNaoEncontrado, NomesResx.Conteudo), referencia, tipo));
-                }
+
+                Notifications.Add(new ValidationMessage(mensagem, referencia, tipo));
             }
 
             return resultado;
         }
 
-        private void AplicarFiltro(FiltrarConteudoCmd comando,  
-            ref StringBuilder sql,  ref IDictionary<string, object> sqlParametros)
+        private void AplicarFiltro(FiltrarConteudoCmd comando,
+            ref StringBuilder sql, ref IDictionary<string, object> sqlParametros)
         {
             StringBuilder sqlFiltro = new StringBuilder();
             StringBuilder sqlTextos = new StringBuilder();

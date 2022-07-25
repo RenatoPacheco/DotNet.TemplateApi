@@ -6,12 +6,12 @@ using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Interfaces;
 using System.Text.RegularExpressions;
-using TemplateApi.Compartilhado.Json;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Compartilhado.Extensoes;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
@@ -37,7 +37,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
         }
 
         public ResultadoBusca<Storage> Filtrar(
-            FiltrarStorageCmd comando, string referencia = "", 
+            FiltrarStorageCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {
             Notifications.Clear();
@@ -72,25 +72,24 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
             if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
             {
-                IEnumerable<string> json = Conexao.Sessao.Query<string>(
+                IEnumerable<string> jsonList = Conexao.Sessao.Query<string>(
                    sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
-                resultado.ResultadosDaPaginaAtual = ContratoJson.Desserializar<Storage[]>(
-                    json.Any() ? string.Join("", json) : "[]");
+                string jsonResult = (jsonList.Any() ? string.Join("", jsonList) : "[]");
+
+                resultado.ResultadosDaPaginaAtual = jsonResult.ParseJson<Storage[]>();
             }
 
             if (!resultado.ResultadosDaPaginaAtual.Any())
             {
-                if (comando.Maximo != 1)
+                string mensagem = string.Format(AvisosResx.XNaoEncontrados, NomesResx.Storages);
+
+                if (comando.Maximo == 1)
                 {
-                    Notifications.Add(new ValidationMessage(
-                        string.Format(AvisosResx.XNaoEncontrados, NomesResx.Storages), referencia, tipo));
+                    mensagem = string.Format(AvisosResx.XNaoEncontrado, NomesResx.Storage);
                 }
-                else
-                {
-                    Notifications.Add(new ValidationMessage(
-                        string.Format(AvisosResx.XNaoEncontrado, NomesResx.Storage), referencia, tipo));
-                }
+
+                Notifications.Add(new ValidationMessage(mensagem, referencia, tipo));
             }
 
             return resultado;
