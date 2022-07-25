@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using System.Linq;
 using BitHelp.Core.Validation.Extends;
-using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Api.DataModel.ConteudoDataModel;
-using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Api.Settings.AutoMapper
 {
