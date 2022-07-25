@@ -11,15 +11,15 @@ namespace TemplateApi.Repositorio.Contexto
     {
         protected virtual string ConnectionString => ConnectionStrings.TemplateApi;
 
-        private static bool Conigurado { get; set; }
+        private static bool Configurado { get; set; }
 
         private static void Configurar()
         {
-            if (!Conigurado)
+            if (!Configurado)
             {
                 SqlMapper.PurgeQueryCache();
                 SqlMapper.AddTypeMap(typeof(string), DbType.AnsiString);
-                Conigurado = true;
+                Configurado = true;
             }
         }
 
