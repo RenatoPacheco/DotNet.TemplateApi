@@ -34,7 +34,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
             {
                 Id = comando.Storage,
                 Alias = comando.Alias,
-                Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
+                Status = StatusAdapt.EnumParaSql(Status.Excluido),
                 AlteradoEm = DateTime.Now
             };
 

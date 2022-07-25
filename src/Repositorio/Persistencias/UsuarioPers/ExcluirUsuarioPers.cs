@@ -31,7 +31,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             object sqlObject = new
             {
                 Id = comando.Usuario,
-                Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
+                Status = StatusAdapt.EnumParaSql(Status.Excluido),
                 AlteradoEm = DateTime.Now
             };
 

@@ -47,8 +47,8 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
                 ", new
                 {
                     Id = dados.Id ?? 0,
-                    Alias = new DbString { Value = dados.Alias, IsAnsi = true },
-                    Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true }
+                    Alias = dados.Alias,
+                    Status = StatusAdapt.EnumParaSql(Status.Excluido)
                 }, Conexao.Transicao);
 
                 if (resultado.Any())

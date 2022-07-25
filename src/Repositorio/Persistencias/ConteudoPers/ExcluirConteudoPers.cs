@@ -31,7 +31,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
             object sqlObject = new
             {
                 Id = comando.Conteudo,
-                Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true },
+                Status = StatusAdapt.EnumParaSql(Status.Excluido),
                 AlteradoEm = DateTime.Now
             };
 

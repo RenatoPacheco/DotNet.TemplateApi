@@ -49,11 +49,11 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 object sqlObject = new
                 {
                     Id = dados.Id,
-                    Nome = new DbString { Value = dados.Nome, IsAnsi = true },
-                    Email = new DbString { Value = dados.Email, IsAnsi = true },
-                    Senha = new DbString { Value = dados.Senha, IsAnsi = true },
-                    Telefone = new DbString { Value = dados.Telefone, IsAnsi = true },
-                    Status = new DbString { Value = StatusAdapt.EnumParaSql(dados.Status), IsAnsi = true },
+                    Nome = dados.Nome,
+                    Email = dados.Email,
+                    Senha = dados.Senha,
+                    Telefone = dados.Telefone,
+                    Status = StatusAdapt.EnumParaSql(dados.Status),
                     AlteradoEm = dados.AlteradoEm
                 };
 

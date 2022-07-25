@@ -138,7 +138,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
                     sqlTextos.Append($" OR {_map.Col(x => x.Referencia)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
                     sqlTextos.Append($" OR {_map.Col(x => x.Tipo)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
 
-                    sqlParametros.Add($"Texto{i}", new DbString { Value = $"%{textos[i]}%", IsAnsi = true });
+                    sqlParametros.Add($"Texto{i}", $"%{textos[i]}%");
                 }
                 sqlFiltro.Append(Regex.Replace(sqlTextos.ToString(), @"^\s+OR\s+", ""));
                 sqlFiltro.Append(" ) ");

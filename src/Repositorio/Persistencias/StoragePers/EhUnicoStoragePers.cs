@@ -46,8 +46,8 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
                 ", new
                 {
                     Id = dados.Id ?? 0,
-                    Referencia = new DbString { Value = dados.Referencia, IsAnsi = true },
-                    Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true }
+                    Referencia = dados.Referencia,
+                    Status = StatusAdapt.EnumParaSql(Status.Excluido)
                 }, Conexao.Transicao);
 
                 if (resultado.Any())

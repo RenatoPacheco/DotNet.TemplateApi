@@ -47,8 +47,8 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
                 ", new
                 {
                     Id = dados.Id ?? 0,
-                    Email = new DbString { Value = dados.Email, IsAnsi = true },
-                    Status = new DbString { Value = StatusAdapt.EnumParaSql(Status.Excluido), IsAnsi = true }
+                    Email = dados.Email,
+                    Status = StatusAdapt.EnumParaSql(Status.Excluido)
                 }, Conexao.Transicao);
 
                 if (resultado.Any())

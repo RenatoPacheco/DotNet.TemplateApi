@@ -48,10 +48,10 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
                 object sqlObject = new
                 {
                     Id = dados.Id,
-                    Titulo = new DbString { Value = dados.Titulo, IsAnsi = true },
-                    Alias = new DbString { Value = dados.Alias, IsAnsi = true },
-                    Texto = new DbString { Value = dados.Texto, IsAnsi = true },
-                    Status = new DbString { Value = StatusAdapt.EnumParaSql(dados.Status), IsAnsi = true },
+                    Titulo = dados.Titulo,
+                    Alias = dados.Alias,
+                    Texto = dados.Texto,
+                    Status = StatusAdapt.EnumParaSql(dados.Status),
                     AlteradoEm = dados.AlteradoEm
                 };
 
