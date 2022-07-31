@@ -583,17 +583,26 @@
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.Texto">
             <summary>
-            Texto para busca
+            Texto com as palavras chaves para busca.
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.Pagina">
             <summary>
-            Página atual, com valor padrão 1, sendo qulquer valor menor que 1, será considerado o valor padrão
+            Página atual, com valor padrão 1, sendo qualquer valor menor que 1, será considerado o valor padrão.
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.Maximo">
             <summary>
-            Máximo de registros por página, com valor padrão 100, sendo que, qualquer valor menor que 1, será feita a consulta, sem paginação.
+            Máximo de registros por página, com valor padrão 100.
+            Pode indicar um valor menor que um para buscar todos os registros.
+            Se indicar qualquer valor menor que 1, será passado para 0, e buscará por tosos os registros.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.CalcularPaginacao">
+            <summary>
+            Informar se será feito o cáluculo da paginação.
+            Por padrão o valor é false.
+            Quando true retorna o total de resultados e o total de páginas.
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.ConteudoCmds.EditarConteudoCmd.Conteudo">
@@ -1067,11 +1076,6 @@
         <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
             <summary>
             Só funciona se for adicionado após um order by
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.HaPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
-            <summary>
-            Verifica se há paginação 
             </summary>
         </member>
     </members>

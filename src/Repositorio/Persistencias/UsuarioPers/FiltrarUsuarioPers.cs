@@ -46,19 +46,15 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
             StringBuilder sql = new StringBuilder();
             IDictionary<string, object> sqlParametros = new Dictionary<string, object>();
-            bool haPaginacao = HaPaginacao(comando);
 
             _map = new UsuarioMap { RefSql = "usu" };
 
             AplicarFiltro(comando, ref sql, ref sqlParametros);
 
-            if (haPaginacao)
-            {
-                AplicarPaginacao(ref resultado, 
-                    sqlParametros, comando, sql);
-            }
+            CalcularPaginacao(ref resultado, sqlParametros, comando, sql);
 
-            if (resultado.TotalDePaginas >= comando.Pagina || !haPaginacao)
+            if (resultado.TotalDePaginas >= comando.Pagina
+                || (comando.Maximo > 0 && comando.Maximo < int.MaxValue))
             {
                 StringBuilder sqlConsulta = new StringBuilder();
                 sqlConsulta.Append($" SELECT {_map}");
@@ -129,19 +125,22 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             sql.Append(Regex.Replace(sqlFiltro.ToString(), @"^\s+AND\s+", " WHERE "));
         }
 
-        private void AplicarPaginacao(
+        private void CalcularPaginacao(
             ref ResultadoBusca<Usuario> resultado,
             IDictionary<string, object> sqlParametros,
             FiltrarUsuarioCmd comando, StringBuilder sql)
         {
-            StringBuilder sqlContagem = new StringBuilder();
-            sqlContagem.Append($" SELECT count(*) ");
-            sqlContagem.Append(sql);
+            if (comando.CalcularPaginacao)
+            {
+                StringBuilder sqlContagem = new StringBuilder();
+                sqlContagem.Append($" SELECT count(*) ");
+                sqlContagem.Append(sql);
 
-            int total = Conexao.Sessao.QuerySingleOrDefault<int>(
-                sqlContagem.ToString(), sqlParametros, Conexao.Transicao);
+                int total = Conexao.Sessao.QuerySingleOrDefault<int>(
+                    sqlContagem.ToString(), sqlParametros, Conexao.Transicao);
 
-            resultado.CalcularPaginas(total, comando.Maximo);
+                resultado.CalcularPaginas(total, comando.Maximo);
+            }
         }
     }
 }
