@@ -6,9 +6,11 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Aplicacao.Intreceptadores;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.Notacoes;
 
 namespace TemplateApi.Aplicacao
 {
+    [AcessoLivre]
     public class ConteudoApp : Comum.BaseAplicacao
     {
         public ConteudoApp(

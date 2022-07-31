@@ -48,7 +48,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
             StringBuilder sql = new StringBuilder();
             IDictionary<string, object> sqlParametros = new Dictionary<string, object>();
 
-            _map = new ConteudoMap { RefSql = "usu" };
+            _map = new ConteudoMap { RefSql = "cont" };
 
             AplicarFiltro(comando, ref sql, ref sqlParametros);
 

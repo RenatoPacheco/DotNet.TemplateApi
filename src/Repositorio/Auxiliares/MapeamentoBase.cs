@@ -49,7 +49,7 @@ namespace TemplateApi.Repositorio.Auxiliares
             return this;
         }
 
-        public string Col<P>(Expression<Func<T, P>> expression)
+        public string Coluna<P>(Expression<Func<T, P>> expression)
         {
             string referencia = expression.PropertyPath();
 
@@ -59,14 +59,22 @@ namespace TemplateApi.Repositorio.Auxiliares
                 return _colunas[referencia];
         }
 
-        public string Coluna<P>(Expression<Func<T, P>> expression)
+        public string Col<P>(Expression<Func<T, P>> expression)
+        {
+            return Coluna(expression);
+        }
+
+        public string Propriedade<P>(Expression<Func<T, P>> expression)
         {
             string referencia = expression.PropertyPath();
+            string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
 
-            if (!string.IsNullOrWhiteSpace(RefSql))
-                return $"{RefSql}.{_colunas[referencia]}";
-            else
-                return _colunas[referencia];
+            return $"[{refJson}{_propriedades[referencia]}]";
+        }
+
+        public string Prop<P>(Expression<Func<T, P>> expression)
+        {
+            return Propriedade(expression);
         }
 
         protected void DefinnirTabela(string tabela)
@@ -89,38 +97,12 @@ namespace TemplateApi.Repositorio.Auxiliares
 
         protected string SqlParaJson<P>(Expression<Func<T, P>> expression)
         {
-            string referencia = expression.PropertyPath();
-            string refSql = string.IsNullOrWhiteSpace(RefSql) ? string.Empty : $"{RefSql}.";
-            string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
-
-            return $"{refSql}[{_colunas[referencia]}] AS [{refJson}{_propriedades[referencia]}]";
+            return $"{Col(expression)} AS {Prop(expression)}";
         }
 
         protected string SqlParaJsonObject<P>(Expression<Func<T, P>> expression)
         {
-            string referencia = expression.PropertyPath();
-            string refSql = string.IsNullOrWhiteSpace(RefSql) ? string.Empty : $"{RefSql}.";
-            string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
-
-            return $"JSON_QUERY({refSql}[{_colunas[referencia]}]) AS [{refJson}{_propriedades[referencia]}]";
-        }
-
-        protected string CharParaStatus<P>(Expression<Func<T, P>> expression)
-        {
-            string referencia = expression.PropertyPath();
-            string refSql = string.IsNullOrWhiteSpace(RefSql) ? string.Empty : $"{RefSql}.";
-            string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
-
-            return $"[{refJson}{_propriedades[referencia]}] = {StatusAdapt.SqlParaEnum($"{refSql}[{_colunas[referencia]}]")}";
-        }
-
-        protected string CharParaBoolean<P>(Expression<Func<T, P>> expression)
-        {
-            string referencia = expression.PropertyPath();
-            string refSql = string.IsNullOrWhiteSpace(RefSql) ? string.Empty : $"{RefSql}.";
-            string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
-
-            return $"[{refJson}{_propriedades[referencia]}] = {CharAdapt.SqlParaBoolean($"{refSql}[{_colunas[referencia]}]")}";
+            return $"JSON_QUERY({Col(expression)}) AS {Prop(expression)}";
         }
     }
 }

@@ -1,13 +1,14 @@
 ﻿using System;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Interfaces;
-using TemplateApi.Repositorio.Contexto;
 
 namespace TemplateApi.Repositorio.Auxiliares
 {
     public class IniciarTransicao : IDisposable
     {
-        public IniciarTransicao(IUnidadeTrabalho udt, ISelfValidation referencia)
+        public IniciarTransicao(
+            IUnidadeTrabalho udt, 
+            ISelfValidation referencia)
         {
             _referencia = referencia;
             if (udt.PossoIniciar())

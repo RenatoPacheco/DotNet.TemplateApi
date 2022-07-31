@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using TemplateApi.Dominio.Entidades;
+using TemplateApi.Repositorio.Extensoes;
 
 namespace TemplateApi.Repositorio.Mapeamentos
 {
@@ -40,7 +41,7 @@ namespace TemplateApi.Repositorio.Mapeamentos
                 resultado.Append($"{SqlParaJson(x => x.AlteradoEm)},");
 
             if (NaoIgnorar(x => x.Status))
-                resultado.Append($"{CharParaStatus(x => x.Status)},");
+                resultado.Append($"{this.CharParaStatus(x => x.Status)},");
 
             if (NaoIgnorar(x => x.Telefone))
                 resultado.Append($"{SqlParaJson(x => x.Telefone)},");
