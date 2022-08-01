@@ -4,7 +4,7 @@
         <name>TemplateApi.Api</name>
     </assembly>
     <members>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.AutenticacaoController.Get">
+        <member name="M:TemplateApi.Api.Controllers.Services.AutenticacaoController.Get">
             <summary>
             Obter os dados da autenticação atual
             </summary>
@@ -27,7 +27,7 @@
             <p>Lembre-se também que enviar a <strong>autorizações</strong> válida, não garante acesso a todos os endpoint, esse acesso será avaliado de acordo a <strong>autorização</strong> enviada.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.AutenticacaoController.GetCore">
+        <member name="M:TemplateApi.Api.Controllers.Services.AutenticacaoController.GetCore">
             <summary>
             Obter os dados da autenticação atual no core da aplicação
             </summary>
@@ -37,22 +37,22 @@
             <p>Essas rotas da API são interfaces de acesso, as classe e métodos da aplicação, e nesse endereço, <strong>GET /Servico/Autenticacao/Core</strong>, são as mesmas autorizações, só que no core do site.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Get(TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Get(TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel)">
             <summary>
             Filtro de conteúdos
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Post(TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Post(TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel)">
             <summary>
             Inserir conteúdo
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Patch(TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Patch(TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel)">
             <summary>
             Editar conteúdo
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.ConteudoController.Delete(TemplateApi.Api.DataModel.ConteudoDataModel.ExcluirConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Delete(TemplateApi.Api.DataModel.ConteudoDataModel.ExcluirConteudoDataModel)">
             <summary>
             Deletar um ou mais conteúdos
             </summary>
@@ -60,7 +60,7 @@
             <p>Permite excluir um ou mais conteúdos, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.SobreController.Get">
+        <member name="M:TemplateApi.Api.Controllers.Services.SobreController.Get">
             <summary>
             Obter informação como nome e versão da API
             </summary>
@@ -74,7 +74,7 @@
             </ul>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Get(TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Get(TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel)">
             <summary>
             Filtro de storages
             </summary>
@@ -82,7 +82,7 @@
             <p>Permite fazer uma busca pelos arquivos indexados no banco, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Post(TemplateApi.Api.DataModel.StorageDataModel.InserirStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Post(TemplateApi.Api.DataModel.StorageDataModel.InserirStorageDataModel)">
             <summary>
             Inserir storage
             </summary>
@@ -98,7 +98,7 @@
             <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Patch(TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Patch(TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel)">
             <summary>
             Editar storage
             </summary>
@@ -106,7 +106,7 @@
             <p>Permite editar dados básicos de um arquivo, como nome e status</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.StorageController.Delete(TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Delete(TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel)">
             <summary>
             Deletar um ou mais storages
             </summary>
@@ -114,47 +114,47 @@
             <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromQuery(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromQuery(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromQuery
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromBody(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromBody(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromBody
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromForm(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromForm(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromForm
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.FromHeader(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromHeader(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromHeader
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.TesteController.WithoutFrom(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.WithoutFrom(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados ser usar nenhum dos tipos From
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Get(TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Get(TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Post(TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Post(TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
             <summary>
             Inserir usuário
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Patch(TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Patch(TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
             <summary>
             Editar usuário
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Servicos.UsuarioController.Delete(TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Delete(TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
             </summary>

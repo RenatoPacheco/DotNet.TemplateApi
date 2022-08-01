@@ -10,7 +10,7 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Api.ApiApplications;
 using TemplateApi.Api.ValuesObject;
 
-namespace TemplateApi.Api.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]

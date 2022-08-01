@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Api.ValuesObject;
 
 namespace TemplateApi.Api.DataAnnotations
 {

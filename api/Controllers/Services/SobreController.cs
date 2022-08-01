@@ -8,7 +8,7 @@ using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Api.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]

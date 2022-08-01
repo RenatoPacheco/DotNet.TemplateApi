@@ -11,7 +11,7 @@ using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Api.DataModel.StorageDataModel;
 using TemplateApi.Api.DataAnnotations;
 
-namespace TemplateApi.Api.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController]
     [Route("Servico/[controller]")]

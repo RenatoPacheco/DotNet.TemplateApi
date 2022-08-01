@@ -11,7 +11,7 @@ using TemplateApi.Dominio.Comandos.TesteCmds;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Api.DataModel.TesteDataModel;
 
-namespace TemplateApi.Api.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]

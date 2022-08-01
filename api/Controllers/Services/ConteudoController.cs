@@ -12,7 +12,7 @@ using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Api.DataModel.ConteudoDataModel;
 using TemplateApi.Api.DataAnnotations;
 
-namespace TemplateApi.Api.Controllers.Servicos
+namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController]
     [Route("Servico/[controller]")]
