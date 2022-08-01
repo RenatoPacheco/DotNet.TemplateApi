@@ -57,12 +57,12 @@ namespace TemplateApi.Dominio.Servicos
 
             if (IsValid(comando))
             {
-                resultado = (Conteudo)_repConteudo.Filtrar(new FiltrarConteudoCmd {
+                resultado = _repConteudo.Filtrar(new FiltrarConteudoCmd {
                     Conteudo = new int[] { comando.Conteudo.Value },
                     Contexto = ContextoCmd.Editar,
                     Maximo = 1, 
                     Pagina = 1
-                }, nameof(comando.Conteudo), ValidationType.Error);
+                }, nameof(comando.Conteudo), ValidationType.Error).FirstOrDefault();
                 IsValid(_repConteudo);
 
                 if (IsValid())

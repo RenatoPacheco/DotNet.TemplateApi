@@ -30,7 +30,7 @@ namespace TemplateApi.Dominio.Servicos
                     Alias = new List<string>() { comando.Alias },
                     Status = comando.Status,
                     Maximo = 1, Pagina = 1
-                }, string.Empty, ValidationType.Error);
+                }, string.Empty, ValidationType.Error).FirstOrDefault();
                 IsValid(_repStorage);
             }
 
@@ -87,13 +87,13 @@ namespace TemplateApi.Dominio.Servicos
 
             if (IsValid(comando))
             {
-                resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd
+                resultado = _repStorage.Filtrar(new FiltrarStorageCmd
                 {
                     Storage = new long[] { comando.Storage.Value },
                     Contexto = ContextoCmd.Editar,
                     Maximo = 1,
                     Pagina = 1
-                }, nameof(comando.Storage), ValidationType.Error);
+                }, nameof(comando.Storage), ValidationType.Error).FirstOrDefault();
                 IsValid(_repStorage);
 
                 if (IsValid())

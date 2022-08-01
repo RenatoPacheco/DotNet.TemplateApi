@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 using TemplateApi.Compartilhado.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public class ResultadoBusca
     {
-        public ResultadoBusca()
-        { 
-        
-        }
+        public ResultadoBusca() { }
 
         public ResultadoBusca(long total, long maximo)
             : this()
@@ -53,16 +51,6 @@ namespace TemplateApi.Dominio.ObjetosDeValor
     public class ResultadoBusca<T>
         where T : class
     {
-        public static explicit operator T[](ResultadoBusca<T> value)
-        {
-            return value.ResultadosDaPaginaAtual;
-        }
-
-        public static explicit operator T(ResultadoBusca<T> value)
-        {
-            return value.ResultadosDaPaginaAtual.FirstOrDefault();
-        }
-
         public static string Vazio()
         {
             return ContratoJson.Serializar(new ResultadoBusca<T>());
@@ -83,5 +71,17 @@ namespace TemplateApi.Dominio.ObjetosDeValor
             TotalDePaginas = maximo < 1 ? 1
                 : total % maximo > 0 ? total / maximo + 1 : total / maximo;
         }
+
+        public List<T> ToList() => ResultadosDaPaginaAtual.ToList();
+
+        public T[] ToArray() => ResultadosDaPaginaAtual.ToArray();
+
+        public T First() => ResultadosDaPaginaAtual.First();
+
+        public T FirstOrDefault() => ResultadosDaPaginaAtual.FirstOrDefault();
+
+        public T Last() => ResultadosDaPaginaAtual.Last();
+
+        public T LastOrDefault() => ResultadosDaPaginaAtual.LastOrDefault();
     }
 }
