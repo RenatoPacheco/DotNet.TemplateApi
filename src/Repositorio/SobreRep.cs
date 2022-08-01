@@ -1,6 +1,6 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.Infra.Servicos.SobreServ;
+using TemplateApi.Repositorio.Persistencias.SobrePers;
 
 namespace TemplateApi.Repositorio
 {
@@ -8,12 +8,12 @@ namespace TemplateApi.Repositorio
         : Comum.BaseRepositorio, ISobreRep
     {
         public SobreRep(
-            ObterSobreServ persObterSobre)
+            ObterSobrePers persObterSobre)
         {
             _persObterSobre = persObterSobre;
         }
 
-        private readonly ObterSobreServ _persObterSobre;
+        private readonly ObterSobrePers _persObterSobre;
 
         public Sobre Obter()
         {
@@ -21,7 +21,6 @@ namespace TemplateApi.Repositorio
 
             Sobre resultado = _persObterSobre.Executar();
             IsValid(_persObterSobre);
-
 
             return resultado;
         }

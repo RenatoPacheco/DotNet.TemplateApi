@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ;
+using TemplateApi.Repositorio.Persistencias.ConteudoPers;
 
 namespace TemplateApi.Repositorio
 {
@@ -11,10 +11,10 @@ namespace TemplateApi.Repositorio
         : Comum.BaseRepositorio, IConteudoRep
     {
         public ConteudoRep(
-            InserirConteudoServ persInserirConteudo,
-            EditarConteudoServ persEditarConteudo,
-            ExcluirConteudoServ persExcluirConteudo,
-            FiltrarConteudoServ persFiltrarConteudo)
+            InserirConteudoPers persInserirConteudo,
+            EditarConteudoPers persEditarConteudo,
+            ExcluirConteudoPers persExcluirConteudo,
+            FiltrarConteudoPers persFiltrarConteudo)
             : base()
         {
             _persInserirConteudo = persInserirConteudo;
@@ -23,10 +23,10 @@ namespace TemplateApi.Repositorio
             _persFiltrarConteudo = persFiltrarConteudo;
         }
 
-        private readonly InserirConteudoServ _persInserirConteudo;
-        private readonly EditarConteudoServ _persEditarConteudo;
-        private readonly ExcluirConteudoServ _persExcluirConteudo;
-        private readonly FiltrarConteudoServ _persFiltrarConteudo;
+        private readonly InserirConteudoPers _persInserirConteudo;
+        private readonly EditarConteudoPers _persEditarConteudo;
+        private readonly ExcluirConteudoPers _persExcluirConteudo;
+        private readonly FiltrarConteudoPers _persFiltrarConteudo;
 
         public void Editar(Conteudo dados)
         {
@@ -72,7 +72,7 @@ namespace TemplateApi.Repositorio
         {
             Notifications.Clear();
 
-            _persInserirConteudo.Inserir(dados);
+            _persInserirConteudo.Executar(dados);
             IsValid(_persInserirConteudo);
         }
     }

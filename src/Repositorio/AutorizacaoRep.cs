@@ -1,6 +1,6 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.Infra.Servicos.AutorizacaoServ;
+using TemplateApi.Repositorio.Persistencias.AutorizacaoPers;
 
 namespace TemplateApi.Repositorio
 {
@@ -8,12 +8,12 @@ namespace TemplateApi.Repositorio
         : Comum.BaseRepositorio, IAutorizacaoRep
     {
         public AutorizacaoRep(
-            ListarAutorizacaoServ persListarAutorizacao)
+            ListarAutorizacaoPers persListarAutorizacao)
         {
             _persListarAutorizacao = persListarAutorizacao;
         }
 
-        private readonly ListarAutorizacaoServ _persListarAutorizacao;
+        private readonly ListarAutorizacaoPers _persListarAutorizacao;
 
         public Autorizacao[] Listar()
         {

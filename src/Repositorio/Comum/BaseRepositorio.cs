@@ -1,8 +1,7 @@
 ﻿namespace TemplateApi.Repositorio.Comum
 {
-    internal abstract class BaseRepositorio
+    internal class BaseRepositorio
         : Dominio.Servicos.Comum.BaseServico
     {
-        
     }
 }

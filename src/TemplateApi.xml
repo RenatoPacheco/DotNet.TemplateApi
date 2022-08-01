@@ -846,6 +846,16 @@
             Opções de status
             </summary>
         </member>
+        <member name="M:TemplateApi.Infra.Comum.BaseBuscaMsSqlRepositorio.DesmebrarTexto(System.String,System.Int32)">
+            <summary>
+            Tratar o texto para a busca 
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Infra.Comum.BaseBuscaMsSqlRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
+            <summary>
+            Só funciona se for adicionado após um order by
+            </summary>
+        </member>
         <member name="T:TemplateApi.RecursoResx.AvisosResx">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -1051,16 +1061,6 @@
         <member name="P:TemplateApi.RecursoResx.NomesResx.Usuarios">
             <summary>
               Looks up a localized string similar to Usuários.
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BaseBuscaMsSqlRepositorio.DesmebrarTexto(System.String,System.Int32)">
-            <summary>
-            Tratar o texto para a busca 
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BaseBuscaMsSqlRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
-            <summary>
-            Só funciona se for adicionado após um order by
             </summary>
         </member>
     </members>

@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ;
+using TemplateApi.Repositorio.Persistencias.UsuarioPers;
 
 namespace TemplateApi.Repositorio
 {
@@ -11,10 +11,10 @@ namespace TemplateApi.Repositorio
         : Comum.BaseRepositorio, IUsuarioRep
     {
         public UsuarioRep(
-            InserirUsuarioServ persInserirUsuario,
-            EditarUsuarioServ persEditarUsuario,
-            ExcluirUsuarioServ persExcluirUsuario,
-            FiltrarUsuarioServ persFiltrarUsuario)
+            InserirUsuarioPers persInserirUsuario,
+            EditarUsuarioPers persEditarUsuario,
+            ExcluirUsuarioPers persExcluirUsuario,
+            FiltrarUsuarioPers persFiltrarUsuario)
             : base()
         {
             _persInserirUsuario = persInserirUsuario;
@@ -23,10 +23,10 @@ namespace TemplateApi.Repositorio
             _persFiltrarUsuario = persFiltrarUsuario;
         }
 
-        private readonly InserirUsuarioServ _persInserirUsuario;
-        private readonly EditarUsuarioServ _persEditarUsuario;
-        private readonly ExcluirUsuarioServ _persExcluirUsuario;
-        private readonly FiltrarUsuarioServ _persFiltrarUsuario;
+        private readonly InserirUsuarioPers _persInserirUsuario;
+        private readonly EditarUsuarioPers _persEditarUsuario;
+        private readonly ExcluirUsuarioPers _persExcluirUsuario;
+        private readonly FiltrarUsuarioPers _persFiltrarUsuario;
 
         public void Editar(Usuario dados)
         {

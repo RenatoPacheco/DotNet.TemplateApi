@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reflection;
 using TemplateApi.Repositorio;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using Pers = TemplateApi.Repositorio.Persistencias;
 
 namespace TemplateApi.IdC.Modulos
 {
@@ -14,7 +13,7 @@ namespace TemplateApi.IdC.Modulos
         internal static Type[] _scoped = new Type[]
         {
             typeof(AutorizacaoRep),
-            typeof(Pers.Banco.TemplateApi.Conexao)
+            typeof(Infra.Banco.TemplateApi.Conexao)
         };
 
         private static string GetStartNamespace(Type type)
@@ -25,7 +24,7 @@ namespace TemplateApi.IdC.Modulos
 
         internal static void Carregar(IResolverDependencia recipiente)
         {
-            Injecao.Registrar<Pers.Banco.TemplateApi.Conexao>(recipiente);
+            Injecao.Registrar<Infra.Banco.TemplateApi.Conexao>(recipiente);
 
             Type baseType = typeof(SobreRep);
             string[] exactNamespace = new string[]
@@ -34,8 +33,9 @@ namespace TemplateApi.IdC.Modulos
             };
             string[] startNamespace = new string[]
             {
-                GetStartNamespace(typeof(Pers.Infra.Servicos.SobreServ.ObterSobreServ)),
-                GetStartNamespace(typeof(Pers.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
+                GetStartNamespace(typeof(Repositorio.Persistencias.SobrePers.ObterSobrePers)),
+                GetStartNamespace(typeof(Infra.Core.Servicos.SobreServ.ObterSobreServ)),
+                GetStartNamespace(typeof(Infra.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
             };
             string[] interfaceNamespace = new string[]
             {
