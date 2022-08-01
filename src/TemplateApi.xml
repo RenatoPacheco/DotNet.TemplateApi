@@ -1053,29 +1053,14 @@
               Looks up a localized string similar to Usuários.
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.DesmebrarTexto(System.String,System.Int32)">
+        <member name="M:TemplateApi.Repositorio.Comum.BaseBuscaMsSqlRepositorio.DesmebrarTexto(System.String,System.Int32)">
             <summary>
             Tratar o texto para a busca 
             </summary>
         </member>
-        <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
+        <member name="M:TemplateApi.Repositorio.Comum.BaseBuscaMsSqlRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
             <summary>
             Só funciona se for adicionado após um order by
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Repositorio.Interfaces.ITransicao.Iniciar">
-            <summary>
-            Iniciar uma transição
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Repositorio.Interfaces.ITransicao.Salvar">
-            <summary>
-            Salvar a trasição atual
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Repositorio.Interfaces.ITransicao.Desfazer">
-            <summary>
-            Desfazer a trasição atual
             </summary>
         </member>
     </members>

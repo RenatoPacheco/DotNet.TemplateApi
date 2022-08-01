@@ -6,10 +6,10 @@ using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Contexto
 {
-    public class Conexao 
+    public abstract class ConexaoMsSql 
         : IConexao, IDisposable
     {
-        protected virtual string ConnectionString => ConnectionStrings.TemplateApi;
+        protected abstract string ConnectionString { get; }
 
         private static bool Configurado { get; set; }
 

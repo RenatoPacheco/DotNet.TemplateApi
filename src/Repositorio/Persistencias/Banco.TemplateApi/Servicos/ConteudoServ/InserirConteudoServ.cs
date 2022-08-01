@@ -1,20 +1,17 @@
 ﻿using System;
 using Dapper;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ
 {
     internal class InserirConteudoServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public InserirConteudoServ(
             Conexao conexao,
-            IUnidadeTrabalho udt,
             EhUnicoConteudoServ persEhUnicoConteudo)
-            : base(conexao, udt)
+            : base(conexao)
         {
             _persEhUnicoConteudo = persEhUnicoConteudo;
         }

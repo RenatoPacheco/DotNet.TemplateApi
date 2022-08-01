@@ -1,24 +1,20 @@
 ﻿using BitHelp.Core.Validation;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Interfaces;
 using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ;
 
 namespace TemplateApi.Repositorio
 {
     internal class StorageRep
-        : Comum.SimplesRepositorio, IStorageRep
+        : Comum.BaseRepositorio, IStorageRep
     {
         public StorageRep(
-            Conexao conexao,
-            IUnidadeTrabalho udt,
             InserirStorageServ persInserirStorage,
             EditarStorageServ persEditarStorage,
             ExcluirStorageServ persExcluirStorage,
             FiltrarStorageServ persFiltrarStorage)
-            : base(conexao, udt)
+            : base()
         {
             _persInserirStorage = persInserirStorage;
             _persEditarStorage = persEditarStorage;

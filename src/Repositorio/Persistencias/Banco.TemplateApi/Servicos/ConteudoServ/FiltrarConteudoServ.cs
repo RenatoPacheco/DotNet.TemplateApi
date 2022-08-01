@@ -6,23 +6,20 @@ using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using System.Text.RegularExpressions;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Compartilhado.Extensoes;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ
 {
     internal class FiltrarConteudoServ
-        : Comum.BuscaRepositorio
+        : BaseBuscaServico
     {
         public FiltrarConteudoServ(
-            Conexao conexao,
-            IUnidadeTrabalho udt)
-            : base(conexao, udt) { }
+            Conexao conexao)
+            : base(conexao) { }
 
         private Mapeamentos.ConteudoMap _map;
 

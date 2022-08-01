@@ -1,20 +1,17 @@
 ﻿using System;
 using Dapper;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ
 {
     internal class InserirUsuarioServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public InserirUsuarioServ(
             Conexao conexao,
-            IUnidadeTrabalho udt,
             EhUnicoUsuarioServ persEhUnicoUsuario)
-            : base(conexao, udt)
+            : base(conexao)
         {
             _persEhUnicoUsuario = persEhUnicoUsuario;
         }

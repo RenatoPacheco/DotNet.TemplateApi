@@ -1,25 +1,21 @@
 ﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Interfaces;
 using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ;
 
 namespace TemplateApi.Repositorio
 {
     internal class UsuarioRep
-        : Comum.SimplesRepositorio, IUsuarioRep
+        : Comum.BaseRepositorio, IUsuarioRep
     {
         public UsuarioRep(
-            Conexao conexao,
-            IUnidadeTrabalho udt,
             InserirUsuarioServ persInserirUsuario,
             EditarUsuarioServ persEditarUsuario,
             ExcluirUsuarioServ persExcluirUsuario,
             FiltrarUsuarioServ persFiltrarUsuario)
-            : base(conexao, udt)
+            : base()
         {
             _persInserirUsuario = persInserirUsuario;
             _persEditarUsuario = persEditarUsuario;

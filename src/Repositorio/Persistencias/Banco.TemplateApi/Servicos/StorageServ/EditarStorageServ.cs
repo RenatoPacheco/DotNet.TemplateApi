@@ -1,20 +1,17 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ
 {
     internal class EditarStorageServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public EditarStorageServ(
             Conexao conexao,
-            IUnidadeTrabalho udt,
             EhUnicoStorageServ persEhUnicoStorage)
-            : base(conexao, udt)
+            : base(conexao)
         {
             _persEhUnicoStorage = persEhUnicoStorage;
         }

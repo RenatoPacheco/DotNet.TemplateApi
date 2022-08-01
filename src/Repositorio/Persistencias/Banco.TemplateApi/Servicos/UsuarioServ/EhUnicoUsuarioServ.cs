@@ -4,20 +4,17 @@ using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.RecursoResx;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ
 {
     internal class EhUnicoUsuarioServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public EhUnicoUsuarioServ(
-            Conexao conexao,
-            IUnidadeTrabalho udt)
-            : base(conexao, udt) { }
+            Conexao conexao)
+            : base(conexao) { }
 
         public bool Executar(Usuario dados)
         {

@@ -3,20 +3,17 @@ using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.RecursoResx;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ
 {
     internal class EhUnicoStorageServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public EhUnicoStorageServ(
-            Conexao conexao,
-            IUnidadeTrabalho udt)
-            : base(conexao, udt) { }
+            Conexao conexao)
+            : base(conexao) { }
 
         public bool Executar(Storage dados)
         {

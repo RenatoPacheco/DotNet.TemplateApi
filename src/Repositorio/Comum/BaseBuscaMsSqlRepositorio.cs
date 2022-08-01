@@ -1,20 +1,13 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.Comandos.Comum;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Comum
 {
-    internal abstract class BuscaRepositorio 
-        : SimplesRepositorio
+    internal abstract class BaseBuscaMsSqlRepositorio
+        : BaseRepositorio
     {
-        public BuscaRepositorio(
-           Conexao conexao,
-           IUnidadeTrabalho udt)
-        : base(conexao, udt) { }
-
         /// <summary>
         /// Tratar o texto para a busca 
         /// </summary>

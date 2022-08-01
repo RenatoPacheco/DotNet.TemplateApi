@@ -1,20 +1,17 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ
 {
     internal class ExcluirStorageServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public ExcluirStorageServ(
-            Conexao conexao,
-            IUnidadeTrabalho udt)
-            : base(conexao, udt) { }
+            Conexao conexao)
+            : base(conexao) { }
 
         public void Executar(ExcluirStorageCmd comando)
         {

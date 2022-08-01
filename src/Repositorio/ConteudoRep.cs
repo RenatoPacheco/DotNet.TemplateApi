@@ -1,25 +1,21 @@
 ﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
-using TemplateApi.Repositorio.Interfaces;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ;
 
 namespace TemplateApi.Repositorio
 {
     internal class ConteudoRep
-        : Comum.SimplesRepositorio, IConteudoRep
+        : Comum.BaseRepositorio, IConteudoRep
     {
         public ConteudoRep(
-            Conexao conexao,
-            IUnidadeTrabalho udt,
             InserirConteudoServ persInserirConteudo,
             EditarConteudoServ persEditarConteudo,
             ExcluirConteudoServ persExcluirConteudo,
             FiltrarConteudoServ persFiltrarConteudo)
-            : base(conexao, udt)
+            : base()
         {
             _persInserirConteudo = persInserirConteudo;
             _persEditarConteudo = persEditarConteudo;

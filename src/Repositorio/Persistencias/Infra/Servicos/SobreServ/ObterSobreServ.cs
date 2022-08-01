@@ -2,7 +2,8 @@
 
 namespace TemplateApi.Repositorio.Persistencias.Infra.Servicos.SobreServ
 {
-    internal class ObterSobreServ : Comum.BaseRepositorio
+    internal class ObterSobreServ 
+        : BaseServico
     {
         public Sobre Executar()
         {

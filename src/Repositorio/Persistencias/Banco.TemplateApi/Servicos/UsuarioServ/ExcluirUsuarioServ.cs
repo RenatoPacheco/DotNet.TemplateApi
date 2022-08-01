@@ -1,20 +1,17 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ
 {
     internal class ExcluirUsuarioServ
-        : Comum.SimplesRepositorio
+        : BaseSimplesServico
     {
         public ExcluirUsuarioServ(
-            Conexao conexao,
-            IUnidadeTrabalho udt)
-            : base(conexao, udt) { }
+            Conexao conexao)
+            : base(conexao) { }
 
         public void Executar(ExcluirUsuarioCmd comando)
         {
