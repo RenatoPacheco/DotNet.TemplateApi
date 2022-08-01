@@ -3,15 +3,16 @@ using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.RecursoResx;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    class EhUnicoStoragePers : Comum.SimplesRepositorio
+    internal class EhUnicoStoragePers
+        : Comum.SimplesRepositorio
     {
         public EhUnicoStoragePers(
             Conexao conexao,
@@ -52,8 +53,8 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
 
                 if (resultado.Any())
                 {
-                    Notifications.AddError(
-                        string.Format(AvisosResx.XNaoEhUnico, "E-mail"));
+                    Notifications.AddError<Storage>(
+                        x => x.Referencia, AvisosResx.XNaoEhUnico, null);
                 }
             }
 

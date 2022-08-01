@@ -1,14 +1,15 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class EditarStoragePers : Comum.SimplesRepositorio
+    internal class EditarStoragePers
+        : Comum.SimplesRepositorio
     {
         public EditarStoragePers(
             Conexao conexao,

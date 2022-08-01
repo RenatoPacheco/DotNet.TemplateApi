@@ -1,11 +1,11 @@
 ﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorio.Persistencias.UsuarioPers;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio
 {
@@ -19,7 +19,7 @@ namespace TemplateApi.Repositorio
             EditarUsuarioPers persEditarUsuario,
             ExcluirUsuarioPers persExcluirUsuario,
             FiltrarUsuarioPers persFiltrarUsuario)
-            : base(conexao, udt) 
+            : base(conexao, udt)
         {
             _persInserirUsuario = persInserirUsuario;
             _persEditarUsuario = persEditarUsuario;
@@ -61,7 +61,7 @@ namespace TemplateApi.Repositorio
         }
 
         public ResultadoBusca<Usuario> Filtrar(
-            FiltrarUsuarioCmd comando, string referencia = "", 
+            FiltrarUsuarioCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {
             Notifications.Clear();

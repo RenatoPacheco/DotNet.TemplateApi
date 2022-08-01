@@ -4,7 +4,6 @@ using BitHelp.Core.Extend;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 using TemplateApi.Compartilhado.Extensoes;
-using TemplateApi.Repositorio.Adaptadores;
 
 namespace TemplateApi.Repositorio.Auxiliares
 {

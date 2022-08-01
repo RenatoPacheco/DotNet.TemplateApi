@@ -1,15 +1,16 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
-    internal class ExcluirConteudoPers : Comum.SimplesRepositorio
+    internal class ExcluirConteudoPers
+        : Comum.SimplesRepositorio
     {
         public ExcluirConteudoPers(
             Conexao conexao,

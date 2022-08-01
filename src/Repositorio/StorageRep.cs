@@ -1,10 +1,10 @@
 ﻿using BitHelp.Core.Validation;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorio.Persistencias.StoragePers;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio
 {
@@ -18,7 +18,7 @@ namespace TemplateApi.Repositorio
             EditarStoragePers persEditarStorage,
             ExcluirStoragePers persExcluirStorage,
             FiltrarStoragePers persFiltrarStorage)
-            : base(conexao, udt) 
+            : base(conexao, udt)
         {
             _persInserirStorage = persInserirStorage;
             _persEditarStorage = persEditarStorage;
@@ -60,7 +60,7 @@ namespace TemplateApi.Repositorio
         }
 
         public ResultadoBusca<Storage> Filtrar(
-            FiltrarStorageCmd comando, string referencia = "", 
+            FiltrarStorageCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert)
         {
             Notifications.Clear();

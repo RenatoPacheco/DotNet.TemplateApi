@@ -6,7 +6,6 @@ using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using System.Text.RegularExpressions;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
@@ -14,10 +13,12 @@ using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Compartilhado.Extensoes;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
-    internal class FiltrarConteudoPers : Comum.BuscaRepositorio
+    internal class FiltrarConteudoPers
+        : Comum.BuscaRepositorio
     {
         public FiltrarConteudoPers(
             Conexao conexao,
@@ -54,7 +55,7 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 
             CalcularPaginacao(ref resultado, sqlParametros, comando, sql);
 
-            if (resultado.TotalDePaginas >= comando.Pagina 
+            if (resultado.TotalDePaginas >= comando.Pagina
                 || (comando.Maximo > 0 && comando.Maximo < int.MaxValue))
             {
                 if (comando.Contexto == ContextoCmd.Embutir)

@@ -1,14 +1,15 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class InserirStoragePers : Comum.SimplesRepositorio
+    internal class InserirStoragePers
+        : Comum.SimplesRepositorio
     {
         public InserirStoragePers(
             Conexao conexao,

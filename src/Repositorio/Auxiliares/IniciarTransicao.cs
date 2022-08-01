@@ -1,10 +1,11 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Auxiliares
 {
-    public class IniciarTransicao : IDisposable
+    public class IniciarTransicao 
+        : IDisposable
     {
         public IniciarTransicao(
             IUnidadeTrabalho udt, 

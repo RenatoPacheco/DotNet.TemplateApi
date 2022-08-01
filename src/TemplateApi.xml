@@ -816,21 +816,6 @@
             Status de usuário
             </summary>
         </member>
-        <member name="M:TemplateApi.Dominio.Interfaces.ITransicao.Iniciar">
-            <summary>
-            Iniciar uma transição
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Dominio.Interfaces.ITransicao.Salvar">
-            <summary>
-            Salvar a trasição atual
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Dominio.Interfaces.ITransicao.Desfazer">
-            <summary>
-            Desfazer a trasição atual
-            </summary>
-        </member>
         <member name="T:TemplateApi.Dominio.ObjetosDeValor.Sobre">
             <summary>
             Obtém informações básicas sobre a aplicação
@@ -1076,6 +1061,21 @@
         <member name="M:TemplateApi.Repositorio.Comum.BuscaRepositorio.MontarPaginacao(TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd)">
             <summary>
             Só funciona se for adicionado após um order by
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Repositorio.Interfaces.ITransicao.Iniciar">
+            <summary>
+            Iniciar uma transição
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Repositorio.Interfaces.ITransicao.Salvar">
+            <summary>
+            Salvar a trasição atual
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Repositorio.Interfaces.ITransicao.Desfazer">
+            <summary>
+            Desfazer a trasição atual
             </summary>
         </member>
     </members>

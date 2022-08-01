@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TemplateApi.Dominio.Interfaces
+namespace TemplateApi.Repositorio.Interfaces
 {
     public interface ITransicao 
         : IDisposable

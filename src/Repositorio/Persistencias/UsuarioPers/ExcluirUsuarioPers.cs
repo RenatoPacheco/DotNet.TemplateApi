@@ -1,15 +1,16 @@
 ﻿using System;
 using Dapper;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class ExcluirUsuarioPers : Comum.SimplesRepositorio
+    internal class ExcluirUsuarioPers
+        : Comum.SimplesRepositorio
     {
         public ExcluirUsuarioPers(
             Conexao conexao,

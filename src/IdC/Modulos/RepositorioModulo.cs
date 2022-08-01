@@ -2,11 +2,10 @@
 using System.Linq;
 using System.Reflection;
 using TemplateApi.Repositorio;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
+using TemplateApi.Repositorio.Interfaces;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorio.Persistencias.SobrePers;
-using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.IdC.Modulos
 {

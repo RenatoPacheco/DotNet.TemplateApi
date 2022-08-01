@@ -9,7 +9,8 @@ using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Repositorio.Persistencias.AutorizacaoPers
 {
-    internal class ListarAutorizacaoPers : Comum.BaseRepositorio
+    internal class ListarAutorizacaoPers 
+        : Comum.BaseRepositorio
     {
         private static Autorizacao[] _dadosBase;
 

@@ -6,17 +6,18 @@ using TemplateApi.RecursoResx;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Compartilhado.Extensoes;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class FiltrarUsuarioPers : Comum.BuscaRepositorio
+    internal class FiltrarUsuarioPers
+        : Comum.BuscaRepositorio
     {
         public FiltrarUsuarioPers(
             Conexao conexao,

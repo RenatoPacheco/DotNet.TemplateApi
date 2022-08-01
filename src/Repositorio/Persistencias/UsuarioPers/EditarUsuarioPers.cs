@@ -1,14 +1,15 @@
 ﻿using System;
 using Dapper;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 {
-    internal class EditarUsuarioPers : Comum.SimplesRepositorio
+    internal class EditarUsuarioPers
+        : Comum.SimplesRepositorio
     {
         public EditarUsuarioPers(
             Conexao conexao,

@@ -4,15 +4,16 @@ using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.RecursoResx;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {
-    class EhUnicoConteudoPers : Comum.SimplesRepositorio
+    internal class EhUnicoConteudoPers
+        : Comum.SimplesRepositorio
     {
         public EhUnicoConteudoPers(
             Conexao conexao,
@@ -53,8 +54,8 @@ namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 
                 if (resultado.Any())
                 {
-                    Notifications.AddError(
-                        string.Format(AvisosResx.XNaoEhUnico, "Alias"));
+                    Notifications.AddError<Conteudo>(
+                        x => x.Alias, AvisosResx.XNaoEhUnico, null);
                 }
             }
 

@@ -1,16 +1,16 @@
 ﻿using System;
 using Dapper;
-using System.Collections.Generic;
-using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class ExcluirStoragePers : Comum.SimplesRepositorio
+    internal class ExcluirStoragePers
+        : Comum.SimplesRepositorio
     {
         public ExcluirStoragePers(
             Conexao conexao,

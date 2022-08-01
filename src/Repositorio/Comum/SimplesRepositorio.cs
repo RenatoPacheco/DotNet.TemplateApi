@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using TemplateApi.Dominio.Interfaces;
-using TemplateApi.Repositorio.Contexto;
+﻿using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Auxiliares;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Comum
 {

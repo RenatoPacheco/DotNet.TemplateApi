@@ -4,7 +4,6 @@ using System.Text;
 using TemplateApi.RecursoResx;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using TemplateApi.Dominio.Interfaces;
 using System.Text.RegularExpressions;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
@@ -12,10 +11,12 @@ using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Compartilhado.Extensoes;
 using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Repositorio.Interfaces;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {
-    internal class FiltrarStoragePers : Comum.BuscaRepositorio
+    internal class FiltrarStoragePers
+        : Comum.BuscaRepositorio
     {
         public FiltrarStoragePers(
             Conexao conexao,
