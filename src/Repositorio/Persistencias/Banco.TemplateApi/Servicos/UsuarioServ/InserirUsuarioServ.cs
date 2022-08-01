@@ -3,29 +3,28 @@ using Dapper;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ
 {
-    internal class InserirUsuarioPers
+    internal class InserirUsuarioServ
         : Comum.SimplesRepositorio
     {
-        public InserirUsuarioPers(
+        public InserirUsuarioServ(
             Conexao conexao,
             IUnidadeTrabalho udt,
-            EhUnicoUsuarioPers persEhUnicoUsuario)
+            EhUnicoUsuarioServ persEhUnicoUsuario)
             : base(conexao, udt)
         {
             _persEhUnicoUsuario = persEhUnicoUsuario;
         }
 
-        private readonly EhUnicoUsuarioPers _persEhUnicoUsuario;
+        private readonly EhUnicoUsuarioServ _persEhUnicoUsuario;
 
         public void Executar(Usuario dados)
         {
             Notifications.Clear();
-            UsuarioMap map = new UsuarioMap();
+            Mapeamentos.UsuarioMap map = new Mapeamentos.UsuarioMap();
 
             IsValid(dados);
 

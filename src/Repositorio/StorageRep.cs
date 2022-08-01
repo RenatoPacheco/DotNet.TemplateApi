@@ -3,8 +3,8 @@ using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.StoragePers;
 using TemplateApi.Repositorio.Interfaces;
+using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ;
 
 namespace TemplateApi.Repositorio
 {
@@ -14,10 +14,10 @@ namespace TemplateApi.Repositorio
         public StorageRep(
             Conexao conexao,
             IUnidadeTrabalho udt,
-            InserirStoragePers persInserirStorage,
-            EditarStoragePers persEditarStorage,
-            ExcluirStoragePers persExcluirStorage,
-            FiltrarStoragePers persFiltrarStorage)
+            InserirStorageServ persInserirStorage,
+            EditarStorageServ persEditarStorage,
+            ExcluirStorageServ persExcluirStorage,
+            FiltrarStorageServ persFiltrarStorage)
             : base(conexao, udt)
         {
             _persInserirStorage = persInserirStorage;
@@ -26,10 +26,10 @@ namespace TemplateApi.Repositorio
             _persFiltrarStorage = persFiltrarStorage;
         }
 
-        private readonly InserirStoragePers _persInserirStorage;
-        private readonly EditarStoragePers _persEditarStorage;
-        private readonly ExcluirStoragePers _persExcluirStorage;
-        private readonly FiltrarStoragePers _persFiltrarStorage;
+        private readonly InserirStorageServ _persInserirStorage;
+        private readonly EditarStorageServ _persEditarStorage;
+        private readonly ExcluirStorageServ _persExcluirStorage;
+        private readonly FiltrarStorageServ _persFiltrarStorage;
 
         public void Editar(Storage dados)
         {

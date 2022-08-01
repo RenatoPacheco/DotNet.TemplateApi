@@ -2,7 +2,7 @@
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Repositorio.Extensoes;
 
-namespace TemplateApi.Repositorio.Mapeamentos
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Mapeamentos
 {
     internal class UsuarioMap
         : Auxiliares.MapeamentoBase<Usuario>

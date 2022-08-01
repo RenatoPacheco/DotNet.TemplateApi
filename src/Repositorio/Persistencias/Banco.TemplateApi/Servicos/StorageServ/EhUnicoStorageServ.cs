@@ -6,15 +6,14 @@ using TemplateApi.RecursoResx;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.StoragePers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ
 {
-    internal class EhUnicoStoragePers
+    internal class EhUnicoStorageServ
         : Comum.SimplesRepositorio
     {
-        public EhUnicoStoragePers(
+        public EhUnicoStorageServ(
             Conexao conexao,
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
@@ -34,7 +33,7 @@ namespace TemplateApi.Repositorio.Persistencias.StoragePers
         private bool ReferenciaEhUnico(Storage dados)
         {
             Notifications.Clear();
-            StorageMap map = new StorageMap();
+            Mapeamentos.StorageMap map = new Mapeamentos.StorageMap();
 
             if (!(dados?.Referencia is null))
             {

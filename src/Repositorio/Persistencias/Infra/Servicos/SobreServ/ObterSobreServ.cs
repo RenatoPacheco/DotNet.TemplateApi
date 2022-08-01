@@ -1,8 +1,8 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Repositorio.Persistencias.SobrePers
+namespace TemplateApi.Repositorio.Persistencias.Infra.Servicos.SobreServ
 {
-    internal class ObterSobrePers : Comum.BaseRepositorio
+    internal class ObterSobreServ : Comum.BaseRepositorio
     {
         public Sobre Executar()
         {

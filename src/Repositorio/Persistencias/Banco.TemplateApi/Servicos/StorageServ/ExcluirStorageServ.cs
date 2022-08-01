@@ -2,36 +2,37 @@
 using Dapper;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ
 {
-    internal class ExcluirConteudoPers
+    internal class ExcluirStorageServ
         : Comum.SimplesRepositorio
     {
-        public ExcluirConteudoPers(
+        public ExcluirStorageServ(
             Conexao conexao,
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public void Executar(ExcluirConteudoCmd comando)
+        public void Executar(ExcluirStorageCmd comando)
         {
             Notifications.Clear();
-            ConteudoMap map = new ConteudoMap();
+            Mapeamentos.StorageMap map = new Mapeamentos.StorageMap();
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET
                             {map.Col(x => x.AlteradoEm)} = @AlteradoEm
                            ,{map.Col(x => x.Status)} = @Status
                     WHERE {map.Col(x => x.Id)} IN @Id
+                    OR {map.Col(x => x.Alias)} IN @Alias
                 ";
 
             object sqlObject = new
             {
-                Id = comando.Conteudo,
+                Id = comando.Storage,
+                Alias = comando.Alias,
                 Status = StatusAdapt.EnumParaSql(Status.Excluido),
                 AlteradoEm = DateTime.Now
             };

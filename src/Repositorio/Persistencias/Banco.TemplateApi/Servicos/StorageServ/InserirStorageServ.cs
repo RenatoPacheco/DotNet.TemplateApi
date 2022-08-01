@@ -2,30 +2,29 @@
 using Dapper;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.StoragePers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.StorageServ
 {
-    internal class InserirStoragePers
+    internal class InserirStorageServ
         : Comum.SimplesRepositorio
     {
-        public InserirStoragePers(
+        public InserirStorageServ(
             Conexao conexao,
             IUnidadeTrabalho udt,
-            EhUnicoStoragePers persEhUnicoStorage)
+            EhUnicoStorageServ persEhUnicoStorage)
             : base(conexao, udt)
         {
             _persEhUnicoStorage = persEhUnicoStorage;
         }
 
-        private readonly EhUnicoStoragePers _persEhUnicoStorage;
+        private readonly EhUnicoStorageServ _persEhUnicoStorage;
 
         public void Executar(Storage dados)
         {
             Notifications.Clear();
-            StorageMap map = new StorageMap();
+            Mapeamentos.StorageMap map = new Mapeamentos.StorageMap();
 
             IsValid(dados);
 

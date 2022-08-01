@@ -2,7 +2,7 @@
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Extensoes;
 
-namespace TemplateApi.Repositorio.Mapeamentos
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Mapeamentos
 {
     internal class StorageMap
         : Auxiliares.MapeamentoBase<Storage>

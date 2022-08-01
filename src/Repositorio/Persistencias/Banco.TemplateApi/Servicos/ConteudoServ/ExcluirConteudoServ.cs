@@ -2,25 +2,24 @@
 using Dapper;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ
 {
-    internal class ExcluirUsuarioPers
+    internal class ExcluirConteudoServ
         : Comum.SimplesRepositorio
     {
-        public ExcluirUsuarioPers(
+        public ExcluirConteudoServ(
             Conexao conexao,
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public void Executar(ExcluirUsuarioCmd comando)
+        public void Executar(ExcluirConteudoCmd comando)
         {
             Notifications.Clear();
-            UsuarioMap map = new UsuarioMap();
+            Mapeamentos.ConteudoMap map = new Mapeamentos.ConteudoMap();
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET
@@ -31,7 +30,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
 
             object sqlObject = new
             {
-                Id = comando.Usuario,
+                Id = comando.Conteudo,
                 Status = StatusAdapt.EnumParaSql(Status.Excluido),
                 AlteradoEm = DateTime.Now
             };

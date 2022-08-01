@@ -3,29 +3,28 @@ using Dapper;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ
 {
-    internal class EditarConteudoPers
+    internal class EditarConteudoServ
         : Comum.SimplesRepositorio
     {
-        public EditarConteudoPers(
+        public EditarConteudoServ(
             Conexao conexao,
             IUnidadeTrabalho udt,
-            EhUnicoConteudoPers persEhUnicoConteudo)
+            EhUnicoConteudoServ persEhUnicoConteudo)
             : base(conexao, udt)
         {
             _persEhUnicoConteudo = persEhUnicoConteudo;
         }
 
-        private readonly EhUnicoConteudoPers _persEhUnicoConteudo;
+        private readonly EhUnicoConteudoServ _persEhUnicoConteudo;
 
         public void Executar(Conteudo dados)
         {
             Notifications.Clear();
-            ConteudoMap map = new ConteudoMap();
+            Mapeamentos.ConteudoMap map = new Mapeamentos.ConteudoMap();
 
             IsValid(dados);
 

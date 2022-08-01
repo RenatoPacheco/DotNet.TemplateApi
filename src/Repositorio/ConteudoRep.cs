@@ -3,9 +3,9 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
-using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.ConteudoPers;
 using TemplateApi.Repositorio.Interfaces;
+using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ;
 
 namespace TemplateApi.Repositorio
 {
@@ -15,10 +15,10 @@ namespace TemplateApi.Repositorio
         public ConteudoRep(
             Conexao conexao,
             IUnidadeTrabalho udt,
-            InserirConteudoPers persInserirConteudo,
-            EditarConteudoPers persEditarConteudo,
-            ExcluirConteudoPers persExcluirConteudo,
-            FiltrarConteudoPers persFiltrarConteudo)
+            InserirConteudoServ persInserirConteudo,
+            EditarConteudoServ persEditarConteudo,
+            ExcluirConteudoServ persExcluirConteudo,
+            FiltrarConteudoServ persFiltrarConteudo)
             : base(conexao, udt)
         {
             _persInserirConteudo = persInserirConteudo;
@@ -27,10 +27,10 @@ namespace TemplateApi.Repositorio
             _persFiltrarConteudo = persFiltrarConteudo;
         }
 
-        private readonly InserirConteudoPers _persInserirConteudo;
-        private readonly EditarConteudoPers _persEditarConteudo;
-        private readonly ExcluirConteudoPers _persExcluirConteudo;
-        private readonly FiltrarConteudoPers _persFiltrarConteudo;
+        private readonly InserirConteudoServ _persInserirConteudo;
+        private readonly EditarConteudoServ _persEditarConteudo;
+        private readonly ExcluirConteudoServ _persExcluirConteudo;
+        private readonly FiltrarConteudoServ _persFiltrarConteudo;
 
         public void Editar(Conteudo dados)
         {

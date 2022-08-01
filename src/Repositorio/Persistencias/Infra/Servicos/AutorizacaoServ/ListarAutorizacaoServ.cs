@@ -7,9 +7,9 @@ using TemplateApi.RecursoResx;
 using TemplateApi.Aplicacao;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Repositorio.Persistencias.AutorizacaoPers
+namespace TemplateApi.Repositorio.Persistencias.Infra.Servicos.AutorizacaoServ
 {
-    internal class ListarAutorizacaoPers 
+    internal class ListarAutorizacaoServ 
         : Comum.BaseRepositorio
     {
         private static Autorizacao[] _dadosBase;

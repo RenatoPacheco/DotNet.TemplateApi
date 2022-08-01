@@ -7,24 +7,23 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Repositorio.Adaptadores;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.ConteudoServ
 {
-    internal class EhUnicoUsuarioPers
+    internal class EhUnicoConteudoServ
         : Comum.SimplesRepositorio
     {
-        public EhUnicoUsuarioPers(
+        public EhUnicoConteudoServ(
             Conexao conexao,
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        public bool Executar(Usuario dados)
+        public bool Executar(Conteudo dados)
         {
             ValidationNotification notificacoes = new ValidationNotification();
 
-            EmailEhUnico(dados);
+            AliasEhUnico(dados);
             notificacoes.Add(this);
 
             Notifications.Clear();
@@ -32,30 +31,30 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             return IsValid();
         }
 
-        private bool EmailEhUnico(Usuario dados)
+        private bool AliasEhUnico(Conteudo dados)
         {
             Notifications.Clear();
-            UsuarioMap map = new UsuarioMap();
+            Mapeamentos.ConteudoMap map = new Mapeamentos.ConteudoMap();
 
-            if (!(dados?.Email is null))
+            if (!(dados?.Alias is null))
             {
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
                     SELECT TOP 1 1
                     FROM {map.Tabela}
-                    Where {map.Col(x => x.Email)} = @Email
+                    Where {map.Col(x => x.Alias)} = @Alias
                     AND {map.Col(x => x.Id)} <> @Id
                     AND {map.Col(x => x.Status)} <> @Status
                 ", new
                 {
                     Id = dados.Id ?? 0,
-                    Email = dados.Email,
+                    Alias = dados.Alias,
                     Status = StatusAdapt.EnumParaSql(Status.Excluido)
                 }, Conexao.Transicao);
 
                 if (resultado.Any())
                 {
-                    Notifications.AddError<Usuario>(
-                        x => x.Email, AvisosResx.XNaoEhUnico, null);
+                    Notifications.AddError<Conteudo>(
+                        x => x.Alias, AvisosResx.XNaoEhUnico, null);
                 }
             }
 

@@ -5,7 +5,7 @@ using TemplateApi.Repositorio;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Repositorio.Interfaces;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Repositorio.Persistencias.SobrePers;
+using Pers = TemplateApi.Repositorio.Persistencias;
 
 namespace TemplateApi.IdC.Modulos
 {
@@ -22,15 +22,18 @@ namespace TemplateApi.IdC.Modulos
             typeof(AutorizacaoRep)
         };
 
+        private static string GetStartNamespace(Type type)
+        {
+            return type.Namespace.Substring(
+                0, type.Namespace.LastIndexOf('.'));
+        }
+
         internal static void Carregar(IResolverDependencia recipiente)
         {
             Injecao.Registrar<IConexao, Conexao>(recipiente);
             Injecao.Registrar<Conexao>(recipiente);
             Injecao.Registrar<ITransicao, Transicao>(recipiente);
             Injecao.Registrar<IUnidadeTrabalho, UnidadeTrabalho>(recipiente);
-
-            string repositorios = typeof(ObterSobrePers).Namespace;
-            repositorios = repositorios.Substring(0, repositorios.LastIndexOf('.'));
 
             Type baseType = typeof(SobreRep);
             string[] exactNamespace = new string[]
@@ -39,7 +42,8 @@ namespace TemplateApi.IdC.Modulos
             };
             string[] startNamespace = new string[]
             {
-                repositorios
+                GetStartNamespace(typeof(Pers.Infra.Servicos.SobreServ.ObterSobreServ)),
+                GetStartNamespace(typeof(Pers.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
             };
             string[] interfaceNamespace = new string[]
             {

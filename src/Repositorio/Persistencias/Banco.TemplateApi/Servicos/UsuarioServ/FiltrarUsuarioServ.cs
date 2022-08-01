@@ -8,23 +8,22 @@ using System.Text.RegularExpressions;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Repositorio.Contexto;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Repositorio.Mapeamentos;
 using TemplateApi.Repositorio.Adaptadores;
 using TemplateApi.Compartilhado.Extensoes;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Repositorio.Interfaces;
 
-namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
+namespace TemplateApi.Repositorio.Persistencias.Banco.TemplateApi.Servicos.UsuarioServ
 {
-    internal class FiltrarUsuarioPers
+    internal class FiltrarUsuarioServ
         : Comum.BuscaRepositorio
     {
-        public FiltrarUsuarioPers(
+        public FiltrarUsuarioServ(
             Conexao conexao,
             IUnidadeTrabalho udt)
             : base(conexao, udt) { }
 
-        private UsuarioMap _map;
+        private Mapeamentos.UsuarioMap _map;
 
         public ResultadoBusca<Usuario> Executar(
             FiltrarUsuarioCmd comando, string referencia)
@@ -48,7 +47,7 @@ namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
             StringBuilder sql = new StringBuilder();
             IDictionary<string, object> sqlParametros = new Dictionary<string, object>();
 
-            _map = new UsuarioMap { RefSql = "usu" };
+            _map = new Mapeamentos.UsuarioMap { RefSql = "usu" };
 
             AplicarFiltro(comando, ref sql, ref sqlParametros);
 
