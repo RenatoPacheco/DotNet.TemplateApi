@@ -12,7 +12,7 @@ namespace TemplateApi.IdC.Modulos
 
         internal static Type[] _scoped = Array.Empty<Type>();
 
-        internal static void Carregar(IResolverDependencia recipiente)
+        internal static void Carregar(IResolverDependencia resolve)
         {
             Type baseType = typeof(SobreApp);
             string[] exactNamespace = new string[]
@@ -36,7 +36,7 @@ namespace TemplateApi.IdC.Modulos
 
             for (int count = 0; count < total; count++)
             {
-                Injecao.Registrar(recipiente, listType[count]);
+                Injecao.Registrar(resolve, listType[count]);
             }
         }
     }

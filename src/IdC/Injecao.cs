@@ -12,7 +12,6 @@ namespace TemplateApi.IdC
             get
             {
                 return _singleton ?? (_singleton = AplicacaoModulo._singleton
-                        .Concat(RepositorioModulo._singleton)
                         .Concat(ServicoModulo._singleton).ToArray());
             }
         }
@@ -23,7 +22,6 @@ namespace TemplateApi.IdC
             get
             {
                 return _scoped ?? (_scoped = AplicacaoModulo._scoped
-                        .Concat(RepositorioModulo._scoped)
                         .Concat(ServicoModulo._scoped).ToArray());
             }
         }
@@ -76,12 +74,7 @@ namespace TemplateApi.IdC
             AplicacaoModulo.Carregar(recipiente);
             ServicoModulo.Carregar(recipiente);
             RepositorioModulo.Carregar(recipiente);
-        }
-
-        public static void CarregarMock(IResolverDependencia recipiente)
-        {
-            AplicacaoModulo.Carregar(recipiente);
-            ServicoModulo.Carregar(recipiente);
+            InfraModulo.Carregar(recipiente);
         }
     }
 }

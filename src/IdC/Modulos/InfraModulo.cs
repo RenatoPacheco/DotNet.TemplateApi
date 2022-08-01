@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using TemplateApi.Repositorio;
-using TemplateApi.Dominio.Interfaces.Repositorios;
+using TemplateApi.Aplicacao;
 
 namespace TemplateApi.IdC.Modulos
 {
-    internal static class RepositorioModulo
+    internal static class InfraModulo
     {
         private static string GetStartNamespace(Type type)
         {
@@ -16,18 +15,17 @@ namespace TemplateApi.IdC.Modulos
 
         internal static void Carregar(IResolverDependencia resolve)
         {
-            Type baseType = typeof(SobreRep);
+            resolve.Escopo<Infra.Banco.TemplateApi.Conexao>();
+
+            Type baseType = typeof(SobreApp);
             string[] exactNamespace = new string[]
             {
-                typeof(SobreRep).Namespace
+
             };
             string[] startNamespace = new string[]
             {
-                GetStartNamespace(typeof(Repositorio.Persistencias.SobrePers.ObterSobrePers)),
-            };
-            string[] interfaceNamespace = new string[]
-            {
-                typeof(ISobreRep).Namespace
+                GetStartNamespace(typeof(Infra.Core.Servicos.SobreServ.ObterSobreServ)),
+                GetStartNamespace(typeof(Infra.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
             };
             Type[] listType = Assembly.GetAssembly(baseType).GetTypes()
                     .Where(x => x.ReflectedType is null
@@ -38,24 +36,11 @@ namespace TemplateApi.IdC.Modulos
                         && !x.IsAbstract
                         && !x.IsInterface).ToArray();
             int total = listType.Count();
-            Type _class, _interface;
 
             for (int count = 0; count < total; count++)
             {
-                _class = listType[count];
-                _interface = _class.GetInterfaces().Where(
-                    x => interfaceNamespace.Any(y => y == x.Namespace)).FirstOrDefault();
-
-                if (_interface is null)
-                {
-                    resolve.Escopo(_class);
-                }
-                else
-                {
-                    resolve.Escopo(_interface, _class);
-                }
+                resolve.Escopo(listType[count]);
             }
         }
     }
 }
-
