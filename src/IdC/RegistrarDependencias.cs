@@ -4,7 +4,7 @@ using TemplateApi.IdC.Modulos;
 
 namespace TemplateApi.IdC
 {
-    public static class Injecao
+    public static class RegistrarDependencias
     {
         private static Type[] _singleton;
         private static Type[] Singleton
@@ -26,7 +26,7 @@ namespace TemplateApi.IdC
             }
         }
 
-        public static void Registrar<TServico, TObjeto>(IResolverDependencia recipiente)
+        public static void Registrar<TServico, TObjeto>(IResolverDependencias recipiente)
             where TServico : class
             where TObjeto : class, TServico
         {
@@ -38,7 +38,7 @@ namespace TemplateApi.IdC
                 recipiente.Transiente<TServico, TObjeto>();
         }
 
-        public static void Registrar<TConcrete>(IResolverDependencia recipiente)
+        public static void Registrar<TConcrete>(IResolverDependencias recipiente)
             where TConcrete : class
         {
             if (Scoped.Contains(typeof(TConcrete)))
@@ -49,7 +49,7 @@ namespace TemplateApi.IdC
                 recipiente.Transiente<TConcrete>();
         }
 
-        public static void Registrar(IResolverDependencia recipiente, Type objeto)
+        public static void Registrar(IResolverDependencias recipiente, Type objeto)
         {
             if (Scoped.Contains(objeto))
                 recipiente.Escopo(objeto);
@@ -59,7 +59,7 @@ namespace TemplateApi.IdC
                 recipiente.Transiente(objeto);
         }
 
-        public static void Registrar(IResolverDependencia recipiente, Type servico, Type objeto)
+        public static void Registrar(IResolverDependencias recipiente, Type servico, Type objeto)
         {
             if (Scoped.Contains(servico))
                 recipiente.Escopo(servico, objeto);
@@ -69,7 +69,7 @@ namespace TemplateApi.IdC
                 recipiente.Transiente(servico, objeto);
         }
 
-        public static void Carregar(IResolverDependencia recipiente)
+        public static void Carregar(IResolverDependencias recipiente)
         {
             AplicacaoModulo.Carregar(recipiente);
             ServicoModulo.Carregar(recipiente);

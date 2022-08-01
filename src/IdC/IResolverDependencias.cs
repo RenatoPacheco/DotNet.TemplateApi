@@ -2,7 +2,7 @@
 
 namespace TemplateApi.IdC
 {
-    public interface IResolverDependencia
+    public interface IResolverDependencias
     {
         #region unico
 

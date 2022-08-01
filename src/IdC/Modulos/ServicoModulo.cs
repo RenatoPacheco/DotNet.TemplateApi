@@ -14,7 +14,7 @@ namespace TemplateApi.IdC.Modulos
             typeof(AutenticacaoServ)
         };
 
-        internal static void Carregar(IResolverDependencia resolve)
+        internal static void Carregar(IResolverDependencias resolve)
         {
             Type baseType = typeof(SobreServ);
             string[] exactNamespace = new string[]
@@ -37,7 +37,7 @@ namespace TemplateApi.IdC.Modulos
 
             for (int count = 0; count < total; count++)
             {
-                Injecao.Registrar(resolve, listType[count]);
+                RegistrarDependencias.Registrar(resolve, listType[count]);
             }
         }
     }

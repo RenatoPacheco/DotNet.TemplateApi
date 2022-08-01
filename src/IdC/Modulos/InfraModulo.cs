@@ -13,7 +13,7 @@ namespace TemplateApi.IdC.Modulos
                 0, type.Namespace.LastIndexOf('.'));
         }
 
-        internal static void Carregar(IResolverDependencia resolve)
+        internal static void Carregar(IResolverDependencias resolve)
         {
             resolve.Escopo<Infra.Banco.TemplateApi.Conexao>();
 

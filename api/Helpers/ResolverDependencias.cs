@@ -4,38 +4,39 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TemplateApi.Api.Helpers
 {
-    public class ResolverDependencia : IResolverDependencia
+    public class ResolverDependencias 
+        : IResolverDependencias
     {
-        public ResolverDependencia(IServiceCollection services)
+        public ResolverDependencias(IServiceCollection service)
         {
-            _services = services;
+            _service = service;
         }
 
-        private  readonly IServiceCollection _services;
+        private  readonly IServiceCollection _service;
 
         #region unico
 
         public void Unico<TConcrete>()
             where TConcrete : class
         {
-            _services.AddSingleton(typeof(TConcrete));
+            _service.AddSingleton(typeof(TConcrete));
         }
 
         public void Unico(Type tipo)
         {
-            _services.AddSingleton(tipo);
+            _service.AddSingleton(tipo);
         }
 
         public void Unico<TServico, TObjeto>()
             where TServico : class
             where TObjeto : class, TServico
         {
-            _services.AddSingleton(typeof(TServico), typeof(TObjeto));
+            _service.AddSingleton(typeof(TServico), typeof(TObjeto));
         }
 
         public void Unico(Type servico, Type objeto)
         {
-            _services.AddSingleton(servico, objeto);
+            _service.AddSingleton(servico, objeto);
         }
 
         #endregion
@@ -45,24 +46,24 @@ namespace TemplateApi.Api.Helpers
         public void Escopo<TConcrete>()
             where TConcrete : class
         {
-            _services.AddScoped(typeof(TConcrete));
+            _service.AddScoped(typeof(TConcrete));
         }
 
         public void Escopo(Type tipo)
         {
-            _services.AddScoped(tipo);
+            _service.AddScoped(tipo);
         }
 
         public void Escopo<TServico, TObjeto>()
             where TServico : class
             where TObjeto : class, TServico
         {
-            _services.AddScoped(typeof(TServico), typeof(TObjeto));
+            _service.AddScoped(typeof(TServico), typeof(TObjeto));
         }
 
         public void Escopo(Type servico, Type objeto)
         {
-            _services.AddScoped(servico, objeto);
+            _service.AddScoped(servico, objeto);
         }
 
         #endregion
@@ -72,24 +73,24 @@ namespace TemplateApi.Api.Helpers
         public void Transiente<TConcrete>()
             where TConcrete : class
         {
-            _services.AddTransient(typeof(TConcrete));
+            _service.AddTransient(typeof(TConcrete));
         }
 
         public void Transiente(Type tipo)
         {
-            _services.AddTransient(tipo);
+            _service.AddTransient(tipo);
         }
 
         public void Transiente<TServico, TObjeto>()
             where TServico : class
             where TObjeto : class, TServico
         {
-            _services.AddTransient(typeof(TServico), typeof(TObjeto));
+            _service.AddTransient(typeof(TServico), typeof(TObjeto));
         }
 
         public void Transiente(Type servico, Type objeto)
         {
-            _services.AddTransient(servico, objeto);
+            _service.AddTransient(servico, objeto);
         }
 
         #endregion
