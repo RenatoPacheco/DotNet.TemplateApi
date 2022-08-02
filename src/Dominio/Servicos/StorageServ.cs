@@ -2,7 +2,6 @@
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Compartilhado.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Dominio.Comandos.Comum;
@@ -26,10 +25,12 @@ namespace TemplateApi.Dominio.Servicos
 
             if (IsValid(comando))
             {
-                resultado = (Storage)_repStorage.Filtrar(new FiltrarStorageCmd { 
+                resultado = _repStorage.Filtrar(new FiltrarStorageCmd
+                {
                     Alias = new List<string>() { comando.Alias },
                     Status = comando.Status,
-                    Maximo = 1, Pagina = 1
+                    Maximo = 1,
+                    Pagina = 1
                 }, string.Empty, ValidationType.Error).FirstOrDefault();
                 IsValid(_repStorage);
             }
@@ -51,10 +52,10 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public Storage[] Inserir(InserirStorageCmd comando)
+        public ResultadoBusca<Storage> Inserir(InserirStorageCmd comando)
         {
             Notifications.Clear();
-            IList<Storage> resultado = new List<Storage>();
+            IList<Storage> storages = new List<Storage>();
             Storage storage = null;
 
             if (IsValid(comando))
@@ -66,7 +67,7 @@ namespace TemplateApi.Dominio.Servicos
 
                     if (_repStorage.IsValid())
                     {
-                        resultado.Add(storage);
+                        storages.Add(storage);
                     }
                     else
                     {
@@ -75,7 +76,10 @@ namespace TemplateApi.Dominio.Servicos
                 }
             }
 
-            return resultado.ToArray();
+            ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
+            resultado.ResultadosDaPaginaAtual = storages.ToArray();
+
+            return resultado;
         }
 
 

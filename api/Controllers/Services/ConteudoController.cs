@@ -37,7 +37,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpGet]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Filtrar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Conteudo[]>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<ResultadoBusca<Conteudo>>))]
         public IActionResult Get([FromQuery] FiltrarConteudoDataModel query)
         {
             InvocarSeNulo(ref query);

@@ -1,69 +1,36 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 using System.Collections.Generic;
-using TemplateApi.Compartilhado.Json;
 using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {
-    public class ResultadoBusca
-    {
-        public ResultadoBusca() { }
-
-        public ResultadoBusca(long total, long maximo)
-            : this()
-        {
-            TotalDeResultados = total;
-            TotalDePaginas = maximo < 1 ? 1
-                : total % maximo > 0 ? total / maximo + 1 : total / maximo;
-        }
-
-        [Display(Name = "Total de resultados")]
-        public long? TotalDeResultados { get; set; }
-
-        [Display(Name = "Total de páginas")]
-        public long? TotalDePaginas { get; set; }
-
-        [Display(Name = "Resultado da página atual")]
-        public string ResultadosDaPaginaAtual { get; set; } = "[]";
-
-        public string ParaJson()
-        {
-            StringBuilder resultado = new StringBuilder();
-
-            resultado.Append("{");
-            resultado.Append($"\"totalDeResultados\":{TotalDeResultados},");
-            resultado.Append($"\"totalDePaginas\":{TotalDePaginas},");
-            resultado.Append($"\"resultadosDaPaginaAtual\":{ResultadosDaPaginaAtual}");
-            resultado.Append("}");
-
-            return resultado.ToString();
-        }
-
-        public static ResultadoBusca<T> ParaObjeto<T>(string json)
-            where T : class
-        {
-            return ContratoJson.Desserializar(json, typeof(ResultadoBusca<T>)) as ResultadoBusca<T>;
-        }
-    }
-
     public class ResultadoBusca<T>
-        where T : class
     {
-        public static string Vazio()
-        {
-            return ContratoJson.Serializar(new ResultadoBusca<T>());
-        }
-
+        /// <summary>
+        /// Indica o total de resultados encontrados, somando todas as páginas.
+        /// Não será retornar de não for indicado para calcular a paginação.
+        /// </summary>
         [Display(Name = "Total de resultados")]
         public long? TotalDeResultados { get; set; }
 
+        /// <summary>
+        /// Indica o ttal de páginas encontradas.
+        /// Não será retornar de não for indicado para calcular a paginação.
+        /// </summary>
         [Display(Name = "Total de páginas")]
         public long? TotalDePaginas { get; set; }
 
+        private T[] _resultadosDaPaginaAtual = Array.Empty<T>();
+        /// <summary>
+        /// Retorna os resultados encontrados na página atual.
+        /// </summary>
         [Display(Name = "Resultados da página atual")]
-        public T[] ResultadosDaPaginaAtual { get; set; } = Array.Empty<T>();
+        public T[] ResultadosDaPaginaAtual
+        {
+            get => _resultadosDaPaginaAtual;
+            set => _resultadosDaPaginaAtual = value ?? Array.Empty<T>();
+        }
 
         public void CalcularPaginas(long total, long maximo)
         {
@@ -72,16 +39,34 @@ namespace TemplateApi.Dominio.ObjetosDeValor
                 : total % maximo > 0 ? total / maximo + 1 : total / maximo;
         }
 
-        public List<T> ToList() => ResultadosDaPaginaAtual.ToList();
+        public List<T> ToList()
+        {
+            return ResultadosDaPaginaAtual.ToList();
+        }
 
-        public T[] ToArray() => ResultadosDaPaginaAtual.ToArray();
+        public T[] ToArray()
+        {
+            return ResultadosDaPaginaAtual.ToArray();
+        }
 
-        public T First() => ResultadosDaPaginaAtual.First();
+        public T First()
+        {
+            return ResultadosDaPaginaAtual.First();
+        }
 
-        public T FirstOrDefault() => ResultadosDaPaginaAtual.FirstOrDefault();
+        public T FirstOrDefault()
+        {
+            return ResultadosDaPaginaAtual.FirstOrDefault();
+        }
 
-        public T Last() => ResultadosDaPaginaAtual.Last();
+        public T Last()
+        {
+            return ResultadosDaPaginaAtual.Last();
+        }
 
-        public T LastOrDefault() => ResultadosDaPaginaAtual.LastOrDefault();
+        public T LastOrDefault()
+        {
+            return ResultadosDaPaginaAtual.LastOrDefault();
+        }
     }
 }

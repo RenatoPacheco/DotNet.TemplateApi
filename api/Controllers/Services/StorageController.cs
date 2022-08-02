@@ -39,7 +39,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpGet]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Filtrar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<ResultadoBusca<Storage>>))]
         public IActionResult Get([FromQuery] FiltrarStorageDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -69,7 +69,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpPost]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Inserir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Storage[]>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<ResultadoBusca<Storage>>))]
         public IActionResult Post([FromForm] InserirStorageDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -77,7 +77,7 @@ namespace TemplateApi.Api.Controllers.Services
             InserirStorageCmd cmd = _mapper.Map<InserirStorageCmd>(body);
             cmd.ExtrairModelStateParaBody(ModelState);
 
-            Storage[] resultado = _appStorage.Inserir(cmd);
+            ResultadoBusca<Storage> resultado = _appStorage.Inserir(cmd);
             Validate(_appStorage);
 
             return CustomResponse(resultado);

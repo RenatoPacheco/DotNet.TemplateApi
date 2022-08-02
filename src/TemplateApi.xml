@@ -816,6 +816,23 @@
             Status de usuário
             </summary>
         </member>
+        <member name="P:TemplateApi.Dominio.ObjetosDeValor.ResultadoBusca`1.TotalDeResultados">
+            <summary>
+            Indica o total de resultados encontrados, somando todas as páginas.
+            Não será retornar de não for indicado para calcular a paginação.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Dominio.ObjetosDeValor.ResultadoBusca`1.TotalDePaginas">
+            <summary>
+            Indica o ttal de páginas encontradas.
+            Não será retornar de não for indicado para calcular a paginação.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Dominio.ObjetosDeValor.ResultadoBusca`1.ResultadosDaPaginaAtual">
+            <summary>
+            Retorna os resultados encontrados na página atual.
+            </summary>
+        </member>
         <member name="T:TemplateApi.Dominio.ObjetosDeValor.Sobre">
             <summary>
             Obtém informações básicas sobre a aplicação

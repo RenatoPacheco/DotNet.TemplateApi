@@ -26,55 +26,55 @@ namespace TemplateApi.IdC
             }
         }
 
-        public static void Registrar<TServico, TObjeto>(IResolverDependencias recipiente)
+        public static void Registrar<TServico, TObjeto>(IResolverDependencias resolve)
             where TServico : class
             where TObjeto : class, TServico
         {
             if (Scoped.Contains(typeof(TServico)))
-                recipiente.Escopo<TServico, TObjeto>();
+                resolve.Escopo<TServico, TObjeto>();
             else if (Singleton.Contains(typeof(TServico)))
-                recipiente.Unico<TServico, TObjeto>();
+                resolve.Unico<TServico, TObjeto>();
             else
-                recipiente.Transiente<TServico, TObjeto>();
+                resolve.Transiente<TServico, TObjeto>();
         }
 
-        public static void Registrar<TConcrete>(IResolverDependencias recipiente)
+        public static void Registrar<TConcrete>(IResolverDependencias resolve)
             where TConcrete : class
         {
             if (Scoped.Contains(typeof(TConcrete)))
-                recipiente.Escopo<TConcrete>();
+                resolve.Escopo<TConcrete>();
             else if (Singleton.Contains(typeof(TConcrete)))
-                recipiente.Unico<TConcrete>();
+                resolve.Unico<TConcrete>();
             else
-                recipiente.Transiente<TConcrete>();
+                resolve.Transiente<TConcrete>();
         }
 
-        public static void Registrar(IResolverDependencias recipiente, Type objeto)
+        public static void Registrar(IResolverDependencias resolve, Type objeto)
         {
             if (Scoped.Contains(objeto))
-                recipiente.Escopo(objeto);
+                resolve.Escopo(objeto);
             else if (Singleton.Contains(objeto))
-                recipiente.Unico(objeto);
+                resolve.Unico(objeto);
             else
-                recipiente.Transiente(objeto);
+                resolve.Transiente(objeto);
         }
 
-        public static void Registrar(IResolverDependencias recipiente, Type servico, Type objeto)
+        public static void Registrar(IResolverDependencias resolve, Type servico, Type objeto)
         {
             if (Scoped.Contains(servico))
-                recipiente.Escopo(servico, objeto);
+                resolve.Escopo(servico, objeto);
             else if (Singleton.Contains(servico))
-                recipiente.Unico(servico, objeto);
+                resolve.Unico(servico, objeto);
             else
-                recipiente.Transiente(servico, objeto);
+                resolve.Transiente(servico, objeto);
         }
 
-        public static void Carregar(IResolverDependencias recipiente)
+        public static void Carregar(IResolverDependencias resolve)
         {
-            AplicacaoModulo.Carregar(recipiente);
-            ServicoModulo.Carregar(recipiente);
-            RepositorioModulo.Carregar(recipiente);
-            InfraModulo.Carregar(recipiente);
+            AplicacaoModulo.Carregar(resolve);
+            ServicoModulo.Carregar(resolve);
+            RepositorioModulo.Carregar(resolve);
+            InfraModulo.Carregar(resolve);
         }
     }
 }

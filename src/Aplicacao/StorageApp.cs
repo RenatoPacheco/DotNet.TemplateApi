@@ -72,10 +72,10 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Inserir arquivo do storage")]
         [Description("Permite inserir um ou mais arquivos ao storage.")]
-        public Storage[] Inserir(InserirStorageCmd comando)
+        public ResultadoBusca<Storage> Inserir(InserirStorageCmd comando)
         {
             Notifications.Clear();
-            Storage[] resultado = Array.Empty<Storage>();
+            ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
 
             if (EhAutorizado(MethodBase.GetCurrentMethod()))
             {
