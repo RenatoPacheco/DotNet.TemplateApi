@@ -1,6 +1,6 @@
 ﻿using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Infra.Banco.TemplateApi.Servicos.StorageServ;
+using TemplateApi.Infra.Servico.Banco.TemplateApi.Servicos.StorageServ;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {

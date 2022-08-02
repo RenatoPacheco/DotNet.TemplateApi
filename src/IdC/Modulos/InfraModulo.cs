@@ -15,7 +15,7 @@ namespace TemplateApi.IdC.Modulos
 
         internal static void Carregar(IResolverDependencias resolve)
         {
-            resolve.Escopo<Infra.Banco.TemplateApi.Conexao>();
+            resolve.Escopo<Infra.Servico.Banco.TemplateApi.Conexao>();
 
             Type baseType = typeof(SobreApp);
             string[] exactNamespace = new string[]
@@ -24,8 +24,8 @@ namespace TemplateApi.IdC.Modulos
             };
             string[] startNamespace = new string[]
             {
-                GetStartNamespace(typeof(Infra.Core.Servicos.SobreServ.ObterSobreServ)),
-                GetStartNamespace(typeof(Infra.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
+                GetStartNamespace(typeof(Infra.Servico.Core.Servicos.SobreServ.ObterSobreServ)),
+                GetStartNamespace(typeof(Infra.Servico.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
             };
             Type[] listType = Assembly.GetAssembly(baseType).GetTypes()
                     .Where(x => x.ReflectedType is null

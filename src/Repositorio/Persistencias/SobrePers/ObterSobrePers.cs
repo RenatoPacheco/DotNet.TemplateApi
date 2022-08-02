@@ -1,5 +1,5 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Infra.Core.Servicos.SobreServ;
+using TemplateApi.Infra.Servico.Core.Servicos.SobreServ;
 
 namespace TemplateApi.Repositorio.Persistencias.SobrePers
 {
