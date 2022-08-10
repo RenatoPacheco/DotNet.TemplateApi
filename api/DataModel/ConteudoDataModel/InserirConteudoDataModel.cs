@@ -25,6 +25,6 @@ namespace TemplateApi.Api.DataModel.ConteudoDataModel
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public EnumInput<Status>? Status { get; set; }
+        public EnumInput<Status> Status { get; set; }
     }
 }

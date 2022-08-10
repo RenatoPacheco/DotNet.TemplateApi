@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Settings.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(DateTimeInput) || context.Metadata.ModelType == typeof(DateTimeInput?))
+            if (context.Metadata.ModelType == typeof(DateTimeInput))
             {
                 return new BinderTypeModelBinder(typeof(DateTimeInputModelBinder));
             }

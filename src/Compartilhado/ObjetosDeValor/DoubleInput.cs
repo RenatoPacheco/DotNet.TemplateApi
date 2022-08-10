@@ -4,43 +4,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct DoubleInput
+    public class DoubleInput
         : IFormattable, IComparable, IConvertible,
         IComparable<DoubleInput>, IComparable<double>,
         IEquatable<DoubleInput>, IEquatable<double>
     {
+        public DoubleInput() { }
+
         public DoubleInput(string input)
         {
             TryParse(input, out DoubleInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public DoubleInput(double input)
+        public DoubleInput(double? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private double _value;
+        private double? _value;
         private bool _isValid;
 
         public static explicit operator string(DoubleInput input) => input.ToString();
         public static explicit operator DoubleInput(string input) => new DoubleInput(input);
 
-        public static explicit operator double(DoubleInput input) => input._value;
-        public static explicit operator DoubleInput(double input) => new DoubleInput(input);
+        public static explicit operator double?(DoubleInput input) => input._value;
+        public static explicit operator DoubleInput(double? input) => new DoubleInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly DoubleInput Empty = new DoubleInput
-        {
-            _inptValue = "0",
-            _value = 0,
-            _isValid = true
-        };
+        public static readonly DoubleInput Empty = new DoubleInput(string.Empty);
 
         public static void Parse(string input, out DoubleInput output)
         {
@@ -69,7 +68,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (double?)null
             };
 
             return result;

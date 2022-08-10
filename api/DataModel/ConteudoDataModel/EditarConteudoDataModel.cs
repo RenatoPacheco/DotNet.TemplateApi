@@ -10,7 +10,7 @@ namespace TemplateApi.Api.DataModel.ConteudoDataModel
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
-        public IntInput? Conteudo { get; set; }
+        public IntInput Conteudo { get; set; }
 
         /// <summary>
         /// Título de conteúdo
@@ -31,6 +31,6 @@ namespace TemplateApi.Api.DataModel.ConteudoDataModel
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public EnumInput<Status>? Status { get; set; }
+        public EnumInput<Status> Status { get; set; }
     }
 }

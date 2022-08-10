@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Settings.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(TimeSpanInput) || context.Metadata.ModelType == typeof(TimeSpanInput?))
+            if (context.Metadata.ModelType == typeof(TimeSpanInput))
             {
                 return new BinderTypeModelBinder(typeof(TimeSpanInputModelBinder));
             }

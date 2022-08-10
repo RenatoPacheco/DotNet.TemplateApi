@@ -1,44 +1,59 @@
 ﻿using System;
-using System.Linq;
 using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct EnumInput<T>
+    public class EnumInput<T>
         : IFormattable, IComparable, IConvertible,
         IComparable<EnumInput<T>>, IComparable<T>,
         IEquatable<EnumInput<T>>, IEquatable<T>
-        where T: struct
+        where T : struct
     {
+        public EnumInput() { }
+
         public EnumInput(string input)
         {
             TryParse(input, out EnumInput<T> output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public EnumInput(T input)
+        public EnumInput(T? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
-            _touched = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private T _value;
+        private T? _value;
         private bool _isValid;
-        private bool _touched;
 
-        public static explicit operator string(EnumInput<T> input) => input._touched ? input.ToString() :Empty.ToString();
-        public static explicit operator EnumInput<T>(string input) => new EnumInput<T>(input);
+        public static explicit operator string(EnumInput<T> input)
+        {
+            return input.ToString();
+        }
 
-        public static explicit operator T(EnumInput<T> input) => input._touched ? input._value : Empty._value;
-        public static explicit operator EnumInput<T>(T input) => new EnumInput<T>(input);
+        public static explicit operator EnumInput<T>(string input)
+        {
+            return new EnumInput<T>(input);
+        }
+
+        public static explicit operator T?(EnumInput<T> input)
+        {
+            return input._value;
+        }
+
+        public static explicit operator EnumInput<T>(T? input)
+        {
+            return new EnumInput<T>(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly EnumInput<T> Empty = new EnumInput<T>(Enum.GetValues(typeof(T)).Cast<T>().First());
+        public static readonly EnumInput<T> Empty = new EnumInput<T>(string.Empty);
 
         public static void Parse(string input, out EnumInput<T> output)
         {
@@ -65,14 +80,16 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value,
-                _touched = true
+                _value = result ? value : (T?)null
             };
 
             return result;
         }
 
-        public bool IsValid() => !_touched || _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {
@@ -86,7 +103,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            return _touched ? _inptValue : _value.ToString();
+            return _inptValue;
         }
 
         public override int GetHashCode()

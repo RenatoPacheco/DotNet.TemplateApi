@@ -3,43 +3,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct BoolInput
+    public class BoolInput
         : IFormattable, IComparable, IConvertible,
         IComparable<BoolInput>, IComparable<bool>,
         IEquatable<BoolInput>, IEquatable<bool>
     {
+        public BoolInput() { }
+
         public BoolInput(string input)
         {
             TryParse(input, out BoolInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public BoolInput(bool input)
+        public BoolInput(bool? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private bool _value;
+        private bool? _value;
         private bool _isValid;
 
         public static explicit operator string(BoolInput input) => input.ToString();
         public static explicit operator BoolInput(string input) => new BoolInput(input);
 
-        public static explicit operator bool(BoolInput input) => input._value;
-        public static explicit operator BoolInput(bool input) => new BoolInput(input);
+        public static explicit operator bool?(BoolInput input) => input._value;
+        public static explicit operator BoolInput(bool? input) => new BoolInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly BoolInput Empty = new BoolInput
-        {
-            _inptValue = false.ToString(),
-            _value = false,
-            _isValid = true
-        };
+        public static readonly BoolInput Empty = new BoolInput(string.Empty);
 
         public static void Parse(string input, out BoolInput output)
         {
@@ -65,7 +64,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             output = new BoolInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (bool?)null
             };
 
             return result;

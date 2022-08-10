@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Settings.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(DecimalInput) || context.Metadata.ModelType == typeof(DecimalInput?))
+            if (context.Metadata.ModelType == typeof(DecimalInput))
             {
                 return new BinderTypeModelBinder(typeof(DecimalInputModelBinder));
             }

@@ -11,7 +11,7 @@ namespace TemplateApi.Api.DataModel.UsuarioDataModel
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IntInput? Usuario { get; set; }
+        public IntInput Usuario { get; set; }
 
         /// <summary>
         /// Nome de usuário
@@ -37,6 +37,6 @@ namespace TemplateApi.Api.DataModel.UsuarioDataModel
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInput<Status>? Status { get; set; }
+        public EnumInput<Status> Status { get; set; }
     }
 }

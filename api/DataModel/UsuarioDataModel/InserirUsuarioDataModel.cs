@@ -31,6 +31,6 @@ namespace TemplateApi.Api.DataModel.UsuarioDataModel
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInput<Status>? Status { get; set; }
+        public EnumInput<Status> Status { get; set; }
     }
 }

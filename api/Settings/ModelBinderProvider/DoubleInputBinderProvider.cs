@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Settings.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(DoubleInput) || context.Metadata.ModelType == typeof(DoubleInput?))
+            if (context.Metadata.ModelType == typeof(DoubleInput))
             {
                 return new BinderTypeModelBinder(typeof(DoubleInputModelBinder));
             }

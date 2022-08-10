@@ -131,7 +131,7 @@ namespace TemplateApi.Api
                         Format = "int32",
                         Nullable = false
                     });
-                options.MapType<IntInput?>(
+                options.MapType<IntInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "int32",
@@ -144,7 +144,7 @@ namespace TemplateApi.Api
                         Format = "int64",
                         Nullable = false
                     });
-                options.MapType<LongInput?>(
+                options.MapType<LongInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "int64",
@@ -157,7 +157,7 @@ namespace TemplateApi.Api
                         Format = "decimal",
                         Nullable = false
                     });
-                options.MapType<DecimalInput?>(
+                options.MapType<DecimalInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "decimal",
@@ -170,7 +170,7 @@ namespace TemplateApi.Api
                         Format = "double",
                         Nullable = false
                     });
-                options.MapType<DoubleInput?>(
+                options.MapType<DoubleInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "double",
@@ -184,7 +184,7 @@ namespace TemplateApi.Api
                         Nullable = false,
                         Example = new OpenApiString(DateTime.Now.ToString())
                     });
-                options.MapType<DateTimeInput?>(
+                options.MapType<DateTimeInput>(
                     () => new OpenApiSchema {
                         Type = "strting",
                         Format = "date-time",
@@ -214,7 +214,7 @@ namespace TemplateApi.Api
                         Nullable = false,
                         Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
                     });
-                options.MapType<TimeSpanInput?>(
+                options.MapType<TimeSpanInput>(
                     () => new OpenApiSchema {
                         Type = "strting",
                         Format = "time",
@@ -229,7 +229,7 @@ namespace TemplateApi.Api
                         Nullable = false,
                         Example = new OpenApiString(Guid.NewGuid().ToString())
                     });
-                options.MapType<GuidInput?>(
+                options.MapType<GuidInput>(
                     () => new OpenApiSchema {
                         Type = "strting",
                         Format = "uuid",
@@ -242,7 +242,7 @@ namespace TemplateApi.Api
                         Type = "boolean",
                         Nullable = false
                     });
-                options.MapType<BoolInput?>(
+                options.MapType<BoolInput>(
                     () => new OpenApiSchema {
                         Type = "boolean",
                         Nullable = true
@@ -267,7 +267,7 @@ namespace TemplateApi.Api
                         Nullable = false,
                         Enum = options.OpenApiEnum<Status>()
                     });
-                options.MapType<EnumInput<Status>?>(
+                options.MapType<EnumInput<Status>>(
                     () => new OpenApiSchema {
                         Type = "string",
                         Nullable = true,
@@ -293,7 +293,7 @@ namespace TemplateApi.Api
                         Nullable = false,
                         Enum = options.OpenApiEnum<ContextoCmd>()
                     });
-                options.MapType<EnumInput<ContextoCmd>?>(
+                options.MapType<EnumInput<ContextoCmd>>(
                     () => new OpenApiSchema {
                         Type = "string",
                         Nullable = true,

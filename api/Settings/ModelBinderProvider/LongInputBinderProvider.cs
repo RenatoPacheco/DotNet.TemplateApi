@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Settings.ModelBinderProvider
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(LongInput) || context.Metadata.ModelType == typeof(LongInput?))
+            if (context.Metadata.ModelType == typeof(LongInput))
             {
                 return new BinderTypeModelBinder(typeof(LongInputModelBinder));
             }

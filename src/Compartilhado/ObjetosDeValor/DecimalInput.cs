@@ -4,43 +4,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct DecimalInput
+    public class DecimalInput
         : IFormattable, IComparable, IConvertible,
         IComparable<DecimalInput>, IComparable<decimal>,
         IEquatable<DecimalInput>, IEquatable<decimal>
     {
+        public DecimalInput() { }
+
         public DecimalInput(string input)
         {
             TryParse(input, out DecimalInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public DecimalInput(decimal input)
+        public DecimalInput(decimal? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private decimal _value;
+        private decimal? _value;
         private bool _isValid;
 
         public static explicit operator string(DecimalInput input) => input.ToString();
         public static explicit operator DecimalInput(string input) => new DecimalInput(input);
 
-        public static explicit operator decimal(DecimalInput input) => input._value;
-        public static explicit operator DecimalInput(decimal input) => new DecimalInput(input);
+        public static explicit operator decimal?(DecimalInput input) => input._value;
+        public static explicit operator DecimalInput(decimal? input) => new DecimalInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly DecimalInput Empty = new DecimalInput
-        {
-            _inptValue = "0",
-            _value = 0,
-            _isValid = true
-        };
+        public static readonly DecimalInput Empty = new DecimalInput(string.Empty);
 
         public static void Parse(string input, out DecimalInput output)
         {
@@ -69,7 +68,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (decimal?)null
             };
 
             return result;

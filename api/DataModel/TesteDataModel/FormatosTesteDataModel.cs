@@ -8,23 +8,23 @@ namespace TemplateApi.Api.DataModel.TesteDataModel
     {
         public string String { get; set; }
 
-        public IntInput? Int { get; set; }
+        public IntInput Int { get; set; }
 
-        public LongInput? Long { get; set; }
+        public LongInput Long { get; set; }
 
-        public DecimalInput? Decimal { get; set; }
+        public DecimalInput Decimal { get; set; }
 
-        public DoubleInput? Double { get; set; }
+        public DoubleInput Double { get; set; }
 
-        public BoolInput? Bool { get; set; }
+        public BoolInput Bool { get; set; }
 
-        public DateTimeInput? DateTime { get; set; }
+        public DateTimeInput DateTime { get; set; }
 
-        public TimeSpanInput? TimeSpan { get; set; }
+        public TimeSpanInput TimeSpan { get; set; }
 
-        public GuidInput? Guid { get; set; }
+        public GuidInput Guid { get; set; }
 
-        public EnumInput<Status>? Enum { get; set; }
+        public EnumInput<Status> Enum { get; set; }
 
         public PhoneType? Phone { get; set; }
     }

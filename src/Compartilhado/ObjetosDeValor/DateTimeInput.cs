@@ -4,43 +4,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct DateTimeInput
+    public class DateTimeInput
         : IFormattable, IComparable, IConvertible,
         IComparable<DateTimeInput>, IComparable<DateTime>,
         IEquatable<DateTimeInput>, IEquatable<DateTime>
     {
+        public DateTimeInput() { }
+
         public DateTimeInput(string input)
         {
             TryParse(input, out DateTimeInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public DateTimeInput(DateTime input)
+        public DateTimeInput(DateTime? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private DateTime _value;
+        private DateTime? _value;
         private bool _isValid;
 
         public static explicit operator string(DateTimeInput input) => input.ToString();
         public static explicit operator DateTimeInput(string input) => new DateTimeInput(input);
 
-        public static explicit operator DateTime(DateTimeInput input) => input._value;
-        public static explicit operator DateTimeInput(DateTime input) => new DateTimeInput(input);
+        public static explicit operator DateTime?(DateTimeInput input) => input._value;
+        public static explicit operator DateTimeInput(DateTime? input) => new DateTimeInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly DateTimeInput Empty = new DateTimeInput
-        {
-            _inptValue = $"{new DateTime()}",
-            _value = new DateTime(),
-            _isValid = true
-        };
+        public static readonly DateTimeInput Empty = new DateTimeInput(string.Empty);
 
         public static void Parse(string input, out DateTimeInput output)
         {
@@ -97,7 +96,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             output = new DateTimeInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (DateTime?)null
             };
 
             return result;

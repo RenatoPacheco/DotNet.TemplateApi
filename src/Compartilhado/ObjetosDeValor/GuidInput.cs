@@ -3,43 +3,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct GuidInput
+    public class GuidInput
         : IFormattable, IComparable, IConvertible,
         IComparable<GuidInput>, IComparable<Guid>,
         IEquatable<GuidInput>, IEquatable<Guid>
     {
+        public GuidInput() { }
+
         public GuidInput(string input)
         {
             TryParse(input, out GuidInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public GuidInput(Guid input)
+        public GuidInput(Guid? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private Guid _value;
+        private Guid? _value;
         private bool _isValid;
 
         public static explicit operator string(GuidInput input) => input.ToString();
         public static explicit operator GuidInput(string input) => new GuidInput(input);
 
-        public static explicit operator Guid(GuidInput input) => input._value;
-        public static explicit operator GuidInput(Guid input) => new GuidInput(input);
+        public static explicit operator Guid?(GuidInput input) => input._value;
+        public static explicit operator GuidInput(Guid? input) => new GuidInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly GuidInput Empty = new GuidInput 
-        { 
-            _inptValue = Guid.Empty.ToString(), 
-            _value = Guid.Empty,
-            _isValid = true 
-        };
+        public static readonly GuidInput Empty = new GuidInput(string.Empty);
 
         public static void Parse(string input, out GuidInput output)
         {
@@ -65,7 +64,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             output = new GuidInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (Guid?)null
             };
 
             return result;

@@ -3,43 +3,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct LongInput
+    public class LongInput
         : IFormattable, IComparable, IConvertible,
         IComparable<LongInput>, IComparable<long>,
         IEquatable<LongInput>, IEquatable<long>
     {
+        public LongInput() { }
+
         public LongInput(string input)
         {
             TryParse(input, out LongInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public LongInput(long input)
+        public LongInput(long? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private long _value;
+        private long? _value;
         private bool _isValid;
 
         public static explicit operator string(LongInput input) => input.ToString();
         public static explicit operator LongInput(string input) => new LongInput(input);
 
-        public static explicit operator long(LongInput input) => input._value;
-        public static explicit operator LongInput(long input) => new LongInput(input);
+        public static explicit operator long?(LongInput input) => input._value;
+        public static explicit operator LongInput(long? input) => new LongInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly LongInput Empty = new LongInput
-        {
-            _inptValue = "0",
-            _value = 0,
-            _isValid = true
-        };
+        public static readonly LongInput Empty = new LongInput(string.Empty);
 
         public static void Parse(string input, out LongInput output)
         {
@@ -65,7 +64,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             output = new LongInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (long?)null
             };
 
             return result;

@@ -3,43 +3,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct TimeSpanInput
+    public class TimeSpanInput
         : IFormattable, IComparable, IConvertible,
         IComparable<TimeSpanInput>, IComparable<TimeSpan>,
         IEquatable<TimeSpanInput>, IEquatable<TimeSpan>
     {
+        public TimeSpanInput() { }
+
         public TimeSpanInput(string input)
         {
             TryParse(input, out TimeSpanInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public TimeSpanInput(TimeSpan input)
+        public TimeSpanInput(TimeSpan? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private TimeSpan _value;
+        private TimeSpan? _value;
         private bool _isValid;
 
         public static explicit operator string(TimeSpanInput input) => input.ToString();
         public static explicit operator TimeSpanInput(string input) => new TimeSpanInput(input);
 
-        public static explicit operator TimeSpan(TimeSpanInput input) => input._value;
-        public static explicit operator TimeSpanInput(TimeSpan input) => new TimeSpanInput(input);
+        public static explicit operator TimeSpan?(TimeSpanInput input) => input._value;
+        public static explicit operator TimeSpanInput(TimeSpan? input) => new TimeSpanInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly TimeSpanInput Empty = new TimeSpanInput
-        {
-            _inptValue = (new TimeSpan()).ToString(),
-            _value = new TimeSpan(),
-            _isValid = true
-        };
+        public static readonly TimeSpanInput Empty = new TimeSpanInput(string.Empty);
 
         public static void Parse(string input, out TimeSpanInput output)
         {
@@ -65,7 +64,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             output = new TimeSpanInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (TimeSpan?)null
             };
 
             return result;

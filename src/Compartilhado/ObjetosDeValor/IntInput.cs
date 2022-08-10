@@ -3,43 +3,42 @@ using TemplateApi.RecursoResx;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
-    public struct IntInput
+    public class IntInput
         : IFormattable, IComparable, IConvertible,
         IComparable<IntInput>, IComparable<int>,
         IEquatable<IntInput>, IEquatable<int>
     {
+        public IntInput() { }
+
         public IntInput(string input)
         {
             TryParse(input, out IntInput output);
-            this = output;
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
-        public IntInput(int input)
+        public IntInput(int? input)
         {
-            _inptValue = input.ToString();
+            _inptValue = input?.ToString();
             _value = input;
-            _isValid = true;
+            _isValid = !(input is null);
         }
 
         private string _inptValue;
-        private int _value;
+        private int? _value;
         private bool _isValid;
 
         public static explicit operator string(IntInput input) => input.ToString();
         public static explicit operator IntInput(string input) => new IntInput(input);
 
-        public static explicit operator int(IntInput input) => input._value;
-        public static explicit operator IntInput(int input) => new IntInput(input);
+        public static explicit operator int?(IntInput input) => input._value;
+        public static explicit operator IntInput(int? input) => new IntInput(input);
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly IntInput Empty = new IntInput 
-        { 
-            _inptValue = "0",
-            _value = 0,
-            _isValid = true
-        };
+        public static readonly IntInput Empty = new IntInput(string.Empty);
 
         public static void Parse(string input, out IntInput output)
         {
@@ -65,7 +64,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             output = new IntInput {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
-                _value = value
+                _value = result ? value : (int?)null
             };
 
             return result;

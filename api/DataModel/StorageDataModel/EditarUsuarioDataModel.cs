@@ -8,7 +8,7 @@ namespace TemplateApi.Api.DataModel.StorageDataModel
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public LongInput? Storage { get; set; }
+        public LongInput Storage { get; set; }
 
         /// <summary>
         /// Nome de storage
@@ -18,6 +18,6 @@ namespace TemplateApi.Api.DataModel.StorageDataModel
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public EnumInput<Status>? Status { get; set; }
+        public EnumInput<Status> Status { get; set; }
     }
 }
