@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DecimalInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<DecimalInput>, IEquatable<decimal>, IEquatable<decimal?>
     {
         public DecimalInput() { }

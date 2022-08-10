@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class EnumInput<T>
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<EnumInput<T>>, IEquatable<T>, IEquatable<T?>
         where T : struct
     {

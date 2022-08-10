@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DoubleInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<DoubleInput>, IEquatable<double>, IEquatable<double?>
     {
         public DoubleInput() { }

@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class GuidInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<GuidInput>, IEquatable<Guid>, IEquatable<Guid?>
     {
         public GuidInput() { }

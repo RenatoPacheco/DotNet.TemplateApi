@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class IntInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<IntInput>, IEquatable<int>, IEquatable<int?>
     {
         public IntInput() { }

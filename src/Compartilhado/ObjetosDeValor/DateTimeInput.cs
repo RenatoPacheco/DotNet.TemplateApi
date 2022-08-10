@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DateTimeInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<DateTimeInput>, IEquatable<DateTime>, IEquatable<DateTime?>
     {
         public DateTimeInput() { }

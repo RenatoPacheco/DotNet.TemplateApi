@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class TimeSpanInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<TimeSpanInput>, IEquatable<TimeSpan>, IEquatable<TimeSpan?>
     {
         public TimeSpanInput() { }

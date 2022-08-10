@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class LongInput
-        : IFormattable, IConvertible,
+        : IFormattable, IConvertible, IInputType,
         IEquatable<LongInput>, IEquatable<long>, IEquatable<long?>
     {
         public LongInput() { }
