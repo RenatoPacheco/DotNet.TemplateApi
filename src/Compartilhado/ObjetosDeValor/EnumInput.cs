@@ -4,8 +4,7 @@ using TemplateApi.RecursoResx;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class EnumInput<T>
-        : IFormattable, IComparable, IConvertible,
-        IComparable<EnumInput<T>>, IComparable<T>,
+        : IFormattable, IConvertible,
         IEquatable<EnumInput<T>>, IEquatable<T>
         where T : struct
     {
@@ -113,7 +112,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(EnumInput<T> other)
         {
-            return _inptValue == other._inptValue;
+            return _inptValue == other?._inptValue;
         }
 
         public bool Equals(T other)
@@ -127,55 +126,15 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 || (obj is T typeB && Equals(typeB));
         }
 
-        public int CompareTo(EnumInput<T> other)
-        {
-            return _inptValue.CompareTo(other._inptValue);
-        }
-
-        public int CompareTo(T other)
-        {
-            return _inptValue.CompareTo(other.ToString());
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is null)
-            {
-                return 1;
-            }
-
-            if (obj is EnumInput<T> typeA)
-            {
-                return CompareTo(typeA);
-            }
-
-            if (obj is T typeB)
-            {
-                return CompareTo(typeB);
-            }
-
-            throw new ArgumentException(
-                nameof(obj), AvisosResx.TipoInvalido);
-        }
-
         public static bool operator ==(EnumInput<T> left, EnumInput<T> right)
         {
-            return left.Equals(right);
+            return (left is null && right is null) ||
+                (left is EnumInput<T> l && right is EnumInput<T> r && l.Equals(r));
         }
 
         public static bool operator !=(EnumInput<T> left, EnumInput<T> right)
         {
             return !(left == right);
-        }
-
-        public static bool operator >(EnumInput<T> left, EnumInput<T> right)
-        {
-            return left.CompareTo(right) == 1;
-        }
-
-        public static bool operator <(EnumInput<T> left, EnumInput<T> right)
-        {
-            return left.CompareTo(right) == -1;
         }
 
         #region IConvertible implementation

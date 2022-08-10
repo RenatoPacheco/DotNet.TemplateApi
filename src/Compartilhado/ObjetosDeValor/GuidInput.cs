@@ -4,8 +4,7 @@ using TemplateApi.RecursoResx;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class GuidInput
-        : IFormattable, IComparable, IConvertible,
-        IComparable<GuidInput>, IComparable<Guid>,
+        : IFormattable, IConvertible,
         IEquatable<GuidInput>, IEquatable<Guid>
     {
         public GuidInput() { }
@@ -94,7 +93,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(GuidInput other)
         {
-            return _inptValue == other._inptValue;
+            return _inptValue == other?._inptValue;
         }
 
         public bool Equals(Guid other)
@@ -108,55 +107,15 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 || (obj is Guid typeB && Equals(typeB));
         }
 
-        public int CompareTo(GuidInput other)
-        {
-            return _inptValue.CompareTo(other._inptValue);
-        }
-
-        public int CompareTo(Guid other)
-        {
-            return _inptValue.CompareTo(other.ToString());
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is null)
-            {
-                return 1;
-            }
-
-            if (obj is GuidInput typeA)
-            {
-                return CompareTo(typeA);
-            }
-
-            if (obj is Guid typeB)
-            {
-                return CompareTo(typeB);
-            }
-
-            throw new ArgumentException(
-                nameof(obj), AvisosResx.TipoInvalido);
-        }
-
         public static bool operator ==(GuidInput left, GuidInput right)
         {
-            return left.Equals(right);
+            return (left is null && right is null) ||
+                (left is GuidInput l && right is GuidInput r && l.Equals(r));
         }
 
         public static bool operator !=(GuidInput left, GuidInput right)
         {
             return !(left == right);
-        }
-
-        public static bool operator >(GuidInput left, GuidInput right)
-        {
-            return left.CompareTo(right) == 1;
-        }
-
-        public static bool operator <(GuidInput left, GuidInput right)
-        {
-            return left.CompareTo(right) == -1;
         }
 
         #region IConvertible implementation

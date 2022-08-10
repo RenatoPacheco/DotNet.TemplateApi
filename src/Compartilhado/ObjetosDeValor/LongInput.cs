@@ -4,8 +4,7 @@ using TemplateApi.RecursoResx;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class LongInput
-        : IFormattable, IComparable, IConvertible,
-        IComparable<LongInput>, IComparable<long>,
+        : IFormattable, IConvertible,
         IEquatable<LongInput>, IEquatable<long>
     {
         public LongInput() { }
@@ -94,7 +93,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(LongInput other)
         {
-            return _inptValue == other._inptValue;
+            return _inptValue == other?._inptValue;
         }
 
         public bool Equals(long other)
@@ -108,55 +107,15 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 || (obj is long typeB && Equals(typeB));
         }
 
-        public int CompareTo(LongInput other)
-        {
-            return _inptValue.CompareTo(other._inptValue);
-        }
-
-        public int CompareTo(long other)
-        {
-            return _inptValue.CompareTo(other.ToString());
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is null)
-            {
-                return 1;
-            }
-
-            if (obj is LongInput typeA)
-            {
-                return CompareTo(typeA);
-            }
-
-            if (obj is long typeB)
-            {
-                return CompareTo(typeB);
-            }
-
-            throw new ArgumentException(
-                nameof(obj), AvisosResx.TipoInvalido);
-        }
-
         public static bool operator ==(LongInput left, LongInput right)
         {
-            return left.Equals(right);
+            return (left is null && right is null) ||
+                (left is LongInput l && right is LongInput r && l.Equals(r));
         }
 
         public static bool operator !=(LongInput left, LongInput right)
         {
-            return !(left == right);
-        }
-
-        public static bool operator >(LongInput left, LongInput right)
-        {
-            return left.CompareTo(right) == 1;
-        }
-
-        public static bool operator <(LongInput left, LongInput right)
-        {
-            return left.CompareTo(right) == -1;
+            return !(left == right);   
         }
 
         #region IConvertible implementation

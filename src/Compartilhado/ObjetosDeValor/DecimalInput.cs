@@ -5,8 +5,7 @@ using TemplateApi.RecursoResx;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DecimalInput
-        : IFormattable, IComparable, IConvertible,
-        IComparable<DecimalInput>, IComparable<decimal>,
+        : IFormattable, IConvertible,
         IEquatable<DecimalInput>, IEquatable<decimal>
     {
         public DecimalInput() { }
@@ -98,7 +97,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(DecimalInput other)
         {
-            return _inptValue == other._inptValue;
+            return _inptValue == other?._inptValue;
         }
 
         public bool Equals(decimal other)
@@ -112,55 +111,15 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 || (obj is decimal typeB && Equals(typeB));
         }
 
-        public int CompareTo(DecimalInput other)
-        {
-            return _inptValue.CompareTo(other._inptValue);
-        }
-
-        public int CompareTo(decimal other)
-        {
-            return _inptValue.CompareTo(other.ToString());
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is null)
-            {
-                return 1;
-            }
-
-            if (obj is DecimalInput typeA)
-            {
-                return CompareTo(typeA);
-            }
-
-            if (obj is decimal typeB)
-            {
-                return CompareTo(typeB);
-            }
-
-            throw new ArgumentException(
-                nameof(obj), AvisosResx.TipoInvalido);
-        }
-
         public static bool operator ==(DecimalInput left, DecimalInput right)
         {
-            return left.Equals(right);
+            return (left is null && right is null) ||
+                (left is DecimalInput l && right is DecimalInput r && l.Equals(r));
         }
 
         public static bool operator !=(DecimalInput left, DecimalInput right)
         {
             return !(left == right);
-        }
-
-        public static bool operator >(DecimalInput left, DecimalInput right)
-        {
-            return left.CompareTo(right) == 1;
-        }
-
-        public static bool operator <(DecimalInput left, DecimalInput right)
-        {
-            return left.CompareTo(right) == -1;
         }
 
         #region IConvertible implementation

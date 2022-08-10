@@ -54,5 +54,18 @@ namespace TemplateApi.Teste.Compartilhado.ObjetosDeValor
 
             Assert.Equal(ehValido, valor.IsValid());
         }
+
+        [Theory]
+        [InlineData(null, null, true)]
+        [InlineData("", null, false)]
+        [InlineData(null, "", false)]
+        public void Checar_operadroe_de_igual(string valor, string compara, bool ehIgual)
+        {
+            BoolInput v = valor is null ? null : new BoolInput(valor);
+            BoolInput c = compara is null ? null : new BoolInput(compara);
+
+            Assert.Equal(ehIgual, v == c);
+            Assert.Equal(!ehIgual, v != c);
+        }
     }
 }

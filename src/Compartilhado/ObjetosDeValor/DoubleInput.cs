@@ -5,8 +5,7 @@ using TemplateApi.RecursoResx;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DoubleInput
-        : IFormattable, IComparable, IConvertible,
-        IComparable<DoubleInput>, IComparable<double>,
+        : IFormattable, IConvertible,
         IEquatable<DoubleInput>, IEquatable<double>
     {
         public DoubleInput() { }
@@ -98,7 +97,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(DoubleInput other)
         {
-            return _inptValue == other._inptValue;
+            return _inptValue == other?._inptValue;
         }
 
         public bool Equals(double other)
@@ -112,55 +111,15 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 || (obj is double typeB && Equals(typeB));
         }
 
-        public int CompareTo(DoubleInput other)
-        {
-            return _inptValue.CompareTo(other._inptValue);
-        }
-
-        public int CompareTo(double other)
-        {
-            return _inptValue.CompareTo(other.ToString());
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is null)
-            {
-                return 1;
-            }
-
-            if (obj is DoubleInput typeA)
-            {
-                return CompareTo(typeA);
-            }
-
-            if (obj is double typeB)
-            {
-                return CompareTo(typeB);
-            }
-
-            throw new ArgumentException(
-                nameof(obj), AvisosResx.TipoInvalido);
-        }
-
         public static bool operator ==(DoubleInput left, DoubleInput right)
         {
-            return left.Equals(right);
+            return (left is null && right is null) ||
+                (left is DoubleInput l && right is DoubleInput r && l.Equals(r));
         }
 
         public static bool operator !=(DoubleInput left, DoubleInput right)
         {
             return !(left == right);
-        }
-
-        public static bool operator >(DoubleInput left, DoubleInput right)
-        {
-            return left.CompareTo(right) == 1;
-        }
-
-        public static bool operator <(DoubleInput left, DoubleInput right)
-        {
-            return left.CompareTo(right) == -1;
         }
 
         #region IConvertible implementation

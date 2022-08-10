@@ -4,8 +4,7 @@ using TemplateApi.RecursoResx;
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class TimeSpanInput
-        : IFormattable, IComparable, IConvertible,
-        IComparable<TimeSpanInput>, IComparable<TimeSpan>,
+        : IFormattable, IConvertible,
         IEquatable<TimeSpanInput>, IEquatable<TimeSpan>
     {
         public TimeSpanInput() { }
@@ -94,7 +93,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(TimeSpanInput other)
         {
-            return _inptValue == other._inptValue;
+            return _inptValue == other?._inptValue;
         }
 
         public bool Equals(TimeSpan other)
@@ -108,55 +107,15 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                 || (obj is TimeSpan typeB && Equals(typeB));
         }
 
-        public int CompareTo(TimeSpanInput other)
-        {
-            return _inptValue.CompareTo(other._inptValue);
-        }
-
-        public int CompareTo(TimeSpan other)
-        {
-            return _inptValue.CompareTo(other.ToString());
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is null)
-            {
-                return 1;
-            }
-
-            if (obj is TimeSpanInput typeA)
-            {
-                return CompareTo(typeA);
-            }
-
-            if (obj is TimeSpan typeB)
-            {
-                return CompareTo(typeB);
-            }
-
-            throw new ArgumentException(
-                nameof(obj), AvisosResx.TipoInvalido);
-        }
-
         public static bool operator ==(TimeSpanInput left, TimeSpanInput right)
         {
-            return left.Equals(right);
+            return (left is null && right is null) ||
+                (left is TimeSpanInput l && right is TimeSpanInput r && l.Equals(r));
         }
 
         public static bool operator !=(TimeSpanInput left, TimeSpanInput right)
         {
             return !(left == right);
-        }
-
-        public static bool operator >(TimeSpanInput left, TimeSpanInput right)
-        {
-            return left.CompareTo(right) == 1;
-        }
-
-        public static bool operator <(TimeSpanInput left, TimeSpanInput right)
-        {
-            return left.CompareTo(right) == -1;
         }
 
         #region IConvertible implementation
