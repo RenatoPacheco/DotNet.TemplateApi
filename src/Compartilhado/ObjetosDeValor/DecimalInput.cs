@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Globalization;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DecimalInput
         : IFormattable, IConvertible,
-        IEquatable<DecimalInput>, IEquatable<decimal>
+        IEquatable<DecimalInput>, IEquatable<decimal>, IEquatable<decimal?>
     {
         public DecimalInput() { }
 
@@ -103,6 +104,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(decimal other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] decimal? other)
+        {
+            return other is decimal o && Equals(o);
         }
 
         public override bool Equals(object obj)

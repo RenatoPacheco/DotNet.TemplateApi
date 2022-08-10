@@ -1,11 +1,12 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class EnumInput<T>
         : IFormattable, IConvertible,
-        IEquatable<EnumInput<T>>, IEquatable<T>
+        IEquatable<EnumInput<T>>, IEquatable<T>, IEquatable<T?>
         where T : struct
     {
         public EnumInput() { }
@@ -118,6 +119,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(T other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] T? other)
+        {
+            return other is T o && Equals(o);
         }
 
         public override bool Equals(object obj)

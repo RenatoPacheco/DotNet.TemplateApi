@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Globalization;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DoubleInput
         : IFormattable, IConvertible,
-        IEquatable<DoubleInput>, IEquatable<double>
+        IEquatable<DoubleInput>, IEquatable<double>, IEquatable<double?>
     {
         public DoubleInput() { }
 
@@ -103,6 +104,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(double other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] double? other)
+        {
+            return other is double o && Equals(o);
         }
 
         public override bool Equals(object obj)

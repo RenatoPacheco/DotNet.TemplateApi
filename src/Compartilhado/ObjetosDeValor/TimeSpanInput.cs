@@ -1,11 +1,12 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class TimeSpanInput
         : IFormattable, IConvertible,
-        IEquatable<TimeSpanInput>, IEquatable<TimeSpan>
+        IEquatable<TimeSpanInput>, IEquatable<TimeSpan>, IEquatable<TimeSpan?>
     {
         public TimeSpanInput() { }
 
@@ -99,6 +100,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(TimeSpan other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] TimeSpan? other)
+        {
+            return other is TimeSpan o && Equals(o);
         }
 
         public override bool Equals(object obj)

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Globalization;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DateTimeInput
         : IFormattable, IConvertible,
-        IEquatable<DateTimeInput>, IEquatable<DateTime>
+        IEquatable<DateTimeInput>, IEquatable<DateTime>, IEquatable<DateTime?>
     {
         public DateTimeInput() { }
 
@@ -131,6 +132,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(DateTime other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] DateTime? other)
+        {
+            return other is DateTime o && Equals(o);
         }
 
         public override bool Equals(object obj)

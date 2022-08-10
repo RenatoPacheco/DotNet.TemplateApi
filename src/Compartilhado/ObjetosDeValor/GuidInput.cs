@@ -1,11 +1,12 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class GuidInput
         : IFormattable, IConvertible,
-        IEquatable<GuidInput>, IEquatable<Guid>
+        IEquatable<GuidInput>, IEquatable<Guid>, IEquatable<Guid?>
     {
         public GuidInput() { }
 
@@ -99,6 +100,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(Guid other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] Guid? other)
+        {
+            return other is Guid o && Equals(o);
         }
 
         public override bool Equals(object obj)

@@ -1,11 +1,12 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class LongInput
         : IFormattable, IConvertible,
-        IEquatable<LongInput>, IEquatable<long>
+        IEquatable<LongInput>, IEquatable<long>, IEquatable<long?>
     {
         public LongInput() { }
 
@@ -99,6 +100,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(long other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] long? other)
+        {
+            return other is long o && Equals(o);
         }
 
         public override bool Equals(object obj)

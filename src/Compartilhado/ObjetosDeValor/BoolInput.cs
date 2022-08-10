@@ -1,11 +1,12 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class BoolInput
         : IFormattable, IConvertible,
-        IEquatable<BoolInput>, IEquatable<bool>
+        IEquatable<BoolInput>, IEquatable<bool>, IEquatable<bool?>
     {
         public BoolInput() { }
 
@@ -99,6 +100,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(bool other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] bool? other)
+        {
+            return other is bool o && Equals(o);
         }
 
         public override bool Equals(object obj)

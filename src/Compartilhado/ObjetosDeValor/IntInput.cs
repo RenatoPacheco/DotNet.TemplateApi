@@ -1,11 +1,12 @@
 ﻿using System;
 using TemplateApi.RecursoResx;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class IntInput
         : IFormattable, IConvertible,
-        IEquatable<IntInput>, IEquatable<int>
+        IEquatable<IntInput>, IEquatable<int>, IEquatable<int?>
     {
         public IntInput() { }
 
@@ -99,6 +100,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         public bool Equals(int other)
         {
             return _inptValue == other.ToString();
+        }
+
+        public bool Equals([AllowNull] int? other)
+        {
+            return other is int o && Equals(o);
         }
 
         public override bool Equals(object obj)
