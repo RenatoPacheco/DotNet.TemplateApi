@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using System.Linq;
-using BitHelp.Core.Validation.Extends;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Api.DataModel.ConteudoDataModel;
 
@@ -15,15 +14,9 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<InserirConteudoDataModel, InserirConteudoCmd>()
                 .ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Status?.IsValid() ?? false;
-
-                        if ((src.Status != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Status);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Status, src.Status);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion
@@ -31,35 +24,23 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             #region FiltrarConteudoCmd
 
             CreateMap<FiltrarConteudoDataModel, FiltrarConteudoCmd>()
-                .ForMember(cmd => cmd.Conteudo, opts => {
+                .ForMember(cmd => cmd.Texto, opts => {
+                    opts.Condition((src, dest, srcMember) => srcMember != null);
+                }).ForMember(cmd => cmd.Contexto, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Conteudo?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Conteudo != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Conteudo);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Contexto, src.Contexto);
+                    });
+                }).ForMember(cmd => cmd.Conteudo, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo);
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Status?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Status != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Status);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Status, src.Status);
                     });
-                }).ForMember(cmd => cmd.Contexto, opts => {
-                    opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Contexto.IsValid();
-
-                        if ((src.Contexto != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Contexto);
-
-                        return ehValido;
-                    });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion
@@ -69,24 +50,13 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<EditarConteudoDataModel, EditarConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Conteudo?.IsValid() ?? false;
-
-                        if ((src.Conteudo != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Conteudo);
-
-                        return ehValido;
+                        return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo);
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Status?.IsValid() ?? false;
-
-                        if (!(src.Status is null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Status);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Status, src.Status);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion
@@ -96,15 +66,9 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<ExcluirConteudoDataModel, ExcluirConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Conteudo?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Conteudo != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Conteudo);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion

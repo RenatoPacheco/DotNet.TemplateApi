@@ -29,11 +29,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private int? _value;
         private bool _isValid;
 
-        public static explicit operator string(IntInput input) => input.ToString();
-        public static explicit operator IntInput(string input) => new IntInput(input);
+        public static explicit operator string(IntInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator int?(IntInput input) => input._value;
-        public static explicit operator IntInput(int? input) => new IntInput(input);
+        public static explicit operator IntInput(string input)
+        {
+            return input is null ? null : new IntInput(input);
+        }
+
+        public static explicit operator int?(IntInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator IntInput(int? input)
+        {
+            return input is null ? null : new IntInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -61,7 +75,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         {
             input = input?.Trim();
             bool result = int.TryParse(input, out int value);
-            output = new IntInput {
+            output = new IntInput
+            {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = result ? value : (int?)null
@@ -70,7 +85,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {

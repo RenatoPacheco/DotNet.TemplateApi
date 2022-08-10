@@ -29,11 +29,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private bool? _value;
         private bool _isValid;
 
-        public static explicit operator string(BoolInput input) => input.ToString();
-        public static explicit operator BoolInput(string input) => new BoolInput(input);
+        public static explicit operator string(BoolInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator bool?(BoolInput input) => input._value;
-        public static explicit operator BoolInput(bool? input) => new BoolInput(input);
+        public static explicit operator BoolInput(string input)
+        {
+            return input is null ? null : new BoolInput(input);
+        }
+
+        public static explicit operator bool?(BoolInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator BoolInput(bool? input)
+        {
+            return input is null ? null : new BoolInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -61,7 +75,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         {
             input = input?.Trim();
             bool result = bool.TryParse(input, out bool value);
-            output = new BoolInput {
+            output = new BoolInput
+            {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = result ? value : (bool?)null
@@ -70,7 +85,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {
@@ -115,7 +133,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public static bool operator ==(BoolInput left, BoolInput right)
         {
-            return (left is null && right is null) || 
+            return (left is null && right is null) ||
                 (left is BoolInput l && right is BoolInput r && l.Equals(r));
         }
 

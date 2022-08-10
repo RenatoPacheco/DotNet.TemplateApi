@@ -30,11 +30,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private DateTime? _value;
         private bool _isValid;
 
-        public static explicit operator string(DateTimeInput input) => input.ToString();
-        public static explicit operator DateTimeInput(string input) => new DateTimeInput(input);
+        public static explicit operator string(DateTimeInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator DateTime?(DateTimeInput input) => input._value;
-        public static explicit operator DateTimeInput(DateTime? input) => new DateTimeInput(input);
+        public static explicit operator DateTimeInput(string input)
+        {
+            return input is null ? null : new DateTimeInput(input);
+        }
+
+        public static explicit operator DateTime?(DateTimeInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator DateTimeInput(DateTime? input)
+        {
+            return input is null ? null : new DateTimeInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -93,7 +107,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
                     break;
                 }
             }
-            output = new DateTimeInput {
+            output = new DateTimeInput
+            {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = result ? value : (DateTime?)null
@@ -102,7 +117,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {

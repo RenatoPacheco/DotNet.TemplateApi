@@ -29,11 +29,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private long? _value;
         private bool _isValid;
 
-        public static explicit operator string(LongInput input) => input.ToString();
-        public static explicit operator LongInput(string input) => new LongInput(input);
+        public static explicit operator string(LongInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator long?(LongInput input) => input._value;
-        public static explicit operator LongInput(long? input) => new LongInput(input);
+        public static explicit operator LongInput(string input)
+        {
+            return input is null ? null : new LongInput(input);
+        }
+
+        public static explicit operator long?(LongInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator LongInput(long? input)
+        {
+            return input is null ? null : new LongInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -61,7 +75,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         {
             input = input?.Trim();
             bool result = long.TryParse(input, out long value);
-            output = new LongInput {
+            output = new LongInput
+            {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = result ? value : (long?)null
@@ -70,7 +85,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {
@@ -121,7 +139,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public static bool operator !=(LongInput left, LongInput right)
         {
-            return !(left == right);   
+            return !(left == right);
         }
 
         #region IConvertible implementation

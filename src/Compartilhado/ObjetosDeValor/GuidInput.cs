@@ -29,11 +29,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private Guid? _value;
         private bool _isValid;
 
-        public static explicit operator string(GuidInput input) => input.ToString();
-        public static explicit operator GuidInput(string input) => new GuidInput(input);
+        public static explicit operator string(GuidInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator Guid?(GuidInput input) => input._value;
-        public static explicit operator GuidInput(Guid? input) => new GuidInput(input);
+        public static explicit operator GuidInput(string input)
+        {
+            return input is null ? null : new GuidInput(input);
+        }
+
+        public static explicit operator Guid?(GuidInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator GuidInput(Guid? input)
+        {
+            return input is null ? null : new GuidInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -61,7 +75,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         {
             input = input?.Trim();
             bool result = Guid.TryParse(input, out Guid value);
-            output = new GuidInput {
+            output = new GuidInput
+            {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = result ? value : (Guid?)null
@@ -70,7 +85,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {

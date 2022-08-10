@@ -1,12 +1,16 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using BitHelp.Core.Validation;
 using TemplateApi.RecursoResx;
+using System.Linq.Expressions;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.Extensions
 {
-    public static class IAutoValidacaoExtensions
+    public static class ISelfValidationExtension
     {
         public static void ExtrairModelState(this ISelfValidation entidade, ModelStateDictionary dados)
         {
@@ -52,6 +56,30 @@ namespace TemplateApi.Api.Extensions
             }
 
             dados.Clear();
+        }
+
+
+
+        public static bool InputTypeEhValido<T>(this T entidade, Expression<Func<T, object>> expression, IInputType checar)
+            where T : ISelfValidation
+        {
+            bool ehValido = checar?.IsValid() ?? false;
+
+            if ((checar != null) && !ehValido)
+                entidade.Notifications.AddError(expression);
+
+            return ehValido;
+        }
+
+        public static bool InputTypeEhValido<T>(this T entidade, Expression<Func<T, object>> expression, IEnumerable<IInputType> checar)
+            where T : ISelfValidation
+        {
+            bool ehValido = !(checar?.Any(x => !x.IsValid()) ?? true);
+
+            if ((checar != null) && !ehValido)
+                entidade.Notifications.AddError(expression);
+
+            return ehValido;
         }
     }
 }

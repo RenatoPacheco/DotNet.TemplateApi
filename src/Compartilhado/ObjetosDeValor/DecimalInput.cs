@@ -30,11 +30,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private decimal? _value;
         private bool _isValid;
 
-        public static explicit operator string(DecimalInput input) => input.ToString();
-        public static explicit operator DecimalInput(string input) => new DecimalInput(input);
+        public static explicit operator string(DecimalInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator decimal?(DecimalInput input) => input._value;
-        public static explicit operator DecimalInput(decimal? input) => new DecimalInput(input);
+        public static explicit operator DecimalInput(string input)
+        {
+            return input is null ? null : new DecimalInput(input);
+        }
+
+        public static explicit operator decimal?(DecimalInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator DecimalInput(decimal? input)
+        {
+            return input is null ? null : new DecimalInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -74,7 +88,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {

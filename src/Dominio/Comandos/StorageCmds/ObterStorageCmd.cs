@@ -44,11 +44,11 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private bool _download = true;
+        private bool? _download = true;
         /// <summary>
         /// Informe true para fazer download do arquivo , valor padrão é true
         /// </summary>
-        public bool Download
+        public bool? Download
         {
             get => _download;
             set

@@ -32,22 +32,22 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public static explicit operator string(EnumInput<T> input)
         {
-            return input.ToString();
+            return input?.ToString();
         }
 
         public static explicit operator EnumInput<T>(string input)
         {
-            return new EnumInput<T>(input);
+            return input is null ? null : new EnumInput<T>(input);
         }
 
         public static explicit operator T?(EnumInput<T> input)
         {
-            return input._value;
+            return input?._value;
         }
 
         public static explicit operator EnumInput<T>(T? input)
         {
-            return new EnumInput<T>(input);
+            return input is null ? null : new EnumInput<T>(input);
         }
 
         /// <summary>

@@ -30,11 +30,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private double? _value;
         private bool _isValid;
 
-        public static explicit operator string(DoubleInput input) => input.ToString();
-        public static explicit operator DoubleInput(string input) => new DoubleInput(input);
+        public static explicit operator string(DoubleInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator double?(DoubleInput input) => input._value;
-        public static explicit operator DoubleInput(double? input) => new DoubleInput(input);
+        public static explicit operator DoubleInput(string input)
+        {
+            return input is null ? null : new DoubleInput(input);
+        }
+
+        public static explicit operator double?(DoubleInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator DoubleInput(double? input)
+        {
+            return input is null ? null : new DoubleInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -74,7 +88,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {

@@ -67,8 +67,10 @@ namespace TemplateApi.Api.Controllers.Common
                 HttpStatusCode.OK, Notifications, data);
         }
 
-        protected IActionResult CustomPhysicalFile(Storage data, IWebHostEnvironment webHostingEnvironment, bool download = false)
+        protected IActionResult CustomPhysicalFile(Storage data, IWebHostEnvironment webHostingEnvironment, bool? download = false)
         {
+            download ??= false;
+
             if (!IsValid())
             {
                 if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
@@ -91,7 +93,7 @@ namespace TemplateApi.Api.Controllers.Common
                 if (!string.IsNullOrWhiteSpace(data?.Checksum))
                     Response.Headers.Add("Checksum", data.Checksum);
 
-                if (download)
+                if (download.Value)
                     return PhysicalFile(finalPath, data.Tipo, data.Alias);
                 else
                     return PhysicalFile(finalPath, data.Tipo);
@@ -103,8 +105,10 @@ namespace TemplateApi.Api.Controllers.Common
                 HttpStatusCode.NotFound, Notifications);
         }
 
-        protected IActionResult CustomFile(byte[] bytes, string type, string name, bool download = false)
+        protected IActionResult CustomFile(byte[] bytes, string type, string name, bool? download = false)
         {
+            download ??= false;
+
             if (!IsValid())
             {
                 if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
@@ -119,7 +123,7 @@ namespace TemplateApi.Api.Controllers.Common
                     HttpStatusCode.BadRequest, Notifications);
             }
 
-            if (download)
+            if (download.Value)
                 return File(bytes, type, name);
             else
                 return File(bytes, type);

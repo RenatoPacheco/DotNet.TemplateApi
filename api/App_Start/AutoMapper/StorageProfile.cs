@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using System.Linq;
-using BitHelp.Core.Validation.Extends;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Api.DataModel.StorageDataModel;
 
@@ -24,33 +23,19 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<FiltrarStorageDataModel, FiltrarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Storage?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Storage != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Storage);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Storage, src.Storage);
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Status?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Status != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Status);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Status, src.Status);
                     });
                 }).ForMember(cmd => cmd.Contexto, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Contexto.IsValid();
-
-                        if ((src.Contexto != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Contexto);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Contexto, src.Contexto);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion
@@ -60,24 +45,14 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<EditarStorageDataModel, EditarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Storage?.IsValid() ?? false;
-
-                        if ((src.Storage != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Storage);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Storage, src.Storage);
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Status?.IsValid() ?? false;
-
-                        if ((src.Status != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Status);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Status, src.Status);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion
@@ -87,15 +62,9 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Storage?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Storage != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Storage);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Storage, src.Storage);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion
@@ -105,24 +74,14 @@ namespace TemplateApi.Api.App_Start.AutoMapper
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
                 .ForMember(cmd => cmd.Download, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = src.Download?.IsValid() ?? false;
-
-                        if ((src.Download != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Download);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Download, src.Download);
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        bool ehValido = !src.Status?.Any(x => !x.IsValid()) ?? false;
-
-                        if ((src.Status != null) && !ehValido)
-                            dest.AddErrorNotification(x => x.Status);
-
-                        return ehValido;
+                        return srcMember != null
+                            && dest.InputTypeEhValido(x => x.Status, src.Status);
                     });
-                }).ForAllMembers(opts => {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
                 });
 
             #endregion

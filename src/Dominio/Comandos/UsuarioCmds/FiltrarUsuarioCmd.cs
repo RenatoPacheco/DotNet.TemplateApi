@@ -17,11 +17,11 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
         }
 
-        private ContextoCmd _contexto;
+        private ContextoCmd? _contexto = ContextoCmd.Embutir;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public ContextoCmd Contexto
+        public ContextoCmd? Contexto
         {
             get => _contexto;
             set

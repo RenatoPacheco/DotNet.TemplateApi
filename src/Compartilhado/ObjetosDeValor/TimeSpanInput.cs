@@ -29,11 +29,25 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         private TimeSpan? _value;
         private bool _isValid;
 
-        public static explicit operator string(TimeSpanInput input) => input.ToString();
-        public static explicit operator TimeSpanInput(string input) => new TimeSpanInput(input);
+        public static explicit operator string(TimeSpanInput input)
+        {
+            return input?.ToString();
+        }
 
-        public static explicit operator TimeSpan?(TimeSpanInput input) => input._value;
-        public static explicit operator TimeSpanInput(TimeSpan? input) => new TimeSpanInput(input);
+        public static explicit operator TimeSpanInput(string input)
+        {
+            return input is null ? null : new TimeSpanInput(input);
+        }
+
+        public static explicit operator TimeSpan?(TimeSpanInput input)
+        {
+            return input?._value;
+        }
+
+        public static explicit operator TimeSpanInput(TimeSpan? input)
+        {
+            return input is null ? null : new TimeSpanInput(input);
+        }
 
         /// <summary>
         /// Return value string.Empty
@@ -61,7 +75,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         {
             input = input?.Trim();
             bool result = TimeSpan.TryParse(input, out TimeSpan value);
-            output = new TimeSpanInput {
+            output = new TimeSpanInput
+            {
                 _isValid = result,
                 _inptValue = result ? value.ToString() : input,
                 _value = result ? value : (TimeSpan?)null
@@ -70,7 +85,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return result;
         }
 
-        public bool IsValid() => _isValid;
+        public bool IsValid()
+        {
+            return _isValid;
+        }
 
         public override string ToString()
         {
