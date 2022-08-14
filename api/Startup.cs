@@ -27,9 +27,9 @@ namespace TemplateApi.Api
 
             services.AddControllers(options => {
                 // Aplicando filtrdo customizados
-                FiltersConfig.Config(options);
+                FilterConfig.Config(options);
                 // Aplicando binders customizados
-                ModelBinderProvidersConfig.Config(options);
+                ModelBinderProviderConfig.Config(options);
             }).ConfigureApiBehaviorOptions(options => {
                 // Desabilitando o filtro que intecepta erros do ModelState
                 options.SuppressModelStateInvalidFilter = true;
@@ -37,7 +37,7 @@ namespace TemplateApi.Api
                 ContratoJson.Configurar(options.JsonSerializerOptions);
             });
 
-            SwaggerConfig.Config(services);
+            SwashbuckleConfig.Config(services);
             AutoMapperConfig.Config(services);
         }
 
@@ -50,7 +50,7 @@ namespace TemplateApi.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                SwaggerConfig.Config(app);
+                SwashbuckleConfig.Config(app);
             }
 
             app.UseHttpsRedirection();

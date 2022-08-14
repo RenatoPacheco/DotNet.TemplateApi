@@ -9,7 +9,7 @@ using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 using TemplateApi.Api.Extensions;
-using TemplateApi.Api.DataModel.TesteDataModel;
+using TemplateApi.Api.DataModels.TesteDataModel;
 
 namespace TemplateApi.Api.Controllers.Services
 {

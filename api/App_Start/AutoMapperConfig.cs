@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using TemplateApi.Api.App_Start.AutoMapper;
+using TemplateApi.Api.App_Start.AutoMappers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace TemplateApi.Api

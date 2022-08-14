@@ -8,7 +8,7 @@ using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Api.DataModel.StorageDataModel;
+using TemplateApi.Api.DataModels.StorageDataModel;
 using TemplateApi.Api.DataAnnotations;
 
 namespace TemplateApi.Api.Controllers.Services

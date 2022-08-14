@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Api.DataModel.StorageDataModel;
+using TemplateApi.Api.DataModels.StorageDataModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 

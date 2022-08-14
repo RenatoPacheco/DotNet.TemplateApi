@@ -9,7 +9,7 @@ using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
-using TemplateApi.Api.DataModel.ConteudoDataModel;
+using TemplateApi.Api.DataModels.ConteudoDataModel;
 using TemplateApi.Api.DataAnnotations;
 
 namespace TemplateApi.Api.Controllers.Services

@@ -37,22 +37,22 @@
             <p>Essas rotas da API são interfaces de acesso, as classe e métodos da aplicação, e nesse endereço, <strong>GET /Servico/Autenticacao/Core</strong>, são as mesmas autorizações, só que no core do site.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Get(TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Get(TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel)">
             <summary>
             Filtro de conteúdos
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Post(TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Post(TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel)">
             <summary>
             Inserir conteúdo
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Patch(TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Patch(TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel)">
             <summary>
             Editar conteúdo
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Delete(TemplateApi.Api.DataModel.ConteudoDataModel.ExcluirConteudoDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Delete(TemplateApi.Api.DataModels.ConteudoDataModel.ExcluirConteudoDataModel)">
             <summary>
             Deletar um ou mais conteúdos
             </summary>
@@ -74,7 +74,7 @@
             </ul>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Get(TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Get(TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel)">
             <summary>
             Filtro de storages
             </summary>
@@ -82,7 +82,7 @@
             <p>Permite fazer uma busca pelos arquivos indexados no banco, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Post(TemplateApi.Api.DataModel.StorageDataModel.InserirStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Post(TemplateApi.Api.DataModels.StorageDataModel.InserirStorageDataModel)">
             <summary>
             Inserir storage
             </summary>
@@ -98,7 +98,7 @@
             <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Patch(TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Patch(TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel)">
             <summary>
             Editar storage
             </summary>
@@ -106,7 +106,7 @@
             <p>Permite editar dados básicos de um arquivo, como nome e status</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Delete(TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Delete(TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel)">
             <summary>
             Deletar um ou mais storages
             </summary>
@@ -114,47 +114,47 @@
             <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromQuery(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromQuery(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromQuery
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromBody(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromBody(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromBody
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromForm(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromForm(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromForm
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromHeader(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromHeader(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados por FromHeader
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.WithoutFrom(TemplateApi.Api.DataModel.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.WithoutFrom(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
             <summary>
             Recebendo os dados ser usar nenhum dos tipos From
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Get(TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Get(TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Post(TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Post(TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel)">
             <summary>
             Inserir usuário
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Patch(TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Patch(TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel)">
             <summary>
             Editar usuário
             </summary>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Delete(TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Delete(TemplateApi.Api.DataModels.UsuarioDataModel.ExcluirUsuarioDataModel)">
             <summary>
             Deletar um ou mais usuários
             </summary>
@@ -162,7 +162,7 @@
             <p>Permite excluir um ou mais usuários, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.StorageController.Get(TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.StorageController.Get(TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel)">
             <summary>
             Obter um arquivo de storage
             </summary>
@@ -171,213 +171,213 @@
             <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
             </remarks>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
             <summary>
             Identificador de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Titulo">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Titulo">
             <summary>
             Título de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Alias">
             <summary>
             Alias de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Texto">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Texto">
             <summary>
             Texto de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.EditarConteudoDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Status">
             <summary>
             Status de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Contexto">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Contexto">
             <summary>
             Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.FiltrarConteudoDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Titulo">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Titulo">
             <summary>
             Título de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Alias">
             <summary>
             Alias de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Texto">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Texto">
             <summary>
             Texto de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.ConteudoDataModel.InserirConteudoDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Status">
             <summary>
             Status de conteúdo
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel.Storage">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Storage">
             <summary>
             Identificador de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel.Nome">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Nome">
             <summary>
             Nome de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.EditarStorageDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel.Storage">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Storage">
             <summary>
             Identificador de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ExcluirStorageDataModel.Referencia">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Referencia">
             <summary>
             Referência de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Contexto">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Contexto">
             <summary>
             Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Storage">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Storage">
             <summary>
             Identificador de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Referencia">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Referencia">
             <summary>
             Referência de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Alias">
             <summary>
             Alias de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.FiltrarStorageDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.InserirStorageDataModel.Arquivo">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.InserirStorageDataModel.Arquivo">
             <summary>
             O peso do arquivo não pode ser maior que 100 kb, 
             e os tipos permitidos são imagens, textos ou planilhas.
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel.Alias">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Alias">
             <summary>
             Alias de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.StorageDataModel.ObterStorageDataModel.Download">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Download">
             <summary>
             Informe true para fazer download do arquivo 
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Nome">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Nome">
             <summary>
             Nome de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Email">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Email">
             <summary>
             E-mail de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Telefone">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Telefone">
             <summary>
             Telefone de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Senha">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Senha">
             <summary>
             Senha de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.EditarUsuarioDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Contexto">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel.Contexto">
             <summary>
             Informe o contexto da busca, sendo que o valor padrão é Embutir
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">
             <summary>
             Identificador de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Nome">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Nome">
             <summary>
             Nome de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Email">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Email">
             <summary>
             E-mail de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
             <summary>
             Telefone de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Senha">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Senha">
             <summary>
             Senha de usuário
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModel.UsuarioDataModel.InserirUsuarioDataModel.Status">
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Status">
             <summary>
             Status de usuário
             </summary>
