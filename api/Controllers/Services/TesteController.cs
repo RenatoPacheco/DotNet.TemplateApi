@@ -37,7 +37,7 @@ namespace TemplateApi.Api.Controllers.Services
         [Route("FromQuery")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -57,7 +57,7 @@ namespace TemplateApi.Api.Controllers.Services
         [Route("FromBody")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromBody([FromBody] FormatosTesteDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -77,7 +77,7 @@ namespace TemplateApi.Api.Controllers.Services
         [Route("FromForm")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromForm([FromForm] FormatosTesteDataModel form)
         {
             InvocarSeNulo(ref form);
@@ -97,7 +97,7 @@ namespace TemplateApi.Api.Controllers.Services
         [Route("FromHeader")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromHeader([FromHeader] FormatosTesteDataModel header)
         {
             InvocarSeNulo(ref header);
@@ -117,7 +117,7 @@ namespace TemplateApi.Api.Controllers.Services
         [Route("WithoutFrom")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult WithoutFrom(FormatosTesteDataModel without)
         {
             InvocarSeNulo(ref without);

@@ -23,7 +23,7 @@ namespace TemplateApi.Api.Helpers
         {
             Avisos avisos = new Avisos((int)codigo, notificacoes);
 
-            return new JsonResult(new ComumViewsData<object>
+            return new JsonResult(new ComumViewData<object>
             {
                 Avisos = avisos,
                 Dados = dados

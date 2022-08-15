@@ -37,7 +37,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpGet]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Filtrar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<ResultadoBusca<Conteudo>>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<ResultadoBusca<Conteudo>>))]
         public IActionResult Get([FromQuery] FiltrarConteudoDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -56,7 +56,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpPost]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Inserir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Conteudo>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<Conteudo>))]
         public IActionResult Post([FromBody] InserirConteudoDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -75,7 +75,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpPatch]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Editar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewsData<Conteudo>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<Conteudo>))]
         public IActionResult Patch([FromBody] EditarConteudoDataModel body)
         {
             InvocarSeNulo(ref body);
