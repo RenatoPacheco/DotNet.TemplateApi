@@ -6,7 +6,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class LongInput
         : IFormattable, IConvertible, IInputType,
-        IEquatable<LongInput>, IEquatable<long>, IEquatable<long?>
+        IEquatable<LongInput>, IEquatable<long>,
+        IEquatable<long?>, IEquatable<string>
     {
         public LongInput() { }
 
@@ -92,7 +93,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public override string ToString()
         {
-            return ToString(null, null);
+            return ToString(null);
         }
 
         public string ToString(string format)
@@ -112,23 +113,31 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(LongInput other)
         {
-            return _inptValue == other?._inptValue;
+            return _inptValue == other._inptValue
+                && _value == other._value;
         }
 
         public bool Equals(long other)
         {
-            return _inptValue == other.ToString();
+            return _value == other;
         }
 
         public bool Equals([AllowNull] long? other)
         {
-            return other is long o && Equals(o);
+            return _value == other;
+        }
+
+        public bool Equals([AllowNull] string other)
+        {
+            return _inptValue == other;
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is LongInput typeA && Equals(typeA))
-                || (obj is long typeB && Equals(typeB));
+            return (obj is null && _value is null)
+                || (obj is LongInput typeA && Equals(typeA))
+                || (obj is long typeB && Equals(typeB))
+                || (obj is string typeC && Equals(typeC));
         }
 
         public static bool operator ==(LongInput left, LongInput right)

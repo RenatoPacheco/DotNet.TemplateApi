@@ -7,7 +7,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DecimalInput
         : IFormattable, IConvertible, IInputType,
-        IEquatable<DecimalInput>, IEquatable<decimal>, IEquatable<decimal?>
+        IEquatable<DecimalInput>, IEquatable<decimal>,
+        IEquatable<decimal?>, IEquatable<string>
     {
         public DecimalInput() { }
 
@@ -95,7 +96,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public override string ToString()
         {
-            return ToString(null, null);
+            return ToString(null);
         }
 
         public string ToString(string format)
@@ -115,23 +116,31 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(DecimalInput other)
         {
-            return _inptValue == other?._inptValue;
+            return _inptValue == other._inptValue
+                && _value == other._value;
         }
 
         public bool Equals(decimal other)
         {
-            return _inptValue == other.ToString();
+            return _value == other;
         }
 
         public bool Equals([AllowNull] decimal? other)
         {
-            return other is decimal o && Equals(o);
+            return _value == other;
+        }
+
+        public bool Equals([AllowNull] string other)
+        {
+            return _inptValue == other;
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is DecimalInput typeA && Equals(typeA))
-                || (obj is decimal typeB && Equals(typeB));
+            return (obj is null && _value is null)
+                || (obj is DecimalInput typeA && Equals(typeA))
+                || (obj is decimal typeB && Equals(typeB))
+                || (obj is string typeC && Equals(typeC));
         }
 
         public static bool operator ==(DecimalInput left, DecimalInput right)

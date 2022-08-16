@@ -6,7 +6,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class BoolInput
         : IFormattable, IConvertible, IInputType,
-        IEquatable<BoolInput>, IEquatable<bool>, IEquatable<bool?>
+        IEquatable<BoolInput>, IEquatable<bool>, 
+        IEquatable<bool?>, IEquatable<string>
     {
         public BoolInput() { }
 
@@ -92,7 +93,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public override string ToString()
         {
-            return ToString(null, null);
+            return ToString(null);
         }
 
         public string ToString(string format)
@@ -112,23 +113,31 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(BoolInput other)
         {
-            return _inptValue == other?._inptValue;
+            return _inptValue == other._inptValue
+                && _value == other._value;
         }
 
         public bool Equals(bool other)
         {
-            return _inptValue == other.ToString();
+            return _value == other;
         }
 
         public bool Equals([AllowNull] bool? other)
         {
-            return other is bool o && Equals(o);
+            return _value == other;
+        }
+
+        public bool Equals([AllowNull] string other)
+        {
+            return _inptValue == other;
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is BoolInput typeA && Equals(typeA))
-                || (obj is bool typeB && Equals(typeB));
+            return (obj is null && _value is null) 
+                || (obj is BoolInput typeA && Equals(typeA))
+                || (obj is bool typeB && Equals(typeB))
+                || (obj is string typeC && Equals(typeC));
         }
 
         public static bool operator ==(BoolInput left, BoolInput right)

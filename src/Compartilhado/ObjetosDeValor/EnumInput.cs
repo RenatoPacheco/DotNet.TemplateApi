@@ -6,7 +6,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class EnumInput<T>
         : IFormattable, IConvertible, IInputType,
-        IEquatable<EnumInput<T>>, IEquatable<T>, IEquatable<T?>
+        IEquatable<EnumInput<T>>, IEquatable<T>,
+        IEquatable<T?>, IEquatable<string>
         where T : struct
     {
         public EnumInput() { }
@@ -93,7 +94,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public override string ToString()
         {
-            return ToString(null, null);
+            return ToString(null);
         }
 
         public string ToString(string format)
@@ -123,13 +124,20 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals([AllowNull] T? other)
         {
-            return other is T o && Equals(o);
+            return _inptValue == other?.ToString();
+        }
+
+        public bool Equals([AllowNull] string other)
+        {
+            return _inptValue == other;
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is EnumInput<T> typeA && Equals(typeA))
-                || (obj is T typeB && Equals(typeB));
+            return (obj is null && _value is null)
+                || (obj is EnumInput<T> typeA && Equals(typeA))
+                || (obj is T typeB && Equals(typeB))
+                || (obj is string typeC && Equals(typeC));
         }
 
         public static bool operator ==(EnumInput<T> left, EnumInput<T> right)

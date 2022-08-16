@@ -7,7 +7,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class DateTimeInput
         : IFormattable, IConvertible, IInputType,
-        IEquatable<DateTimeInput>, IEquatable<DateTime>, IEquatable<DateTime?>
+        IEquatable<DateTimeInput>, IEquatable<DateTime>, 
+        IEquatable<DateTime?>, IEquatable<string>
     {
         public DateTimeInput() { }
 
@@ -124,7 +125,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public override string ToString()
         {
-            return ToString(null, null);
+            return ToString(null);
         }
 
         public string ToString(string format)
@@ -144,23 +145,31 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(DateTimeInput other)
         {
-            return _inptValue == other?._inptValue;
+            return _inptValue == other._inptValue
+                && _value == other._value;
         }
 
         public bool Equals(DateTime other)
         {
-            return _inptValue == other.ToString();
+            return _value == other;
         }
 
         public bool Equals([AllowNull] DateTime? other)
         {
-            return other is DateTime o && Equals(o);
+            return _value == other;
+        }
+
+        public bool Equals([AllowNull] string other)
+        {
+            return _inptValue == other;
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is DateTimeInput typeA && Equals(typeA))
-                || (obj is DateTime typeB && Equals(typeB));
+            return (obj is null && _value is null)
+                || (obj is DateTimeInput typeA && Equals(typeA))
+                || (obj is DateTime typeB && Equals(typeB))
+                || (obj is string typeC && Equals(typeC));
         }
 
         public static bool operator ==(DateTimeInput left, DateTimeInput right)

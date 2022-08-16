@@ -6,7 +6,8 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
     public class GuidInput
         : IFormattable, IConvertible, IInputType,
-        IEquatable<GuidInput>, IEquatable<Guid>, IEquatable<Guid?>
+        IEquatable<GuidInput>, IEquatable<Guid>,
+        IEquatable<Guid?>, IEquatable<string>
     {
         public GuidInput() { }
 
@@ -92,7 +93,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public override string ToString()
         {
-            return ToString(null, null);
+            return ToString(null);
         }
 
         public string ToString(string format)
@@ -112,23 +113,31 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public bool Equals(GuidInput other)
         {
-            return _inptValue == other?._inptValue;
+            return _inptValue == other._inptValue
+                && _value == other._value;
         }
 
         public bool Equals(Guid other)
         {
-            return _inptValue == other.ToString();
+            return _value == other;
         }
 
         public bool Equals([AllowNull] Guid? other)
         {
-            return other is Guid o && Equals(o);
+            return _value == other;
+        }
+
+        public bool Equals([AllowNull] string other)
+        {
+            return _inptValue == other;
         }
 
         public override bool Equals(object obj)
         {
-            return (obj is GuidInput typeA && Equals(typeA))
-                || (obj is Guid typeB && Equals(typeB));
+            return (obj is null && _value is null)
+                || (obj is GuidInput typeA && Equals(typeA))
+                || (obj is Guid typeB && Equals(typeB))
+                || (obj is string typeC && Equals(typeC));
         }
 
         public static bool operator ==(GuidInput left, GuidInput right)
