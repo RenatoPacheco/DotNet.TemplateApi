@@ -7,7 +7,7 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
     public class EnumInput<T>
         : IFormattable, IConvertible, IInputType,
         IEquatable<EnumInput<T>>, IEquatable<T>,
-        IEquatable<T?>, IEquatable<string>
+        IEquatable<T?>
         where T : struct
     {
         public EnumInput() { }
