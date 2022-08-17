@@ -114,7 +114,6 @@ namespace TemplateApi.Api
                     () => new OpenApiSchema {
                         Type = "string",
                         Format = "phone",
-                        Nullable = false,
                         Example = new OpenApiString("(12) 93456-7890")                        
                     });
                 options.MapType<PhoneType?>(
@@ -129,35 +128,35 @@ namespace TemplateApi.Api
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "int32",
-                        Nullable = false
+                        Nullable = true
                     });
 
                 options.MapType<LongInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "int64",
-                        Nullable = false
+                        Nullable = true
                     });
 
                 options.MapType<DecimalInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "decimal",
-                        Nullable = false
+                        Nullable = true
                     });
 
                 options.MapType<DoubleInput>(
                     () => new OpenApiSchema {
                         Type = "number",
                         Format = "double",
-                        Nullable = false
+                        Nullable = true
                     });
 
                 options.MapType<DateTimeInput>(
                     () => new OpenApiSchema {
                         Type = "strting",
                         Format = "date-time",
-                        Nullable = false,
+                        Nullable = true,
                         Example = new OpenApiString(DateTime.Now.ToString())
                     });
 
@@ -165,7 +164,6 @@ namespace TemplateApi.Api
                     () => new OpenApiSchema {
                         Type = "string",
                         Format = "time",
-                        Nullable = false,
                         Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
                     });
                 options.MapType<TimeSpan?>(
@@ -180,7 +178,7 @@ namespace TemplateApi.Api
                     () => new OpenApiSchema {
                         Type = "strting",
                         Format = "time",
-                        Nullable = false,
+                        Nullable = true,
                         Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
                     });
 
@@ -188,20 +186,19 @@ namespace TemplateApi.Api
                     () => new OpenApiSchema {
                         Type = "strting",
                         Format = "uuid",
-                        Nullable = false,
+                        Nullable = true,
                         Example = new OpenApiString(Guid.NewGuid().ToString())
                     });
 
                 options.MapType<BoolInput>(
                     () => new OpenApiSchema {
                         Type = "boolean",
-                        Nullable = false
+                        Nullable = true
                     });
 
                 options.MapType<Status>(
                     () => new OpenApiSchema {
                         Type = "string",
-                        Nullable = false,
                         Enum = options.OpenApiEnum<Status>()
                     });
                 options.MapType<Status?>(
@@ -214,14 +211,13 @@ namespace TemplateApi.Api
                 options.MapType<EnumInput<Status>>(
                     () => new OpenApiSchema {
                         Type = "string",
-                        Nullable = false,
+                        Nullable = true,
                         Enum = options.OpenApiEnum<Status>()
                     });
 
                 options.MapType<ContextoCmd>(
                     () => new OpenApiSchema {
                         Type = "string",
-                        Nullable = false,
                         Enum = options.OpenApiEnum<ContextoCmd>()
                     });
                 options.MapType<ContextoCmd?>(
@@ -234,14 +230,13 @@ namespace TemplateApi.Api
                 options.MapType<EnumInput<ContextoCmd>>(
                     () => new OpenApiSchema {
                         Type = "string",
-                        Nullable = false,
+                        Nullable = true,
                         Enum = options.OpenApiEnum<ContextoCmd>()
                     });
 
                 options.MapType<TipoNoificacaoAvisos>(
                     () => new OpenApiSchema {
                         Type = "string",
-                        Nullable = false,
                         Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
                     });
                 options.MapType<TipoNoificacaoAvisos?>(
@@ -255,7 +250,7 @@ namespace TemplateApi.Api
                     () => new OpenApiSchema
                     {
                         Type = "string",
-                        Nullable = false,
+                        Nullable = true,
                         Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
                     });
 
