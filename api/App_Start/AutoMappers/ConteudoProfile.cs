@@ -14,8 +14,8 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<InserirConteudoDataModel, InserirConteudoCmd>()
                 .ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Status, src.Status);
+                        return dest.InputTypeEhValido(x => x.Status, src.Status)
+                            && srcMember != null;
                     });
                 });
 
@@ -28,18 +28,18 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                     opts.Condition((src, dest, srcMember) => srcMember != null);
                 }).ForMember(cmd => cmd.Contexto, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Contexto, src.Contexto);
+                        return dest.InputTypeEhValido(x => x.Contexto, src.Contexto)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo);
+                        return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Status, src.Status);
+                        return dest.InputTypeEhValido(x => x.Status, src.Status)
+                            && srcMember != null;
                     });
                 });
 
@@ -50,12 +50,13 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<EditarConteudoDataModel, EditarConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo);
+                        return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Status, src.Status);
+                        return dest.InputTypeEhValido(x => x.Status, src.Status)
+                            && srcMember != null;
                     });
                 });
 
@@ -66,8 +67,8 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<ExcluirConteudoDataModel, ExcluirConteudoCmd>()
                 .ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo);
+                        return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo)
+                            && srcMember != null;
                     });
                 });
 

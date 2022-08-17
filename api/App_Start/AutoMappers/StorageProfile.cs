@@ -23,18 +23,18 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<FiltrarStorageDataModel, FiltrarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Storage, src.Storage);
+                        return dest.InputTypeEhValido(x => x.Storage, src.Storage)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Status, src.Status);
+                        return dest.InputTypeEhValido(x => x.Status, src.Status)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Contexto, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Contexto, src.Contexto);
+                        return dest.InputTypeEhValido(x => x.Contexto, src.Contexto)
+                            && srcMember != null;
                     });
                 });
 
@@ -45,13 +45,13 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<EditarStorageDataModel, EditarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Storage, src.Storage);
+                        return dest.InputTypeEhValido(x => x.Storage, src.Storage)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Status, src.Status);
+                        return dest.InputTypeEhValido(x => x.Status, src.Status)
+                            && srcMember != null;
                     });
                 });
 
@@ -62,8 +62,8 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Storage, src.Storage);
+                        return dest.InputTypeEhValido(x => x.Storage, src.Storage)
+                            && srcMember != null;
                     });
                 });
 
@@ -74,13 +74,13 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
                 .ForMember(cmd => cmd.Download, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Download, src.Download);
+                        return dest.InputTypeEhValido(x => x.Download, src.Download)
+                            && srcMember != null;
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
-                        return srcMember != null
-                            && dest.InputTypeEhValido(x => x.Status, src.Status);
+                        return dest.InputTypeEhValido(x => x.Status, src.Status)
+                            && srcMember != null;
                     });
                 });
 
