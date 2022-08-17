@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "7be72ee1-52f2-482b-8b47-61ca965c23d5",
+    "colName": "Sobre",
+    "created": "2022-07-04T15:04:24.177Z",
+    "sortNum": 10000,
+    "folders": []
+  },
+  {
+    "_id": "b7d6d78f-c5f6-4db0-a2b5-270f43f58644",
+    "colName": "Usário",
+    "created": "2022-07-04T15:06:49.902Z",
+    "sortNum": 20000,
+    "folders": []
+  },
+  {
+    "_id": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+    "colName": "Storage",
+    "created": "2022-07-14T11:06:49.561Z",
+    "sortNum": 30000,
+    "folders": []
+  },
+  {
+    "_id": "c6ffb090-4d9f-4cd3-9066-98b1af0d9442",
+    "colName": "Teste",
+    "created": "2022-07-21T00:33:36.558Z",
+    "sortNum": 40000,
+    "folders": []
+  },
+  {
+    "_id": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
+    "colName": "Conteúdo",
+    "created": "2022-07-21T10:21:32.957Z",
+    "sortNum": 25000,
+    "folders": []
+  }
+]
