@@ -49,3 +49,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Tive de adicionar essa linha para rodar o teste de integração
+public partial class Program { }

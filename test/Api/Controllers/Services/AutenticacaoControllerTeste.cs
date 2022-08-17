@@ -1,7 +1,4 @@
-﻿using Xunit;
-using System.Net.Http;
-using FluentAssertions;
-using System.Threading.Tasks;
+﻿using FluentAssertions;
 
 namespace TemplateApi.Teste.Api.Controllers.Services
 {

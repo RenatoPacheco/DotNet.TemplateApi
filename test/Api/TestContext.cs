@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace TemplateApi.Teste.Api
@@ -11,16 +10,12 @@ namespace TemplateApi.Teste.Api
             var application = new WebApplicationFactory<Program>()
                 .WithWebHostBuilder(builder =>
                 {
-                    builder.ConfigureAppConfiguration((context, builder) => 
-                    {
-                        
-                    });
                     builder.ConfigureServices(services =>
                     {
                         // set up servises
                     });
                 });
-            var client = application.CreateClient();
+            Client = application.CreateClient();
         }
 
         public HttpClient Client { get; private set; }
