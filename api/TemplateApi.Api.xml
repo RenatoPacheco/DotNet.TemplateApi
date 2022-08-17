@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TemplateApi.Api</name>
+    </assembly>
+    <members>
+        <member name="M:TemplateApi.Api.Controllers.Services.AutenticacaoController.Get">
+            <summary>
+            Obter os dados da autenticação atual
+            </summary>
+            <remarks>
+            <p>Nesse endpoit se tem acesso as rotas disponíveis, mesmo sem estar autenticado, há rotas que você pode ter acesso.
+            Nesse caso você verá os acessos sobre as seguintes condições:</p>
+            <ul>
+                <li>Não enviar <strong>chave pública</strong> nem a <strong>autorização</strong></li>
+                <li>Enviar a <strong>chave pública</strong> mas não enviar a <strong>autorização</strong></li>
+                <li>Enviar a <strong>chave pública</strong> e a <strong>autorização</strong></li>
+            </ul>
+            <p>Cada um desses tipos de envios vai listar as rotas de acesso de acordo com essas características.
+            Não existr uma quarta opção de enviar a <strong>autorização</strong>, mas não enviar <strong>chave pública</strong>.
+            Se não enviar a <strong>chave pública</strong>, a <strong>autorização</strong> será ignorada.</p>
+            <p>Uma vez listada suas opções de endpoit, taz as informações de requisito para cada uma, podendo ser:</p>
+            <ul>
+            <li><strong>requerAutorizacao:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>autorização</strong> válida.</li>
+            <li><strong>requerChavePublica:</strong> quando indicado true, significa que endpoit só estará acessível, tendo recebido uma <strong>chave pública</strong> válida.</li>
+            </ul>
+            <p>Lembre-se também que enviar a <strong>autorizações</strong> válida, não garante acesso a todos os endpoint, esse acesso será avaliado de acordo a <strong>autorização</strong> enviada.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.AutenticacaoController.GetCore">
+            <summary>
+            Obter os dados da autenticação atual no core da aplicação
+            </summary>
+            <remarks>
+            <p>Esse recurso serve mais como curiosidade sobre as autorizações de acesso.</p>
+            <p>O dados exibidos aqui, seguem as mesmas regras de <strong>GET /Servico/Autenticacao</strong>, que mostras nas autorizações, as rotas que você tem acesso.</p>
+            <p>Essas rotas da API são interfaces de acesso, as classe e métodos da aplicação, e nesse endereço, <strong>GET /Servico/Autenticacao/Core</strong>, são as mesmas autorizações, só que no core do site.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Get(TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel)">
+            <summary>
+            Filtro de conteúdos
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Post(TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel)">
+            <summary>
+            Inserir conteúdo
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Patch(TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel)">
+            <summary>
+            Editar conteúdo
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.ConteudoController.Delete(TemplateApi.Api.DataModels.ConteudoDataModel.ExcluirConteudoDataModel)">
+            <summary>
+            Deletar um ou mais conteúdos
+            </summary>
+            <remarks>
+            <p>Permite excluir um ou mais conteúdos, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.SobreController.Get">
+            <summary>
+            Obter informação como nome e versão da API
+            </summary>
+            <remarks>
+            <p>Essa consulta vai permitir obter dados como:</p>
+            <ul>
+                <li><strong>nome:</strong> nome da aplicação</li>
+                <li><strong>versão:</strong> número da versão atual da aplicação</li>
+                <li><strong>ambiente:</strong> informa o tipo de ambiente que pode ser producao ou desenvolvimento</li>
+                <li><strong>ehDesenvolvimento:</strong> informa se é ambiende de desenvolvimento</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Get(TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel)">
+            <summary>
+            Filtro de storages
+            </summary>
+            <remarks>
+            <p>Permite fazer uma busca pelos arquivos indexados no banco, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Post(TemplateApi.Api.DataModels.StorageDataModel.InserirStorageDataModel)">
+            <summary>
+            Inserir storage
+            </summary>
+            <remarks>
+            <p>Permite enviar arquivos para o storage, desde que se tenha permissão para isso.</p>
+            <p>Os tipos de arquivos permitidos são:</p>
+            <ul>
+                <li>Arquivos de texto (.txt)</li>
+                <li>Documentos (.doc ou .docx, .pdf)</li>
+                <li>Planilhas (.xls ou .xslx)</li>
+                <li>Imagens (.jpg, .jpeg ou .png)</li>
+            </ul>
+            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Patch(TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel)">
+            <summary>
+            Editar storage
+            </summary>
+            <remarks>
+            <p>Permite editar dados básicos de um arquivo, como nome e status</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.StorageController.Delete(TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel)">
+            <summary>
+            Deletar um ou mais storages
+            </summary>
+            <remarks>
+            <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromQuery(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromQuery
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromBody(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromBody
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromForm(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromForm
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromHeader(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados por FromHeader
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.WithoutFrom(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
+            <summary>
+            Recebendo os dados ser usar nenhum dos tipos From
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Get(TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel)">
+            <summary>
+            Filtro de usuários
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Post(TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel)">
+            <summary>
+            Inserir usuário
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Patch(TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel)">
+            <summary>
+            Editar usuário
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Delete(TemplateApi.Api.DataModels.UsuarioDataModel.ExcluirUsuarioDataModel)">
+            <summary>
+            Deletar um ou mais usuários
+            </summary>
+            <remarks>
+            <p>Permite excluir um ou mais usuários, que na verdade não são excluídos do banco, só são alterados para o status de excluído.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.StorageController.Get(TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel)">
+            <summary>
+            Obter um arquivo de storage
+            </summary>
+            <remarks>
+            <p>Permite carregar um arquivo do storage pelo seu alias, mas se não estiver autenticado, só poderá buscar arquivos ativos.</p>
+            <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
+            </remarks>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
+            <summary>
+            Identificador de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Titulo">
+            <summary>
+            Título de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Alias">
+            <summary>
+            Alias de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Texto">
+            <summary>
+            Texto de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Titulo">
+            <summary>
+            Título de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Alias">
+            <summary>
+            Alias de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Texto">
+            <summary>
+            Texto de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Status">
+            <summary>
+            Status de conteúdo
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Nome">
+            <summary>
+            Nome de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Referencia">
+            <summary>
+            Referência de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Storage">
+            <summary>
+            Identificador de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Referencia">
+            <summary>
+            Referência de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Alias">
+            <summary>
+            Alias de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.InserirStorageDataModel.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos ou planilhas.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Alias">
+            <summary>
+            Alias de storage
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Download">
+            <summary>
+            Informe true para fazer download do arquivo 
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Nome">
+            <summary>
+            Nome de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Email">
+            <summary>
+            E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Telefone">
+            <summary>
+            Telefone de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Senha">
+            <summary>
+            Senha de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel.Contexto">
+            <summary>
+            Informe o contexto da busca, sendo que o valor padrão é Embutir
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel.Usuario">
+            <summary>
+            Identificador de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Nome">
+            <summary>
+            Nome de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Email">
+            <summary>
+            E-mail de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Telefone">
+            <summary>
+            Telefone de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Senha">
+            <summary>
+            Senha de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Status">
+            <summary>
+            Status de usuário
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Nome">
+            <summary>
+            Informa o nome de quem se autenticou.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Email">
+            <summary>
+            Informa o e-mail de quem se autenicou.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.EstaAutenticado">
+            <summary>
+            Informa se a autenticação recebida foi validade ou não.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.HaChavePublica">
+            <summary>
+            Informa se uma chave de acessó válida foi enviada ou não.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.CriadoEm">
+            <summary>
+            Data em que a autenticação foi criada.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.ExpiraEm">
+            <summary>
+            Data que o token dessa autenticação vai expirar.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Token">
+            <summary>
+            Token gerado a partir dos dados da autenticação, deve ser usado no header de autorização.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Autorizacoes">
+            <summary>
+            Lista de autorização que essa autenticação tem acesso.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Id">
+            <summary>
+            Identificador únido da autorização.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Rota">
+            <summary>
+            Endpoint referente a essa autorização.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Nome">
+            <summary>
+            Nome da autorirização.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Http">
+            <summary>
+            Tipo de requisição do endpoint.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Descricao">
+            <summary>
+            Uma breve descrição do que o endpoint faz.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.RequerAutorizacao">
+            <summary>
+            Se true, quer dizer que só pode ser acessado recebendo uma autorização válida.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.RequerChavePublica">
+            <summary>
+            Se true, quer dizer que só pode ser acessado recebendo uma chave pública válida.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Obsoleto">
+            <summary>
+            Indica se esse endpoint está obsoleto.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.ValuesObject.AutorizacaoApi.Observacao">
+            <summary>
+            Alguma descrição complememntar caso esteja obsoleto.
+            </summary>
+        </member>
+    </members>
+</doc>
