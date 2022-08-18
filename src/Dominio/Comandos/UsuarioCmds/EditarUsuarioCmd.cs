@@ -1,11 +1,10 @@
 ﻿using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
-using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using BitHelp.Core.Validation.Extends;
 
 namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 {
@@ -141,16 +140,16 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         #region Auto validação
 
-        protected UsuarioEscp<EditarUsuarioCmd> _escopo;
+        protected readonly UsuarioEscp<EditarUsuarioCmd> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            _escopo.EhRequerido(x => x.Usuario);
+            this.RequiredIsValid(x => x.Usuario);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

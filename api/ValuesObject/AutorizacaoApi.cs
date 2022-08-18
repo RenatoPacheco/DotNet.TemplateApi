@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Aplicacao;
 
 namespace TemplateApi.Api.ValuesObject
 {

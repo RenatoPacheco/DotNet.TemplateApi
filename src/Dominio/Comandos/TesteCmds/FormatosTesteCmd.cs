@@ -1,6 +1,5 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using Newtonsoft.Json;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Type.pt_BR;
 
@@ -32,12 +31,12 @@ namespace TemplateApi.Dominio.Comandos.TesteCmds
 
         #region Auto validação
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

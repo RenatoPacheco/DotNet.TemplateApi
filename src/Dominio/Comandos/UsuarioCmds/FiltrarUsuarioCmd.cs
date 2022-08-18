@@ -1,7 +1,6 @@
 ﻿using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Escopos;
-using Newtonsoft.Json;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
@@ -62,14 +61,14 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         #region Auto validação
 
-        protected UsuarioEscp<FiltrarUsuarioCmd> _escopo;
+        protected readonly UsuarioEscp<FiltrarUsuarioCmd> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

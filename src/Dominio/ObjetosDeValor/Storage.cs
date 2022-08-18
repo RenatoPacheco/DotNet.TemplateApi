@@ -1,6 +1,5 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
@@ -102,10 +101,10 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         #region ISelfValidation
 
-        protected StorageEscp<Storage> _escopo;
+        protected readonly StorageEscp<Storage> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public bool IsValid()
         {
@@ -119,7 +118,7 @@ namespace TemplateApi.Dominio.ObjetosDeValor
             _escopo.ReferenciaEhValido(x => x.Referencia);
             _escopo.StatusEhValido(x => x.Status);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

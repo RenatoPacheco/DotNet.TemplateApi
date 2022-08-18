@@ -1,7 +1,6 @@
 ﻿using System;
 using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
-using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
@@ -87,10 +86,10 @@ namespace TemplateApi.Dominio.Entidades
 
         #region ISelfValidation
 
-        protected UsuarioEscp<Usuario> _escopo;
+        protected readonly UsuarioEscp<Usuario> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public bool IsValid()
         {
@@ -100,7 +99,7 @@ namespace TemplateApi.Dominio.Entidades
             _escopo.TelefoneEhValido(x => x.Telefone);
             _escopo.StatusEhValido(x => x.Status);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion
