@@ -1,6 +1,6 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Type.pt_BR;
 

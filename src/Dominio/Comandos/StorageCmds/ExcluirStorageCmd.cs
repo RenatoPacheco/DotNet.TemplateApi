@@ -1,6 +1,6 @@
 ﻿using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Compartilhado.ObjetosDeValor;

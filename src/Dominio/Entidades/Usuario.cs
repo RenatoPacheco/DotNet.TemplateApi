@@ -1,7 +1,7 @@
 ﻿using System;
 using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;

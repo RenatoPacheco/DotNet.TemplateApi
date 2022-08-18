@@ -1,5 +1,5 @@
 ﻿using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
 

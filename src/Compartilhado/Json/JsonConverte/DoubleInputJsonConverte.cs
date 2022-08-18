@@ -1,32 +1,35 @@
 ﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TemplateApi.Compartilhado.Extensoes;
+using Newtonsoft.Json;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
-    public class DoubleInputJsonConverte : JsonConverter<DoubleInput>
+    public class DoubleInputJsonConverte : JsonConverter
     {
-        public override DoubleInput Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override bool CanConvert(Type type)
         {
-            DoubleInput result;
-
-            if (reader.TokenType == JsonTokenType.String)
-            {
-                result = new DoubleInput(reader.GetString());
-            }
-            else
-            {
-                result = new DoubleInput(reader.GetBytesToString());
-            }
-
-            return result;
+            return type == typeof(DoubleInput);
         }
 
-        public override void Write(Utf8JsonWriter writer, DoubleInput value, JsonSerializerOptions options)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            writer.WriteStringValue(value.ToString());
+            string value = reader?.Value?.ToString();
+            if (value is null)
+            {
+                return null;
+            }
+
+            return new DoubleInput(value);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            string result = value?.ToString();
+
+            if (result is null)
+                writer.WriteNull();
+            else
+                writer.WriteValue(result);
         }
     }
 }

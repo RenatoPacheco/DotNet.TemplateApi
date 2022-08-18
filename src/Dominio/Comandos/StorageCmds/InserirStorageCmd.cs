@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.ObjetosDeValor;

@@ -1,33 +1,36 @@
 ﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TemplateApi.Compartilhado.Extensoes;
+using Newtonsoft.Json;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
-    public class EnumInputJsonConverte<T> : JsonConverter<EnumInput<T>>
-        where T : struct
+    public class EnumInputJsonConverte<T> : JsonConverter
+        where T: struct
     {
-        public override EnumInput<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override bool CanConvert(Type type)
         {
-            EnumInput<T> result;
-
-            if (reader.TokenType == JsonTokenType.String)
-            {
-                result = new EnumInput<T>(reader.GetString());
-            }
-            else
-            {
-                result = new EnumInput<T>(reader.GetBytesToString());
-            }
-
-            return result;
+            return type == typeof(EnumInput<T>);
         }
 
-        public override void Write(Utf8JsonWriter writer, EnumInput<T> value, JsonSerializerOptions options)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            writer.WriteStringValue(value.ToString());
+            string value = reader?.Value?.ToString();
+            if (value is null)
+            {
+                return null;
+            }
+
+            return new EnumInput<T>(value);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            string result = value?.ToString();
+
+            if (result is null)
+                writer.WriteNull();
+            else
+                writer.WriteValue(result);
         }
     }
 }

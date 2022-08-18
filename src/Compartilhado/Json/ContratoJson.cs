@@ -1,26 +1,33 @@
 ﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TemplateApi.Compartilhado.Extensoes;
-using TemplateApi.Compartilhado.Json.JsonConverte;
-using TemplateApi.Dominio.Comandos.Comum;
+using System.Linq;
+using Newtonsoft.Json;
+using System.Reflection;
+using BitHelp.Core.Validation;
+using Newtonsoft.Json.Converters;
+using System.Collections.Generic;
+using Newtonsoft.Json.Serialization;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.Comum;
+using TemplateApi.Compartilhado.Json.JsonConverte;
 
 namespace TemplateApi.Compartilhado.Json
 {
-    public class ContratoJson : JsonNamingPolicy
+    public class ContratoJson : DefaultContractResolver
     {
-        private static JsonSerializerOptions _configuracao;
-        public static JsonSerializerOptions Configuracao
+        private static JsonSerializerSettings _configuracao;
+        public static JsonSerializerSettings Configuracao
         {
-            get => _configuracao ??= Configurar(new JsonSerializerOptions());
+            get => _configuracao ??= Configurar(new JsonSerializerSettings());
         }
 
-        public static JsonSerializerOptions Configurar(JsonSerializerOptions settings)
+        public static JsonSerializerSettings Configurar(JsonSerializerSettings settings)
         {
-            settings.PropertyNamingPolicy = new ContratoJson();
-            settings.IgnoreNullValues = true;
-            settings.Converters.Add(new JsonStringEnumConverter());
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            settings.Culture = System.Globalization.CultureInfo.CurrentCulture;
+            settings.ContractResolver = new ContratoJson();
+
+            settings.Converters.Add(new StringEnumConverter());
             settings.Converters.Add(new PhoneTypeJsonConverte());
             settings.Converters.Add(new IntInputJsonConverte());
             settings.Converters.Add(new LongInputJsonConverte());
@@ -39,22 +46,46 @@ namespace TemplateApi.Compartilhado.Json
         public static string Serializar<T>(T value) 
             where T : class
         {
-            return JsonSerializer.Serialize(value, Configuracao);
+            return JsonConvert.SerializeObject(value, Configuracao);
         }
 
         public static object Desserializar(string json, Type type)
         {
-            return JsonSerializer.Deserialize(json, type, Configuracao);
+            return JsonConvert.DeserializeObject(json, type, Configuracao);
         }
 
         public static T Desserializar<T>(string json)
         {
-            return JsonSerializer.Deserialize<T>(json, Configuracao);
+            return JsonConvert.DeserializeObject<T>(json, Configuracao);
         }
 
-        public override string ConvertName(string name)
+        public ContratoJson()
+            : base()
         {
-            return name?.StartToLower();
+            // Aplicar o comportamento de CamelCasePropertyNamesContractResolver
+            NamingStrategy = new CamelCaseNamingStrategy
+            {
+                ProcessDictionaryKeys = true,
+                OverrideSpecifiedNames = true
+            };
+        }
+
+        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
+        {
+            IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
+            PropertyInfo[] actualProperties = type.GetProperties();
+
+            foreach (JsonProperty jsonProperty in properties)
+            {
+                PropertyInfo property = actualProperties.FirstOrDefault(x => x.Name.ToLower() == jsonProperty.PropertyName.ToLower());
+                if (property != null && (property.GetCustomAttribute(typeof(JsonIgnoreAttribute)) != null
+                    || property.PropertyType == typeof(ValidationNotification)))
+                {
+                    jsonProperty.Ignored = true;
+                }
+            }
+            return properties;
+
         }
     }
 }

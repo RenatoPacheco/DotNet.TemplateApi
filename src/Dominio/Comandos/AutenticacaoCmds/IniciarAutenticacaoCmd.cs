@@ -1,5 +1,5 @@
 ﻿using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using BitHelp.Core.Validation.Extends;
 
 namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
