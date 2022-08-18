@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Entidades;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {
@@ -73,8 +74,10 @@ namespace TemplateApi.Dominio.ObjetosDeValor
             Id = ToString();
         }
 
+        [JsonIgnore]
         public readonly Type Classe;
 
+        [JsonIgnore]
         public readonly MethodInfo Metodo;
 
         public string Id { get; set; }
