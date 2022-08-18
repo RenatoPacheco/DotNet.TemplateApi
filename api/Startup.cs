@@ -33,8 +33,9 @@ namespace TemplateApi.Api
             }).ConfigureApiBehaviorOptions(options => {
                 // Desabilitando o filtro que intecepta erros do ModelState
                 options.SuppressModelStateInvalidFilter = true;
-            }).AddJsonOptions(options => {
-                ContratoJson.Configurar(options.JsonSerializerOptions);
+            }).AddNewtonsoftJson(options => {
+                // Customizando configuração para Json
+                ContratoJson.Configurar(options.SerializerSettings);
             });
 
             SwashbuckleConfig.Config(services);

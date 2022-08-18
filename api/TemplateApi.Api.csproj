@@ -18,6 +18,7 @@
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="BitHelp.Core.ManageFile" Version="0.3.0" />
     <PackageReference Include="BitHelp.Core.Validation" Version="0.13.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.28" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
   </ItemGroup>
