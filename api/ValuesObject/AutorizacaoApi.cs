@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.ObjetosDeValor;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Api.ValuesObject
 {
@@ -28,10 +29,13 @@ namespace TemplateApi.Api.ValuesObject
             Id = $"{Http.ToLower()}:{Id}";
         }
 
+        [JsonIgnore]
         public readonly Autorizacao Referencia;
 
+        [JsonIgnore]
         public readonly MethodInfo Metodo;
 
+        [JsonIgnore]
         public readonly Type Classe;
 
         /// <summary>
