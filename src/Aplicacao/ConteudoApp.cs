@@ -10,7 +10,6 @@ using TemplateApi.Dominio.Notacoes;
 
 namespace TemplateApi.Aplicacao
 {
-    [AcessoLivre]
     public class ConteudoApp : Comum.BaseAplicacao
     {
         public ConteudoApp(
