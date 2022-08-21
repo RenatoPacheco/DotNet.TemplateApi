@@ -263,10 +263,7 @@ namespace TemplateApi.Api
         public static void Config(IApplicationBuilder app)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(options => {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", $"{AppSettings.Nome} v1");
-                options.RoutePrefix = "swagger";
-            });
+            app.UseSwaggerUI();
         }
     }
 }
