@@ -10,7 +10,7 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.Extensions
 {
-    public static class ISelfValidationExtension
+    public static class ISelfValidationExt
     {
         public static void ExtrairModelState(this ISelfValidation entidade, ModelStateDictionary dados)
         {
