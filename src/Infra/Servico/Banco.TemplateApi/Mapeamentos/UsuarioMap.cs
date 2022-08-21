@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Extensoes;
 
 namespace TemplateApi.Infra.Servico.Banco.TemplateApi.Mapeamentos
@@ -41,7 +42,7 @@ namespace TemplateApi.Infra.Servico.Banco.TemplateApi.Mapeamentos
                 resultado.Append($"{SqlParaJson(x => x.AlteradoEm)},");
 
             if (NaoIgnorar(x => x.Status))
-                resultado.Append($"{this.CharParaStatus(x => x.Status)},");
+                resultado.Append($"{this.CharParaEnum(x => x.Status, typeof(Status))},");
 
             if (NaoIgnorar(x => x.Telefone))
                 resultado.Append($"{SqlParaJson(x => x.Telefone)},");
