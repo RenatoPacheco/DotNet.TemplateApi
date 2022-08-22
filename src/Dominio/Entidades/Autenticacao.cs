@@ -1,8 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using TemplateApi.Compartilhado.Seguranca;
+using Newtonsoft.Json;
 using TemplateApi.Compartilhado.Json;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.Seguranca;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.Entidades
 {
@@ -29,7 +30,7 @@ namespace TemplateApi.Dominio.Entidades
         {
             Autenticacao resultado = new Autenticacao
             {
-                Id = Guid.Empty.ToString(),
+                Id = "NULL",
                 Nome = "Usuário interno",
                 EhInterno = true,
                 EstaAutenticado = true,
@@ -48,7 +49,7 @@ namespace TemplateApi.Dominio.Entidades
         {
             Autenticacao resultado = new Autenticacao
             {
-                Id = Guid.Empty.ToString(),
+                Id = "NULL",
                 Nome = "Usuário não autenticado",
                 EhInterno = false,
                 EstaAutenticado = false,
@@ -62,15 +63,14 @@ namespace TemplateApi.Dominio.Entidades
             return resultado;
         }
 
-        protected internal Autenticacao()
-        {
-            CriadoEm = DateTime.Now;
-            ExpiraEm = CriadoEm.Value.AddDays(1);
-        }
+        [JsonConstructor]
+        protected Autenticacao() { }
 
         public Autenticacao(string id, string nome, string email)
             : this()
         {
+            Inicializar();
+
             Id = id;
             Nome = nome;
             Email = email;
@@ -111,7 +111,13 @@ namespace TemplateApi.Dominio.Entidades
             set { _autorizacoes = value ?? Array.Empty<Autorizacao>(); }
         }
 
-        protected void AtualizarToken()
+        private void Inicializar()
+        {
+            CriadoEm = DateTime.Now;
+            ExpiraEm = CriadoEm.Value.AddDays(1);
+        }
+
+        private void AtualizarToken()
         {
             Autorizacao[] autorizacoes = Autorizacoes;
             Autorizacoes = Array.Empty<Autorizacao>();

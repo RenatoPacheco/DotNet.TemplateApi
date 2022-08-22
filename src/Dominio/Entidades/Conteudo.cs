@@ -1,10 +1,10 @@
 ﻿using System;
-using BitHelp.Core.Validation;
-using System.Diagnostics.CodeAnalysis;
-using System.ComponentModel.DataAnnotations;
-using TemplateApi.Dominio.Escopos;
-using TemplateApi.Dominio.ObjetosDeValor;
 using Newtonsoft.Json;
+using BitHelp.Core.Validation;
+using TemplateApi.Dominio.Escopos;
+using System.Diagnostics.CodeAnalysis;
+using TemplateApi.Dominio.ObjetosDeValor;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.Entidades
 {
@@ -15,14 +15,13 @@ namespace TemplateApi.Dominio.Entidades
         protected Conteudo()
         {
             _escopo = new ConteudoEscp<Conteudo>(this);
-            CriadoEm = DateTime.Now;
-            AlteradoEm = DateTime.Now;
-            Status = ObjetosDeValor.Status.Inativo;
         }
 
         public Conteudo(string titulo, string alias, string texto, Status? status)
             : this()
         {
+            Inicializar();
+
             Titulo = titulo;
             Texto = texto;
             Alias = alias;
@@ -48,6 +47,13 @@ namespace TemplateApi.Dominio.Entidades
 
         public override string ToString() => Titulo;
 
+        private void Inicializar()
+        {
+            CriadoEm = DateTime.Now;
+            AlteradoEm = DateTime.Now;
+            Status = ObjetosDeValor.Status.Inativo;
+        }
+
         #region Compare
 
         public bool Equals([AllowNull] Conteudo other)
@@ -56,9 +62,9 @@ namespace TemplateApi.Dominio.Entidades
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            return obj is Conteudo other && Equals(other);
+            return other is Conteudo compare && Equals(compare);
         }
 
         public override int GetHashCode()
@@ -72,14 +78,12 @@ namespace TemplateApi.Dominio.Entidades
 
         public static bool operator ==(Conteudo a, Conteudo b)
         {
-            return (a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b));
+            return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
         public static bool operator !=(Conteudo a, Conteudo b)
         {
-            return !((a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b)));
+            return !(a == b);
         }
 
         #endregion

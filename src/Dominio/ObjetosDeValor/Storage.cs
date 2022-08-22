@@ -15,14 +15,13 @@ namespace TemplateApi.Dominio.ObjetosDeValor
         protected Storage()
         {
             _escopo = new StorageEscp<Storage>(this);
-            CriadoEm = DateTime.Now;
-            AlteradoEm = DateTime.Now;
-            Status = ObjetosDeValor.Status.Inativo;
         }
 
         public Storage(IArquivo dados)
             : this()
         {
+            Inicializar();
+
             Alias = dados.Alias;
             Nome = dados.Nome;
             Diretorio = dados.Diretorio;
@@ -65,6 +64,13 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         public override string ToString() => Nome;
 
+        private void Inicializar()
+        {
+            CriadoEm = DateTime.Now;
+            AlteradoEm = DateTime.Now;
+            Status = ObjetosDeValor.Status.Inativo;
+        }
+
         #region Compare
 
         public bool Equals([AllowNull] Storage other)
@@ -73,9 +79,9 @@ namespace TemplateApi.Dominio.ObjetosDeValor
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            return obj is Storage other && Equals(other);
+            return other is Storage compare && Equals(compare);
         }
 
         public override int GetHashCode()
@@ -89,14 +95,12 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         public static bool operator ==(Storage a, Storage b)
         {
-            return (a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b));
+            return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
         public static bool operator !=(Storage a, Storage b)
         {
-            return !((a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b)));
+            return !(a == b);
         }
 
         #endregion
