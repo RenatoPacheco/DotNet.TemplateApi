@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.Extensions
 {
-    public static class ModelStateExtensions
+    public static class ModelStateExt
     {
         public static string DisplayName(this Type type, string modelName)
         {

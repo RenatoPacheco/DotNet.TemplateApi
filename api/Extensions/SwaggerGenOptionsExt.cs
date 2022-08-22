@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace TemplateApi.Api.Extensions
 {
-    public static class SwaggerGenOptionsExtensions
+    public static class SwaggerGenOptionsExt
     {
         public static IList<IOpenApiAny> OpenApiEnum<T>(this SwaggerGenOptions _)
             where T: struct

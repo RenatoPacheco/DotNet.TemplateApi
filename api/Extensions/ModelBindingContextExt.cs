@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Api.Extensions
 {
-    public static class ModelBindingContextExtensions
+    public static class ModelBindingContextExt
     {
         public static string DisplayName(this ModelBindingContext bindingContext)
         {

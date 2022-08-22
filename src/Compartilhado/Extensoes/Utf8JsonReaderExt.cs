@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace TemplateApi.Compartilhado.Extensoes
 {
-    public static class Utf8JsonReaderExtensao
+    public static class Utf8JsonReaderExt
     {
         public static string GetBytesToString(this Utf8JsonReader source)
         {

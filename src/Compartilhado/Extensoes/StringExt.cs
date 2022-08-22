@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Compartilhado.Extensoes
 {
-    public static class StringExtensao
+    public static class StringExt
     {
         public static string StartToLower(this string source)
         {
