@@ -43,9 +43,13 @@ namespace TemplateApi.Api.ValuesObject
                 Directory.CreateDirectory(Diretorio);
             }
 
-            using (FileStream filestream = File.Create(Referencia))
+            using (Stream filestream = _formFile.OpenReadStream())
             {
                 Checksum = CheckSUM.GetMD5Hash(filestream);
+            }
+
+            using (FileStream filestream = File.Create(Referencia))
+            {
                 _formFile.CopyTo(filestream);
                 filestream.Flush();
             }
