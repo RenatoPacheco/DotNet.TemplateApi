@@ -38,8 +38,7 @@ CultureInfoConfig.Config(app);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    SwashbuckleConfig.Config(app);
 }
 
 app.UseHttpsRedirection();
