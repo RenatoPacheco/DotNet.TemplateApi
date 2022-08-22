@@ -7,11 +7,15 @@ using TemplateApi.Compartilhado.Validacoes.Extensoes;
 
 namespace TemplateApi.Dominio.Escopos
 {
-    public class UsuarioEscp<T> : Comum.BaseEscopo<T>
+    public class UsuarioEscp<T>
         where T : ISelfValidation
     {
         public UsuarioEscp(T entidade)
-            : base(entidade) { }
+        {
+            _entidade = entidade;
+        }
+
+        protected readonly T _entidade;
 
         public void IdEhValido(Expression<Func<T, object>> expressao)
         {

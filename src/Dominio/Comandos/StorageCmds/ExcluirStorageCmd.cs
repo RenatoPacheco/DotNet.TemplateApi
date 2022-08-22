@@ -1,4 +1,5 @@
 ﻿using BitHelp.Core.Validation;
+using BitHelp.Core.Validation.Extends;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Escopos;
 
@@ -48,8 +49,8 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         public virtual bool IsValid()
         {
-            _escopo.EhRequeridoSeOutroForNulo(x => x.Storage, y => y.Alias);
-            _escopo.EhRequeridoSeOutroForNulo(x => x.Alias, y => y.Storage);
+            this.RequiredIfOtherNotNullIsValid(x => x.Storage, Alias);
+            this.RequiredIfOtherNotNullIsValid(x => x.Alias, Storage);
 
             return _notifications.IsValid();
         }

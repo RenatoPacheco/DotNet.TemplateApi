@@ -9,11 +9,15 @@ using TemplateApi.Compartilhado.Validacoes.Extensoes;
 
 namespace TemplateApi.Dominio.Escopos
 {
-    public class StorageEscp<T> : Comum.BaseEscopo<T>
+    public class StorageEscp<T>
         where T : ISelfValidation
     {
         public StorageEscp(T entidade)
-            : base(entidade) { }
+        {
+            _entidade = entidade;
+        }
+
+        protected readonly T _entidade;
 
         public void IdEhValido(Expression<Func<T, object>> expressao)
         {
