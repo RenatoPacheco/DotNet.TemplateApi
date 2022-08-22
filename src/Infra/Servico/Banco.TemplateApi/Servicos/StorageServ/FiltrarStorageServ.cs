@@ -111,7 +111,7 @@ namespace TemplateApi.Infra.Servico.Banco.TemplateApi.Servicos.StorageServ
 
             if (comando.Status.Any())
             {
-                sqlFiltro.Append($" AND sto.{_map.Col(x => x.Status)} IN @Status ");
+                sqlFiltro.Append($" AND {_map.Col(x => x.Status)} IN @Status ");
                 sqlParametros.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
