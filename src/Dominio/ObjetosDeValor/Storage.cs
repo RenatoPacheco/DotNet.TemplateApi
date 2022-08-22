@@ -4,12 +4,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.Interfaces;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public class Storage
         : IArquivo, ISelfValidation, IEquatable<Storage>
     {
+        [JsonConstructor]
         protected Storage()
         {
             _escopo = new StorageEscp<Storage>(this);

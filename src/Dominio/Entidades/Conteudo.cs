@@ -4,12 +4,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Dominio.Entidades
 {
     public class Conteudo
         : ISelfValidation, IEquatable<Conteudo>
     {
+        [JsonConstructor]
         protected Conteudo()
         {
             _escopo = new ConteudoEscp<Conteudo>(this);

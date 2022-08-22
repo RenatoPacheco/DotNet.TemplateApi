@@ -5,12 +5,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Dominio.Entidades
 {
     public class Usuario
         : ISelfValidation, IEquatable<Usuario>
     {
+        [JsonConstructor]
         protected Usuario()
         {
             _escopo = new UsuarioEscp<Usuario>(this);
