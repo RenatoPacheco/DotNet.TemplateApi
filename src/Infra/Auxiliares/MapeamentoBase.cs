@@ -98,10 +98,5 @@ namespace TemplateApi.Infra.Auxiliares
         {
             return $"{Col(expression)} AS {Prop(expression)}";
         }
-
-        protected string SqlParaJsonObject<P>(Expression<Func<T, P>> expression)
-        {
-            return $"JSON_QUERY({Col(expression)}) AS {Prop(expression)}";
-        }
     }
 }
