@@ -3,60 +3,33 @@ using System.Linq;
 using Newtonsoft.Json;
 using System.Reflection;
 using BitHelp.Core.Validation;
-using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
-using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.Comum;
-using TemplateApi.Compartilhado.Json.JsonConverte;
 
 namespace TemplateApi.Compartilhado.Json
 {
     public class ContratoJson : DefaultContractResolver
     {
         private static JsonSerializerSettings _configuracao;
-        public static JsonSerializerSettings Configuracao
+        private static JsonSerializerSettings Configuracao
         {
-            get => _configuracao ??= Configurar(new JsonSerializerSettings());
+            get => _configuracao ??= ConfiguracaoJson.AplicarParaLeitura(new JsonSerializerSettings());
         }
 
-        public static JsonSerializerSettings Configurar(JsonSerializerSettings settings)
-        {
-            settings.NullValueHandling = NullValueHandling.Ignore;
-            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            settings.Culture = System.Globalization.CultureInfo.CurrentCulture;
-            settings.ContractResolver = new ContratoJson();
-
-            settings.Converters.Add(new StringEnumConverter());
-            settings.Converters.Add(new PhoneTypeJsonConverte());
-            settings.Converters.Add(new IntInputJsonConverte());
-            settings.Converters.Add(new LongInputJsonConverte());
-            settings.Converters.Add(new DoubleInputJsonConverte());
-            settings.Converters.Add(new DecimalInputJsonConverte());
-            settings.Converters.Add(new GuidInputJsonConverte());
-            settings.Converters.Add(new BoolInputJsonConverte());
-            settings.Converters.Add(new DateTimeInputJsonConverte());
-            settings.Converters.Add(new TimeSpanInputJsonConverte());
-            settings.Converters.Add(new EnumInputJsonConverte<Status>());
-            settings.Converters.Add(new EnumInputJsonConverte<ContextoCmd>());
-
-            return settings;
-        }
-
-        public static string Serializar<T>(T value) 
+        public static string Serializar<T>(T value, JsonSerializerSettings settings = null)
             where T : class
         {
-            return JsonConvert.SerializeObject(value, Configuracao);
+            return JsonConvert.SerializeObject(value, settings ?? Configuracao);
         }
 
-        public static object Desserializar(string json, Type type)
+        public static object Desserializar(string json, Type type, JsonSerializerSettings settings = null)
         {
-            return JsonConvert.DeserializeObject(json, type, Configuracao);
+            return JsonConvert.DeserializeObject(json, type, settings ?? Configuracao);
         }
 
-        public static T Desserializar<T>(string json)
+        public static T Desserializar<T>(string json, JsonSerializerSettings settings = null)
         {
-            return JsonConvert.DeserializeObject<T>(json, Configuracao);
+            return JsonConvert.DeserializeObject<T>(json, settings ?? Configuracao);
         }
 
         public ContratoJson()

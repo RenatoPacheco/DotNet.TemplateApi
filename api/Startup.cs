@@ -35,7 +35,7 @@ namespace TemplateApi.Api
                 options.SuppressModelStateInvalidFilter = true;
             }).AddNewtonsoftJson(options => {
                 // Customizando configuração para Json
-                ContratoJson.Configurar(options.SerializerSettings);
+                ConfiguracaoJson.AplicarParaLeitura(options.SerializerSettings);
             });
 
             SwashbuckleConfig.Config(services);
