@@ -8,7 +8,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
         /// <summary>
         /// Texto com as palavras chaves para busca.
         /// </summary>
-        public string Texto 
+        public virtual string Texto 
         { 
             get => _texto; 
             set => _texto = value;
@@ -19,7 +19,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
         /// Página atual, com valor padrão 1, sendo qualquer valor menor que 1, será considerado o valor padrão.
         /// </summary>
         [Display(Name = "Página")]
-        public int Pagina
+        public virtual int Pagina
         { 
             get => _pagina;
             set => _pagina = value < 1 ? 1 : value; 
@@ -32,7 +32,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
         /// Se indicar qualquer valor menor que 1, será passado para 0, e buscará por tosos os registros.
         /// </summary>
         [Display(Name = "Máximo")]
-        public int Maximo
+        public virtual int Maximo
         {
             get => _maximo;
             set => _maximo = value < 1 ? 0 : value;
@@ -45,7 +45,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
         /// Quando true retorna o total de resultados e o total de páginas.
         /// </summary>
         [Display(Name = "Calcular paginação")]
-        public bool CalcularPaginacao
+        public virtual bool CalcularPaginacao
         {
             get => _calucularPaginacao;
             set => _calucularPaginacao = value;

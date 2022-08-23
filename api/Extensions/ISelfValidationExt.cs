@@ -63,7 +63,7 @@ namespace TemplateApi.Api.Extensions
         public static bool InputTypeEhValido<T>(this T entidade, Expression<Func<T, object>> expression, IInputType checar)
             where T : ISelfValidation
         {
-            bool ehValido = checar?.IsValid() ?? false;
+            bool ehValido = checar?.IsValid() ?? true;
 
             if ((checar != null) && !ehValido)
                 entidade.Notifications.AddError(expression);

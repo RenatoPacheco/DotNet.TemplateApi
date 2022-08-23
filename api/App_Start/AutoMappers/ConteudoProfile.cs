@@ -12,10 +12,22 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             #region InserirConteudoCmd
 
             CreateMap<InserirConteudoDataModel, InserirConteudoCmd>()
-                .ForMember(cmd => cmd.Status, opts => {
+                .ForMember(cmd => cmd.Titulo, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return src.PropriedadeRegistrada(x => x.Titulo);
+                    });
+                }).ForMember(cmd => cmd.Alias, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return src.PropriedadeRegistrada(x => x.Alias);
+                    });
+                }).ForMember(cmd => cmd.Texto, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return src.PropriedadeRegistrada(x => x.Texto);
+                    });
+                }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
                         return dest.InputTypeEhValido(x => x.Status, src.Status)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Status);
                     });
                 });
 
@@ -51,12 +63,24 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 .ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
                         return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Conteudo);
+                    });
+                }).ForMember(cmd => cmd.Titulo, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return src.PropriedadeRegistrada(x => x.Titulo);
+                    });
+                }).ForMember(cmd => cmd.Alias, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return src.PropriedadeRegistrada(x => x.Alias);
+                    });
+                }).ForMember(cmd => cmd.Texto, opts => {
+                    opts.Condition((src, dest, srcMember) => {
+                        return src.PropriedadeRegistrada(x => x.Texto);
                     });
                 }).ForMember(cmd => cmd.Status, opts => {
                     opts.Condition((src, dest, srcMember) => {
                         return dest.InputTypeEhValido(x => x.Status, src.Status)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Status);
                     });
                 });
 
@@ -68,7 +92,7 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 .ForMember(cmd => cmd.Conteudo, opts => {
                     opts.Condition((src, dest, srcMember) => {
                         return dest.InputTypeEhValido(x => x.Conteudo, src.Conteudo)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Conteudo);
                     });
                 });
 

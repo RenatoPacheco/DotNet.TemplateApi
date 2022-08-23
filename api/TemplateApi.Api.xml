@@ -198,7 +198,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
             <summary>
-            Identificador de usuário
+            Identificador de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Contexto">
