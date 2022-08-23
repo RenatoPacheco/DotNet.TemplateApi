@@ -6,55 +6,80 @@ using TemplateApi.Api.DataModels.TesteDataModel;
 namespace TemplateApi.Api.App_Start.AutoMappers
 {
     public class TesteProfile : Profile
-    {        public TesteProfile()
+    {
+        public TesteProfile()
         {
             #region FormatosTesteCmd
 
             CreateMap<FormatosTesteDataModel, FormatosTesteCmd>()
-                .ForMember(cmd => cmd.Int, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                .ForMember(cmd => cmd.String, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
+                        return src.PropriedadeRegistrada(x => x.String);
+                    });
+                }).ForMember(cmd => cmd.Int, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Int, src.Int)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Int);
                     });
-                }).ForMember(cmd => cmd.Long, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.Long, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Long, src.Long)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Long);
                     });
-                }).ForMember(cmd => cmd.Decimal, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.Decimal, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Decimal, src.Decimal)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Decimal);
                     });
-                }).ForMember(cmd => cmd.Double, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.Double, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Double, src.Double)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Double);
                     });
-                }).ForMember(cmd => cmd.Enum, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.Enum, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Enum, src.Enum)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Enum);
                     });
-                }).ForMember(cmd => cmd.DateTime, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.DateTime, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.DateTime, src.DateTime)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.DateTime);
                     });
-                }).ForMember(cmd => cmd.TimeSpan, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.TimeSpan, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.TimeSpan, src.TimeSpan)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.TimeSpan);
                     });
-                }).ForMember(cmd => cmd.Guid, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.Guid, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Guid, src.Guid)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Guid);
                     });
-                }).ForMember(cmd => cmd.Bool, opts => {
-                    opts.Condition((src, dest, srcMember) => {
+                }).ForMember(cmd => cmd.Bool, opts =>
+                {
+                    opts.Condition((src, dest, srcMember) =>
+                    {
                         return dest.InputTypeEhValido(x => x.Bool, src.Bool)
-                            && srcMember != null;
+                            && src.PropriedadeRegistrada(x => x.Bool);
                     });
                 });
             #endregion

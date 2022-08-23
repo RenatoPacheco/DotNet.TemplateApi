@@ -9,46 +9,6 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
     public class FiltrarConteudoDataModel 
         : Common.FiltrarBaseDataModel<FiltrarConteudoDataModel>
     {
-        public override string Texto
-        {
-            get => base.Texto;
-            set
-            {
-                base.Texto = value;
-                RegistarPropriedade(x => x.Texto);
-            }
-        }
-
-        public override int Maximo
-        {
-            get => base.Maximo;
-            set
-            {
-                base.Maximo = value;
-                RegistarPropriedade(x => x.Maximo);
-            }
-        }
-
-        public override int Pagina
-        {
-            get => base.Pagina;
-            set
-            {
-                base.Pagina = value;
-                RegistarPropriedade(x => x.Pagina);
-            }
-        }
-
-        public override bool CalcularPaginacao
-        {
-            get => base.CalcularPaginacao;
-            set
-            {
-                base.CalcularPaginacao = value;
-                RegistarPropriedade(x => x.CalcularPaginacao);
-            }
-        }
-
         private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
@@ -65,7 +25,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
 
         private IList<IntInput> _conteudo;
         /// <summary>
-        /// Identificador de usuário
+        /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
         public IList<IntInput> Conteudo
@@ -80,7 +40,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
 
         private IList<EnumInput<Status>> _status;
         /// <summary>
-        /// Status de usuário
+        /// Status de conteúdo
         /// </summary>
         public IList<EnumInput<Status>> Status
         {
