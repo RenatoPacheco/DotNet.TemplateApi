@@ -1,24 +1,24 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhado.Extensoes;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.ValuesObject
 {
-    public class NoificacaoAvisos
+    public class NotificacaoAvisos
     {
-        public NoificacaoAvisos(string mensagem, string referencia)
+        public NotificacaoAvisos(string mensagem, string referencia)
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString("N");
             Data = DateTime.Now;
             Mensagem = mensagem;
             Referencia = referencia ?? string.Empty;
-            Tipo = TipoNoificacaoAvisos.Erro;
+            Tipo = TipoAvisos.Erro;
         }
 
-        public NoificacaoAvisos(ValidationMessage dados)
+        public NotificacaoAvisos(ValidationMessage dados)
         {
-            Id = dados.Id;
+            Id = dados.Id.ToString("N");
             Data = dados.Date;
             Mensagem = dados.Message;
             Referencia = dados.Reference ?? string.Empty;
@@ -26,7 +26,7 @@ namespace TemplateApi.Api.ValuesObject
             Excecao = dados.Exception;
         }
 
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public DateTime Data { get; set; }
 
@@ -37,43 +37,43 @@ namespace TemplateApi.Api.ValuesObject
         public string Referencia
         {
             get { return _referencia ??= string.Empty; }
-            set { _referencia = (value ?? string.Empty).StartToLower(); }
+            set { _referencia = (value ?? string.Empty).ToJsonReference(); }
         }
 
-        public TipoNoificacaoAvisos Tipo { get; set; }
+        public TipoAvisos Tipo { get; set; }
 
         [Display(Name = "Exceção")]
         public ExcecaoAvisos Excecao { get; set; }
 
         public bool EhValido()
         {
-            return !(Tipo == TipoNoificacaoAvisos.Erro
-                || Tipo == TipoNoificacaoAvisos.NaoAutorizado
-                || Tipo == TipoNoificacaoAvisos.NaoEncontrado);
+            return !(Tipo == TipoAvisos.Erro
+                || Tipo == TipoAvisos.NaoAutorizado
+                || Tipo == TipoAvisos.NaoEncontrado);
         }
 
-        private TipoNoificacaoAvisos InterpretarTipo(ValidationType dados)
+        private TipoAvisos InterpretarTipo(ValidationType dados)
         {
-            TipoNoificacaoAvisos resultado;
+            TipoAvisos resultado;
             switch (dados)
             {
                 case ValidationType.Success:
-                    resultado = TipoNoificacaoAvisos.Sucesso;
+                    resultado = TipoAvisos.Sucesso;
                     break;
                 case ValidationType.Info:
-                    resultado = TipoNoificacaoAvisos.Sucesso;
+                    resultado = TipoAvisos.Sucesso;
                     break;
                 case ValidationType.Alert:
-                    resultado = TipoNoificacaoAvisos.Atencao;
+                    resultado = TipoAvisos.Atencao;
                     break;
                 case ValidationType.Unauthorized:
-                    resultado = TipoNoificacaoAvisos.NaoAutorizado;
+                    resultado = TipoAvisos.NaoAutorizado;
                     break;
                 case ValidationType.NotFound:
-                    resultado = TipoNoificacaoAvisos.NaoEncontrado;
+                    resultado = TipoAvisos.NaoEncontrado;
                     break;
                 default:
-                    resultado = TipoNoificacaoAvisos.Erro;
+                    resultado = TipoAvisos.Erro;
                     break;
             }
 
