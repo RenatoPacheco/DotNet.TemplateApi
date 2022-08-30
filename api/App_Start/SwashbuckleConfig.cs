@@ -251,26 +251,26 @@ namespace TemplateApi.Api
                         Enum = options.OpenApiEnum<ContextoCmd>()
                     });
 
-                options.MapType<TipoNoificacaoAvisos>(
+                options.MapType<TipoAvisos>(
                     () => new OpenApiSchema
                     {
                         Type = "string",
-                        Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
+                        Enum = options.OpenApiEnum<TipoAvisos>()
                     });
-                options.MapType<TipoNoificacaoAvisos?>(
+                options.MapType<TipoAvisos?>(
                     () => new OpenApiSchema
                     {
                         Type = "string",
                         Nullable = true,
-                        Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
+                        Enum = options.OpenApiEnum<TipoAvisos>()
                     });
 
-                options.MapType<EnumInput<TipoNoificacaoAvisos>>(
+                options.MapType<EnumInput<TipoAvisos>>(
                     () => new OpenApiSchema
                     {
                         Type = "string",
                         Nullable = true,
-                        Enum = options.OpenApiEnum<TipoNoificacaoAvisos>()
+                        Enum = options.OpenApiEnum<TipoAvisos>()
                     });
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;

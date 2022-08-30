@@ -39,22 +39,22 @@ namespace TemplateApi.Api.ValuesObject
             : this(codigo)
         {
             Notificacoes = validacao.Notifications.Messages
-                .Select(x => new NoificacaoAvisos(x)).ToArray();
+                .Select(x => new NotificacaoAvisos(x)).ToArray();
         }
 
         public Avisos(int codigo, ValidationNotification notificacao)
             : this(codigo)
         {
             Notificacoes = notificacao.Messages
-                .Select(x => new NoificacaoAvisos(x)).ToArray();
+                .Select(x => new NotificacaoAvisos(x)).ToArray();
         }
 
         public Avisos(Exception ex)
             : this(500)
         {
-            Notificacoes = new NoificacaoAvisos[]
+            Notificacoes = new NotificacaoAvisos[]
             {
-                new NoificacaoAvisos(ex.Message, string.Empty) { Excecao = ex }
+                new NotificacaoAvisos(ex.Message, string.Empty) { Excecao = ex }
             };
         }
 
@@ -94,12 +94,12 @@ namespace TemplateApi.Api.ValuesObject
         public Guid Rastreio { get; set; }
 
         [Display(Name = "Notificações")]
-        public IList<NoificacaoAvisos> Notificacoes { get; internal set; } = new List<NoificacaoAvisos>();
+        public IList<NotificacaoAvisos> Notificacoes { get; internal set; } = new List<NotificacaoAvisos>();
 
         public bool Validar(ISelfValidation dados)
         {
             bool resultado = dados.IsValid();
-            Notificacoes = Notificacoes.Concat(dados.Notifications.Messages.Select(x => new NoificacaoAvisos(x))).ToList();
+            Notificacoes = Notificacoes.Concat(dados.Notifications.Messages.Select(x => new NotificacaoAvisos(x))).ToList();
             return resultado;
         }
 
@@ -115,7 +115,7 @@ namespace TemplateApi.Api.ValuesObject
 
         public void Erro(string mensagem)
         {
-            Notificacoes.Add(new NoificacaoAvisos(mensagem, string.Empty));
+            Notificacoes.Add(new NotificacaoAvisos(mensagem, string.Empty));
         }
     }
 }

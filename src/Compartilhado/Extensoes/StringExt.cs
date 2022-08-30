@@ -20,23 +20,34 @@ namespace TemplateApi.Compartilhado.Extensoes
             return source;
         }
 
-        public static bool TryParseJson<T>(this string obj, out T result)
+        public static string ToJsonReference(this string source)
+        {
+            if (!string.IsNullOrEmpty(source))
+                source = Regex.Replace(source, @"^.|\..", (v) =>
+                {
+                    return v.Value.ToLower();
+                });
+
+            return source;
+        }
+
+        public static bool TryParseJson<T>(this string source, out T output)
         {
             try
             {
-                result = ContratoJson.Desserializar<T>(obj);
+                output = ContratoJson.Desserializar<T>(source);
                 return true;
             }
             catch
             {
-                result = default;
+                output = default;
                 return false;
             }
         }
 
-        public static T ParseJson<T>(this string obj)
+        public static T ParseJson<T>(this string source)
         {
-            return ContratoJson.Desserializar<T>(obj);
+            return ContratoJson.Desserializar<T>(source);
         }
     }
 }

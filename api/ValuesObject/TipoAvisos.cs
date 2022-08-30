@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Api.ValuesObject
 {
-    public enum TipoNoificacaoAvisos
+    public enum TipoAvisos
     {
         Erro,
         Sucesso,
