@@ -1,9 +1,9 @@
 ﻿using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
+using BitHelp.Core.Validation.Extends;
 
 namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 {
@@ -119,16 +119,16 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 
         #region Auto validação
 
-        protected ConteudoEscp<EditarConteudoCmd> _escopo;
+        protected readonly ConteudoEscp<EditarConteudoCmd> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            _escopo.EhRequerido(x => x.Conteudo);
+            this.RequiredIsValid(x => x.Conteudo);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

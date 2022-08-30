@@ -1,5 +1,4 @@
 ﻿using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
 using BitHelp.Core.Validation.Extends;
 
 namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
@@ -37,12 +36,12 @@ namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
 
         #region Auto validação
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

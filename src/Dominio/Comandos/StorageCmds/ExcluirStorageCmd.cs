@@ -1,9 +1,7 @@
 ﻿using BitHelp.Core.Validation;
+using BitHelp.Core.Validation.Extends;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
-using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Dominio.Comandos.StorageCmds
 {
@@ -44,17 +42,17 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         #region Auto validação
 
-        protected StorageEscp<ExcluirStorageCmd> _escopo;
+        protected readonly StorageEscp<ExcluirStorageCmd> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            _escopo.EhRequeridoSeOutroForNulo(x => x.Storage, y => y.Alias);
-            _escopo.EhRequeridoSeOutroForNulo(x => x.Alias, y => y.Storage);
+            this.RequiredIfOtherNotNullIsValid(x => x.Storage, Alias);
+            this.RequiredIfOtherNotNullIsValid(x => x.Alias, Storage);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

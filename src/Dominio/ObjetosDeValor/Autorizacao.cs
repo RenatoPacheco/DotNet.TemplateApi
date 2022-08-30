@@ -1,16 +1,18 @@
-﻿using System;
-using System.Linq;
+﻿using System.Text.Json.Serialization;
 using System.Reflection;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Entidades;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {
     public class Autorizacao
+        : IEquatable<Autorizacao>
     {
-        protected internal Autorizacao() { }
+        [JsonConstructor]
+        protected Autorizacao() { }
 
         public Autorizacao(MethodInfo metodo, Type classe)
             : this()
@@ -73,8 +75,10 @@ namespace TemplateApi.Dominio.ObjetosDeValor
             Id = ToString();
         }
 
+        [JsonIgnore]
         public readonly Type Classe;
 
+        [JsonIgnore]
         public readonly MethodInfo Metodo;
 
         public string Id { get; set; }
@@ -104,5 +108,39 @@ namespace TemplateApi.Dominio.ObjetosDeValor
             return (!RequerAutorizacao || (RequerAutorizacao == autenticacao.EstaAutenticado))
                 && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
         }
+
+        #region Compare
+
+        public bool Equals([AllowNull] Autorizacao other)
+        {
+            return !(other is null)
+                && other.GetHashCode() == GetHashCode();
+        }
+
+        public override bool Equals(object other)
+        {
+            return other is Autorizacao compare && Equals(compare);
+        }
+
+        public override int GetHashCode()
+        {
+            return $"{GetType()}:{Id}".GetHashCode();
+        }
+
+        #endregion
+
+        #region Operadores
+
+        public static bool operator ==(Autorizacao a, Autorizacao b)
+        {
+            return (a is null && b is null) || (a?.Equals(b) ?? false);
+        }
+
+        public static bool operator !=(Autorizacao a, Autorizacao b)
+        {
+            return !(a == b);
+        }
+
+        #endregion
     }
 }

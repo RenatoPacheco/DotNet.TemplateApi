@@ -1,27 +1,26 @@
-﻿using System;
+﻿using System.Text.Json.Serialization;
 using BitHelp.Core.Validation;
-using System.Text.Json.Serialization;
-using System.Diagnostics.CodeAnalysis;
-using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
+using System.Diagnostics.CodeAnalysis;
 using TemplateApi.Dominio.ObjetosDeValor;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.Entidades
 {
     public class Conteudo
         : ISelfValidation, IEquatable<Conteudo>
     {
+        [JsonConstructor]
         protected Conteudo()
         {
             _escopo = new ConteudoEscp<Conteudo>(this);
-            CriadoEm = DateTime.Now;
-            AlteradoEm = DateTime.Now;
-            Status = ObjetosDeValor.Status.Inativo;
         }
 
         public Conteudo(string titulo, string alias, string texto, Status? status)
             : this()
         {
+            Inicializar();
+
             Titulo = titulo;
             Texto = texto;
             Alias = alias;
@@ -47,6 +46,13 @@ namespace TemplateApi.Dominio.Entidades
 
         public override string ToString() => Titulo;
 
+        private void Inicializar()
+        {
+            CriadoEm = DateTime.Now;
+            AlteradoEm = DateTime.Now;
+            Status = ObjetosDeValor.Status.Inativo;
+        }
+
         #region Compare
 
         public bool Equals([AllowNull] Conteudo other)
@@ -55,9 +61,9 @@ namespace TemplateApi.Dominio.Entidades
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            return obj is Conteudo other && Equals(other);
+            return other is Conteudo compare && Equals(compare);
         }
 
         public override int GetHashCode()
@@ -71,26 +77,24 @@ namespace TemplateApi.Dominio.Entidades
 
         public static bool operator ==(Conteudo a, Conteudo b)
         {
-            return (a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b));
+            return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
         public static bool operator !=(Conteudo a, Conteudo b)
         {
-            return !((a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b)));
+            return !(a == b);
         }
 
         #endregion
 
         #region ISelfValidation
 
-        protected ConteudoEscp<Conteudo> _escopo;
+        protected readonly ConteudoEscp<Conteudo> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public bool IsValid()
+        bool ISelfValidation.IsValid()
         {
             _escopo.IdEhValido(x => x.Id);
             _escopo.TituloEhValido(x => x.Titulo);
@@ -98,7 +102,7 @@ namespace TemplateApi.Dominio.Entidades
             _escopo.TextoEhValido(x => x.Texto);
             _escopo.StatusEhValido(x => x.Status);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

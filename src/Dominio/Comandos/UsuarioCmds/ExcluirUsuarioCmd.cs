@@ -1,6 +1,6 @@
 ﻿using BitHelp.Core.Validation;
+using BitHelp.Core.Validation.Extends;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 
@@ -30,16 +30,16 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         #region Auto validação
 
-        protected UsuarioEscp<ExcluirUsuarioCmd> _escopo;
+        protected readonly UsuarioEscp<ExcluirUsuarioCmd> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            _escopo.EhRequerido(x => x.Usuario);
+            this.RequiredIsValid(x => x.Usuario);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

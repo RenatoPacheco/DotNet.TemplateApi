@@ -14,9 +14,9 @@ namespace TemplateApi.Api.Helpers
             Avisos avisos = new Avisos((int)codigo, notificacoes);
 
             return new JsonResult(new ComumViewData
-            { 
+            {
                 Avisos = avisos
-            }, ContratoJson.Configuracao);
+            }, ConfiguracaoJson.AplicarParaEscrita());
         }
 
         public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes, object dados)
@@ -27,7 +27,7 @@ namespace TemplateApi.Api.Helpers
             {
                 Avisos = avisos,
                 Dados = dados
-            }, ContratoJson.Configuracao);
+            }, ConfiguracaoJson.AplicarParaEscrita());
         }
     }
 }

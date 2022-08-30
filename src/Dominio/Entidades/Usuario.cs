@@ -1,28 +1,27 @@
-﻿using System;
+﻿using System.Text.Json.Serialization;
 using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
-using System.Text.Json.Serialization;
-using System.Diagnostics.CodeAnalysis;
-using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
+using System.Diagnostics.CodeAnalysis;
 using TemplateApi.Dominio.ObjetosDeValor;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.Entidades
 {
     public class Usuario
         : ISelfValidation, IEquatable<Usuario>
     {
+        [JsonConstructor]
         protected Usuario()
         {
             _escopo = new UsuarioEscp<Usuario>(this);
-            CriadoEm = DateTime.Now;
-            AlteradoEm = DateTime.Now;
-            Status = ObjetosDeValor.Status.Inativo;
         }
 
         public Usuario(string nome, string email, Status? status)
             : this()
         {
+            Inicializar();
+
             Nome = nome;
             Email = email;
             Status = status;
@@ -49,6 +48,13 @@ namespace TemplateApi.Dominio.Entidades
 
         public override string ToString() => Nome;
 
+        private void Inicializar()
+        {
+            CriadoEm = DateTime.Now;
+            AlteradoEm = DateTime.Now;
+            Status = ObjetosDeValor.Status.Inativo;
+        }
+
         #region Compare
 
         public bool Equals([AllowNull] Usuario other)
@@ -57,9 +63,9 @@ namespace TemplateApi.Dominio.Entidades
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            return obj is Usuario other && Equals(other);
+            return other is Usuario compare && Equals(compare);
         }
 
         public override int GetHashCode()
@@ -73,24 +79,22 @@ namespace TemplateApi.Dominio.Entidades
 
         public static bool operator ==(Usuario a, Usuario b)
         {
-            return (a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b));
+            return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
         public static bool operator !=(Usuario a, Usuario b)
         {
-            return !((a is null) && (b is null)
-                || (!(a is null) && !(b is null) && a.Equals(b)));
+            return !(a == b);
         }
 
         #endregion
 
         #region ISelfValidation
 
-        protected UsuarioEscp<Usuario> _escopo;
+        protected readonly UsuarioEscp<Usuario> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; protected set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public bool IsValid()
         {
@@ -100,7 +104,7 @@ namespace TemplateApi.Dominio.Entidades
             _escopo.TelefoneEhValido(x => x.Telefone);
             _escopo.StatusEhValido(x => x.Status);
 
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion

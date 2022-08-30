@@ -1,6 +1,5 @@
 ﻿using BitHelp.Core.Validation;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
@@ -90,14 +89,14 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         #region Auto validação
 
-        protected StorageEscp<FiltrarStorageCmd> _escopo;
+        protected readonly StorageEscp<FiltrarStorageCmd> _escopo;
 
-        [JsonIgnore]
-        public ValidationNotification Notifications { get; set; } = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new ValidationNotification();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public virtual bool IsValid()
         {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
 
         #endregion
