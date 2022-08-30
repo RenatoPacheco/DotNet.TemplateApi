@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using BitHelp.Core.Validation;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using BitHelp.Core.Validation;
 using TemplateApi.RecursoResx;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.ValuesObject
 {
@@ -12,7 +9,7 @@ namespace TemplateApi.Api.ValuesObject
         public Avisos(int codigo)
         {
             Data = DateTime.Now;
-            Rastreio = Guid.NewGuid();
+            Rastreio = Guid.NewGuid().ToString("N");
             if (codigo < 300)
             {
                 Mensagem = AvisosResx.SolicitacaoSucesso;
@@ -91,7 +88,7 @@ namespace TemplateApi.Api.ValuesObject
 
         public DateTime Data { get; set; }
 
-        public Guid Rastreio { get; set; }
+        public string Rastreio { get; set; }
 
         [Display(Name = "Notificações")]
         public IList<NotificacaoAvisos> Notificacoes { get; internal set; } = new List<NotificacaoAvisos>();

@@ -1,9 +1,6 @@
-﻿using TemplateApi.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using TemplateApi.Dominio.Entidades;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TemplateApi.Api.ValuesObject
 {

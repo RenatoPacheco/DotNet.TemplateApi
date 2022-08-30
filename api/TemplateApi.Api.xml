@@ -171,6 +171,30 @@
             <p>Há opção de visualizar o arquivo, basta indicar donwload para false na query, o padrão é true.</p>
             </remarks>
         </member>
+        <member name="P:TemplateApi.Api.DataModels.Common.FiltrarBaseDataModel`1.Texto">
+            <summary>
+            Texto com as palavras chaves para busca.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.Common.FiltrarBaseDataModel`1.Pagina">
+            <summary>
+            Página atual, com valor padrão 1, sendo qualquer valor menor que 1, será considerado o valor padrão.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.Common.FiltrarBaseDataModel`1.Maximo">
+            <summary>
+            Máximo de registros por página, com valor padrão 100.
+            Pode indicar um valor menor que um para buscar todos os registros.
+            Se indicar qualquer valor menor que 1, será passado para 0, e buscará por tosos os registros.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.Common.FiltrarBaseDataModel`1.CalcularPaginacao">
+            <summary>
+            Informar se será feito o cáluculo da paginação.
+            Por padrão o valor é false.
+            Quando true retorna o total de resultados e o total de páginas.
+            </summary>
+        </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.EditarConteudoDataModel.Conteudo">
             <summary>
             Identificador de conteúdo
@@ -198,7 +222,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.ExcluirConteudoDataModel.Conteudo">
             <summary>
-            Identificador de usuário
+            Identificador de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Contexto">
@@ -208,12 +232,12 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Conteudo">
             <summary>
-            Identificador de usuário
+            Identificador de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.FiltrarConteudoDataModel.Status">
             <summary>
-            Status de usuário
+            Status de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.ConteudoDataModel.InserirConteudoDataModel.Titulo">
@@ -283,7 +307,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Status">
             <summary>
-            Status de usuário
+            Status de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.InserirStorageDataModel.Arquivo">
@@ -334,7 +358,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Status">
             <summary>
-            Status de usuário
+            Status de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.ExcluirUsuarioDataModel.Usuario">
@@ -379,7 +403,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Status">
             <summary>
-            Status de usuário
+            Status de conteúdo
             </summary>
         </member>
         <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Nome">

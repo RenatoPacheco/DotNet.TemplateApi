@@ -6,22 +6,50 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.UsuarioDataModel
 {
-    public class FiltrarUsuarioDataModel : FiltrarBaseCmd
+    public class FiltrarUsuarioDataModel
+        : Common.FiltrarBaseDataModel<FiltrarUsuarioDataModel>
     {
+        private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public EnumInput<ContextoCmd> Contexto { get; set; }
+        public EnumInput<ContextoCmd> Contexto
+        {
+            get => _contexto;
+            set
+            {
+                _contexto = value;
+                RegistarPropriedade(x => x.Contexto);
+            }
+        }
 
+        private IList<IntInput> _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<IntInput> Usuario { get; set; }
+        public IList<IntInput> Usuario
+        {
+            get => _usuario;
+            set
+            {
+                _usuario = value;
+                RegistarPropriedade(x => x.Usuario);
+            }
+        }
 
+        private IList<EnumInput<Status>> _status;
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<EnumInput<Status>> Status { get; set; }
+        public IList<EnumInput<Status>> Status
+        {
+            get => _status;
+            set
+            {
+                _status = value;
+                RegistarPropriedade(x => x.Status);
+            }
+        }
     }
 }

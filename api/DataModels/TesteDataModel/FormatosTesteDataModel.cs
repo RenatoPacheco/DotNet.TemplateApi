@@ -5,27 +5,127 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 namespace TemplateApi.Api.DataModels.TesteDataModel
 {
     public class FormatosTesteDataModel
+        : Common.BaseDataModel<FormatosTesteDataModel>
     {
-        public string String { get; set; }
+        private string _string;
+        public string String
+        {
+            get => _string;
+            set
+            {
+                _string = value;
+                RegistarPropriedade(x => x.String);
+            }
+        }
 
-        public IntInput Int { get; set; }
+        private IntInput _int;
+        public IntInput Int
+        {
+            get => _int;
+            set
+            {
+                _int = value;
+                RegistarPropriedade(x => x.Int);
+            }
+        }
 
-        public LongInput Long { get; set; }
+        private LongInput _long;
+        public LongInput Long
+        {
+            get => _long;
+            set
+            {
+                _long = value;
+                RegistarPropriedade(x => x.Long);
+            }
+        }
 
-        public DecimalInput Decimal { get; set; }
+        private DecimalInput _decimal;
+        public DecimalInput Decimal
+        {
+            get => _decimal;
+            set
+            {
+                _decimal = value;
+                RegistarPropriedade(x => x.Decimal);
+            }
+        }
 
-        public DoubleInput Double { get; set; }
+        private DoubleInput _double;
+        public DoubleInput Double
+        {
+            get => _double;
+            set
+            {
+                _double = value;
+                RegistarPropriedade(x => x.Double);
+            }
+        }
 
-        public BoolInput Bool { get; set; }
+        private BoolInput _bool;
+        public BoolInput Bool
+        {
+            get => _bool;
+            set
+            {
+                _bool = value;
+                RegistarPropriedade(x => x.Bool);
+            }
+        }
 
-        public DateTimeInput DateTime { get; set; }
+        private DateTimeInput _dateTime;
+        public DateTimeInput DateTime
+        {
+            get => _dateTime;
+            set
+            {
+                _dateTime = value;
+                RegistarPropriedade(x => x.DateTime);
+            }
+        }
 
-        public TimeSpanInput TimeSpan { get; set; }
+        private TimeSpanInput _timeSpan;
+        public TimeSpanInput TimeSpan
+        {
+            get => _timeSpan;
+            set
+            {
+                _timeSpan = value;
+                RegistarPropriedade(x => x.TimeSpan);
+            }
+        }
 
-        public GuidInput Guid { get; set; }
+        private GuidInput _guid;
+        public GuidInput Guid
+        {
+            get => _guid;
+            set
+            {
+                _guid = value;
+                RegistarPropriedade(x => x.Guid);
+            }
+        }
 
-        public EnumInput<Status> Enum { get; set; }
+        private EnumInput<Status> _enum;
+        public EnumInput<Status> Enum
+        {
+            get => _enum;
+            set
+            {
+                _enum = value;
+                RegistarPropriedade(x => x.Enum);
+            }
+        }
 
-        public PhoneType? Phone { get; set; }
+        private PhoneType? _phone;
+        public PhoneType? Phone
+        {
+            get => _phone;
+            set
+            {
+                _phone = value;
+                RegistarPropriedade(x => x.Phone);
+            }
+        }
     }
 }

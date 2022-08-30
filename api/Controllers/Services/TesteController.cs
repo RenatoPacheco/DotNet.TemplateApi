@@ -3,12 +3,12 @@ using AutoMapper;
 using TemplateApi.Aplicacao;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
+using TemplateApi.Api.Extensions;
 using Microsoft.Extensions.Logging;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.Comandos.TesteCmds;
-using TemplateApi.Api.Extensions;
 using TemplateApi.Api.DataModels.TesteDataModel;
 
 namespace TemplateApi.Api.Controllers.Services

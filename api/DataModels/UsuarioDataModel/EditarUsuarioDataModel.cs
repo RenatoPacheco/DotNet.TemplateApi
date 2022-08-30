@@ -1,42 +1,98 @@
-﻿using System.ComponentModel.DataAnnotations;
-using BitHelp.Core.Type.pt_BR;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+﻿using BitHelp.Core.Type.pt_BR;
 using TemplateApi.Dominio.ObjetosDeValor;
+using System.ComponentModel.DataAnnotations;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.UsuarioDataModel
 {
     public class EditarUsuarioDataModel
+        : Common.BaseDataModel<EditarUsuarioDataModel>
     {
+        private IntInput _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IntInput Usuario { get; set; }
+        public IntInput Usuario
+        {
+            get => _usuario;
+            set
+            {
+                _usuario = value;
+                RegistarPropriedade(x => x.Usuario);
+            }
+        }
 
+        private string _nome;
         /// <summary>
         /// Nome de usuário
         /// </summary>
-        public string Nome { get; set; }
+        public string Nome
+        {
+            get => _nome;
+            set
+            {
+                _nome = value;
+                RegistarPropriedade(x => x.Nome);
+            }
+        }
 
+        private string _email;
         /// <summary>
         /// E-mail de usuário
         /// </summary>
         [Display(Name = "E-mail")]
-        public string Email { get; set; }
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                _email = value;
+                RegistarPropriedade(x => x.Email);
+            }
+        }
 
+        private PhoneType? _telefone;
         /// <summary>
         /// Telefone de usuário
         /// </summary>
-        public PhoneType? Telefone { get; set; }
+        public PhoneType? Telefone
+        {
+            get => _telefone;
+            set
+            {
+                _telefone = value;
+                RegistarPropriedade(x => x.Telefone);
+            }
+        }
 
+        private string _senha;
         /// <summary>
         /// Senha de usuário
         /// </summary>
-        public string Senha { get; set; }
+        public string Senha
+        {
+            get => _senha;
+            set
+            {
+                _senha = value;
+                RegistarPropriedade(x => x.Senha);
+            }
+        }
 
+
+        private EnumInput<Status> _status;
         /// <summary>
-        /// Status de usuário
+        /// Status de conteúdo
         /// </summary>
-        public EnumInput<Status> Status { get; set; }
+        public EnumInput<Status> Status
+        {
+            get => _status;
+            set
+            {
+                _status = value;
+                RegistarPropriedade(x => x.Status);
+            }
+        }
     }
 }

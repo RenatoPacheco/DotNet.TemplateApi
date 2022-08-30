@@ -1,7 +1,6 @@
-﻿using System;
-using BitHelp.Core.Validation;
-using System.ComponentModel.DataAnnotations;
+﻿using BitHelp.Core.Validation;
 using TemplateApi.Compartilhado.Extensoes;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.ValuesObject
 {
@@ -9,7 +8,7 @@ namespace TemplateApi.Api.ValuesObject
     {
         public NotificacaoAvisos(string mensagem, string referencia)
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString("N");
             Data = DateTime.Now;
             Mensagem = mensagem;
             Referencia = referencia ?? string.Empty;
@@ -18,7 +17,7 @@ namespace TemplateApi.Api.ValuesObject
 
         public NotificacaoAvisos(ValidationMessage dados)
         {
-            Id = dados.Id;
+            Id = dados.Id.ToString("N");
             Data = dados.Date;
             Mensagem = dados.Message;
             Referencia = dados.Reference ?? string.Empty;
@@ -26,7 +25,7 @@ namespace TemplateApi.Api.ValuesObject
             Excecao = dados.Exception;
         }
 
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public DateTime Data { get; set; }
 
@@ -37,7 +36,7 @@ namespace TemplateApi.Api.ValuesObject
         public string Referencia
         {
             get { return _referencia ??= string.Empty; }
-            set { _referencia = (value ?? string.Empty).StartToLower(); }
+            set { _referencia = (value ?? string.Empty).ToJsonReference(); }
         }
 
         public TipoAvisos Tipo { get; set; }

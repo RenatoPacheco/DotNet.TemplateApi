@@ -1,4 +1,5 @@
-﻿using TemplateApi.Compartilhado.Json;
+﻿using System.Text.RegularExpressions;
+using TemplateApi.Compartilhado.Json;
 
 namespace TemplateApi.Compartilhado.Extensoes
 {
