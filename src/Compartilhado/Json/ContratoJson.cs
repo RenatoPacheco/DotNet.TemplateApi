@@ -13,7 +13,7 @@ namespace TemplateApi.Compartilhado.Json
         private static JsonSerializerSettings _configuracao;
         private static JsonSerializerSettings Configuracao
         {
-            get => _configuracao ??= ConfiguracaoJson.AplicarParaLeitura(new JsonSerializerSettings());
+            get => _configuracao ??= ConfiguracaoJson.AplicarParaLeitura();
         }
 
         public static string Serializar<T>(T value, JsonSerializerSettings settings = null)

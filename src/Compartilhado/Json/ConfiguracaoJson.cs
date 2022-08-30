@@ -30,16 +30,16 @@ namespace TemplateApi.Compartilhado.Json
             return settings;
         }
 
-        public static JsonSerializerSettings AplicarParaLeitura(JsonSerializerSettings settings)
+        public static JsonSerializerSettings AplicarParaLeitura(JsonSerializerSettings settings = null)
         {
-            settings = AplicarBase(settings);
+            settings = AplicarBase(settings ?? new JsonSerializerSettings());
 
             return settings;
         }
 
-        public static JsonSerializerSettings AplicarParaEscrita(JsonSerializerSettings settings)
+        public static JsonSerializerSettings AplicarParaEscrita(JsonSerializerSettings settings = null)
         {
-            settings = AplicarBase(settings);
+            settings = AplicarBase(settings ?? new JsonSerializerSettings());
             settings.NullValueHandling = NullValueHandling.Ignore;
 
             return settings;

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Compartilhado.Json;
-using Newtonsoft.Json;
 
 namespace TemplateApi.Api.Helpers
 {
@@ -17,7 +16,7 @@ namespace TemplateApi.Api.Helpers
             return new JsonResult(new ComumViewData
             { 
                 Avisos = avisos
-            }, ConfiguracaoJson.AplicarParaEscrita(new JsonSerializerSettings()));
+            }, ConfiguracaoJson.AplicarParaEscrita());
         }
 
         public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes, object dados)
@@ -28,7 +27,7 @@ namespace TemplateApi.Api.Helpers
             {
                 Avisos = avisos,
                 Dados = dados
-            }, ConfiguracaoJson.AplicarParaEscrita(new JsonSerializerSettings()));
+            }, ConfiguracaoJson.AplicarParaEscrita());
         }
     }
 }
