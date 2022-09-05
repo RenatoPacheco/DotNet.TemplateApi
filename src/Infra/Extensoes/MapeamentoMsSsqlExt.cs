@@ -8,7 +8,7 @@ namespace TemplateApi.Infra.Extensoes
 {
     internal static class MapeamentoMsSsqlExt
     {
-        public static string SqlParaJsonObject<T, P>(
+        public static string MsSqlJsonParaObjeto<T, P>(
             this BaseMapeamento<T> source,
             Expression<Func<T, P>> expression)
             where T : class
@@ -16,7 +16,7 @@ namespace TemplateApi.Infra.Extensoes
             return $"JSON_QUERY({source.Col(expression)}) AS {source.Prop(expression)}";
         }
 
-        public static string CharParaEnum<T, P>(
+        public static string MsSqlCharParaEnum<T, P>(
             this BaseMapeamento<T> source,
             Expression<Func<T, P>> expression, 
             Type type)
@@ -44,7 +44,7 @@ namespace TemplateApi.Infra.Extensoes
             return sql.ToString().Trim();
         }
 
-        public static string CharParaBoolean<T, P>(
+        public static string MsSqlCharParaBoolean<T, P>(
             this BaseMapeamento<T> source,
             Expression<Func<T, P>> expression)
             where T : class
@@ -57,7 +57,7 @@ namespace TemplateApi.Infra.Extensoes
             END AS {source.Prop(expression)}";
         }
 
-        public static string BitParaBoolean<T, P>(
+        public static string MsSqlBitParaBoolean<T, P>(
             this BaseMapeamento<T> source,
             Expression<Func<T, P>> expression)
             where T : class

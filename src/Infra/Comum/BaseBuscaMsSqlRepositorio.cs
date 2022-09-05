@@ -16,7 +16,9 @@ namespace TemplateApi.Infra.Comum
             List<string> resultado = new List<string>();
 
             if (string.IsNullOrWhiteSpace(tratar))
+            {
                 return resultado;
+            }
 
             string texto = tratar;
             texto = Regex.Replace(texto, @"[`|'|;]", " ").Trim();

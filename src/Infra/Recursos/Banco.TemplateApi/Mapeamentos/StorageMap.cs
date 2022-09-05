@@ -30,40 +30,64 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
             StringBuilder resultado = new StringBuilder();
 
             if (NaoIgnorar(x => x.Id))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Id)},");
+            }
 
             if (NaoIgnorar(x => x.Nome))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Nome)},");
+            }
 
             if (NaoIgnorar(x => x.Alias))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Alias)},");
+            }
 
             if (NaoIgnorar(x => x.Diretorio))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Diretorio)},");
+            }
 
             if (NaoIgnorar(x => x.Extensao))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Extensao)},");
+            }
 
             if (NaoIgnorar(x => x.Tipo))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Tipo)},");
+            }
 
             if (NaoIgnorar(x => x.Checksum))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Checksum)},");
+            }
 
             if (NaoIgnorar(x => x.Peso))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Peso)},");
+            }
 
             if (NaoIgnorar(x => x.Referencia))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Referencia)},");
+            }
 
             if (NaoIgnorar(x => x.CriadoEm))
+            {
                 resultado.Append($"{SqlParaJson(x => x.CriadoEm)},");
+            }
 
             if (NaoIgnorar(x => x.AlteradoEm))
+            {
                 resultado.Append($"{SqlParaJson(x => x.AlteradoEm)},");
+            }
 
             if (NaoIgnorar(x => x.Status))
-                resultado.Append($"{this.CharParaEnum(x => x.Status, typeof(Status))},");
+            {
+                resultado.Append($"{this.MsSqlCharParaEnum(x => x.Status, typeof(Status))},");
+            }
 
             return resultado.ToString().Substring(0, resultado.ToString().Length - 1);
         }

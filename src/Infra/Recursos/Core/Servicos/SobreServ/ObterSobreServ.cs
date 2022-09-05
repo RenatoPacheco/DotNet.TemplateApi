@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Infra.Recursos.Core.Servicos.SobreServ
 {
-    internal class ObterSobreServ 
+    internal class ObterSobreServ
         : BaseServico
     {
         public Sobre Executar()

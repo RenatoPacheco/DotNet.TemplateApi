@@ -16,9 +16,13 @@ namespace TemplateApi.Infra.Auxiliares
             get
             {
                 if (!string.IsNullOrWhiteSpace(RefSql))
+                {
                     return $"{_tabela} AS {RefSql}";
+                }
                 else
+                {
                     return _tabela;
+                }
             }
         }
 
@@ -27,15 +31,15 @@ namespace TemplateApi.Infra.Auxiliares
         private string _refJson;
         public string RefJson
         {
-            get { return _refJson; }
-            set { _refJson = string.IsNullOrWhiteSpace(value) ? string.Empty : value; }
+            get => _refJson;
+            set => _refJson = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
         }
 
         private string _refSql;
         public string RefSql
         {
-            get { return _refSql; }
-            set { _refSql = string.IsNullOrWhiteSpace(value) ? string.Empty : value; }
+            get => _refSql;
+            set => _refSql = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
         }
 
         private readonly IDictionary<string, string> _colunas = new Dictionary<string, string>();
@@ -53,9 +57,13 @@ namespace TemplateApi.Infra.Auxiliares
             string referencia = expression.PropertyPath();
 
             if (!string.IsNullOrWhiteSpace(RefSql))
+            {
                 return $"{RefSql}.{_colunas[referencia]}";
+            }
             else
+            {
                 return _colunas[referencia];
+            }
         }
 
         public string Col<P>(Expression<Func<T, P>> expression)

@@ -26,25 +26,39 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
             StringBuilder resultado = new StringBuilder();
 
             if (NaoIgnorar(x => x.Id))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Id)},");
+            }
 
             if (NaoIgnorar(x => x.Titulo))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Titulo)},");
+            }
 
             if (NaoIgnorar(x => x.Alias))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Alias)},");
+            }
 
             if (NaoIgnorar(x => x.Texto))
+            {
                 resultado.Append($"{SqlParaJson(x => x.Texto)},");
+            }
 
             if (NaoIgnorar(x => x.CriadoEm))
+            {
                 resultado.Append($"{SqlParaJson(x => x.CriadoEm)},");
+            }
 
             if (NaoIgnorar(x => x.AlteradoEm))
+            {
                 resultado.Append($"{SqlParaJson(x => x.AlteradoEm)},");
+            }
 
             if (NaoIgnorar(x => x.Status))
-                resultado.Append($"{this.CharParaEnum(x => x.Status, typeof(Status))},");
+            {
+                resultado.Append($"{this.MsSqlCharParaEnum(x => x.Status, typeof(Status))},");
+            }
 
             return resultado.ToString().Substring(0, resultado.ToString().Length - 1);
         }
