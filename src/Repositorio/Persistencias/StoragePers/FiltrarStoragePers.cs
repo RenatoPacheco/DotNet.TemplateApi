@@ -1,7 +1,7 @@
 ﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Infra.Servico.Banco.TemplateApi.Servicos.StorageServ;
+using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ;
 
 namespace TemplateApi.Repositorio.Persistencias.StoragePers
 {

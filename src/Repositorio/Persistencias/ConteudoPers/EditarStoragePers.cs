@@ -1,5 +1,5 @@
 ﻿using TemplateApi.Dominio.Entidades;
-using TemplateApi.Infra.Servico.Banco.TemplateApi.Servicos.ConteudoServ;
+using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ;
 
 namespace TemplateApi.Repositorio.Persistencias.ConteudoPers
 {

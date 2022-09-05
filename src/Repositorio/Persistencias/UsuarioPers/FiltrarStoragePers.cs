@@ -1,7 +1,7 @@
 ﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
-using TemplateApi.Infra.Servico.Banco.TemplateApi.Servicos.UsuarioServ;
+using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ;
 using TemplateApi.Dominio.Entidades;
 
 namespace TemplateApi.Repositorio.Persistencias.UsuarioPers
