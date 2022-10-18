@@ -863,7 +863,7 @@
             Opções de status
             </summary>
         </member>
-        <member name="M:TemplateApi.Infra.Comum.BaseBuscaMsSqlRepositorio.DesmebrarTexto(System.String,System.Int32)">
+        <member name="M:TemplateApi.Infra.Comum.BaseBuscaMsSqlRepositorio.DesmembrarTexto(System.String,System.Int32)">
             <summary>
             Tratar o texto para a busca 
             </summary>

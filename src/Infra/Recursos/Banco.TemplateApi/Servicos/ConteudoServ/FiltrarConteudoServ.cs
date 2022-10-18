@@ -94,7 +94,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
         {
             StringBuilder sqlFiltro = new StringBuilder();
             StringBuilder sqlTextos = new StringBuilder();
-            IList<string> textos = DesmebrarTexto(comando.Texto);
+            IList<string> textos = DesmembrarTexto(comando.Texto);
 
             sql.Append($" FROM {_map.Tabela} ");
 

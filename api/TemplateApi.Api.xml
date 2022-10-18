@@ -272,7 +272,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Status">
             <summary>
-            Status de usuário
+            Status de srorage
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Storage">
@@ -323,7 +323,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Status">
             <summary>
-            Status de usuário
+            Status de srorage
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Download">

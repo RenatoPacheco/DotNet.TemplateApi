@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace TemplateApi.Api.DataModels.StorageDataModel
 {
     public class InserirStorageDataModel
+        : Common.BaseDataModel<InserirStorageDataModel>
     {
         private IList<IFormFile> _arquivo;
         /// <summary>
@@ -13,7 +14,11 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         public IList<IFormFile> Arquivo
         {
             get => _arquivo ??= new List<IFormFile>();
-            set => _arquivo = value ?? new List<IFormFile>();
+            set
+            {
+                _arquivo = value ?? new List<IFormFile>();
+                RegistarPropriedade(x => x.Arquivo);
+            }
         }
     }
 }
