@@ -13,5 +13,11 @@ namespace TemplateApi.IdC
             processar.Aplicar(new Repositorio.Auxiliares.ModuloDependencias(), resolve);
             processar.Aplicar(new Infra.Auxiliares.ModuloDependencias(), resolve);
         }
+
+        public static void Aplicar(IResolverDependencias resolve, IModuloDependencias modulo)
+        {
+            ProcessarDependencias processar = new ProcessarDependencias();
+            processar.Aplicar(modulo, resolve);
+        }
     }
 }

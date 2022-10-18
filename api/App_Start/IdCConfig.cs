@@ -1,7 +1,5 @@
 ﻿using TemplateApi.IdC;
 using TemplateApi.Api.Helpers;
-using TemplateApi.Api.ApiServices;
-using TemplateApi.Api.ApiApplications;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -15,13 +13,10 @@ namespace TemplateApi.Api
             services.TryAddSingleton<IApiDescriptionGroupCollectionProvider, ApiDescriptionGroupCollectionProvider>();
             services.TryAddEnumerable(ServiceDescriptor.Transient<IApiDescriptionProvider, DefaultApiDescriptionProvider>());
 
-            Helpers.ResolverDependencias resolve = new ResolverDependencias(services);
+            ResolverDependencias resolve = new ResolverDependencias(services);
+
             RegistrarDependencias.Aplicar(resolve);
-
-            resolve.Escopo<AutorizacaoApiServ>();
-            resolve.Escopo<RequestApiServ>();
-
-            resolve.Escopo<AutenticacaoApiApp>();
+            RegistrarDependencias.Aplicar(resolve, new ModuloDependencias());
         }
     }
 }
