@@ -34,18 +34,23 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
 
             if (!(dados?.Referencia is null))
             {
-                IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
+                string sqlString = @$"
                     SELECT TOP 1 1
                     FROM {map.Tabela}
-                    Where {map.Col(x => x.Referencia)} = @Referencia
-                    AND {map.Col(x => x.Id)} <> @Id
-                    AND {map.Col(x => x.Status)} <> @Status
-                ", new
+                    Where {map.Col(x => x.Referencia)} = @{map.Alias(x => x.Referencia)}
+                    AND {map.Col(x => x.Id)} <> @{map.Alias(x => x.Id)}
+                    AND {map.Col(x => x.Status)} <> @{map.Alias(x => x.Status)}
+                ";
+
+                IDictionary<string, object> sqlParam = new Dictionary<string, object>
                 {
-                    Id = dados.Id ?? 0,
-                    Referencia = dados.Referencia,
-                    Status = StatusAdapt.EnumParaSql(Status.Excluido)
-                }, Conexao.Transicao);
+                    { $"{map.Alias(x => x.Id)}", dados.Id ?? 0 },
+                    { $"{map.Alias(x => x.Referencia)}", dados.Referencia },
+                    { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(Status.Excluido) }
+                };
+
+                IEnumerable<dynamic> resultado = Conexao.Sessao.Query(
+                    sqlString, sqlParam, Conexao.Transicao);
 
                 if (resultado.Any())
                 {

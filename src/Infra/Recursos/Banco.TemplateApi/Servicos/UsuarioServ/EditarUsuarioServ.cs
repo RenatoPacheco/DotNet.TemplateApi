@@ -1,5 +1,6 @@
 ﻿using System;
 using Dapper;
+using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Adaptadores;
 
@@ -34,28 +35,28 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
 
                 string sqlString = @$"
                     UPDATE {map.Tabela} SET
-                            {map.Col(x => x.Nome)} = @Nome
-                           ,{map.Col(x => x.Email)} = @Email
-                           ,{map.Col(x => x.Senha)} = @Senha
-                           ,{map.Col(x => x.Telefone)} = @Telefone
-                           ,{map.Col(x => x.AlteradoEm)} = @AlteradoEm
-                           ,{map.Col(x => x.Status)} = @Status
-                    WHERE {map.Col(x => x.Id)} = @Id
+                            {map.Col(x => x.Nome)} = @{map.Alias(x => x.Nome)}
+                           ,{map.Col(x => x.Email)} = @{map.Alias(x => x.Email)}
+                           ,{map.Col(x => x.Senha)} = @{map.Alias(x => x.Senha)}
+                           ,{map.Col(x => x.Telefone)} = @{map.Alias(x => x.Telefone)}
+                           ,{map.Col(x => x.AlteradoEm)} = @{map.Alias(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)} = @{map.Alias(x => x.Status)}
+                    WHERE {map.Col(x => x.Id)} = @{map.Alias(x => x.Id)}
                 ";
 
-                object sqlObject = new
+                IDictionary<string, object> sqlParam = new Dictionary<string, object>
                 {
-                    Id = dados.Id,
-                    Nome = dados.Nome,
-                    Email = dados.Email,
-                    Senha = dados.Senha,
-                    Telefone = dados.Telefone,
-                    Status = StatusAdapt.EnumParaSql(dados.Status),
-                    AlteradoEm = dados.AlteradoEm
+                    { $"{map.Alias(x => x.Id)}", dados.Id },
+                    { $"{map.Alias(x => x.Nome)}", dados.Nome },
+                    { $"{map.Alias(x => x.Email)}", dados.Email },
+                    { $"{map.Alias(x => x.Senha)}", dados.Senha },
+                    { $"{map.Alias(x => x.Telefone)}", dados.Telefone },
+                    { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(dados.Status) },
+                    { $"{map.Alias(x => x.AlteradoEm)}", dados.AlteradoEm }
                 };
 
                 Conexao.Sessao.Execute(
-                    sqlString, sqlObject, Conexao.Transicao);
+                    sqlString, sqlParam, Conexao.Transicao);
             }
         }
     }

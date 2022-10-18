@@ -1,5 +1,6 @@
 ﻿using System;
 using Dapper;
+using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Adaptadores;
 
@@ -43,29 +44,29 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
                            ,{map.Col(x => x.AlteradoEm)}
                            ,{map.Col(x => x.Status)})
                     VALUES
-                           (@Nome
-                           ,@Email
-                           ,@Senha
-                           ,@Telefone
-                           ,@CriadoEm
-                           ,@AlteradoEm
-                           ,@Status); 
+                           (@{map.Alias(x => x.Nome)}
+                           ,@{map.Alias(x => x.Email)}
+                           ,@{map.Alias(x => x.Senha)}
+                           ,@{map.Alias(x => x.Telefone)}
+                           ,@{map.Alias(x => x.CriadoEm)}
+                           ,@{map.Alias(x => x.AlteradoEm)}
+                           ,@{map.Alias(x => x.Status)}); 
                     SELECT CAST(SCOPE_IDENTITY() as int);
                 ";
 
-                object sqlObject = new
+                IDictionary<string, object> sqlParam = new Dictionary<string, object>
                 {
-                    Nome = dados.Nome,
-                    Email = dados.Email,
-                    Senha = dados.Senha,
-                    Telefone = dados.Telefone,
-                    Status = StatusAdapt.EnumParaSql(dados.Status),
-                    CriadoEm = dados.CriadoEm,
-                    AlteradoEm = dados.AlteradoEm
+                    { $"{map.Alias(x => x.Nome)}", dados.Nome },
+                    { $"{map.Alias(x => x.Email)}", dados.Email },
+                    { $"{map.Alias(x => x.Senha)}", dados.Senha },
+                    { $"{map.Alias(x => x.Telefone)}", dados.Telefone },
+                    { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(dados.Status) },
+                    { $"{map.Alias(x => x.CriadoEm)}", dados.CriadoEm },
+                    { $"{map.Alias(x => x.AlteradoEm)}", dados.AlteradoEm }
                 };
 
                 dados.Id = Conexao.Sessao.QuerySingle<int>(
-                    sqlString, sqlObject, Conexao.Transicao);
+                    sqlString, sqlParam, Conexao.Transicao);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace TemplateApi.Infra.Extensoes
 
         public static string MsSqlCharParaEnum<T, P>(
             this BaseMapeamento<T> source,
-            Expression<Func<T, P>> expression, 
+            Expression<Func<T, P>> expression,
             Type type)
             where T : class
         {
@@ -66,6 +66,19 @@ namespace TemplateApi.Infra.Extensoes
 
             return $@" CASE
                 WHEN {campo} = 1 THEN 'true'
+                ELSE 'false'
+            END AS {source.Prop(expression)}";
+        }
+
+        public static string MsSqlSNParaBoolean<T, P>(
+            this BaseMapeamento<T> source,
+            Expression<Func<T, P>> expression)
+            where T : class
+        {
+            string campo = source.Col(expression);
+
+            return $@" CASE
+                WHEN {campo} IN ('1','S') THEN 'true'
                 ELSE 'false'
             END AS {source.Prop(expression)}";
         }

@@ -35,18 +35,23 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
 
             if (!(dados?.Alias is null))
             {
-                IEnumerable<dynamic> resultado = Conexao.Sessao.Query(@$"
+                string sqlString = @$"
                     SELECT TOP 1 1
                     FROM {map.Tabela}
-                    Where {map.Col(x => x.Alias)} = @Alias
-                    AND {map.Col(x => x.Id)} <> @Id
-                    AND {map.Col(x => x.Status)} <> @Status
-                ", new
+                    Where {map.Col(x => x.Alias)} = @{map.Alias(x => x.Alias)}
+                    AND {map.Col(x => x.Id)} <> @{map.Alias(x => x.Id)}
+                    AND {map.Col(x => x.Status)} <> @{map.Alias(x => x.Status)}
+                ";
+
+                IDictionary<string, object> sqlParam = new Dictionary<string, object>
                 {
-                    Id = dados.Id ?? 0,
-                    Alias = dados.Alias,
-                    Status = StatusAdapt.EnumParaSql(Status.Excluido)
-                }, Conexao.Transicao);
+                    { $"{map.Alias(x => x.Id)}", dados.Id ?? 0 },
+                    { $"{map.Alias(x => x.Alias)}", dados.Alias },
+                    { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(Status.Excluido) }
+                };
+
+                IEnumerable<dynamic> resultado = Conexao.Sessao.Query(
+                    sqlString, sqlParam, Conexao.Transicao);
 
                 if (resultado.Any())
                 {

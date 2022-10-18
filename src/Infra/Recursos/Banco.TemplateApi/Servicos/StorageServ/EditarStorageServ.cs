@@ -1,5 +1,6 @@
 ﻿using System;
 using Dapper;
+using System.Collections.Generic;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 
@@ -34,34 +35,34 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
 
                 string sqlString = @$"
                     UPDATE {map.Tabela} SET
-                            {map.Col(x => x.Nome)} = @Nome
-                           ,{map.Col(x => x.Diretorio)} = @Diretorio
-                           ,{map.Col(x => x.Referencia)} = @Referencia
-                           ,{map.Col(x => x.Tipo)} = @Tipo
-                           ,{map.Col(x => x.Checksum)} = @Checksum
-                           ,{map.Col(x => x.Peso)} = @Peso
-                           ,{map.Col(x => x.Extensao)} = @Extensao
-                           ,{map.Col(x => x.AlteradoEm)} = @AlteradoEm
-                           ,{map.Col(x => x.Status)} = @Status
-                    WHERE {map.Col(x => x.Id)} = @Id
+                            {map.Col(x => x.Nome)} = @{map.Alias(x => x.Nome)}
+                           ,{map.Col(x => x.Diretorio)} = @{map.Alias(x => x.Diretorio)}
+                           ,{map.Col(x => x.Referencia)} = @{map.Alias(x => x.Referencia)}
+                           ,{map.Col(x => x.Tipo)} = @{map.Alias(x => x.Tipo)}
+                           ,{map.Col(x => x.Checksum)} = @{map.Alias(x => x.Checksum)}
+                           ,{map.Col(x => x.Peso)} = @{map.Alias(x => x.Peso)}
+                           ,{map.Col(x => x.Extensao)} = @{map.Alias(x => x.Extensao)}
+                           ,{map.Col(x => x.AlteradoEm)} = @{map.Alias(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)} = @{map.Alias(x => x.Status)}
+                    WHERE {map.Col(x => x.Id)} = @{map.Alias(x => x.Id)}
                 ";
 
-                object sqlObject = new
+                IDictionary<string, object> sqlParam = new Dictionary<string, object>
                 {
-                    Id = dados.Id,
-                    Nome = dados.Nome,
-                    Diretorio = dados.Diretorio,
-                    Referencia = dados.Referencia,
-                    Tipo = dados.Tipo,
-                    Checksum = dados.Checksum,
-                    Peso = dados.Peso,
-                    Extensao = dados.Extensao,
-                    Status = StatusAdapt.EnumParaSql(dados.Status),
-                    AlteradoEm = dados.AlteradoEm
+                    { $"{map.Alias(x => x.Id)}", dados.Id },
+                    { $"{map.Alias(x => x.Nome)}", dados.Nome },
+                    { $"{map.Alias(x => x.Diretorio)}", dados.Diretorio },
+                    { $"{map.Alias(x => x.Referencia)}", dados.Referencia },
+                    { $"{map.Alias(x => x.Tipo)}", dados.Tipo },
+                    { $"{map.Alias(x => x.Checksum)}", dados.Checksum },
+                    { $"{map.Alias(x => x.Peso)}", dados.Peso },
+                    { $"{map.Alias(x => x.Extensao)}", dados.Extensao },
+                    { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(dados.Status) },
+                    { $"{map.Alias(x => x.AlteradoEm)}", dados.AlteradoEm }
                 };
 
                 Conexao.Sessao.Execute(
-                    sqlString, sqlObject, Conexao.Transicao);
+                    sqlString, sqlParam, Conexao.Transicao);
             }
         }
     }

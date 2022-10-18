@@ -1,5 +1,6 @@
 ﻿using System;
 using Dapper;
+using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Adaptadores;
 
@@ -34,26 +35,26 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
 
                 string sqlString = @$"
                     UPDATE {map.Tabela} SET
-                            {map.Col(x => x.Titulo)} = @Titulo
-                           ,{map.Col(x => x.Alias)} = @Alias
-                           ,{map.Col(x => x.Texto)} = @Texto
-                           ,{map.Col(x => x.AlteradoEm)} = @AlteradoEm
-                           ,{map.Col(x => x.Status)} = @Status
+                            {map.Col(x => x.Titulo)} = @{map.Alias(x => x.Titulo)}
+                           ,{map.Col(x => x.Alias)} = @{map.Alias(x => x.Alias)}
+                           ,{map.Col(x => x.Texto)} = @{map.Alias(x => x.Texto)}
+                           ,{map.Col(x => x.AlteradoEm)} = @{map.Alias(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)} = @{map.Alias(x => x.Status)}
                     WHERE {map.Col(x => x.Id)} = @Id
                 ";
 
-                object sqlObject = new
+                IDictionary<string, object> sqlParam = new Dictionary<string, object>
                 {
-                    Id = dados.Id,
-                    Titulo = dados.Titulo,
-                    Alias = dados.Alias,
-                    Texto = dados.Texto,
-                    Status = StatusAdapt.EnumParaSql(dados.Status),
-                    AlteradoEm = dados.AlteradoEm
+                    { $"{map.Alias(x => x.Id)}", dados.Id },
+                    { $"{map.Alias(x => x.Titulo)}", dados.Titulo },
+                    { $"{map.Alias(x => x.Alias)}", dados.Alias },
+                    { $"{map.Alias(x => x.Texto)}", dados.Texto },
+                    { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(dados.Status) },
+                    { $"{map.Alias(x => x.AlteradoEm)}", dados.AlteradoEm }
                 };
 
                 Conexao.Sessao.Execute(
-                    sqlString, sqlObject, Conexao.Transicao);
+                    sqlString, sqlParam, Conexao.Transicao);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Dapper;
+using System.Collections.Generic;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
@@ -20,20 +21,20 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET
-                            {map.Col(x => x.AlteradoEm)} = @AlteradoEm
-                           ,{map.Col(x => x.Status)} = @Status
-                    WHERE {map.Col(x => x.Id)} IN @Id
+                            {map.Col(x => x.AlteradoEm)} = @{map.Alias(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)} = @{map.Alias(x => x.Status)}
+                    WHERE {map.Col(x => x.Id)} IN @{map.Alias(x => x.Id)}
                 ";
 
-            object sqlObject = new
+            IDictionary<string, object> sqlParam = new Dictionary<string, object>
             {
-                Id = comando.Usuario,
-                Status = StatusAdapt.EnumParaSql(Status.Excluido),
-                AlteradoEm = DateTime.Now
+                { $"{map.Alias(x => x.Id)}", comando.Usuario },
+                { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(Status.Excluido) },
+                { $"{map.Alias(x => x.AlteradoEm)}", DateTime.Now }
             };
 
             Conexao.Sessao.Execute(
-                sqlString, sqlObject, Conexao.Transicao);
+                sqlString, sqlParam, Conexao.Transicao);
         }
     }
 }

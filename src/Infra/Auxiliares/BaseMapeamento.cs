@@ -46,10 +46,18 @@ namespace TemplateApi.Infra.Auxiliares
 
         private readonly IDictionary<string, string> _propriedades = new Dictionary<string, string>();
 
+        private readonly IDictionary<string, string> _alias = new Dictionary<string, string>();
+
         public BaseMapeamento<T> Ignorar<P>(Expression<Func<T, P>> expression)
         {
             _ignorar = _ignorar.Concat(new string[] { expression.PropertyPath() }).ToArray();
             return this;
+        }
+
+        public string Alias<P>(Expression<Func<T, P>> expression)
+        {
+            string referencia = expression.PropertyPath();
+            return _alias[referencia];
         }
 
         public string Coluna<P>(Expression<Func<T, P>> expression)
@@ -92,9 +100,11 @@ namespace TemplateApi.Infra.Auxiliares
         protected void Associar<P>(Expression<Func<T, P>> expression, string sql)
         {
             string referencia = expression.PropertyPath();
-            string json = referencia.StartToLower();
+            string json = referencia.ToJsonReference();
+
             _colunas.Add(referencia, sql);
             _propriedades.Add(referencia, json);
+            _alias.Add(referencia, referencia.Replace(".", string.Empty));
         }
 
         protected bool NaoIgnorar<P>(Expression<Func<T, P>> expression)

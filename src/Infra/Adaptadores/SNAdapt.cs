@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace TemplateApi.Infra.Adaptadores
 {
-    internal static class BitAdapt
+    internal static class SNAdapt
     {
         public static string SqlParaBoolean(string campo)
         {
             StringBuilder resultado = new StringBuilder();
 
-            resultado.Append($" CASE {campo} ");
-            resultado.Append($" WHEN '1' THEN 'true' ");
+            resultado.Append($" CASE ");
+            resultado.Append($" WHEN {campo} IN ('S','1') THEN 'true' ");
             resultado.Append($" ELSE 'false' END ");
 
             return resultado.ToString();
@@ -19,7 +19,7 @@ namespace TemplateApi.Infra.Adaptadores
 
         public static string BooleanParaSql(bool? valor)
         {
-            return valor is null ? null : valor.Value ? "1" : "0";
+            return valor is null ? null : valor.Value ? "S" : "N";
         }
 
         public static string[] BooleanParaSql(IEnumerable<bool> valor)

@@ -8,7 +8,7 @@ namespace TemplateApi.Compartilhado.Extensoes
         public static string StartToLower(this string source)
         {
             if (!string.IsNullOrEmpty(source) && char.IsUpper(source[0]))
-                source = $"{char.ToLower(source[0])}{source[1..]}";
+                source = $"{char.ToLower(source[0])}{source.Substring(1)}";
 
             return source;
         }
@@ -16,7 +16,7 @@ namespace TemplateApi.Compartilhado.Extensoes
         public static string StartToUpper(this string source)
         {
             if (!string.IsNullOrEmpty(source) && !char.IsUpper(source[0]))
-                source = $"{char.ToUpper(source[0])}{source[1..]}";
+                source = $"{char.ToUpper(source[0])}{source.Substring(1)}";
 
             return source;
         }
@@ -32,23 +32,15 @@ namespace TemplateApi.Compartilhado.Extensoes
             return source;
         }
 
-        public static bool TryParseJson<T>(this string source, out T output)
-        {
-            try
-            {
-                output = ContratoJson.Desserializar<T>(source);
-                return true;
-            }
-            catch
-            {
-                output = default;
-                return false;
-            }
-        }
-
         public static T ParseJson<T>(this string source)
         {
             return ContratoJson.Desserializar<T>(source);
+        }
+
+        public static string HideEmail(this string source)
+        {
+            string result = Regex.Replace(source, @"([^@]{1,3})([^@]*)(@)", "$1****$3");
+            return Regex.Replace(result, @"(@)([^@]{1,3})([^@]*)", "$1$2****");
         }
     }
 }

@@ -3,6 +3,7 @@ using Dapper;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
+using System.Collections.Generic;
 
 namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
 {
@@ -20,22 +21,22 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET
-                            {map.Col(x => x.AlteradoEm)} = @AlteradoEm
-                           ,{map.Col(x => x.Status)} = @Status
-                    WHERE {map.Col(x => x.Id)} IN @Id
-                    OR {map.Col(x => x.Alias)} IN @Alias
+                            {map.Col(x => x.AlteradoEm)} = @{map.Alias(x => x.AlteradoEm)}
+                           ,{map.Col(x => x.Status)} = @{map.Alias(x => x.Status)}
+                    WHERE {map.Col(x => x.Id)} IN @{map.Alias(x => x.Id)}
+                    OR {map.Col(x => x.Alias)} IN @{map.Alias(x => x.Alias)}
                 ";
 
-            object sqlObject = new
+            IDictionary<string, object> sqlParam = new Dictionary<string, object>
             {
-                Id = comando.Storage,
-                Alias = comando.Alias,
-                Status = StatusAdapt.EnumParaSql(Status.Excluido),
-                AlteradoEm = DateTime.Now
+                { $"{map.Alias(x => x.Id)}", comando.Storage },
+                { $"{map.Alias(x => x.Alias)}", comando.Alias },
+                { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(Status.Excluido) },
+                { $"{map.Alias(x => x.AlteradoEm)}", DateTime.Now }
             };
 
             Conexao.Sessao.Execute(
-                sqlString, sqlObject, Conexao.Transicao);
+                sqlString, sqlParam, Conexao.Transicao);
         }
     }
 }
