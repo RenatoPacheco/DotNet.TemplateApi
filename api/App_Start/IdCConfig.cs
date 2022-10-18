@@ -16,7 +16,7 @@ namespace TemplateApi.Api
             services.TryAddEnumerable(ServiceDescriptor.Transient<IApiDescriptionProvider, DefaultApiDescriptionProvider>());
 
             Helpers.ResolverDependencias resolve = new ResolverDependencias(services);
-            RegistrarDependencias.Carregar(resolve);
+            RegistrarDependencias.Aplicar(resolve);
 
             resolve.Escopo<AutorizacaoApiServ>();
             resolve.Escopo<RequestApiServ>();

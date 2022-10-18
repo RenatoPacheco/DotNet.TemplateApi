@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TemplateApi.IdC
+namespace TemplateApi.Compartilhado
 {
     public interface IResolverDependencias
     {
@@ -9,9 +9,9 @@ namespace TemplateApi.IdC
         void Unico<TConcrete>()
             where TConcrete : class;
 
-        void Unico(Type objeto);
+        void Unico(Type obteto);
 
-        void Unico(Type servico, Type objeto);
+        void Unico(Type servico, Type obteto);
 
         void Unico<TServico, TObjeto>()
             where TServico : class
@@ -24,9 +24,9 @@ namespace TemplateApi.IdC
         void Escopo<TConcrete>()
             where TConcrete : class;
 
-        void Escopo(Type objeto);
+        void Escopo(Type obteto);
 
-        void Escopo(Type servico, Type objeto);
+        void Escopo(Type servico, Type obteto);
 
         void Escopo<TServico, TObjeto>()
             where TServico : class
@@ -39,9 +39,9 @@ namespace TemplateApi.IdC
         void Transiente<TConcrete>()
             where TConcrete : class;
 
-        void Transiente(Type objeto);
+        void Transiente(Type obteto);
 
-        void Transiente(Type servico, Type objeto);
+        void Transiente(Type servico, Type obteto);
 
         void Transiente<TServico, TObjeto>()
             where TServico : class

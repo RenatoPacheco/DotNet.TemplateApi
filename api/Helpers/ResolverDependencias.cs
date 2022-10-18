@@ -1,5 +1,5 @@
 ﻿using System;
-using TemplateApi.IdC;
+using TemplateApi.Compartilhado;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace TemplateApi.Api.Helpers
