@@ -61,7 +61,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// <p>Os tipos de arquivos permitidos são:</p>
         /// <ul>
         ///     <li>Arquivos de texto (.txt)</li>
-        ///     <li>Documentos (.doc ou .docx, .pdf)</li>
+        ///     <li>Documentos (.doc, .docx ou .pdf)</li>
         ///     <li>Planilhas (.xls ou .xslx)</li>
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
