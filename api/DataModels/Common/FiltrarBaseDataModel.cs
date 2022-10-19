@@ -82,7 +82,7 @@ namespace TemplateApi.Api.DataModels.Common
 
         protected void RegistarPropriedade(string propriedade)
         {
-            if (_propriedadesRegistradas.Contains(propriedade))
+            if (!_propriedadesRegistradas.Contains(propriedade))
             {
                 _propriedadesRegistradas.Add(propriedade);
             }
