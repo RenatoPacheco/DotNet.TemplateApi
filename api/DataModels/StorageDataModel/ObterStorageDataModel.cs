@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhado.ObjetosDeValor;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TemplateApi.Api.DataModels.StorageDataModel
 {
@@ -11,6 +12,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Alias de storage
         /// </summary>
+        [FromRoute]
         public string Alias
         {
             get => _alias;
