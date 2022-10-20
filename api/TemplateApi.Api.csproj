@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>.\TemplateApi.Api.xml</DocumentationFile>
-    <NoWarn>1701;1702;1591;8618;</NoWarn>
+    <NoWarn>1701;1702;1591;</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>.\TemplateApi.Api.xml</DocumentationFile>
-    <NoWarn>1701;1702;1591;8618;</NoWarn>
+    <NoWarn>1701;1702;1591;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -6,8 +6,8 @@ using TemplateApi.Infra.Interfaces;
 
 namespace TemplateApi.Infra.Contexto
 {
-    public abstract class ConexaoMsSql 
-        : IConexao, IDisposable
+    public abstract class ConexaoMsSql
+        : IConexao
     {
         protected abstract string ConnectionString { get; }
 

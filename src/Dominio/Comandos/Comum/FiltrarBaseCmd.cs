@@ -4,7 +4,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
 {
     public abstract class FiltrarBaseCmd
     {
-        private static string _texto;
+        private string _texto;
         /// <summary>
         /// Texto com as palavras chaves para busca.
         /// </summary>

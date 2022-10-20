@@ -1,5 +1,5 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Infra.Servico.Core.Servicos.AutorizacaoServ;
+using TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ;
 
 namespace TemplateApi.Repositorio.Persistencias.AutorizacaoPers
 {

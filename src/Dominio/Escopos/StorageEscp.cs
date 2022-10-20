@@ -1,4 +1,5 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using TemplateApi.RecursoResx;

@@ -2,7 +2,7 @@
 
 namespace TemplateApi.Infra.Interfaces
 {
-    public interface IConexao 
+    public interface IConexao
         : IDisposable
     {
         bool HaSessao();

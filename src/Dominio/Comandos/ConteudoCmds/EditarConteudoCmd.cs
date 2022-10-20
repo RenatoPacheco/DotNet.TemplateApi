@@ -26,7 +26,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _Conteudo = value;
-                RegistrarCampo(nameof(Conteudo));
+                RegistrarPropriedade();
                 _escopo.IdEhValido(x => x.Conteudo);
             }
         }
@@ -42,7 +42,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _titulo = value;
-                RegistrarCampo(nameof(Titulo));
+                RegistrarPropriedade();
                 _escopo.TituloEhValido(x => x.Titulo);
             }
         }
@@ -57,7 +57,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _alias = value;
-                RegistrarCampo(nameof(Alias));
+                RegistrarPropriedade();
                 _escopo.AliasEhValido(x => x.Alias);
             }
         }
@@ -72,7 +72,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _texto = value;
-                RegistrarCampo(nameof(Texto));
+                RegistrarPropriedade();
                 _escopo.TextoEhValido(x => x.Texto);
             }
         }
@@ -87,29 +87,29 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _status = value;
-                RegistrarCampo(nameof(Status));
+                RegistrarPropriedade();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
         public void Aplicar(ref Conteudo dados)
         {
-            if (CampoFoiRegistrado(nameof(Titulo)))
+            if (PropriedadeRegistrada(nameof(Titulo)))
             {
                 dados.Titulo = Titulo;
             }
 
-            if (CampoFoiRegistrado(nameof(Alias)))
+            if (PropriedadeRegistrada(nameof(Alias)))
             {
                 dados.Alias = Alias;
             }
 
-            if (CampoFoiRegistrado(nameof(Texto)))
+            if (PropriedadeRegistrada(nameof(Texto)))
             {
                 dados.Texto = Texto;
             }
 
-            if (CampoFoiRegistrado(nameof(Status)))
+            if (PropriedadeRegistrada(nameof(Status)))
             {
                 dados.Status = Status;
             }

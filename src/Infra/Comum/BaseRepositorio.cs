@@ -3,6 +3,6 @@
     internal abstract class BaseRepositorio
         : Dominio.Servicos.Comum.BaseServico
     {
-        
+
     }
 }

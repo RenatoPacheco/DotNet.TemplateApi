@@ -11,12 +11,14 @@ namespace TemplateApi.Infra.Comum
         /// <summary>
         /// Tratar o texto para a busca 
         /// </summary>
-        public IList<string> DesmebrarTexto(string tratar, int minimo = 2)
+        public IList<string> DesmembrarTexto(string tratar, int minimo = 2)
         {
             List<string> resultado = new List<string>();
 
             if (string.IsNullOrWhiteSpace(tratar))
+            {
                 return resultado;
+            }
 
             string texto = tratar;
             texto = Regex.Replace(texto, @"[`|'|;]", " ").Trim();

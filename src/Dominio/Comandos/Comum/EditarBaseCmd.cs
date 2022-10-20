@@ -1,40 +1,41 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace TemplateApi.Dominio.Comandos.Comum
 {
     public abstract class EditarBaseCmd
     {
-        protected IList<string> _camposRegistrados = new List<string>();
+        protected IList<string> _propriedadesRegistrados = new List<string>();
 
-        protected string[] CamposRegistrados()
+        protected string[] PropriedadesRegistrados()
         {
-            return _camposRegistrados.ToArray();
+            return _propriedadesRegistrados.ToArray();
         }
 
-        protected void RegistrarCampo(string campo)
+        protected void RegistrarPropriedade([CallerMemberName] string nome = null)
         {
-            if (!_camposRegistrados.Contains(campo))
+            if (!_propriedadesRegistrados.Contains(nome))
             {
-                _camposRegistrados.Add(campo);
+                _propriedadesRegistrados.Add(nome);
             }
         }
 
-        protected bool CampoFoiRegistrado(string campo)
+        protected bool PropriedadeRegistrada(string nome)
         {
-            return _camposRegistrados.Contains(campo);
+            return _propriedadesRegistrados.Contains(nome);
         }
 
 
-        protected void LimparCampoRegistrado(string campo = null)
+        protected void LimparPropriedadeRegistrada(string nome = null)
         {
-            if (campo is null)
+            if (nome is null)
             {
-                _camposRegistrados.Clear();
+                _propriedadesRegistrados.Clear();
             }
             else
             {
-                _camposRegistrados = _camposRegistrados.Where(x => x != campo).ToList();
+                _propriedadesRegistrados = _propriedadesRegistrados.Where(x => x != nome).ToList();
             }
         }
     }

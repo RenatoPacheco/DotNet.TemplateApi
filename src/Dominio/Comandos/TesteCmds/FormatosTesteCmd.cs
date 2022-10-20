@@ -1,4 +1,5 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using BitHelp.Core.Validation;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Type.pt_BR;
 

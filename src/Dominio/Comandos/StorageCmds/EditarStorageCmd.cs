@@ -23,7 +23,7 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             set
             {
                 _storage = value;
-                RegistrarCampo(nameof(Storage));
+                RegistrarPropriedade();
                 _escopo.IdEhValido(x => x.Storage);
             }
         }
@@ -38,7 +38,7 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             set
             {
                 _nome = value;
-                RegistrarCampo(nameof(Nome));
+                RegistrarPropriedade();
                 _escopo.NomeEhValido(x => x.Nome);
             }
         }
@@ -53,19 +53,19 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             set
             {
                 _status = value;
-                RegistrarCampo(nameof(Status));
+                RegistrarPropriedade();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
         public void Aplicar(ref Storage dados)
         {
-            if (CampoFoiRegistrado(nameof(Nome)))
+            if (PropriedadeRegistrada(nameof(Nome)))
             {
                 dados.Nome = Nome;
             }
 
-            if (CampoFoiRegistrado(nameof(Status)))
+            if (PropriedadeRegistrada(nameof(Status)))
             {
                 dados.Status = (Status)Status;
             }

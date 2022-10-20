@@ -14,7 +14,7 @@ namespace TemplateApi.Api.Helpers
             Avisos avisos = new Avisos((int)codigo, notificacoes);
 
             return new JsonResult(new ComumViewData
-            {
+            { 
                 Avisos = avisos
             }, ConfiguracaoJson.AplicarParaEscrita());
         }

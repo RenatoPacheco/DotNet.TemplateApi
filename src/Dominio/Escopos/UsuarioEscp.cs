@@ -1,4 +1,5 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.ObjetosDeValor;
