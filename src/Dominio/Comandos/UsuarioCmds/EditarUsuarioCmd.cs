@@ -27,7 +27,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _usuario = value;
-                RegistrarCampo();
+                RegistrarPropriedade();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }
@@ -42,7 +42,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _nome = value;
-                RegistrarCampo();
+                RegistrarPropriedade();
                 _escopo.NomeEhValido(x => x.Nome);
             }
         }
@@ -58,7 +58,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _email = value;
-                RegistrarCampo();
+                RegistrarPropriedade();
                 _escopo.EmailEhValido(x => x.Email);
             }
         }
@@ -73,7 +73,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _senha = value;
-                RegistrarCampo();
+                RegistrarPropriedade();
                 _escopo.SenhaEhValido(x => x.Senha);
             }
         }
@@ -88,7 +88,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _telefone = value;
-                RegistrarCampo();
+                RegistrarPropriedade();
                 _escopo.TelefoneEhValido(x => x.Telefone);
             }
         }
@@ -103,34 +103,34 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _status = value;
-                RegistrarCampo();
+                RegistrarPropriedade();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
         public void Aplicar(ref Usuario dados)
         {
-            if (CampoFoiRegistrado(nameof(Nome)))
+            if (PropriedadeRegistrada(nameof(Nome)))
             {
                 dados.Nome = Nome;
             }
 
-            if (CampoFoiRegistrado(nameof(Email)))
+            if (PropriedadeRegistrada(nameof(Email)))
             {
                 dados.Email = Email;
             }
 
-            if (CampoFoiRegistrado(nameof(Senha)))
+            if (PropriedadeRegistrada(nameof(Senha)))
             {
                 dados.Senha = Senha;
             }
 
-            if (CampoFoiRegistrado(nameof(Telefone)))
+            if (PropriedadeRegistrada(nameof(Telefone)))
             {
                 dados.Telefone = Telefone;
             }
 
-            if (CampoFoiRegistrado(nameof(Status)))
+            if (PropriedadeRegistrada(nameof(Status)))
             {
                 dados.Status = Status;
             }
