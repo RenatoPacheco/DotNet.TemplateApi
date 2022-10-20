@@ -18,7 +18,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
             set
             {
                 _conteudo = value;
-                RegistarPropriedade(x => x.Conteudo);
+                RegistarPropriedade();
             }
         }
 
@@ -33,7 +33,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
             set
             {
                 _titulo = value;
-                RegistarPropriedade(x => x.Titulo);
+                RegistarPropriedade();
             }
         }
 
@@ -47,7 +47,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
             set
             {
                 _alias = value;
-                RegistarPropriedade(x => x.Alias);
+                RegistarPropriedade();
             }
         }
 
@@ -61,7 +61,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
             set
             {
                 _texto = value;
-                RegistarPropriedade(x => x.Texto);
+                RegistarPropriedade();
             }
         }
 
@@ -75,7 +75,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
             set
             {
                 _status = value;
-                RegistarPropriedade(x => x.Status);
+                RegistarPropriedade();
             }
         }
     }

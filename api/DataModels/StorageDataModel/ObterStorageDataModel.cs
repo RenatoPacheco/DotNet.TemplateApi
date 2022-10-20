@@ -19,7 +19,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _alias = value;
-                RegistarPropriedade(x => x.Alias);
+                RegistarPropriedade();
             }
         }
 
@@ -33,7 +33,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _status = value;
-                RegistarPropriedade(x => x.Status);
+                RegistarPropriedade();
             }
         }
 
@@ -47,7 +47,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _download = value;
-                RegistarPropriedade(x => x.Download);
+                RegistarPropriedade();
             }
         }
     }

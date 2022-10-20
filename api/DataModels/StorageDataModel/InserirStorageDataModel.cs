@@ -17,7 +17,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _arquivo = value ?? new List<IFormFile>();
-                RegistarPropriedade(x => x.Arquivo);
+                RegistarPropriedade();
             }
         }
     }

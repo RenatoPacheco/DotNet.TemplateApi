@@ -19,7 +19,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _contexto = value;
-                RegistarPropriedade(x => x.Contexto);
+                RegistarPropriedade();
             }
         }
 
@@ -33,7 +33,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _storage = value;
-                RegistarPropriedade(x => x.Storage);
+                RegistarPropriedade();
             }
         }
 
@@ -48,7 +48,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _referencia = value;
-                RegistarPropriedade(x => x.Referencia);
+                RegistarPropriedade();
             }
         }
 
@@ -62,7 +62,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _alias = value;
-                RegistarPropriedade(x => x.Alias);
+                RegistarPropriedade();
             }
         }
 
@@ -76,7 +76,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _status = value;
-                RegistarPropriedade(x => x.Status);
+                RegistarPropriedade();
             }
         }
     }
