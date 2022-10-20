@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TemplateApi.Api.DataModels.StorageDataModel
 {
     public class ObterStorageDataModel
-        : Common.BaseDataModel<ObterStorageDataModel>
+        : Common.FiltrarBaseDataModel<ObterStorageDataModel>
     {
         private string _alias;
         /// <summary>
@@ -52,3 +52,4 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         }
     }
 }
+

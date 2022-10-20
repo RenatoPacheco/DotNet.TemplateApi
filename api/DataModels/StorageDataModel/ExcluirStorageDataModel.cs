@@ -21,17 +21,16 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             }
         }
 
-        private IList<string> _referencia;
+        private IList<string> _alias;
         /// <summary>
-        /// Referência de storage
+        /// Alias de storage
         /// </summary>
-        [Display(Name = "Referência")]
-        public IList<string> Referencia
+        public IList<string> Alias
         {
-            get => _referencia;
+            get => _alias;
             set
             {
-                _referencia = value;
+                _alias = value;
                 RegistarPropriedade();
             }
         }

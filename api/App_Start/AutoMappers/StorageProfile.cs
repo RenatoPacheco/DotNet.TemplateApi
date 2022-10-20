@@ -93,6 +93,11 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Storage)
                             && dest.InputTypeEhValido(x => x.Storage, src.Storage));
+                })
+                .ForMember(cmd => cmd.Alias, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Alias));
                 });
 
             #endregion
@@ -100,6 +105,34 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             #region ObterStorageCmd
 
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
+                .ForMember(cmd => cmd.Texto, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Texto));
+                })
+                .ForMember(cmd => cmd.Pagina, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Pagina)
+                            && dest.InputTypeEhValido(x => x.Pagina, src.Pagina));
+                })
+                .ForMember(cmd => cmd.Maximo, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Maximo)
+                            && dest.InputTypeEhValido(x => x.Maximo, src.Maximo));
+                })
+                .ForMember(cmd => cmd.CalcularPaginacao, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.CalcularPaginacao)
+                            && dest.InputTypeEhValido(x => x.CalcularPaginacao, src.CalcularPaginacao));
+                })
+                .ForMember(cmd => cmd.Alias, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Alias));
+                })
                 .ForMember(cmd => cmd.Download, opts =>
                 {
                     opts.Condition((src, dest, srcMember)

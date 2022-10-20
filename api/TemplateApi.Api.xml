@@ -280,9 +280,9 @@
             Identificador de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Referencia">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Alias">
             <summary>
-            Referência de storage
+            Alias de storage
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Contexto">
