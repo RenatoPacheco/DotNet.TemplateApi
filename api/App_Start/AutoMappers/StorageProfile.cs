@@ -14,7 +14,8 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<InserirStorageDataModel, InserirStorageCmd>()
                 .ForAllMembers(opts =>
                 {
-                    opts.PreCondition((src, dest, srcMember) => srcMember != null);
+                    opts.PreCondition((src, dest, srcMember)
+                        => srcMember != null);
                 });
 
             #endregion
@@ -26,48 +27,42 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 {
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Texto));
-                }).ForMember(cmd => cmd.Pagina, opts =>
+                })
+                .ForMember(cmd => cmd.Pagina, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Pagina, src.Pagina)
-                            && src.PropriedadeRegistrada(x => x.Pagina);
-                    });
-                }).ForMember(cmd => cmd.Maximo, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Pagina)
+                            && dest.InputTypeEhValido(x => x.Pagina, src.Pagina));
+                })
+                .ForMember(cmd => cmd.Maximo, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Maximo, src.Maximo)
-                            && src.PropriedadeRegistrada(x => x.Maximo);
-                    });
-                }).ForMember(cmd => cmd.CalcularPaginacao, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Maximo)
+                            && dest.InputTypeEhValido(x => x.Maximo, src.Maximo));
+                })
+                .ForMember(cmd => cmd.CalcularPaginacao, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.CalcularPaginacao, src.CalcularPaginacao)
-                            && src.PropriedadeRegistrada(x => x.CalcularPaginacao);
-                    });
-                }).ForMember(cmd => cmd.Storage, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.CalcularPaginacao)
+                            && dest.InputTypeEhValido(x => x.CalcularPaginacao, src.CalcularPaginacao));
+                })
+                .ForMember(cmd => cmd.Storage, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Storage, src.Storage)
-                            && src.PropriedadeRegistrada(x => x.Storage);
-                    });
-                }).ForMember(cmd => cmd.Status, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Storage)
+                            && dest.InputTypeEhValido(x => x.Storage, src.Storage));
+                })
+                .ForMember(cmd => cmd.Status, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Status, src.Status)
-                            && src.PropriedadeRegistrada(x => x.Status);
-                    });
-                }).ForMember(cmd => cmd.Contexto, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Status)
+                            && dest.InputTypeEhValido(x => x.Status, src.Status));
+                })
+                .ForMember(cmd => cmd.Contexto, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Contexto, src.Contexto)
-                            && src.PropriedadeRegistrada(x => x.Contexto);
-                    });
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Contexto)
+                            && dest.InputTypeEhValido(x => x.Contexto, src.Contexto));
                 });
 
             #endregion
@@ -77,18 +72,15 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<EditarStorageDataModel, EditarStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Storage, src.Storage)
-                            && srcMember != null;
-                    });
-                }).ForMember(cmd => cmd.Status, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Storage)
+                            && dest.InputTypeEhValido(x => x.Storage, src.Storage));
+                })
+                .ForMember(cmd => cmd.Status, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Status, src.Status)
-                            && srcMember != null;
-                    });
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Status)
+                            && dest.InputTypeEhValido(x => x.Status, src.Status));
                 });
 
             #endregion
@@ -98,11 +90,14 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<ExcluirStorageDataModel, ExcluirStorageCmd>()
                 .ForMember(cmd => cmd.Storage, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Storage, src.Storage)
-                            && srcMember != null;
-                    });
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Storage)
+                            && dest.InputTypeEhValido(x => x.Storage, src.Storage));
+                })
+                .ForMember(cmd => cmd.Alias, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Alias));
                 });
 
             #endregion
@@ -110,20 +105,45 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             #region ObterStorageCmd
 
             CreateMap<ObterStorageDataModel, ObterStorageCmd>()
+                .ForMember(cmd => cmd.Texto, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Texto));
+                })
+                .ForMember(cmd => cmd.Pagina, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Pagina)
+                            && dest.InputTypeEhValido(x => x.Pagina, src.Pagina));
+                })
+                .ForMember(cmd => cmd.Maximo, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Maximo)
+                            && dest.InputTypeEhValido(x => x.Maximo, src.Maximo));
+                })
+                .ForMember(cmd => cmd.CalcularPaginacao, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.CalcularPaginacao)
+                            && dest.InputTypeEhValido(x => x.CalcularPaginacao, src.CalcularPaginacao));
+                })
+                .ForMember(cmd => cmd.Alias, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Alias));
+                })
                 .ForMember(cmd => cmd.Download, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Download, src.Download)
-                            && srcMember != null;
-                    });
-                }).ForMember(cmd => cmd.Status, opts =>
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Download)
+                            && dest.InputTypeEhValido(x => x.Download, src.Download));
+                })
+                .ForMember(cmd => cmd.Status, opts =>
                 {
-                    opts.Condition((src, dest, srcMember) =>
-                    {
-                        return dest.InputTypeEhValido(x => x.Status, src.Status)
-                            && srcMember != null;
-                    });
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Status)
+                            && dest.InputTypeEhValido(x => x.Status, src.Status));
                 });
 
             #endregion

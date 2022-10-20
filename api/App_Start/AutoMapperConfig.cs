@@ -17,6 +17,8 @@ namespace TemplateApi.Api
                 cfg.AddProfile<TesteProfile>();
             });
 
+            config.AssertConfigurationIsValid();
+
             IMapper mapper = config.CreateMapper();
 
             services.AddSingleton(mapper);

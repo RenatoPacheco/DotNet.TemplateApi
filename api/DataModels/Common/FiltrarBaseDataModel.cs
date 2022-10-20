@@ -1,16 +1,11 @@
-﻿using System;
-using BitHelp.Core.Extend;
-using System.Linq.Expressions;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.Common
 {
     public abstract class FiltrarBaseDataModel<T>
+        : BaseDataModel<T>
     {
-        private IList<string> _propriedadesRegistradas = new List<string>();
-
         private static string _texto;
         /// <summary>
         /// Texto com as palavras chaves para busca.
@@ -21,7 +16,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _texto = value;
-                RegistarPropriedade(nameof(Texto));
+                RegistarPropriedade();
             }
         }
 
@@ -36,7 +31,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _pagina = value;
-                RegistarPropriedade(nameof(Pagina));
+                RegistarPropriedade();
             }
         }
 
@@ -53,7 +48,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _maximo = value;
-                RegistarPropriedade(nameof(Maximo));
+                RegistarPropriedade();
             }
         }
 
@@ -70,29 +65,8 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _calucularPaginacao = value;
-                RegistarPropriedade(nameof(CalcularPaginacao));
+                RegistarPropriedade();
             }
-        }
-
-        protected void RegistarPropriedade<P>(
-            Expression<Func<T, P>> expressao)
-        {
-            RegistarPropriedade(expressao.PropertyPath());
-        }
-
-        protected void RegistarPropriedade(string propriedade)
-        {
-            if (_propriedadesRegistradas.Contains(propriedade))
-            {
-                _propriedadesRegistradas.Add(propriedade);
-            }
-        }
-
-        public bool PropriedadeRegistrada<P>(
-            Expression<Func<T, P>> expressao)
-        {
-            string prop = expressao.PropertyPath();
-            return _propriedadesRegistradas.Contains(prop);
         }
     }
 }

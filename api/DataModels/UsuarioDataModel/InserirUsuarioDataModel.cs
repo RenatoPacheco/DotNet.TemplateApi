@@ -18,7 +18,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _nome = value;
-                RegistarPropriedade(x => x.Nome);
+                RegistarPropriedade();
             }
         }
 
@@ -33,7 +33,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _email = value;
-                RegistarPropriedade(x => x.Email);
+                RegistarPropriedade();
             }
         }
 
@@ -47,7 +47,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _telefone = value;
-                RegistarPropriedade(x => x.Telefone);
+                RegistarPropriedade();
             }
         }
 
@@ -61,10 +61,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _senha = value;
-                RegistarPropriedade(x => x.Senha);
+                RegistarPropriedade();
             }
         }
-
 
         private EnumInput<Status> _status;
         /// <summary>
@@ -76,7 +75,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _status = value;
-                RegistarPropriedade(x => x.Status);
+                RegistarPropriedade();
             }
         }
     }

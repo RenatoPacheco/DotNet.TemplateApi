@@ -14,7 +14,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _string = value;
-                RegistarPropriedade(x => x.String);
+                RegistarPropriedade();
             }
         }
 
@@ -25,7 +25,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _int = value;
-                RegistarPropriedade(x => x.Int);
+                RegistarPropriedade();
             }
         }
 
@@ -36,7 +36,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _long = value;
-                RegistarPropriedade(x => x.Long);
+                RegistarPropriedade();
             }
         }
 
@@ -47,7 +47,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _decimal = value;
-                RegistarPropriedade(x => x.Decimal);
+                RegistarPropriedade();
             }
         }
 
@@ -58,7 +58,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _double = value;
-                RegistarPropriedade(x => x.Double);
+                RegistarPropriedade();
             }
         }
 
@@ -69,7 +69,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _bool = value;
-                RegistarPropriedade(x => x.Bool);
+                RegistarPropriedade();
             }
         }
 
@@ -80,7 +80,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _dateTime = value;
-                RegistarPropriedade(x => x.DateTime);
+                RegistarPropriedade();
             }
         }
 
@@ -91,7 +91,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _timeSpan = value;
-                RegistarPropriedade(x => x.TimeSpan);
+                RegistarPropriedade();
             }
         }
 
@@ -102,7 +102,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _guid = value;
-                RegistarPropriedade(x => x.Guid);
+                RegistarPropriedade();
             }
         }
 
@@ -113,7 +113,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _enum = value;
-                RegistarPropriedade(x => x.Enum);
+                RegistarPropriedade();
             }
         }
 
@@ -124,7 +124,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _phone = value;
-                RegistarPropriedade(x => x.Phone);
+                RegistarPropriedade();
             }
         }
     }

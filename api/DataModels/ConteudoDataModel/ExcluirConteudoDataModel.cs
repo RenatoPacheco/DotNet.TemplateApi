@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.ConteudoDataModel
@@ -6,18 +7,18 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
     public class ExcluirConteudoDataModel
         : Common.BaseDataModel<ExcluirConteudoDataModel>
     {
-        private IntInput _conteudo;
+        private IList<IntInput> _conteudo;
         /// <summary>
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
-        public IntInput Conteudo
+        public IList<IntInput> Conteudo
         {
             get => _conteudo;
             set
             {
                 _conteudo = value;
-                RegistarPropriedade(x => x.Conteudo);
+                RegistarPropriedade();
             }
         }
     }

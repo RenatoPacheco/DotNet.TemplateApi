@@ -18,7 +18,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _usuario = value;
-                RegistarPropriedade(x => x.Usuario);
+                RegistarPropriedade();
             }
         }
     }

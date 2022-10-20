@@ -272,7 +272,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.EditarStorageDataModel.Status">
             <summary>
-            Status de usuário
+            Status de srorage
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Storage">
@@ -280,9 +280,9 @@
             Identificador de storage
             </summary>
         </member>
-        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Referencia">
+        <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ExcluirStorageDataModel.Alias">
             <summary>
-            Referência de storage
+            Alias de storage
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.FiltrarStorageDataModel.Contexto">
@@ -323,7 +323,7 @@
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Status">
             <summary>
-            Status de usuário
+            Status de srorage
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Download">
