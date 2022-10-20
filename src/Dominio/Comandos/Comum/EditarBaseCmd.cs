@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace TemplateApi.Dominio.Comandos.Comum
 {
@@ -12,7 +13,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
             return _camposRegistrados.ToArray();
         }
 
-        protected void RegistrarCampo(string campo)
+        protected void RegistrarCampo([CallerMemberName] string campo = null)
         {
             if (!_camposRegistrados.Contains(campo))
             {

@@ -23,7 +23,7 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             set
             {
                 _storage = value;
-                RegistrarCampo(nameof(Storage));
+                RegistrarCampo();
                 _escopo.IdEhValido(x => x.Storage);
             }
         }
@@ -38,7 +38,7 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             set
             {
                 _nome = value;
-                RegistrarCampo(nameof(Nome));
+                RegistrarCampo();
                 _escopo.NomeEhValido(x => x.Nome);
             }
         }
@@ -53,7 +53,7 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             set
             {
                 _status = value;
-                RegistrarCampo(nameof(Status));
+                RegistrarCampo();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }

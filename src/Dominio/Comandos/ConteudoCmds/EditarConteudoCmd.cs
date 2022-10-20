@@ -26,7 +26,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _Conteudo = value;
-                RegistrarCampo(nameof(Conteudo));
+                RegistrarCampo();
                 _escopo.IdEhValido(x => x.Conteudo);
             }
         }
@@ -42,7 +42,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _titulo = value;
-                RegistrarCampo(nameof(Titulo));
+                RegistrarCampo();
                 _escopo.TituloEhValido(x => x.Titulo);
             }
         }
@@ -57,7 +57,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _alias = value;
-                RegistrarCampo(nameof(Alias));
+                RegistrarCampo();
                 _escopo.AliasEhValido(x => x.Alias);
             }
         }
@@ -72,7 +72,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _texto = value;
-                RegistrarCampo(nameof(Texto));
+                RegistrarCampo();
                 _escopo.TextoEhValido(x => x.Texto);
             }
         }
@@ -87,7 +87,7 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             set
             {
                 _status = value;
-                RegistrarCampo(nameof(Status));
+                RegistrarCampo();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }

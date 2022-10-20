@@ -27,7 +27,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _usuario = value;
-                RegistrarCampo(nameof(Usuario));
+                RegistrarCampo();
                 _escopo.IdEhValido(x => x.Usuario);
             }
         }
@@ -42,7 +42,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _nome = value;
-                RegistrarCampo(nameof(Nome));
+                RegistrarCampo();
                 _escopo.NomeEhValido(x => x.Nome);
             }
         }
@@ -58,7 +58,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _email = value;
-                RegistrarCampo(nameof(Email));
+                RegistrarCampo();
                 _escopo.EmailEhValido(x => x.Email);
             }
         }
@@ -73,7 +73,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _senha = value;
-                RegistrarCampo(nameof(Senha));
+                RegistrarCampo();
                 _escopo.SenhaEhValido(x => x.Senha);
             }
         }
@@ -88,7 +88,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _telefone = value;
-                RegistrarCampo(nameof(Telefone));
+                RegistrarCampo();
                 _escopo.TelefoneEhValido(x => x.Telefone);
             }
         }
@@ -103,7 +103,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             set
             {
                 _status = value;
-                RegistrarCampo(nameof(Status));
+                RegistrarCampo();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
