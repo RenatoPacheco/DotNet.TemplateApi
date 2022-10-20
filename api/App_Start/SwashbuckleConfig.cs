@@ -31,7 +31,7 @@ namespace TemplateApi.Api
                     Description = $@"<p>Um projeto para montrar uma estrutura base de reursos e 
                         configuraçãções para montar uma API em .Net Core 3.1.</p> 
                         <p>Para mais informações consulte o projeto no <strong>Github</strong>, 
-                        pelo lik do website do swagger.</p>
+                        pelo link do website do swagger.</p>
                         <h3>Sobre a aplicação</h3>
                         <p>
                             <ul>
