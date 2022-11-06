@@ -27,5 +27,10 @@
     <ProjectReference Include="..\src\TemplateApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="storage\" />
+  </ItemGroup>
+
 
 </Project>
