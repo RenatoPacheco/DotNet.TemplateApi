@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DD28E6D-A11A-4B9B-AF2A-E9806581321A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TemplateApi</RootNamespace>
+    <AssemblyName>TemplateApi</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BitHelp.Core.Extend, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitHelp.Core.Extend.0.5.0\lib\netstandard2.0\BitHelp.Core.Extend.dll</HintPath>
+    </Reference>
+    <Reference Include="BitHelp.Core.Security, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitHelp.Core.Security.0.2.0\lib\netstandard2.0\BitHelp.Core.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="BitHelp.Core.Type.pt-BR, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitHelp.Core.Type.pt-BR.0.2.0\lib\netstandard2.0\BitHelp.Core.Type.pt-BR.dll</HintPath>
+    </Reference>
+    <Reference Include="BitHelp.Core.Validation, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitHelp.Core.Validation.0.13.0\lib\netstandard2.0\BitHelp.Core.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aplicacao\AutenticacaoApp.cs" />
+    <Compile Include="Aplicacao\AutorizacaoApp.cs" />
+    <Compile Include="Aplicacao\Auxiliares\ModuloDependencias.cs" />
+    <Compile Include="Aplicacao\Comum\BaseAplicacao.cs" />
+    <Compile Include="Aplicacao\Comum\BaseInterceptador.cs" />
+    <Compile Include="Aplicacao\ConteudoApp.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\AutenticacaoInter.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\AutorizacaoInter.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\ConteudoInter.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\SobreInter.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\StorageInter.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\TesteInter.cs" />
+    <Compile Include="Aplicacao\Intreceptadores\UsuarioInter.cs" />
+    <Compile Include="Aplicacao\SobreApp.cs" />
+    <Compile Include="Aplicacao\StorageApp.cs" />
+    <Compile Include="Aplicacao\TesteApp.cs" />
+    <Compile Include="Aplicacao\UsuarioApp.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Compartilhado\Extensoes\StringExt.cs" />
+    <Compile Include="Compartilhado\IModuloDependencias.cs" />
+    <Compile Include="Compartilhado\IResolverDependencias.cs" />
+    <Compile Include="Compartilhado\Json\ConfiguracaoJson.cs" />
+    <Compile Include="Compartilhado\Json\ContratoJson.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\BoolInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\DateTimeInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\DecimalInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\DoubleInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\EnumInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\GuidInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\IntInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\LongInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\PhoneTypeJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\TimeSpanInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\BoolInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\DateTimeInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\DecimalInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\DoubleInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\EnumInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\GuidInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\IInputType.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\IntInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\LongInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\TimeSpanInput.cs" />
+    <Compile Include="Compartilhado\Seguranca\Codificacao.cs" />
+    <Compile Include="Compartilhado\Validacoes\Extensoes\EnumForStringIsValidExt.cs" />
+    <Compile Include="Compartilhado\Validacoes\Extensoes\PasswordIsValidExt.cs" />
+    <Compile Include="Compartilhado\Validacoes\Extensoes\PhoneTypeIsValidExt.cs" />
+    <Compile Include="Compartilhado\Validacoes\Notacoes\EnumForStringIsValidAttribute.cs" />
+    <Compile Include="Compartilhado\Validacoes\Notacoes\PasswordIsValidAttribute.cs" />
+    <Compile Include="Compartilhado\Validacoes\Notacoes\PhoneTypeIsValidAttribute.cs" />
+    <Compile Include="ConnectionNames.cs" />
+    <Compile Include="ConnectionStrings.cs" />
+    <Compile Include="Dominio\Auxiliares\ModuloDependencias.cs" />
+    <Compile Include="Dominio\Comandos\AutenticacaoCmds\IniciarAutenticacaoCmd.cs" />
+    <Compile Include="Dominio\Comandos\Comum\ContextoCmd.cs" />
+    <Compile Include="Dominio\Comandos\Comum\EditarBaseCmd.cs" />
+    <Compile Include="Dominio\Comandos\Comum\FiltrarBaseCmd.cs" />
+    <Compile Include="Dominio\Comandos\ConteudoCmds\EditarConteudoCmd.cs" />
+    <Compile Include="Dominio\Comandos\ConteudoCmds\ExcluirConteudoCmd.cs" />
+    <Compile Include="Dominio\Comandos\ConteudoCmds\FiltrarConteudoCmd.cs" />
+    <Compile Include="Dominio\Comandos\ConteudoCmds\InserirConteudoCmd.cs" />
+    <Compile Include="Dominio\Comandos\StorageCmds\EditarStorageCmd.cs" />
+    <Compile Include="Dominio\Comandos\StorageCmds\ExcluirStorageCmd.cs" />
+    <Compile Include="Dominio\Comandos\StorageCmds\FiltrarStorageCmd.cs" />
+    <Compile Include="Dominio\Comandos\StorageCmds\InserirStorageCmd.cs" />
+    <Compile Include="Dominio\Comandos\StorageCmds\ObterStorageCmd.cs" />
+    <Compile Include="Dominio\Comandos\TesteCmds\FormatosTesteCmd.cs" />
+    <Compile Include="Dominio\Comandos\UsuarioCmds\EditarUsuarioCmd.cs" />
+    <Compile Include="Dominio\Comandos\UsuarioCmds\ExcluirUsuarioCmd.cs" />
+    <Compile Include="Dominio\Comandos\UsuarioCmds\FiltrarUsuarioCmd.cs" />
+    <Compile Include="Dominio\Comandos\UsuarioCmds\InserirUsuarioCmd.cs" />
+    <Compile Include="Dominio\Entidades\Autenticacao.cs" />
+    <Compile Include="Dominio\Entidades\Conteudo.cs" />
+    <Compile Include="Dominio\Entidades\Usuario.cs" />
+    <Compile Include="Dominio\Escopos\ConteudoEscp.cs" />
+    <Compile Include="Dominio\Escopos\StorageEscp.cs" />
+    <Compile Include="Dominio\Escopos\UsuarioEscp.cs" />
+    <Compile Include="Dominio\Interfaces\IArquivo.cs" />
+    <Compile Include="Dominio\Interfaces\Repositorios\IAutorizacaoRep.cs" />
+    <Compile Include="Dominio\Interfaces\Repositorios\IConteudoRep.cs" />
+    <Compile Include="Dominio\Interfaces\Repositorios\ISobreRep.cs" />
+    <Compile Include="Dominio\Interfaces\Repositorios\IStorageRep.cs" />
+    <Compile Include="Dominio\Interfaces\Repositorios\IUsuarioRep.cs" />
+    <Compile Include="Dominio\Notacoes\AcessoLivreAttribute.cs" />
+    <Compile Include="Dominio\Notacoes\NaoRequerAutorizacaoAttribute.cs" />
+    <Compile Include="Dominio\Notacoes\NaoRequerChavePublicaAttribute.cs" />
+    <Compile Include="Dominio\ObjetosDeValor\Arquivo.cs" />
+    <Compile Include="Dominio\ObjetosDeValor\Autorizacao.cs" />
+    <Compile Include="Dominio\ObjetosDeValor\ResultadoBusca.cs" />
+    <Compile Include="Dominio\ObjetosDeValor\Sobre.cs" />
+    <Compile Include="Dominio\ObjetosDeValor\Status.cs" />
+    <Compile Include="Dominio\ObjetosDeValor\Storage.cs" />
+    <Compile Include="Dominio\Servicos\AutenticacaoServ.cs" />
+    <Compile Include="Dominio\Servicos\AutorizacaoServ.cs" />
+    <Compile Include="Dominio\Servicos\Comum\BaseServico.cs" />
+    <Compile Include="Dominio\Servicos\ConteudoServ.cs" />
+    <Compile Include="Dominio\Servicos\SobreServ.cs" />
+    <Compile Include="Dominio\Servicos\StorageServ.cs" />
+    <Compile Include="Dominio\Servicos\TesteServ.cs" />
+    <Compile Include="Dominio\Servicos\UsuarioServ.cs" />
+    <Compile Include="IAppSettings.cs" />
+    <Compile Include="IdC\ProcessarDependencias.cs" />
+    <Compile Include="IdC\RegistrarDependencias.cs" />
+    <Compile Include="Infra\Adaptadores\BitAdapt.cs" />
+    <Compile Include="Infra\Adaptadores\CharAdapt.cs" />
+    <Compile Include="Infra\Adaptadores\SNAdapt.cs" />
+    <Compile Include="Infra\Adaptadores\StatusAdapt.cs" />
+    <Compile Include="Infra\Auxiliares\BaseMapeamento.cs" />
+    <Compile Include="Infra\Auxiliares\MediaType.cs" />
+    <Compile Include="Infra\Auxiliares\ModuloDependencias.cs" />
+    <Compile Include="Infra\Comum\BaseBuscaMsSqlRepositorio.cs" />
+    <Compile Include="Infra\Comum\BaseRepositorio.cs" />
+    <Compile Include="Infra\Contexto\ConexaoMsSql.cs" />
+    <Compile Include="Infra\Extensoes\MapeamentoMsSsqlExt.cs" />
+    <Compile Include="Infra\Interfaces\IConexao.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\BaseBuscaServico.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\BaseServico.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\BaseSimplesServico.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Conexao.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Mapeamentos\ConteudoMap.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Mapeamentos\StorageMap.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Mapeamentos\UsuarioMap.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\ConteudoServ\EditarConteudoServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\ConteudoServ\EhUnicoConteudoServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\ConteudoServ\ExcluirConteudoServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\ConteudoServ\FiltrarConteudoServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\ConteudoServ\InserirConteudoServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\StorageServ\EditarStorageServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\StorageServ\EhUnicoStorageServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\StorageServ\ExcluirStorageServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\StorageServ\FiltrarStorageServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\StorageServ\InserirStorageServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\UsuarioServ\EditarUsuarioServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\UsuarioServ\EhUnicoUsuarioServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\UsuarioServ\ExcluirUsuarioServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\UsuarioServ\FiltrarUsuarioServ.cs" />
+    <Compile Include="Infra\Recursos\Banco.TemplateApi\Servicos\UsuarioServ\InserirUsuarioServ.cs" />
+    <Compile Include="Infra\Recursos\Core\BaseServico.cs" />
+    <Compile Include="Infra\Recursos\Core\Servicos\AutorizacaoServ\ListarAutorizacaoServ.cs" />
+    <Compile Include="Infra\Recursos\Core\Servicos\SobreServ\ObterSobreServ.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursoResx\AvisosResx.Designer.cs" />
+    <Compile Include="RecursoResx\NomesResx.Designer.cs" />
+    <Compile Include="Repositorio\AutorizacaoRep.cs" />
+    <Compile Include="Repositorio\Auxiliares\ModuloDependencias.cs" />
+    <Compile Include="Repositorio\Comum\BaseRepositorio.cs" />
+    <Compile Include="Repositorio\ConteudoRep.cs" />
+    <Compile Include="Repositorio\Persistencias\AutorizacaoPers\ListarAutorizacaoPers.cs" />
+    <Compile Include="Repositorio\Persistencias\ConteudoPers\EditarStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\ConteudoPers\ExcluirStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\ConteudoPers\FiltrarStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\ConteudoPers\InserirStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\SobrePers\ObterSobrePers.cs" />
+    <Compile Include="Repositorio\Persistencias\StoragePers\EditarStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\StoragePers\ExcluirStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\StoragePers\FiltrarStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\StoragePers\InserirStoragePers.cs" />
+    <Compile Include="Repositorio\Persistencias\UsuarioPers\EditarUsuarioPers.cs" />
+    <Compile Include="Repositorio\Persistencias\UsuarioPers\ExcluirUsuarioPers.cs" />
+    <Compile Include="Repositorio\Persistencias\UsuarioPers\FiltrarUsuarioPers.cs" />
+    <Compile Include="Repositorio\Persistencias\UsuarioPers\InserirUsuarioPers.cs" />
+    <Compile Include="Repositorio\SobreRep.cs" />
+    <Compile Include="Repositorio\StorageRep.cs" />
+    <Compile Include="Repositorio\UsuarioRep.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RecursoResx\AvisosResx.resx" />
+    <EmbeddedResource Include="RecursoResx\NomesResx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
