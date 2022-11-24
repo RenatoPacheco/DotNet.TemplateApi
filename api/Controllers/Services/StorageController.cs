@@ -1,15 +1,14 @@
-﻿using System.Net;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using TemplateApi.Aplicacao;
 using Swashbuckle.AspNetCore.Annotations;
-using TemplateApi.Api.ViewsData;
-using TemplateApi.Api.Extensions;
-using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Api.DataModels.StorageDataModel;
+using System.Net;
 using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Api.DataModels.StorageDataModel;
+using TemplateApi.Api.Extensions;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Aplicacao;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.Controllers.Services
 {

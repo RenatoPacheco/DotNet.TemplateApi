@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using TemplateApi.Compartilhado;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 
@@ -17,7 +16,7 @@ namespace TemplateApi.Infra.Auxiliares
         public string[] StarClasstNamespace => new string[]
         {
             GetStartNamespace(typeof(Recursos.Core.Servicos.SobreServ.ObterSobreServ)),
-                GetStartNamespace(typeof(Recursos.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
+            GetStartNamespace(typeof(Recursos.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
         };
 
         public string[] ExactClassNamespace => Array.Empty<string>();
@@ -29,7 +28,7 @@ namespace TemplateApi.Infra.Auxiliares
             typeof(ISobreRep).Namespace
         };
 
-        public void Registrar(IResolverDependencias resolve) 
+        public void Registrar(IResolverDependencias resolve)
         {
             resolve.Escopo<Recursos.Banco.TemplateApi.Conexao>();
         }

@@ -1,11 +1,10 @@
-﻿using System.Net;
-using TemplateApi.Aplicacao;
-using Microsoft.AspNetCore.Mvc;
-using TemplateApi.Api.ViewsData;
-using Microsoft.Extensions.Logging;
-using TemplateApi.Dominio.Notacoes;
-using TemplateApi.Api.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
+using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Aplicacao;
+using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.Controllers.Services

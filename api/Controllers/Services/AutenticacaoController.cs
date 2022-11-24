@@ -1,19 +1,19 @@
-﻿using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using TemplateApi.Aplicacao;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using TemplateApi.Api.ViewsData;
-using TemplateApi.Dominio.Notacoes;
-using TemplateApi.Api.DataAnnotations;
-using TemplateApi.Dominio.Entidades;
+using System.Net;
 using TemplateApi.Api.ApiApplications;
+using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Api.ValuesObject;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Aplicacao;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Dominio.Notacoes;
 
 namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
+    [ApiExplorerSettings(GroupName = "Autenticação")]
     public class AutenticacaoController : Common.BaseController
     {
         public AutenticacaoController(
