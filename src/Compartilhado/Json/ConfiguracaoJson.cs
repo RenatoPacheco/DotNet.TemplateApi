@@ -27,17 +27,17 @@ namespace TemplateApi.Compartilhado.Json
             return settings;
         }
 
-        public static JsonSerializerOptions AplicarParaLeitura(JsonSerializerOptions? settings = null)
+        public static JsonSerializerOptions AplicarParaLeitura(JsonSerializerOptions settings = null)
         {
             settings = AplicarBase(settings ?? new JsonSerializerOptions());
 
             return settings;
         }
 
-        public static JsonSerializerOptions AplicarParaEscrita(JsonSerializerOptions? settings = null)
+        public static JsonSerializerOptions AplicarParaEscrita(JsonSerializerOptions settings = null)
         {
             settings = AplicarBase(settings ?? new JsonSerializerOptions());
-            settings.IgnoreNullValues = true;
+            settings.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 
             return settings;
         }
