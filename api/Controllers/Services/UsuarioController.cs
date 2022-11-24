@@ -16,6 +16,7 @@ namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController]
     [Route("Servico/[controller]")]
+    [ApiExplorerSettings(GroupName = "Usuário")]
     public class UsuarioController : Common.BaseController
     {
         public UsuarioController(
