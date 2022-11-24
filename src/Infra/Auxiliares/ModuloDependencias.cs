@@ -17,7 +17,7 @@ namespace TemplateApi.Infra.Auxiliares
         public string[] StarClasstNamespace => new string[]
         {
             GetStartNamespace(typeof(Recursos.Core.Servicos.SobreServ.ObterSobreServ)),
-                GetStartNamespace(typeof(Recursos.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
+            GetStartNamespace(typeof(Recursos.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
         };
 
         public string[] ExactClassNamespace => Array.Empty<string>();
