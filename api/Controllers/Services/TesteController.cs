@@ -35,6 +35,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// Recebendo os dados por FromQuery
         /// </summary>
         [Route("FromQuery")]
+        [ApiExplorerSettings(GroupName = "Teste / FromQuery")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
@@ -55,6 +56,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// Recebendo os dados por FromBody
         /// </summary>
         [Route("FromBody")]
+        [ApiExplorerSettings(GroupName = "Teste / FromBody")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
@@ -75,6 +77,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// Recebendo os dados por FromForm
         /// </summary>
         [Route("FromForm")]
+        [ApiExplorerSettings(GroupName = "Teste / FromForm")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
@@ -95,6 +98,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// Recebendo os dados por FromHeader
         /// </summary>
         [Route("FromHeader")]
+        [ApiExplorerSettings(GroupName = "Teste / FromHeader")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
@@ -115,6 +119,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// Recebendo os dados ser usar nenhum dos tipos From
         /// </summary>
         [Route("WithoutFrom")]
+        [ApiExplorerSettings(GroupName = "Teste / WithoutFrom")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]

@@ -1,33 +1,23 @@
 ﻿using System;
 using System.Reflection;
-using TemplateApi.Compartilhado;
+using TemplateApi.Compartilhado.IdC;
 using TemplateApi.Dominio.Servicos;
 
 namespace TemplateApi.Dominio.Auxiliares
 {
     public class ModuloDependencias
-        : IModuloDependencias
+        : BaseModuloDependencias
     {
-        public Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();
+        public override Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();
 
-        public Type[] Singleton => Array.Empty<Type>();
-
-        public Type[] Scoped => new Type[]
+        public override Type[] Scoped => new Type[]
         {
             typeof(AutenticacaoServ)
         };
 
-        public string[] StarClasstNamespace => Array.Empty<string>();
-
-        public string[] ExactClassNamespace => new string[]
+        public override string[] ExactClassNamespace => new string[]
         {
             typeof(SobreServ).Namespace
         };
-
-        public string[] StartInterfaceNamespace => Array.Empty<string>();
-
-        public string[] ExactInterfaceNamespace => Array.Empty<string>();
-
-        public void Registrar(IResolverDependencias resolve) { }
     }
 }

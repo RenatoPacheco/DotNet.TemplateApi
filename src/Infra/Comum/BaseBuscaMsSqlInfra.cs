@@ -5,8 +5,8 @@ using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Infra.Comum
 {
-    internal abstract class BaseBuscaMsSqlRepositorio
-        : BaseRepositorio
+    internal abstract class BaseBuscaMsSqlInfra
+        : BaseInfra
     {
         /// <summary>
         /// Tratar o texto para a busca 

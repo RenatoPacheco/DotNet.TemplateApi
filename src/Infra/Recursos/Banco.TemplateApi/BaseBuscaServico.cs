@@ -1,7 +1,7 @@
 ﻿namespace TemplateApi.Infra.Recursos.Banco.TemplateApi
 {
     internal class BaseBuscaServico
-        : Comum.BaseBuscaMsSqlRepositorio
+        : Comum.BaseBuscaMsSqlInfra
     {
         public BaseBuscaServico(
             Conexao conexao)
