@@ -42,23 +42,5 @@ namespace TemplateApi.Compartilhado.Json
                 OverrideSpecifiedNames = true
             };
         }
-
-        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
-        {
-            IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
-            PropertyInfo[] actualProperties = type.GetProperties();
-
-            foreach (JsonProperty jsonProperty in properties)
-            {
-                PropertyInfo property = actualProperties.FirstOrDefault(x => x.Name.ToLower() == jsonProperty.PropertyName.ToLower());
-                if (property != null && (property.GetCustomAttribute(typeof(JsonIgnoreAttribute)) != null
-                    || property.PropertyType == typeof(ValidationNotification)))
-                {
-                    jsonProperty.Ignored = true;
-                }
-            }
-            return properties;
-
-        }
     }
 }
