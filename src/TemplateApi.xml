@@ -94,17 +94,17 @@
             Permite excluir um ou mais usuários.
             </summary>
         </member>
-        <member name="P:TemplateApi.Compartilhado.IModuloDependencias.Singleton">
+        <member name="P:TemplateApi.Compartilhado.IdC.IModuloDependencias.Singleton">
             <summary>
             Indicar os tipos que devem ser registrados como Singleton
             </summary>
         </member>
-        <member name="P:TemplateApi.Compartilhado.IModuloDependencias.Scoped">
+        <member name="P:TemplateApi.Compartilhado.IdC.IModuloDependencias.Scoped">
             <summary>
             Indicar os tipos que devem ser registrados como Scoped
             </summary>
         </member>
-        <member name="M:TemplateApi.Compartilhado.IModuloDependencias.Registrar(TemplateApi.Compartilhado.IResolverDependencias)">
+        <member name="M:TemplateApi.Compartilhado.IdC.IModuloDependencias.Registrar(TemplateApi.Compartilhado.IdC.IResolverDependencias)">
             <summary>
             Deve registrar individualmente uma classe quando necessário
             </summary>

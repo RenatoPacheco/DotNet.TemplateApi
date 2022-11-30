@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TemplateApi.Compartilhado
+namespace TemplateApi.Compartilhado.IdC
 {
     public interface IModuloDependencias
     {

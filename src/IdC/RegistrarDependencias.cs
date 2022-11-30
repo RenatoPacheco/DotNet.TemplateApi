@@ -1,4 +1,4 @@
-﻿using TemplateApi.Compartilhado;
+﻿using TemplateApi.Compartilhado.IdC;
 
 namespace TemplateApi.IdC
 {
