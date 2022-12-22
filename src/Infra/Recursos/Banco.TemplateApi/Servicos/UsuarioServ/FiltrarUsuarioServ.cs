@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 using BitHelp.Core.Validation;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TemplateApi.Dominio.Entidades;

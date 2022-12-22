@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using BitHelp.Core.Validation;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

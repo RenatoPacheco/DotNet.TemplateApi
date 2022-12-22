@@ -9,7 +9,7 @@ using TemplateApi.Api.ViewsData;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 using Microsoft.AspNetCore.Hosting;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 
 namespace TemplateApi.Api.Controllers.Common
 {

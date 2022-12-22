@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Linq;
 using System.Text;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
