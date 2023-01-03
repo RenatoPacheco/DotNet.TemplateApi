@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Notations;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 
 namespace TemplateApi.Compartilhado.Validacoes.Notacoes
 {

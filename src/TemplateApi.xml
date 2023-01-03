@@ -889,209 +889,209 @@
             Só funciona se for adicionado após um order by
             </summary>
         </member>
-        <member name="T:TemplateApi.RecursoResx.AvisosResx">
+        <member name="T:TemplateApi.Recurso.AvisosResx">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.ResourceManager">
+        <member name="P:TemplateApi.Recurso.AvisosResx.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.Culture">
+        <member name="P:TemplateApi.Recurso.AvisosResx.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.AcessoNaoAutenticado">
+        <member name="P:TemplateApi.Recurso.AvisosResx.AcessoNaoAutenticado">
             <summary>
               Looks up a localized string similar to Aceso não autenticado..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.AcessoNaoAutorizado">
+        <member name="P:TemplateApi.Recurso.AvisosResx.AcessoNaoAutorizado">
             <summary>
               Looks up a localized string similar to Acesso não autorizado..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.ChavePublicaNaoRecebiada">
+        <member name="P:TemplateApi.Recurso.AvisosResx.ChavePublicaNaoRecebiada">
             <summary>
               Looks up a localized string similar to A chave pública não foi recebida..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.FormatoInvalido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.FormatoInvalido">
             <summary>
               Looks up a localized string similar to Formato inválido..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.NaoPodeSerNulo">
+        <member name="P:TemplateApi.Recurso.AvisosResx.NaoPodeSerNulo">
             <summary>
               Looks up a localized string similar to Não pode ser nulo..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.OcorreuUmErroInterno">
+        <member name="P:TemplateApi.Recurso.AvisosResx.OcorreuUmErroInterno">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.PesoDoArquivoEmKbInvalido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.PesoDoArquivoEmKbInvalido">
             <summary>
               Looks up a localized string similar to Peso do arquivo deve ser menou ou iqual a {0} kb..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.SenhaDeveConter">
+        <member name="P:TemplateApi.Recurso.AvisosResx.SenhaDeveConter">
             <summary>
               Looks up a localized string similar to A senha deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.SolicitacaoErro">
+        <member name="P:TemplateApi.Recurso.AvisosResx.SolicitacaoErro">
             <summary>
               Looks up a localized string similar to Ocorreu um erro na solicitação..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.SolicitacaoNaoAutorizada">
+        <member name="P:TemplateApi.Recurso.AvisosResx.SolicitacaoNaoAutorizada">
             <summary>
               Looks up a localized string similar to Solicitação não autorizada..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.SolicitacaoSucesso">
+        <member name="P:TemplateApi.Recurso.AvisosResx.SolicitacaoSucesso">
             <summary>
               Looks up a localized string similar to Solicitação realizada com sucesso..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.Status200">
+        <member name="P:TemplateApi.Recurso.AvisosResx.Status200">
             <summary>
               Looks up a localized string similar to Solicitação realizada com sucesso..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.Status400">
+        <member name="P:TemplateApi.Recurso.AvisosResx.Status400">
             <summary>
               Looks up a localized string similar to Ocorreu algum erro na solicitação..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.Status401">
+        <member name="P:TemplateApi.Recurso.AvisosResx.Status401">
             <summary>
               Looks up a localized string similar to Solicitação não autorizada..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.Status500">
+        <member name="P:TemplateApi.Recurso.AvisosResx.Status500">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.TipoDeArquivoStorageInvalido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.TipoDeArquivoStorageInvalido">
             <summary>
               Looks up a localized string similar to Os tipos de arquivos permitidos são imagens, textos ou planilhas..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.TipoInvalido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.TipoInvalido">
             <summary>
               Looks up a localized string similar to Tipo inválido..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.TokenDeAutenticacaoNaoRecebido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.TokenDeAutenticacaoNaoRecebido">
             <summary>
               Looks up a localized string similar to O token de autenticação não foi recebido..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.ValorNoFormatoInvalido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.ValorNoFormatoInvalido">
             <summary>
               Looks up a localized string similar to Valor não está no formato válido..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XHeObrigatorio">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XHeObrigatorio">
             <summary>
               Looks up a localized string similar to O valor de &quot;{0}&quot; é obrigatório. .
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XNaoEhUnico">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XNaoEhUnico">
             <summary>
               Looks up a localized string similar to O valor de {0} não é único..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XNaoEhValido">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XNaoEhValido">
             <summary>
               Looks up a localized string similar to {0} não é válido(a)..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XNaoEncontrado">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XNaoEncontrado">
             <summary>
               Looks up a localized string similar to {0} não encontrado(a)..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XNaoEncontrados">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XNaoEncontrados">
             <summary>
               Looks up a localized string similar to {0} não encontrados(as)..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XPropriedadeNaoConfigurada">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XPropriedadeNaoConfigurada">
             <summary>
               Looks up a localized string similar to A propriedade &quot;{0}&quot; ainda não foi configurada..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XSenhaDeveConter">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XSenhaDeveConter">
             <summary>
               Looks up a localized string similar to {0} deve conter um de cada dos conjuntos  [0-9], [A-Z], [a-z] e [-_$%#@!*.+=]..
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.AvisosResx.XValorNaoPodeSerVazio">
+        <member name="P:TemplateApi.Recurso.AvisosResx.XValorNaoPodeSerVazio">
             <summary>
               Looks up a localized string similar to O valor de &quot;{0}&quot; não pode ser vazio..
             </summary>
         </member>
-        <member name="T:TemplateApi.RecursoResx.NomesResx">
+        <member name="T:TemplateApi.Recurso.NomesResx">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.ResourceManager">
+        <member name="P:TemplateApi.Recurso.NomesResx.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Culture">
+        <member name="P:TemplateApi.Recurso.NomesResx.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Autorizacao">
+        <member name="P:TemplateApi.Recurso.NomesResx.Autorizacao">
             <summary>
               Looks up a localized string similar to Autorização.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Autorizacoes">
+        <member name="P:TemplateApi.Recurso.NomesResx.Autorizacoes">
             <summary>
               Looks up a localized string similar to Autorizações.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Conteudo">
+        <member name="P:TemplateApi.Recurso.NomesResx.Conteudo">
             <summary>
               Looks up a localized string similar to Conteúdo.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Conteudos">
+        <member name="P:TemplateApi.Recurso.NomesResx.Conteudos">
             <summary>
               Looks up a localized string similar to Conteúdos.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Storage">
+        <member name="P:TemplateApi.Recurso.NomesResx.Storage">
             <summary>
               Looks up a localized string similar to Storage.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Storages">
+        <member name="P:TemplateApi.Recurso.NomesResx.Storages">
             <summary>
               Looks up a localized string similar to Storages.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Usuario">
+        <member name="P:TemplateApi.Recurso.NomesResx.Usuario">
             <summary>
               Looks up a localized string similar to Usuário.
             </summary>
         </member>
-        <member name="P:TemplateApi.RecursoResx.NomesResx.Usuarios">
+        <member name="P:TemplateApi.Recurso.NomesResx.Usuarios">
             <summary>
               Looks up a localized string similar to Usuários.
             </summary>

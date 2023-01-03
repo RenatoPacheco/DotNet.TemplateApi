@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using BitHelp.Core.Validation;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using TemplateApi.Api.Helpers;

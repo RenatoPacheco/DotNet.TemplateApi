@@ -1,5 +1,5 @@
 ﻿using System;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
@@ -55,11 +55,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly BoolInput Empty = new BoolInput(string.Empty);
 
-        public static void Parse(string input, out BoolInput output)
+        public static BoolInput Parse(string input)
         {
             if (TryParse(input, out BoolInput result))
             {
-                output = result;
+                return result;
             }
             else
             {

@@ -1,5 +1,5 @@
 ﻿using BitHelp.Core.Validation;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.ValuesObject
