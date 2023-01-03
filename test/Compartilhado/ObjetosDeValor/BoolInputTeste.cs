@@ -84,7 +84,7 @@ namespace TemplateApi.Teste.Compartilhado.ObjetosDeValor
         [InlineData("False")]
         public void Chechar_parse_valido(string valor)
         {
-            BoolInput.Parse(valor, out BoolInput saida);
+            BoolInput saida = BoolInput.Parse(valor);
             Assert.NotNull(saida);
             Assert.True(saida.IsValid());
         }
@@ -96,7 +96,7 @@ namespace TemplateApi.Teste.Compartilhado.ObjetosDeValor
         [InlineData("")]
         public void Chechar_parse_argumentException(string valor)
         {
-            Assert.Throws<ArgumentException>(() => BoolInput.Parse(valor, out BoolInput saida));
+            Assert.Throws<ArgumentException>(() => BoolInput.Parse(valor));
         }
 
         [Theory]
