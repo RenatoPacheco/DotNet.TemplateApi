@@ -55,11 +55,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly TimeSpanInput Empty = new TimeSpanInput(string.Empty);
 
-        public static void Parse(string input, out TimeSpanInput output)
+        public static TimeSpanInput Parse(string input)
         {
             if (TryParse(input, out TimeSpanInput result))
             {
-                output = result;
+                return result;
             }
             else
             {

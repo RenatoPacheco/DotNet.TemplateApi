@@ -55,11 +55,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly LongInput Empty = new LongInput(string.Empty);
 
-        public static void Parse(string input, out LongInput output)
+        public static LongInput Parse(string input)
         {
             if (TryParse(input, out LongInput result))
             {
-                output = result;
+                return result;
             }
             else
             {

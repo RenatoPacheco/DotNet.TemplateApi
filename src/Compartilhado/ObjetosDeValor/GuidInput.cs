@@ -55,11 +55,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly GuidInput Empty = new GuidInput(string.Empty);
 
-        public static void Parse(string input, out GuidInput output)
+        public static GuidInput Parse(string input)
         {
             if (TryParse(input, out GuidInput result))
             {
-                output = result;
+                return result;
             }
             else
             {
