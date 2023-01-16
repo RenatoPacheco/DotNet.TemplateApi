@@ -179,6 +179,14 @@ namespace TemplateApi.Api
                         Nullable = true
                     });
 
+                options.MapType<FloatInput>(
+                    () => new OpenApiSchema
+                    {
+                        Type = "number",
+                        Format = "float",
+                        Nullable = true
+                    });
+
                 options.MapType<DateTimeInput>(
                     () => new OpenApiSchema
                     {

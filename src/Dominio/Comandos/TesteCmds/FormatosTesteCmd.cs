@@ -17,6 +17,8 @@ namespace TemplateApi.Dominio.Comandos.TesteCmds
 
         public double? Double { get; set; }
 
+        public float? Float { get; set; }
+
         public bool? Bool { get; set; }
 
         public DateTime? DateTime { get; set; }

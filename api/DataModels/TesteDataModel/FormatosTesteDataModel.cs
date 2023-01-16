@@ -62,6 +62,17 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             }
         }
 
+        private FloatInput _float;
+        public FloatInput Float
+        {
+            get => _float;
+            set
+            {
+                _float = value;
+                RegistarPropriedade();
+            }
+        }
+
         private BoolInput _bool;
         public BoolInput Bool
         {
