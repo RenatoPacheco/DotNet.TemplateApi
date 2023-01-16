@@ -2,6 +2,7 @@
 using TemplateApi.Api.App_Start.ModelBinders;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.ModelBinderProviders
 {
@@ -14,7 +15,9 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(DateTime) || context.Metadata.ModelType == typeof(DateTime?))
+            if (context.Metadata.ModelType == typeof(DateTime) 
+                || context.Metadata.ModelType == typeof(DateTime?)
+                || context.Metadata.ModelType == typeof(DateTimeInput))
             {
                 return new BinderTypeModelBinder(typeof(DateTimeModelBinder));
             }

@@ -18,6 +18,7 @@ namespace TemplateApi.Compartilhado.Json
             settings.Converters.Add(new PhoneTypeJsonConverte());
             settings.Converters.Add(new IntInputJsonConverte());
             settings.Converters.Add(new LongInputJsonConverte());
+            settings.Converters.Add(new FloatInputJsonConverte());
             settings.Converters.Add(new DoubleInputJsonConverte());
             settings.Converters.Add(new DecimalInputJsonConverte());
             settings.Converters.Add(new GuidInputJsonConverte());

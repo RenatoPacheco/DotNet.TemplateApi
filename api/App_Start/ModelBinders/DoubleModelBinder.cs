@@ -16,36 +16,62 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
-            var modelName = bindingContext.ModelName;
+            if ((bindingContext.ModelType != typeof(double?)
+                && bindingContext.ModelType != typeof(double)
+                && bindingContext.ModelType != typeof(DoubleInput))
+                || bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
+            {
+                return Task.CompletedTask;
+            }
 
-            var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
+            string modelName = bindingContext.ModelName;
+            Type modelType = bindingContext.ModelType;
+            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
 
             if (valueProviderResult == ValueProviderResult.None)
             {
                 return Task.CompletedTask;
             }
 
-            var value = valueProviderResult.FirstValue;
+            string value = valueProviderResult.FirstValue;
 
-            if (string.IsNullOrEmpty(value))
+            if (value == null)
             {
-                return Task.CompletedTask;
+                if (modelType == typeof(double?) || modelType == typeof(DoubleInput))
+                {
+                    bindingContext.Result = ModelBindingResult.Success(null);
+                }
+                else
+                {
+                    ErrorReport(bindingContext, valueProviderResult);
+                }
             }
-
-            if (DoubleInput.TryParse(value, out DoubleInput result))
+            else if (DoubleInput.TryParse(value, out DoubleInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((double)result);
+                if (modelType == typeof(DoubleInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((double)result);
             }
-            else if(!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
+            else
             {
-                bindingContext.ModelState.SetModelValue(modelName, valueProviderResult);
-                bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
+                ErrorReport(bindingContext, valueProviderResult);
             }
 
             return Task.CompletedTask;
+        }
+
+        protected void ErrorReport(
+            ModelBindingContext bindingContext,
+            ValueProviderResult valueProviderResult)
+        {
+            bindingContext.ModelState.SetModelValue(
+                bindingContext.ModelName, valueProviderResult);
+
+            bindingContext.ModelState.AddModelError(
+                bindingContext.ModelName,
+                string.Format(AvisosResx.XNaoEhValido,
+                bindingContext.DisplayName()));
         }
     }
 }

@@ -39,7 +39,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
-        public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query)
+        public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query, [FromQuery]decimal? teste)
         {
             InvocarSeNulo(ref query);
 

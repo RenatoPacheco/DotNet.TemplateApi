@@ -418,5 +418,34 @@
       "bearer": "{{autorizacao}}"
     },
     "tests": []
+  },
+  {
+    "_id": "95ef0af8-e567-4e86-a8d4-b4813d0cff56",
+    "colId": "c6ffb090-4d9f-4cd3-9066-98b1af0d9442",
+    "containerId": "",
+    "name": "FromQuery",
+    "url": "{{host}}/servico/teste/fromQuery?teste=ssss",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-01-16T22:49:55.056Z",
+    "modified": "2023-01-16T22:59:43.288Z",
+    "headers": [
+      {
+        "name": "Chave-Publica",
+        "value": "{{chave-publica}}"
+      }
+    ],
+    "params": [
+      {
+        "name": "teste",
+        "value": "ssss",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{autorizacao}}"
+    },
+    "tests": []
   }
 ]

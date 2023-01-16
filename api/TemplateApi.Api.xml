@@ -114,7 +114,7 @@
             <p>Permite excluir um ou mais arquivos, que na verdade não são excluídos do servisor, só são alterados para o status de excluído.</p>
             </remarks>
         </member>
-        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromQuery(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel)">
+        <member name="M:TemplateApi.Api.Controllers.Services.TesteController.FromQuery(TemplateApi.Api.DataModels.TesteDataModel.FormatosTesteDataModel,System.Nullable{System.Decimal})">
             <summary>
             Recebendo os dados por FromQuery
             </summary>
