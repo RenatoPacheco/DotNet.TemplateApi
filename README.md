@@ -2,7 +2,7 @@
 
 [![Licensed under the MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-Projeto para fazer alguns testes para uma `API REST` usando `.NET Core 6.0`.
+Projeto para fazer alguns testes para uma `API REST` usando `.NET Core 7.0`.
 
 ## Para mais informações consulte a [Wiki] do projeto.
 ___
