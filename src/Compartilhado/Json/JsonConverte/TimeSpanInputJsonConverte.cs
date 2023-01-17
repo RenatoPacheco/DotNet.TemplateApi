@@ -1,32 +1,35 @@
 ﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TemplateApi.Compartilhado.Extensoes;
+using Newtonsoft.Json;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
-    public class TimeSpanInputJsonConverte : JsonConverter<TimeSpanInput>
+    public class TimeSpanInputJsonConverte : JsonConverter
     {
-        public override TimeSpanInput Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override bool CanConvert(Type type)
         {
-            TimeSpanInput result;
-
-            if (reader.TokenType == JsonTokenType.String)
-            {
-                result = new TimeSpanInput(reader.GetString());
-            }
-            else
-            {
-                result = new TimeSpanInput(reader.GetBytesToString());
-            }
-
-            return result;
+            return type == typeof(TimeSpanInput);
         }
 
-        public override void Write(Utf8JsonWriter writer, TimeSpanInput value, JsonSerializerOptions options)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            writer.WriteStringValue(value.ToString());
+            string value = reader?.Value?.ToString();
+            if (value is null)
+            {
+                return null;
+            }
+
+            return new TimeSpanInput(value);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            string result = value?.ToString();
+
+            if (result is null)
+                writer.WriteNull();
+            else
+                writer.WriteValue(result);
         }
     }
 }

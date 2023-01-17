@@ -20,8 +20,8 @@ builder.Services.AddControllers(options => {
 }).ConfigureApiBehaviorOptions(options => {
     // Desabilitando o filtro que intecepta erros do ModelState
     options.SuppressModelStateInvalidFilter = true;
-}).AddJsonOptions(options => {
-    ConfiguracaoJson.AplicarParaLeitura(options.JsonSerializerOptions);
+}).AddNewtonsoftJson(options => {
+    ConfiguracaoJson.Escrita(options.SerializerSettings);
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

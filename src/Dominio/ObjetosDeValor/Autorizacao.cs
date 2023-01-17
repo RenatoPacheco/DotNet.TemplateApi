@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Linq;
+using Newtonsoft.Json;
 using System.Reflection;
 using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;

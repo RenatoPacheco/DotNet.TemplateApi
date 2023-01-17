@@ -1,6 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using TemplateApi.Compartilhado.IdC;
-using TemplateApi.Dominio.Interfaces.Repositorios;
 
 namespace TemplateApi.Infra.Auxiliares
 {
@@ -15,7 +15,7 @@ namespace TemplateApi.Infra.Auxiliares
             GetStartNamespace(typeof(Recursos.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
         };
 
-        public override void Registrar(IResolverDependencias resolve)
+        public override void Registrar(IResolverDependencias resolve) 
         {
             resolve.Escopo<Recursos.Banco.TemplateApi.Conexao>();
         }

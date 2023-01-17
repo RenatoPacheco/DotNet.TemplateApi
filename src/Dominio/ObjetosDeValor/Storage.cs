@@ -1,9 +1,10 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using BitHelp.Core.Validation;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.Interfaces;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {

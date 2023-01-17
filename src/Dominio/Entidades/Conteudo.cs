@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using Newtonsoft.Json;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Escopos;
 using System.Diagnostics.CodeAnalysis;

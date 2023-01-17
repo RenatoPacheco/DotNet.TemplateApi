@@ -7,8 +7,7 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.ModelBinders
 {
-    public class EnumModelBinder<T> : IModelBinder
-        where T: struct
+    public class FloatModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -17,9 +16,9 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
-            if ((bindingContext.ModelType != typeof(T?)
-                && bindingContext.ModelType != typeof(T)
-                && bindingContext.ModelType != typeof(EnumInput<T>))
+            if ((bindingContext.ModelType != typeof(float?)
+                && bindingContext.ModelType != typeof(float)
+                && bindingContext.ModelType != typeof(FloatInput))
                 || bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
                 return Task.CompletedTask;
@@ -38,7 +37,7 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (value == null)
             {
-                if (modelType == typeof(T?) || modelType == typeof(EnumInput<T>))
+                if (modelType == typeof(float?) || modelType == typeof(FloatInput))
                 {
                     bindingContext.Result = ModelBindingResult.Success(null);
                 }
@@ -47,12 +46,12 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                     ErrorReport(bindingContext, valueProviderResult);
                 }
             }
-            else if (EnumInput<T>.TryParse(value, out EnumInput<T> result))
+            else if (FloatInput.TryParse(value, out FloatInput result))
             {
-                if (modelType == typeof(EnumInput<T>))
+                if (modelType == typeof(FloatInput))
                     bindingContext.Result = ModelBindingResult.Success(result);
                 else
-                    bindingContext.Result = ModelBindingResult.Success((T)result);
+                    bindingContext.Result = ModelBindingResult.Success((float)result);
             }
             else
             {

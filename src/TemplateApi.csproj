@@ -20,9 +20,10 @@
     <PackageReference Include="BitHelp.Core.Extend" Version="0.5.0" />
     <PackageReference Include="BitHelp.Core.Security" Version="0.2.0" />
     <PackageReference Include="BitHelp.Core.Type.pt-BR" Version="0.2.0" />
-    <PackageReference Include="BitHelp.Core.Validation" Version="0.13.0" />
+    <PackageReference Include="BitHelp.Core.Validation" Version="0.15.0" />
     <PackageReference Include="Dapper" Version="2.0.123" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>

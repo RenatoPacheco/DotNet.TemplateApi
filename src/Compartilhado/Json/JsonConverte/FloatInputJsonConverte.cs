@@ -4,11 +4,11 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
-    public class LongInputJsonConverte : JsonConverter
+    public class FloatInputJsonConverte : JsonConverter
     {
         public override bool CanConvert(Type type)
         {
-            return type == typeof(LongInput);
+            return type == typeof(FloatInput);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -19,7 +19,7 @@ namespace TemplateApi.Compartilhado.Json.JsonConverte
                 return null;
             }
 
-            return new LongInput(value);
+            return new FloatInput(value);
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

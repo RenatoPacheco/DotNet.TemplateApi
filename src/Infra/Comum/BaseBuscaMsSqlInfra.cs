@@ -66,10 +66,6 @@ namespace TemplateApi.Infra.Comum
                 int pagina = comando.Pagina < 1 ? 1 : comando.Pagina;
                 return comando.Maximo < 1 ? string.Empty : $" OFFSET {(pagina - 1) * comando.Maximo} ROWS FETCH FIRST {comando.Maximo}  ROWS ONLY ";
             }
-            else if (comando.Maximo > 0 && comando.Maximo < int.MaxValue)
-            {
-                return $" OFFSET 0 ROWS FETCH FIRST {comando.Maximo}  ROWS ONLY ";
-            }
 
             return string.Empty;
         }

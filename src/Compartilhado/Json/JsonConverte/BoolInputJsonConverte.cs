@@ -1,32 +1,35 @@
 ﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TemplateApi.Compartilhado.Extensoes;
+using Newtonsoft.Json;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Compartilhado.Json.JsonConverte
 {
-    public class BoolInputJsonConverte : JsonConverter<BoolInput>
+    public class BoolInputJsonConverte : JsonConverter
     {
-        public override BoolInput Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override bool CanConvert(Type type)
         {
-            BoolInput result;
-
-            if (reader.TokenType == JsonTokenType.String)
-            {
-                result = new BoolInput(reader.GetString());
-            }
-            else
-            {
-                result = new BoolInput(reader.GetBytesToString());
-            }
-
-            return result;
+            return type == typeof(BoolInput);
         }
 
-        public override void Write(Utf8JsonWriter writer, BoolInput value, JsonSerializerOptions options)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            writer.WriteStringValue(value.ToString());
+            string value = reader?.Value?.ToString();
+            if (value is null)
+            {
+                return null;
+            }
+
+            return new BoolInput(value);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            string result = value?.ToString();
+
+            if (result is null)
+                writer.WriteNull();
+            else
+                writer.WriteValue(result);
         }
     }
 }

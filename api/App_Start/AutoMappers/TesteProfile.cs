@@ -41,6 +41,12 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                         => src.PropriedadeRegistrada(x => x.Double)
                             && dest.InputTypeEhValido(x => x.Double, src.Double));
                 })
+                .ForMember(cmd => cmd.Float, opts =>
+                {
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Float)
+                            && dest.InputTypeEhValido(x => x.Float, src.Float));
+                })
                 .ForMember(cmd => cmd.Enum, opts =>
                 {
                     opts.Condition((src, dest, srcMember)

@@ -1,35 +1,75 @@
-﻿using System.Text.Json;
-using TemplateApi.Compartilhado.Extensoes;
+﻿using System;
+using System.Linq;
+using Newtonsoft.Json;
+using System.Reflection;
+using BitHelp.Core.Validation;
+using System.Collections.Generic;
+using Newtonsoft.Json.Serialization;
+using TemplateApi.Compartilhado.Json.Notacoes;
 
 namespace TemplateApi.Compartilhado.Json
 {
-    public class ContratoJson : JsonNamingPolicy
+    public class ContratoJson : DefaultContractResolver
     {
-        private static JsonSerializerOptions _configuracao;
-        private static JsonSerializerOptions Configuracao
+        public static string Serializar(object valor, JsonSerializerSettings settings = null)
         {
-            get => _configuracao ??= ConfiguracaoJson.AplicarParaLeitura();
+            return JsonConvert.SerializeObject(valor, ConfiguracaoJson.Leitura(settings));
         }
 
-        public static string Serializar<T>(T value) 
-            where T : class
+        public static T Desserializar<T>(string valor, JsonSerializerSettings settings = null)
         {
-            return JsonSerializer.Serialize(value, Configuracao);
+            return JsonConvert.DeserializeObject<T>(valor, ConfiguracaoJson.Leitura(settings));
         }
 
-        public static object Desserializar(string json, Type type)
+        public static object Desserializar(string valor, Type tipo, JsonSerializerSettings settings = null)
         {
-            return JsonSerializer.Deserialize(json, type, Configuracao);
+            return JsonConvert.DeserializeObject(valor, tipo, settings ?? ConfiguracaoJson.Leitura(settings));
         }
 
-        public static T Desserializar<T>(string json)
+        public ContratoJson()
+            : base()
         {
-            return JsonSerializer.Deserialize<T>(json, Configuracao);
+            // Aplicar o comportamento de CamelCasePropertyNamesContractResolver
+            NamingStrategy = new CamelCaseNamingStrategy
+            {
+                ProcessDictionaryKeys = true,
+                OverrideSpecifiedNames = true
+            };
         }
 
-        public override string ConvertName(string name)
+        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
-            return name?.ToJsonReference();
+            IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
+            PropertyInfo[] actualProperties = type.GetProperties();
+
+            foreach (JsonProperty jsonProperty in properties)
+            {
+                PropertyInfo property = actualProperties.FirstOrDefault(
+                    x => x.Name.ToLower() == jsonProperty.PropertyName.ToLower());
+
+                if (property != null)
+                {
+                    if (property.GetCustomAttribute(typeof(JsonIgnoreAttribute)) != null
+                        || property.PropertyType == typeof(ValidationNotification))
+                    {
+                        jsonProperty.Ignored = true;
+                    }
+                    else
+                    {
+                        if (property.GetCustomAttribute(typeof(JsonIgnoreDeserializeAttribute)) != null)
+                        {
+                            jsonProperty.Writable = false;
+                        }
+
+                        if (property.GetCustomAttribute(typeof(JsonIgnoreSerializeAttribute)) != null)
+                        {
+                            jsonProperty.Readable = false;
+                        }
+                    }
+                }
+            }
+            return properties;
+
         }
     }
 }

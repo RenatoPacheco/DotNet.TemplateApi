@@ -1,4 +1,6 @@
-﻿using TemplateApi.Compartilhado.IdC;
+﻿using System;
+using System.Linq;
+using TemplateApi.Compartilhado.IdC;
 
 namespace TemplateApi.IdC
 {

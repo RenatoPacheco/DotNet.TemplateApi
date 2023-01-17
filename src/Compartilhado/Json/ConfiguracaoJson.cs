@@ -1,45 +1,56 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using TemplateApi.Compartilhado.Json.JsonConverte;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Compartilhado.Json.JsonConverte;
 
 namespace TemplateApi.Compartilhado.Json
 {
     public static class ConfiguracaoJson
     {
-        private static JsonSerializerOptions AplicarBase(JsonSerializerOptions settings)
+        private static JsonSerializerSettings Base(JsonSerializerSettings config = null)
         {
-            settings.PropertyNamingPolicy = new ContratoJson();
-            settings.Converters.Add(new JsonStringEnumConverter());
-            settings.Converters.Add(new PhoneTypeJsonConverte());
-            settings.Converters.Add(new IntInputJsonConverte());
-            settings.Converters.Add(new LongInputJsonConverte());
-            settings.Converters.Add(new DoubleInputJsonConverte());
-            settings.Converters.Add(new DecimalInputJsonConverte());
-            settings.Converters.Add(new GuidInputJsonConverte());
-            settings.Converters.Add(new BoolInputJsonConverte());
-            settings.Converters.Add(new DateTimeInputJsonConverte());
-            settings.Converters.Add(new TimeSpanInputJsonConverte());
-            settings.Converters.Add(new EnumInputJsonConverte<Status>());
-            settings.Converters.Add(new EnumInputJsonConverte<ContextoCmd>());
+            JsonSerializerSettings resultado = config 
+                ?? new JsonSerializerSettings();
 
-            return settings;
+            resultado.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            resultado.Culture = System.Globalization.CultureInfo.CurrentCulture;
+            resultado.ContractResolver = new ContratoJson();
+
+            resultado.Converters.Add(new StringEnumConverter());
+            resultado.Converters.Add(new PhoneTypeJsonConverte());
+            resultado.Converters.Add(new IntInputJsonConverte());
+            resultado.Converters.Add(new LongInputJsonConverte());
+            resultado.Converters.Add(new FloatInputJsonConverte());
+            resultado.Converters.Add(new DoubleInputJsonConverte());
+            resultado.Converters.Add(new DecimalInputJsonConverte());
+            resultado.Converters.Add(new GuidInputJsonConverte());
+            resultado.Converters.Add(new BoolInputJsonConverte());
+            resultado.Converters.Add(new DateTimeInputJsonConverte());
+            resultado.Converters.Add(new TimeSpanInputJsonConverte());
+            resultado.Converters.Add(new EnumInputJsonConverte<Status>());
+            resultado.Converters.Add(new EnumInputJsonConverte<ContextoCmd>());
+
+            return resultado;
         }
 
-        public static JsonSerializerOptions AplicarParaLeitura(JsonSerializerOptions settings = null)
+        /// <summary>
+        /// Essa é a configuração padrão se nada for definido
+        /// </summary>
+        public static JsonSerializerSettings Leitura(JsonSerializerSettings config = null)
         {
-            settings = AplicarBase(settings ?? new JsonSerializerOptions());
-
-            return settings;
+            JsonSerializerSettings resultado = Base(config);
+            return resultado;
         }
 
-        public static JsonSerializerOptions AplicarParaEscrita(JsonSerializerOptions settings = null)
+        /// <summary>
+        /// Essa é a configuração padrão se nada for definido
+        /// </summary>
+        public static JsonSerializerSettings Escrita(JsonSerializerSettings config = null)
         {
-            settings = AplicarBase(settings ?? new JsonSerializerOptions());
-            settings.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-
-            return settings;
+            JsonSerializerSettings resultado = Base(config);
+            resultado.NullValueHandling = NullValueHandling.Ignore;
+            return resultado;
         }
     }
 }

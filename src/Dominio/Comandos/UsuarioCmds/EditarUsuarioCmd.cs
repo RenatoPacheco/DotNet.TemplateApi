@@ -5,6 +5,7 @@ using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Validation.Extends;
+using TemplateApi.Compartilhado.Json.Notacoes;
 
 namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 {
@@ -67,6 +68,7 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Senha de usuário
         /// </summary>
+        [JsonIgnoreSerialize]
         public string Senha
         {
             get => _senha;

@@ -51,7 +51,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
             CalcularPaginacao(ref resultado, sqlParametros, comando, sql);
 
             if (resultado.TotalDePaginas >= comando.Pagina
-                || (comando.Maximo > 0 && comando.Maximo < int.MaxValue))
+                || !comando.CalcularPaginacao)
             {
                 StringBuilder sqlConsulta = new StringBuilder();
                 sqlConsulta.Append($" SELECT {_map}");
