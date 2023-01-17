@@ -110,6 +110,16 @@
             </summary>
             <param name="resolve">Informar a classe que vai resolver as dependencias</param>
         </member>
+        <member name="M:TemplateApi.Compartilhado.Json.ConfiguracaoJson.Leitura(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Essa é a configuração padrão se nada for definido
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Compartilhado.Json.ConfiguracaoJson.Escrita(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Essa é a configuração padrão se nada for definido
+            </summary>
+        </member>
         <member name="F:TemplateApi.Compartilhado.ObjetosDeValor.BoolInput.Empty">
             <summary>
             Return value string.Empty

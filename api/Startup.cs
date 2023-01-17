@@ -34,8 +34,8 @@ namespace TemplateApi.Api
                 // Desabilitando o filtro que intecepta erros do ModelState
                 options.SuppressModelStateInvalidFilter = true;
             }).AddNewtonsoftJson(options => {
-                // Customizando configura��o para Json
-                ConfiguracaoJson.AplicarParaLeitura(options.SerializerSettings);
+                // Customizando configuração para Json
+                ConfiguracaoJson.Escrita(options.SerializerSettings);
             });
 
             SwashbuckleConfig.Config(services);
