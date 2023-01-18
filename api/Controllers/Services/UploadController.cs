@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.Comandos.UploadCmds;
 using TemplateApi.Api.DataModels.UploadDataModel;
 using TemplateApi.Api.ViewsData.CKEditorViewData;
+using TemplateApi.Api.Filters;
 
 namespace TemplateApi.Api.Controllers.Services
 {
@@ -103,9 +104,11 @@ namespace TemplateApi.Api.Controllers.Services
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
         /// </remarks>
-        [HttpPost, Route("CKEditor/V4/Arquivo")]
+        [HttpPost, Route("CKEditor/V4/Arquivo"), IgnorarFiltroAutorizacao]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Arquivo))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(V4CKEditorViewData))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(V4CKEditorViewData))]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(V4CKEditorViewData))]
         public IActionResult PostCkEditorArquivo([FromForm] ArquivoCKEditorV4UploadDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -126,15 +129,14 @@ namespace TemplateApi.Api.Controllers.Services
         /// <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
         /// <p>Os tipos de arquivos permitidos são:</p>
         /// <ul>
-        ///     <li>Arquivos de texto (.txt)</li>
-        ///     <li>Documentos (.doc, .docx ou .pdf)</li>
-        ///     <li>Planilhas (.xls ou .xslx)</li>
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
         /// </remarks>
-        [HttpPost, Route("CKEditor/V4/Imagem")]
+        [HttpPost, Route("CKEditor/V4/Imagem"), IgnorarFiltroAutorizacao]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Imagem))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(V4CKEditorViewData))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(V4CKEditorViewData))]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(V4CKEditorViewData))]
         public IActionResult PostCkEditorImagem([FromForm] ImagemCKEditorV4UploadDataModel body)
         {
             InvocarSeNulo(ref body);

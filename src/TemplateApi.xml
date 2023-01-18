@@ -99,9 +99,9 @@
             Indicar os tipos que devem ser registrados como Singleton
             </summary>
         </member>
-        <member name="P:TemplateApi.Compartilhado.IdC.IModuloDependencias.Scoped">
+        <member name="P:TemplateApi.Compartilhado.IdC.IModuloDependencias.Transient">
             <summary>
-            Indicar os tipos que devem ser registrados como Scoped
+            Indicar os tipos que devem ser registrados como Transient
             </summary>
         </member>
         <member name="M:TemplateApi.Compartilhado.IdC.IModuloDependencias.Registrar(TemplateApi.Compartilhado.IdC.IResolverDependencias)">

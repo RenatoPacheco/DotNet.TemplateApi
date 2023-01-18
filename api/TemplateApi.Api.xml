@@ -191,9 +191,6 @@
             <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
             <p>Os tipos de arquivos permitidos são:</p>
             <ul>
-                <li>Arquivos de texto (.txt)</li>
-                <li>Documentos (.doc, .docx ou .pdf)</li>
-                <li>Planilhas (.xls ou .xslx)</li>
                 <li>Imagens (.jpg, .jpeg ou .png)</li>
             </ul>
             </remarks>
@@ -487,6 +484,11 @@
         <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.InserirUsuarioDataModel.Status">
             <summary>
             Status de conteúdo
+            </summary>
+        </member>
+        <member name="T:TemplateApi.Api.Filters.IgnorarFiltroAutorizacaoAttribute">
+            <summary>
+            Esse filtro é para quando quer que a action controle o resultado de erro quando não autorizado
             </summary>
         </member>
         <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Nome">

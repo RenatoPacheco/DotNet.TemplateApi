@@ -23,6 +23,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
             Associar(x => x.AlteradoEm, "DataAlteracao_Storage");
             Associar(x => x.Checksum, "Checksum_Storage");
             Associar(x => x.Status, "Status_Storage");
+            Associar(x => x.Url, "Url_Storage");
         }
 
         public override string ToString()
@@ -62,6 +63,11 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
             if (NaoIgnorar(x => x.Checksum))
             {
                 resultado.Append($"{SqlParaJson(x => x.Checksum)},");
+            }
+
+            if (NaoIgnorar(x => x.Url))
+            {
+                resultado.Append($"{SqlParaJson(x => x.Url)},");
             }
 
             if (NaoIgnorar(x => x.Peso))

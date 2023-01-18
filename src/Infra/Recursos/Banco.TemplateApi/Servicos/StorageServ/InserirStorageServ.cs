@@ -43,6 +43,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
                            ,{map.Col(x => x.Tipo)}
                            ,{map.Col(x => x.Checksum)}
                            ,{map.Col(x => x.Peso)}
+                           ,{map.Col(x => x.Url)}
                            ,{map.Col(x => x.Extensao)}
                            ,{map.Col(x => x.CriadoEm)}
                            ,{map.Col(x => x.AlteradoEm)}
@@ -55,6 +56,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
                            ,@{map.Alias(x => x.Tipo)}
                            ,@{map.Alias(x => x.Checksum)}
                            ,@{map.Alias(x => x.Peso)}
+                           ,@{map.Alias(x => x.Url)}
                            ,@{map.Alias(x => x.Extensao)}
                            ,@{map.Alias(x => x.CriadoEm)}
                            ,@{map.Alias(x => x.AlteradoEm)}
@@ -71,6 +73,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
                     { $"{map.Alias(x => x.Tipo)}", dados.Tipo },
                     { $"{map.Alias(x => x.Checksum)}", dados.Checksum },
                     { $"{map.Alias(x => x.Peso)}", dados.Peso },
+                    { $"{map.Alias(x => x.Url)}", dados.Url },
                     { $"{map.Alias(x => x.Extensao)}", dados.Extensao },
                     { $"{map.Alias(x => x.Status)}", StatusAdapt.EnumParaSql(dados.Status) },
                     { $"{map.Alias(x => x.CriadoEm)}", dados.CriadoEm },

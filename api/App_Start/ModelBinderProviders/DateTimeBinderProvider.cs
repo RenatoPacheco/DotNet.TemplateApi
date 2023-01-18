@@ -13,7 +13,7 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(DateTime) 
+            if (context.Metadata.ModelType == typeof(DateTime)
                 || context.Metadata.ModelType == typeof(DateTime?)
                 || context.Metadata.ModelType == typeof(DateTimeInput))
             {

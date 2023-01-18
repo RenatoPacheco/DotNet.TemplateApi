@@ -23,7 +23,7 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 {
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Arquivo));
-                    opts.MapFrom(src => src.Arquivo.Select(x => new StoragePublico(x, _apiServRequest)));
+                    opts.MapFrom(src => src.Arquivo == null ? null : src.Arquivo.Select(x => new StoragePublico(x, _apiServRequest)));
                 });
 
             #endregion
@@ -35,7 +35,7 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 {
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Arquivo));
-                    opts.MapFrom(src => src.Arquivo.Select(x => new StoragePublico(x, _apiServRequest)));
+                    opts.MapFrom(src => src.Arquivo == null ? null : src.Arquivo.Select(x => new StoragePublico(x, _apiServRequest)));
                 });
 
             #endregion
@@ -48,7 +48,7 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 {
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Arquivo));
-                    opts.MapFrom(src => new List<StoragePublico> { new StoragePublico(src.Arquivo, _apiServRequest) });
+                    opts.MapFrom(src => src.Arquivo == null ? null : new List<StoragePublico> { new StoragePublico(src.Arquivo, _apiServRequest) });
                 });
 
             #endregion
@@ -60,7 +60,7 @@ namespace TemplateApi.Api.App_Start.AutoMappers
                 {
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Arquivo));
-                    opts.MapFrom(src => new List<StoragePublico> { new StoragePublico(src.Arquivo, _apiServRequest) });
+                    opts.MapFrom(src => src.Arquivo == null ? null : new List<StoragePublico> { new StoragePublico(src.Arquivo, _apiServRequest) });
                 });
 
             #endregion

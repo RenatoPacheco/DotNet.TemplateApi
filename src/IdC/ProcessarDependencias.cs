@@ -13,11 +13,11 @@ namespace TemplateApi.IdC
             set => _singleton = value ?? Array.Empty<Type>();
         }
 
-        private Type[] _scoped = Array.Empty<Type>();
-        private Type[] Scoped
+        private Type[] _transient = Array.Empty<Type>();
+        private Type[] Transient
         {
-            get => _scoped;
-            set => _scoped = value ?? Array.Empty<Type>();
+            get => _transient;
+            set => _transient = value ?? Array.Empty<Type>();
         }
 
         public void Aplicar(IModuloDependencias modulo, IResolverDependencias resolve)
@@ -25,7 +25,7 @@ namespace TemplateApi.IdC
             modulo.Registrar(resolve);
 
             Singleton = modulo.Singleton;
-            Scoped = modulo.Scoped;
+            Transient = modulo.Transient;
             string[] exactNamespace = modulo.ExactClassNamespace;
             string[] startNamespace = modulo.StarClasstNamespace;
             string[] exactInterface = modulo.ExactInterfaceNamespace;
@@ -69,22 +69,22 @@ namespace TemplateApi.IdC
 
         private void Registrar(IResolverDependencias resolve, Type objeto)
         {
-            if (Scoped.Contains(objeto))
-                resolve.Escopo(objeto);
+            if (Transient.Contains(objeto))
+                resolve.Transiente(objeto);
             else if (Singleton.Contains(objeto))
                 resolve.Unico(objeto);
             else
-                resolve.Transiente(objeto);
+                resolve.Escopo(objeto);
         }
 
         private void Registrar(IResolverDependencias resolve, Type servico, Type objeto)
         {
-            if (Scoped.Contains(servico))
-                resolve.Escopo(servico, objeto);
+            if (Transient.Contains(servico))
+                resolve.Transiente(servico, objeto);
             else if (Singleton.Contains(servico))
                 resolve.Unico(servico, objeto);
             else
-                resolve.Transiente(servico, objeto);
+                resolve.Escopo(servico, objeto);
         }
     }
 }

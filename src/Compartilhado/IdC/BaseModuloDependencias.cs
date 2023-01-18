@@ -9,7 +9,7 @@ namespace TemplateApi.Compartilhado.IdC
 
         public virtual Type[] Singleton => Array.Empty<Type>();
 
-        public virtual Type[] Scoped => Array.Empty<Type>();
+        public virtual Type[] Transient => Array.Empty<Type>();
 
         public virtual string[] StarClasstNamespace => Array.Empty<string>();
 
