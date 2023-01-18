@@ -1,4 +1,5 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using BitHelp.Core.Validation;
 using TemplateApi.Compartilhado.Extensoes;
 using System.ComponentModel.DataAnnotations;
 

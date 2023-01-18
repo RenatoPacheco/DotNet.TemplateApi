@@ -1,4 +1,6 @@
-﻿namespace TemplateApi.Dominio.Interfaces
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TemplateApi.Dominio.Interfaces
 {
     public interface IArquivo
     {
@@ -6,9 +8,14 @@
 
         string Alias { get; set; }
 
+        [Display(Name = "Diretório")]
         string Diretorio { get; set; }
 
+        [Display(Name = "Extensão")]
         string Extensao { get; set; }
+
+        [Display(Name = "URL")]
+        string Url { get; set; }
 
         string Tipo { get; set; }
 

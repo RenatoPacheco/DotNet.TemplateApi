@@ -1,5 +1,8 @@
-﻿using BitHelp.Core.Validation;
+﻿using System;
+using System.Linq;
+using BitHelp.Core.Validation;
 using TemplateApi.Recurso;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.ValuesObject

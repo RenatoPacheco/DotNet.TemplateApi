@@ -38,8 +38,11 @@ CultureInfoConfig.Config(app);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     SwashbuckleConfig.Config(app);
 }
+
+FileConfig.Config(app);
 
 app.UseHttpsRedirection();
 

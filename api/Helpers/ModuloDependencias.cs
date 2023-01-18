@@ -1,6 +1,7 @@
-﻿using System.Reflection;
-using TemplateApi.Compartilhado.IdC;
+﻿using System;
+using System.Reflection;
 using TemplateApi.Api.ApiServices;
+using TemplateApi.Compartilhado.IdC;
 using TemplateApi.Api.ApiApplications;
 
 namespace TemplateApi.Api.Helpers

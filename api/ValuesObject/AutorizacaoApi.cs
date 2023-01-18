@@ -1,11 +1,13 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.ObjetosDeValor;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Api.ValuesObject
 {

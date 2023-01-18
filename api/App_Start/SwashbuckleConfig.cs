@@ -1,14 +1,18 @@
-﻿using BitHelp.Core.Type.pt_BR;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
+﻿using System;
+using System.IO;
 using System.Text;
-using TemplateApi.Api.App_Start.Swashbuckles;
+using BitHelp.Core.Type.pt_BR;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Builder;
 using TemplateApi.Api.Extensions;
+using TemplateApi.Api.App_Start.Swashbuckles;
+using Microsoft.Extensions.DependencyInjection;
+using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
-using TemplateApi.Dominio.ObjetosDeValor;
+using Microsoft.OpenApi.Any;
+using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace TemplateApi.Api
 {
@@ -28,9 +32,9 @@ namespace TemplateApi.Api
                     Title = AppSettings.Nome,
                     Version = "v1",
                     Description = $@"<p>Um projeto para montrar uma estrutura base de reursos e 
-                        configuraçãções para montar uma API em .Net Core 6.0.</p> 
+                        configuraçãções para montar uma API em .Net Core 6.</p> 
                         <p>Para mais informações consulte o projeto no <strong>Github</strong>, 
-                        pelo lik do website do swagger.</p>
+                        pelo link do website do swagger.</p>
                         <h3>Sobre a aplicação</h3>
                         <p>
                             <ul>

@@ -1,7 +1,7 @@
 ﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 
-namespace TemplateApi.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Interceptadores
 {
     public class TesteInter : Comum.BaseInterceptador
     {

@@ -1,14 +1,15 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
-using TemplateApi.Api.DataAnnotations;
-using TemplateApi.Api.DataModels.StorageDataModel;
-using TemplateApi.Api.Extensions;
-using TemplateApi.Api.ViewsData;
+using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacao;
-using TemplateApi.Dominio.Comandos.StorageCmds;
+using Swashbuckle.AspNetCore.Annotations;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Api.DataModels.StorageDataModel;
+using TemplateApi.Api.DataAnnotations;
 
 namespace TemplateApi.Api.Controllers.Services
 {
@@ -60,7 +61,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// <p>Os tipos de arquivos permitidos são:</p>
         /// <ul>
         ///     <li>Arquivos de texto (.txt)</li>
-        ///     <li>Documentos (.doc ou .docx, .pdf)</li>
+        ///     <li>Documentos (.doc, .docx ou .pdf)</li>
         ///     <li>Planilhas (.xls ou .xslx)</li>
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>

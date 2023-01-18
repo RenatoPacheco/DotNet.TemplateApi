@@ -1,7 +1,5 @@
 ﻿using System;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using TemplateApi.Api.ValuesObject;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -12,8 +10,6 @@ namespace TemplateApi.Api.App_Start.AutoMappers
     {
         public CustonTypesProfile()
         {
-            CreateMap<IFormFile, Arquivo>().ConvertUsing(v => v == null ? null : new ArquivoUpload(v));
-
             CreateMap<EnumInput<Status>, Status>().ConvertUsing(v => v == null ? 0 : (Status)v);
             CreateMap<EnumInput<Status>, Status?>().ConvertUsing(v => v == null ? null : (Status?)v);
 

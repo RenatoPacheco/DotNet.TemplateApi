@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Api.App_Start.ModelBinderProviders;
 using TemplateApi.Dominio.Comandos.Comum;
+using TemplateApi.Api.App_Start.ModelBinderProviders;
 
 namespace TemplateApi.Api
 {

@@ -2,20 +2,28 @@
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Api.DataModels.StorageDataModel;
+using TemplateApi.Api.ValuesObject;
+using System.Linq;
+using TemplateApi.Api.ApiServices;
 
 namespace TemplateApi.Api.App_Start.AutoMappers
 {
     public class StorageProfile : Profile
     {
-        public StorageProfile()
+        private readonly RequestApiServ _apiServRequest;
+
+        public StorageProfile(RequestApiServ apiServRequest)
         {
+            _apiServRequest = apiServRequest;
+
             #region InserirStorageCmd
 
             CreateMap<InserirStorageDataModel, InserirStorageCmd>()
-                .ForAllMembers(opts =>
+                .ForMember(cmd => cmd.Arquivo, opts =>
                 {
-                    opts.PreCondition((src, dest, srcMember)
-                        => srcMember != null);
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Arquivo));
+                    opts.MapFrom(src => src.Arquivo.Select(x => new StoragePrivado(x, _apiServRequest)));
                 });
 
             #endregion

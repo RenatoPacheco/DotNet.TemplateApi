@@ -10,6 +10,9 @@ using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 using Microsoft.AspNetCore.Hosting;
 using TemplateApi.Recurso;
+using TemplateApi.Dominio.Interfaces;
+using TemplateApi.Api.ViewsData.CKEditorViewData;
+using System.Collections.Generic;
 
 namespace TemplateApi.Api.Controllers.Common
 {
@@ -24,6 +27,26 @@ namespace TemplateApi.Api.Controllers.Common
         {
             Notifications.Add(valor);
             return valor.IsValid();
+        }
+
+        protected string Host => $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
+
+        protected string Path => $"{Host}{HttpContext.Request.Path}";
+
+        protected void AplicarUrl(
+            IArquivo arquivo, string path = null)
+        {
+            arquivo.Url = path is null ? Path : $"{Host}/{path}";
+        }
+
+        protected void AplicarUrl(
+            IEnumerable<IArquivo> arquivos, string path = null)
+        {
+            int total = arquivos.Count();
+            for (int i=0; i < total; i++)
+            {
+                AplicarUrl(arquivos.ElementAt(i), path);
+            }
         }
 
         protected bool IsValid()
@@ -65,6 +88,36 @@ namespace TemplateApi.Api.Controllers.Common
             Response.StatusCode = (int)HttpStatusCode.OK;
             return MontarResultado.Json(
                 HttpStatusCode.OK, Notifications, data);
+        }
+
+        protected IActionResult CKEditorV4Response(IArquivo data)
+        {
+            if (!IsValid())
+            {
+                Response.StatusCode = (int)HttpStatusCode.OK;
+                return MontarResultado.Json(new V4CKEditorViewData
+                {
+                    Uploaded = 0,
+                    FileName = string.Empty,
+                    Url = string.Empty,
+                    Error = new V4ErroCKEditorViewData
+                    {
+                        Message = string.Join("\n", Notifications.Messages.Select(x => x.Message))
+                    }
+                });
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.OK;
+            return MontarResultado.Json(new V4CKEditorViewData
+            {
+                Uploaded = 1,
+                FileName = data?.Nome ?? string.Empty,
+                Url = data?.Url ?? string.Empty,
+                Error = new V4ErroCKEditorViewData
+                {
+                    Message = string.Empty
+                }
+            });
         }
 
         protected IActionResult CustomPhysicalFile(Storage data, IWebHostEnvironment webHostingEnvironment, bool? download = false)

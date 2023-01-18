@@ -1,6 +1,7 @@
 ﻿using TemplateApi.IdC;
 using TemplateApi.Api.Helpers;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace TemplateApi.Api

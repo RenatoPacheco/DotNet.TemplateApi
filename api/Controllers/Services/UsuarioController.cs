@@ -1,15 +1,16 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
-using TemplateApi.Api.DataAnnotations;
-using TemplateApi.Api.DataModels.UsuarioDataModel;
-using TemplateApi.Api.Extensions;
-using TemplateApi.Api.ViewsData;
+using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacao;
-using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using Swashbuckle.AspNetCore.Annotations;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Api.DataModels.UsuarioDataModel;
+using TemplateApi.Api.DataAnnotations;
 
 namespace TemplateApi.Api.Controllers.Services
 {

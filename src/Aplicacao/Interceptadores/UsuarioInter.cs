@@ -1,7 +1,7 @@
 ﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace TemplateApi.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Interceptadores
 {
     public class UsuarioInter : Comum.BaseInterceptador
     {

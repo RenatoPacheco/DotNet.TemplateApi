@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
-using TemplateApi.Api.ApiApplications;
-using TemplateApi.Api.DataAnnotations;
-using TemplateApi.Api.ValuesObject;
-using TemplateApi.Api.ViewsData;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacao;
-using TemplateApi.Dominio.Entidades;
+using Swashbuckle.AspNetCore.Annotations;
+using TemplateApi.Api.ViewsData;
 using TemplateApi.Dominio.Notacoes;
+using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Dominio.Entidades;
+using TemplateApi.Api.ApiApplications;
+using TemplateApi.Api.ValuesObject;
 
 namespace TemplateApi.Api.Controllers.Services
 {

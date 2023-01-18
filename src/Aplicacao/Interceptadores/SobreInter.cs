@@ -1,10 +1,10 @@
 ﻿using TemplateApi.Dominio.Servicos;
 
-namespace TemplateApi.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Interceptadores
 {
-    public class AutorizacaoInter : Comum.BaseInterceptador
+    public class SobreInter : Comum.BaseInterceptador
     {
-        public AutorizacaoInter(
+        public SobreInter(
             AutenticacaoServ servAutenticacao)
             : base(servAutenticacao) { }
     }

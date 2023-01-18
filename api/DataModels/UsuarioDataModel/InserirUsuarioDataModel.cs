@@ -2,6 +2,7 @@
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhado.Json.Notacoes;
 
 namespace TemplateApi.Api.DataModels.UsuarioDataModel
 {
@@ -55,6 +56,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// <summary>
         /// Senha de usuário
         /// </summary>
+        [JsonIgnoreSerialize]
         public string Senha
         {
             get => _senha;

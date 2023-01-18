@@ -26,6 +26,7 @@ namespace TemplateApi.Dominio.ObjetosDeValor
             Nome = dados.Nome;
             Diretorio = dados.Diretorio;
             Extensao = dados.Extensao;
+            Url = dados.Url;
             Tipo = dados.Tipo;
             Checksum = dados.Checksum;
             Referencia = dados.Referencia;
@@ -44,6 +45,9 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         [Display(Name = "Extensão")]
         public string Extensao { get; set; }
+
+        [Display(Name = "URL")]
+        public string Url { get; set; }
 
         public string Checksum { get; set; }
 
