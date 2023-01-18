@@ -12,12 +12,6 @@ namespace TemplateApi.Api.Helpers
     {
         public override Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();
 
-        public override Type[] Scoped => new Type[] {
-            typeof(AutorizacaoApiServ),
-            typeof(RequestApiServ),
-            typeof(AutenticacaoApiApp)
-        };
-
         public override string[] ExactClassNamespace => new string[]
         {
             typeof(AutorizacaoApiServ).Namespace,
