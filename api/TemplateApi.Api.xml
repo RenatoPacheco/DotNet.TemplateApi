@@ -489,6 +489,11 @@
             Status de conteúdo
             </summary>
         </member>
+        <member name="T:TemplateApi.Api.Filters.IgnorarFiltroAutorizacaoAttribute">
+            <summary>
+            Esse filtro é para quando quer que a action controle o resultado de erro quando não autorizado
+            </summary>
+        </member>
         <member name="P:TemplateApi.Api.ValuesObject.AutenticacaoApi.Nome">
             <summary>
             Informa o nome de quem se autenticou.

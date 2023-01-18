@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.Comandos.UploadCmds;
 using TemplateApi.Api.DataModels.UploadDataModel;
 using TemplateApi.Api.ViewsData.CKEditorViewData;
+using TemplateApi.Api.Filters;
 
 namespace TemplateApi.Api.Controllers.Services
 {
@@ -103,7 +104,7 @@ namespace TemplateApi.Api.Controllers.Services
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
         /// </remarks>
-        [HttpPost, Route("CKEditor/V4/Arquivo")]
+        [HttpPost, Route("CKEditor/V4/Arquivo"), IgnorarFiltroAutorizacao]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Arquivo))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(V4CKEditorViewData))]
         public IActionResult PostCkEditorArquivo([FromForm] ArquivoCKEditorV4UploadDataModel body)
@@ -132,7 +133,7 @@ namespace TemplateApi.Api.Controllers.Services
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
         /// </remarks>
-        [HttpPost, Route("CKEditor/V4/Imagem")]
+        [HttpPost, Route("CKEditor/V4/Imagem"), IgnorarFiltroAutorizacao]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Imagem))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(V4CKEditorViewData))]
         public IActionResult PostCkEditorImagem([FromForm] ImagemCKEditorV4UploadDataModel body)

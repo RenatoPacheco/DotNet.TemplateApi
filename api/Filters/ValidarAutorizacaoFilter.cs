@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using TemplateApi.Api.Helpers;
 using TemplateApi.Api.ApiApplications;
 using TemplateApi.Dominio.ObjetosDeValor;
+using System.Linq;
 
 namespace TemplateApi.Api.Filters
 {
@@ -28,8 +29,12 @@ namespace TemplateApi.Api.Filters
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             ControllerActionDescriptor action = context.ActionDescriptor as ControllerActionDescriptor;
+            
+            bool ignorarFiltro = action.MethodInfo.GetCustomAttributes(
+                typeof(IgnorarFiltroAutorizacaoAttribute), true)
+                .Select(x => x as IgnorarFiltroAutorizacaoAttribute).Any();
 
-            if (!_autenticacaoApiServ.EstaAutorizado(action))
+            if (!ignorarFiltro && !_autenticacaoApiServ.EstaAutorizado(action))
             {
                 Autorizacao requisito = _autenticacaoApiServ.ExtrairAutorizacao(action);
                 ValidationNotification notificacao = new ValidationNotification();
