@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using TemplateApi.Compartilhado.IdC;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 
 namespace TemplateApi.Aplicacao.Auxiliares
 {

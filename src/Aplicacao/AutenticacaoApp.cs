@@ -5,7 +5,7 @@ using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 
 namespace TemplateApi.Aplicacao
 {

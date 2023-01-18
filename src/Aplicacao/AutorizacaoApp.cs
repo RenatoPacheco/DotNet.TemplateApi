@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 
 namespace TemplateApi.Aplicacao
 {

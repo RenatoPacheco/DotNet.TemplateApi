@@ -12,7 +12,8 @@ using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.ApiApplications
 {
-    public class AutenticacaoApiApp : Common.BaseApiApplications
+    public class AutenticacaoApiApp 
+        : Common.BaseApiApplications
     {
         public AutenticacaoApiApp(
                AutenticacaoApp appAutenticacao,

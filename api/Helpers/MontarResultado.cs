@@ -29,5 +29,10 @@ namespace TemplateApi.Api.Helpers
                 Dados = dados
             }, ConfiguracaoJson.Escrita());
         }
+
+        public static JsonResult Json(object dados)
+        {
+            return new JsonResult(dados, ConfiguracaoJson.Escrita());
+        }
     }
 }

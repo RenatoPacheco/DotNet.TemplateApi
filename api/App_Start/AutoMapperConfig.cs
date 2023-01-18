@@ -10,11 +10,7 @@ namespace TemplateApi.Api
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile<CustonTypesProfile>();
-                cfg.AddProfile<UsuarioProfile>();
-                cfg.AddProfile<ConteudoProfile>();
-                cfg.AddProfile<StorageProfile>();
-                cfg.AddProfile<TesteProfile>();
+                cfg.AddMaps(typeof(CustonTypesProfile));
             });
 
             config.AssertConfigurationIsValid();

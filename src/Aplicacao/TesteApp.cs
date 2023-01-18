@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Notacoes;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 

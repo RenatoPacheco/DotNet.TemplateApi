@@ -6,10 +6,11 @@ using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Notacoes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 
 namespace TemplateApi.Aplicacao
 {
+    [AcessoLivre]
     public class StorageApp : Comum.BaseAplicacao
     {
         public StorageApp(

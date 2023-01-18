@@ -2,6 +2,10 @@
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Api.DataModels.StorageDataModel;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using TemplateApi.Api.ValuesObject;
+using System.Linq;
 
 namespace TemplateApi.Api.App_Start.AutoMappers
 {
@@ -12,10 +16,11 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             #region InserirStorageCmd
 
             CreateMap<InserirStorageDataModel, InserirStorageCmd>()
-                .ForAllMembers(opts =>
+                .ForMember(cmd => cmd.Arquivo, opts =>
                 {
-                    opts.PreCondition((src, dest, srcMember)
-                        => srcMember != null);
+                    opts.Condition((src, dest, srcMember)
+                        => src.PropriedadeRegistrada(x => x.Arquivo));
+                    opts.MapFrom(src => src.Arquivo.Select(x => new StoragePrivado(x)));
                 });
 
             #endregion

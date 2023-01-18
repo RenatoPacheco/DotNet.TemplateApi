@@ -1,26 +1,29 @@
 ﻿using System;
 using System.IO;
+using BitHelp.Core.ManageFile;
 using Microsoft.AspNetCore.Http;
 using TemplateApi.Dominio.ObjetosDeValor;
-using BitHelp.Core.ManageFile;
 
 namespace TemplateApi.Api.ValuesObject
 {
-    public class ArquivoUpload : Arquivo
+    public class StoragePrivado : Arquivo
     {
-        public ArquivoUpload(IFormFile formFile)
+        public StoragePrivado(
+            IFormFile formFile)
         {
             string folder = $"storage/{DateTime.Now:yyyy/MM/dd}";
-            
+
+
             _formFile = formFile;
 
             Nome = formFile.FileName;
-            Extensao = formFile.FileName[formFile.FileName.LastIndexOf(".")..];
+            Extensao = formFile.FileName[formFile.FileName.LastIndexOf(".")..]?.ToLower();
             Tipo = formFile.ContentType; 
             Alias = $"{Guid.NewGuid():N}{Extensao}";
             Diretorio = folder;
             Peso = formFile.Length;
-            Referencia = $"{Diretorio}/{Alias}";            
+            Referencia = $"{Diretorio}/{Alias}";
+            Url = $"/storage/{Alias}";
         }
 
         private readonly IFormFile _formFile;

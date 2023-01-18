@@ -139,6 +139,70 @@
             Recebendo os dados ser usar nenhum dos tipos From
             </summary>
         </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UploadController.PostArquivo(TemplateApi.Api.DataModels.UploadDataModel.ArquivoUploadDataModel)">
+            <summary>
+            Upload de arquivos para links
+            </summary>
+            <remarks>
+            <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
+            <p>Os tipos de arquivos permitidos são:</p>
+            <ul>
+                <li>Arquivos de texto (.txt)</li>
+                <li>Documentos (.doc, .docx ou .pdf)</li>
+                <li>Planilhas (.xls ou .xslx)</li>
+                <li>Imagens (.jpg, .jpeg ou .png)</li>
+            </ul>
+            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UploadController.PostImagem(TemplateApi.Api.DataModels.UploadDataModel.ImagemUploadDataModel)">
+            <summary>
+            Upload de arquivos para imagens
+            </summary>
+            <remarks>
+            <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
+            <p>Os tipos de arquivos permitidos são:</p>
+            <ul>
+                <li>Arquivos de texto (.txt)</li>
+                <li>Documentos (.doc, .docx ou .pdf)</li>
+                <li>Planilhas (.xls ou .xslx)</li>
+                <li>Imagens (.jpg, .jpeg ou .png)</li>
+            </ul>
+            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UploadController.PostCkEditorArquivo(TemplateApi.Api.DataModels.UploadDataModel.ArquivoCKEditorV4UploadDataModel)">
+            <summary>
+            Upload de arquivos para links do CKEditor 4 
+            </summary>
+            <remarks>
+            <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
+            <p>Os tipos de arquivos permitidos são:</p>
+            <ul>
+                <li>Arquivos de texto (.txt)</li>
+                <li>Documentos (.doc, .docx ou .pdf)</li>
+                <li>Planilhas (.xls ou .xslx)</li>
+                <li>Imagens (.jpg, .jpeg ou .png)</li>
+            </ul>
+            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+            </remarks>
+        </member>
+        <member name="M:TemplateApi.Api.Controllers.Services.UploadController.PostCkEditorImagem(TemplateApi.Api.DataModels.UploadDataModel.ImagemCKEditorV4UploadDataModel)">
+            <summary>
+            Upload de arquivos para imagens do CKEditor 4 
+            </summary>
+            <remarks>
+            <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
+            <p>Os tipos de arquivos permitidos são:</p>
+            <ul>
+                <li>Arquivos de texto (.txt)</li>
+                <li>Documentos (.doc, .docx ou .pdf)</li>
+                <li>Planilhas (.xls ou .xslx)</li>
+                <li>Imagens (.jpg, .jpeg ou .png)</li>
+            </ul>
+            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
+            </remarks>
+        </member>
         <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Get(TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel)">
             <summary>
             Filtro de usuários
@@ -329,6 +393,30 @@
         <member name="P:TemplateApi.Api.DataModels.StorageDataModel.ObterStorageDataModel.Download">
             <summary>
             Informe true para fazer download do arquivo 
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UploadDataModel.ArquivoCKEditorV4UploadDataModel.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos ou planilhas.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UploadDataModel.ArquivoUploadDataModel.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos ou planilhas.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UploadDataModel.ImagemCKEditorV4UploadDataModel.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos ou planilhas.
+            </summary>
+        </member>
+        <member name="P:TemplateApi.Api.DataModels.UploadDataModel.ImagemUploadDataModel.Arquivo">
+            <summary>
+            O peso do arquivo não pode ser maior que 100 kb, 
+            e os tipos permitidos são imagens, textos ou planilhas.
             </summary>
         </member>
         <member name="P:TemplateApi.Api.DataModels.UsuarioDataModel.EditarUsuarioDataModel.Usuario">
