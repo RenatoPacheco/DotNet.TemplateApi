@@ -163,9 +163,6 @@
             <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
             <p>Os tipos de arquivos permitidos são:</p>
             <ul>
-                <li>Arquivos de texto (.txt)</li>
-                <li>Documentos (.doc, .docx ou .pdf)</li>
-                <li>Planilhas (.xls ou .xslx)</li>
                 <li>Imagens (.jpg, .jpeg ou .png)</li>
             </ul>
             <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
@@ -184,7 +181,6 @@
                 <li>Planilhas (.xls ou .xslx)</li>
                 <li>Imagens (.jpg, .jpeg ou .png)</li>
             </ul>
-            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
             </remarks>
         </member>
         <member name="M:TemplateApi.Api.Controllers.Services.UploadController.PostCkEditorImagem(TemplateApi.Api.DataModels.UploadDataModel.ImagemCKEditorV4UploadDataModel)">
@@ -200,7 +196,6 @@
                 <li>Planilhas (.xls ou .xslx)</li>
                 <li>Imagens (.jpg, .jpeg ou .png)</li>
             </ul>
-            <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
             </remarks>
         </member>
         <member name="M:TemplateApi.Api.Controllers.Services.UsuarioController.Get(TemplateApi.Api.DataModels.UsuarioDataModel.FiltrarUsuarioDataModel)">

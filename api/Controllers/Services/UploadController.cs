@@ -70,9 +70,6 @@ namespace TemplateApi.Api.Controllers.Services
         /// <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
         /// <p>Os tipos de arquivos permitidos são:</p>
         /// <ul>
-        ///     <li>Arquivos de texto (.txt)</li>
-        ///     <li>Documentos (.doc, .docx ou .pdf)</li>
-        ///     <li>Planilhas (.xls ou .xslx)</li>
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
         /// <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
@@ -105,7 +102,6 @@ namespace TemplateApi.Api.Controllers.Services
         ///     <li>Planilhas (.xls ou .xslx)</li>
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
-        /// <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
         /// </remarks>
         [HttpPost, Route("CKEditor/V4/Arquivo")]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Arquivo))]
@@ -135,7 +131,6 @@ namespace TemplateApi.Api.Controllers.Services
         ///     <li>Planilhas (.xls ou .xslx)</li>
         ///     <li>Imagens (.jpg, .jpeg ou .png)</li>
         /// </ul>
-        /// <p>Pode ser enviado mais de um arquivo na requisição, mas todos tem ser válidos para poder gravar no storage.</p>
         /// </remarks>
         [HttpPost, Route("CKEditor/V4/Imagem")]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Imagem))]
