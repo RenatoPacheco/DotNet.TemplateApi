@@ -427,5 +427,5 @@ FodyWeavers.xsd
 
 !*.pubxml
 /coverage
-# api/storage
+api/storage
 test/storage
