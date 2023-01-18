@@ -1,6 +1,6 @@
 USE [TemplateApi]
 GO
-/****** Object:  Table [dbo].[Conteudo]    Script Date: 14/07/2022 18:49:24 ******/
+/****** Object:  Table [dbo].[Conteudo]    Script Date: 18/01/2023 16:28:22 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[Conteudo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Storage]    Script Date: 14/07/2022 18:49:24 ******/
+/****** Object:  Table [dbo].[Storage]    Script Date: 18/01/2023 16:28:22 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -37,13 +37,14 @@ CREATE TABLE [dbo].[Storage](
 	[DataCriacao_Storage] [datetime] NULL,
 	[DataAlteracao_Storage] [datetime] NULL,
 	[Checksum_Storage] [varchar](1000) NULL,
+	[Url_Storage] [varchar](255) NULL,
  CONSTRAINT [PK_Storage] PRIMARY KEY CLUSTERED 
 (
 	[Codigo_Storage] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 14/07/2022 18:49:24 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 18/01/2023 16:28:22 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
