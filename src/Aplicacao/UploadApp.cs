@@ -6,11 +6,9 @@ using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Aplicacao.Interceptadores;
 using TemplateApi.Dominio.Comandos.UploadCmds;
-using TemplateApi.Dominio.Notacoes;
 
 namespace TemplateApi.Aplicacao
 {
-    [AcessoLivre]
     public class UploadApp
         : Comum.BaseAplicacao
     {

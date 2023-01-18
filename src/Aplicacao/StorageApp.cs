@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
@@ -10,7 +9,6 @@ using TemplateApi.Aplicacao.Interceptadores;
 
 namespace TemplateApi.Aplicacao
 {
-    [AcessoLivre]
     public class StorageApp : Comum.BaseAplicacao
     {
         public StorageApp(

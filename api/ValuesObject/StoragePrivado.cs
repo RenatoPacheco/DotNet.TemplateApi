@@ -2,6 +2,7 @@
 using System.IO;
 using BitHelp.Core.ManageFile;
 using Microsoft.AspNetCore.Http;
+using TemplateApi.Api.ApiServices;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.ValuesObject
@@ -9,7 +10,7 @@ namespace TemplateApi.Api.ValuesObject
     public class StoragePrivado : Arquivo
     {
         public StoragePrivado(
-            IFormFile formFile)
+            IFormFile formFile, RequestApiServ request)
         {
             string folder = $"storage/{DateTime.Now:yyyy/MM/dd}";
 
@@ -23,7 +24,7 @@ namespace TemplateApi.Api.ValuesObject
             Diretorio = folder;
             Peso = formFile.Length;
             Referencia = $"{Diretorio}/{Alias}";
-            Url = $"/storage/{Alias}";
+            Url = $"{request.GetBaseUrl()}storage/{Alias}";
         }
 
         private readonly IFormFile _formFile;
