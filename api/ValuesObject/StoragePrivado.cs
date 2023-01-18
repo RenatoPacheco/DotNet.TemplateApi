@@ -17,8 +17,8 @@ namespace TemplateApi.Api.ValuesObject
 
             _formFile = formFile;
 
-            Nome = formFile.FileName;
             Extensao = formFile.FileName[formFile.FileName.LastIndexOf(".")..]?.ToLower();
+            Nome = formFile.FileName.Substring(0, formFile.FileName.LastIndexOf(".")) + (Extensao ?? string.Empty);
             Tipo = formFile.ContentType; 
             Alias = $"{Guid.NewGuid():N}{Extensao}";
             Diretorio = folder;
