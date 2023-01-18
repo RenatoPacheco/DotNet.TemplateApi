@@ -191,9 +191,6 @@
             <p>Permite enviar arquivos para o storage público, desde que se tenha permissão para isso.</p>
             <p>Os tipos de arquivos permitidos são:</p>
             <ul>
-                <li>Arquivos de texto (.txt)</li>
-                <li>Documentos (.doc, .docx ou .pdf)</li>
-                <li>Planilhas (.xls ou .xslx)</li>
                 <li>Imagens (.jpg, .jpeg ou .png)</li>
             </ul>
             </remarks>
