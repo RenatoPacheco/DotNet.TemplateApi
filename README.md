@@ -11,6 +11,7 @@ Outras versões do projeto:
 
 - [.NET Framework](https://github.com/RenatoPacheco/DotNet.TemplateApi/tree/dot-net-framework) - modelo de projeto usando .Net Framework 4.7
 - [.NET Core 6.0](https://github.com/RenatoPacheco/DotNet.TemplateApi/tree/dot-net-core-6) - modelo de projeto usando .Net Core 6.0
+- [.NET Core 7.0](https://github.com/RenatoPacheco/DotNet.TemplateApi/tree/dot-net-core-7) - modelo de projeto usando .Net Core 7.0
 
 ## Testes
 
