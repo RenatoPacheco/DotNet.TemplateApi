@@ -18,6 +18,10 @@ namespace TemplateApi.Compartilhado.Json
             resultado.ContractResolver = new ContratoJson();
 
             resultado.Converters.Add(new StringEnumConverter());
+            resultado.Converters.Add(new StringJsonConverte());
+            resultado.Converters.Add(new FloatJsonConverte());
+            resultado.Converters.Add(new DoubleJsonConverte());
+            resultado.Converters.Add(new DecimalJsonConverte());
             resultado.Converters.Add(new PhoneTypeJsonConverte());
             resultado.Converters.Add(new IntInputJsonConverte());
             resultado.Converters.Add(new LongInputJsonConverte());
