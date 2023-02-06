@@ -30,13 +30,13 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<long> _storage;
+        private IList<long> _storage = new List<long>();
         /// <summary>
         /// Identificador de storage
         /// </summary>
         public IList<long> Storage
         {
-            get => _storage ?? (_storage = new List<long>());
+            get => _storage;
             set
             {
                 _storage = value ?? new List<long>();
@@ -44,14 +44,14 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<string> _referencia;
+        private IList<string> _referencia = new List<string>();
         /// <summary>
         /// Referência de storage
         /// </summary>
         [Display(Name = "Referência")]
         public IList<string> Referencia
         {
-            get => _referencia ?? (_referencia = new List<string>());
+            get => _referencia;
             set
             {
                 _referencia = value ?? new List<string>();
@@ -59,13 +59,13 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<string> _alias;
+        private IList<string> _alias = new List<string>();
         /// <summary>
         /// Alias de storage
         /// </summary>
         public IList<string> Alias
         {
-            get => _alias ?? (_alias = new List<string>());
+            get => _alias;
             set
             {
                 _alias = value ?? new List<string>();
@@ -73,13 +73,13 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<Status> _status;
+        private IList<Status> _status = new List<Status>();
         /// <summary>
         /// Status de usuário
         /// </summary>
         public IList<Status> Status
         {
-            get => _status ?? (_status = new List<Status>());
+            get => _status;
             set
             {
                 _status = value ?? new List<Status>();

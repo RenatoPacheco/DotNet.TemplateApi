@@ -13,14 +13,14 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             _escopo = new ConteudoEscp<ExcluirConteudoCmd>(this);
         }
 
-        private IList<int> _conteudo;
+        private IList<int> _conteudo = new List<int>();
         /// <summary>
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
         public IList<int> Conteudo
         {
-            get => _conteudo ?? (_conteudo = new List<int>());
+            get => _conteudo;
             set
             {
                 _conteudo = value ?? new List<int>();

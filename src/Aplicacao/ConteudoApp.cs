@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.Notacoes;
 

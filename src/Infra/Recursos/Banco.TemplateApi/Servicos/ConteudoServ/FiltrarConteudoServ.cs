@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Linq;
 using System.Text;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
@@ -52,7 +52,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
             CalcularPaginacao(ref resultado, sqlParametros, comando, sql);
 
             if (resultado.TotalDePaginas >= comando.Pagina
-                || (comando.Maximo > 0 && comando.Maximo < int.MaxValue))
+                || !comando.CalcularPaginacao)
             {
                 if (comando.Contexto == ContextoCmd.Embutir)
                 {

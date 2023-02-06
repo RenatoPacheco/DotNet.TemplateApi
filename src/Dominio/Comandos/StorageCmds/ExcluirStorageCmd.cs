@@ -12,13 +12,13 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             _escopo = new StorageEscp<ExcluirStorageCmd>(this);
         }
 
-        private IList<long> _storage;
+        private IList<long> _storage = new List<long>();
         /// <summary>
         /// Identificador de storage
         /// </summary>
         public IList<long> Storage
         {
-            get => _storage ?? (_storage = new List<long>());
+            get => _storage;
             set
             {
                 _storage = value ?? new List<long>();
@@ -26,13 +26,13 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<string> _alias;
+        private IList<string> _alias = new List<string>();
         /// <summary>
         /// Alias de storage
         /// </summary>
         public IList<string> Alias
         {
-            get => _alias ?? (_alias = new List<string>());
+            get => _alias;
             set
             {
                 _alias = value ?? new List<string>();

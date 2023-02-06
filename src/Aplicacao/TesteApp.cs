@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Notacoes;
-using TemplateApi.Aplicacao.Intreceptadores;
+using TemplateApi.Aplicacao.Interceptadores;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 
@@ -24,11 +24,11 @@ namespace TemplateApi.Aplicacao
         protected readonly TesteInter _interTeste;
 
         /// <summary>
-        /// Permite testar o recebimento de vários pormatos de dados.
+        /// Permite testar o recebimento de vários formatos de dados.
         /// </summary>
         [AcessoLivre]
         [Display(Name = "Testar formatos de dados")]
-        [Description("Permite testar o recebimento de vários pormatos de dados.")]
+        [Description("Permite testar o recebimento de vários formatos de dados.")]
         public FormatosTesteCmd Formatos(FormatosTesteCmd comando)
         {
             Notifications.Clear();

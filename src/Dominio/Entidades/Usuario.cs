@@ -6,6 +6,7 @@ using TemplateApi.Dominio.Escopos;
 using System.Diagnostics.CodeAnalysis;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
+using TemplateApi.Compartilhado.Json.Notacoes;
 
 namespace TemplateApi.Dominio.Entidades
 {
@@ -35,6 +36,7 @@ namespace TemplateApi.Dominio.Entidades
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
+        [JsonIgnoreSerialize]
         public string Senha { get; set; }
 
         public PhoneType? Telefone { get; set; }

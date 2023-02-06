@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Linq;
 using System.Text;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -50,7 +50,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
             CalcularPaginacao(ref resultado, sqlParametros, comando, sql);
 
             if (resultado.TotalDePaginas >= comando.Pagina
-                || (comando.Maximo > 0 && comando.Maximo < int.MaxValue))
+                || !comando.CalcularPaginacao)
             {
                 StringBuilder sqlConsulta = new StringBuilder();
                 sqlConsulta.Append($" SELECT {_map}");

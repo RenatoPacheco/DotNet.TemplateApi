@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TemplateApi.Compartilhado
+namespace TemplateApi.Compartilhado.IdC
 {
     public interface IModuloDependencias
     {
@@ -12,9 +12,9 @@ namespace TemplateApi.Compartilhado
         Type[] Singleton { get; }
 
         /// <summary>
-        /// Indicar os tipos que devem ser registrados como Scoped
+        /// Indicar os tipos que devem ser registrados como Transient
         /// </summary>
-        Type[] Scoped { get; }
+        Type[] Transient { get; }
 
         string[] StarClasstNamespace { get; }
 

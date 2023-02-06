@@ -13,14 +13,14 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
             _escopo = new UsuarioEscp<ExcluirUsuarioCmd>(this);
         }
 
-        private IList<int> _usuario;
+        private IList<int> _usuario = new List<int>();
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
         public IList<int> Usuario
         {
-            get => _usuario ?? (_usuario = new List<int>());
+            get => _usuario;
             set
             {
                 _usuario = value ?? new List<int>();

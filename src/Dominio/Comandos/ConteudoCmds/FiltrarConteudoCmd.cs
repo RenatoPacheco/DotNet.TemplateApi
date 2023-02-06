@@ -30,14 +30,14 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             }
         }
 
-        private IList<int> _Conteudo;
+        private IList<int> _Conteudo = new List<int>();
         /// <summary>
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
         public IList<int> Conteudo
         {
-            get => _Conteudo ?? (_Conteudo = new List<int>());
+            get => _Conteudo;
             set
             {
                 _Conteudo = value ?? new List<int>();
@@ -45,13 +45,13 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
             }
         }
 
-        private IList<Status> _status;
+        private IList<Status> _status = new List<Status>();
         /// <summary>
         /// Status de conteúdo
         /// </summary>
         public IList<Status> Status
         {
-            get => _status ?? (_status = new List<Status>());
+            get => _status;
             set
             {
                 _status = value ?? new List<Status>();

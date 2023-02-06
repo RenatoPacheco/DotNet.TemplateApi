@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 using System;
 
-namespace TemplateApi.Aplicacao.Intreceptadores
+namespace TemplateApi.Aplicacao.Interceptadores
 {
     public class StorageInter : Comum.BaseInterceptador
     {

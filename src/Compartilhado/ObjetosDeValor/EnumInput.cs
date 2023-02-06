@@ -1,6 +1,5 @@
 ﻿using System;
-using TemplateApi.RecursoResx;
-using System.Diagnostics.CodeAnalysis;
+using TemplateApi.Recurso;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
@@ -56,11 +55,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly EnumInput<T> Empty = new EnumInput<T>(string.Empty);
 
-        public static void Parse(string input, out EnumInput<T> output)
+        public static EnumInput<T> Parse(string input)
         {
             if (TryParse(input, out EnumInput<T> result))
             {
-                output = result;
+                return result;
             }
             else
             {

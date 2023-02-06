@@ -9,14 +9,14 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 {
     public class InserirStorageCmd : ISelfValidation
     {
-        private IList<Arquivo> _arquivo;
+        private IList<Arquivo> _arquivo = new List<Arquivo>();
         /// <summary>
         /// O peso do arquivo não pode ser maior que 100 kb, 
         /// e os tipos permitidos são imagens, textos e planilhas.
         /// </summary>
         public IList<Arquivo> Arquivo
         {
-            get => _arquivo ?? (_arquivo = new List<Arquivo>());
+            get => _arquivo;
             set 
             { 
                 _arquivo = value ?? new List<Arquivo>();

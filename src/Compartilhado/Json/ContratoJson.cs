@@ -5,31 +5,25 @@ using System.Reflection;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
+using TemplateApi.Compartilhado.Json.Notacoes;
 
 namespace TemplateApi.Compartilhado.Json
 {
     public class ContratoJson : DefaultContractResolver
     {
-        private static JsonSerializerSettings _configuracao;
-        private static JsonSerializerSettings Configuracao
+        public static string Serializar(object valor, JsonSerializerSettings settings = null)
         {
-            get => _configuracao ?? (_configuracao = ConfiguracaoJson.AplicarParaLeitura());
+            return JsonConvert.SerializeObject(valor, ConfiguracaoJson.Leitura(settings));
         }
 
-        public static string Serializar<T>(T value, JsonSerializerSettings settings = null)
-            where T : class
+        public static T Desserializar<T>(string valor, JsonSerializerSettings settings = null)
         {
-            return JsonConvert.SerializeObject(value, settings ?? Configuracao);
+            return JsonConvert.DeserializeObject<T>(valor, ConfiguracaoJson.Leitura(settings));
         }
 
-        public static object Desserializar(string json, Type type, JsonSerializerSettings settings = null)
+        public static object Desserializar(string valor, Type tipo, JsonSerializerSettings settings = null)
         {
-            return JsonConvert.DeserializeObject(json, type, settings ?? Configuracao);
-        }
-
-        public static T Desserializar<T>(string json, JsonSerializerSettings settings = null)
-        {
-            return JsonConvert.DeserializeObject<T>(json, settings ?? Configuracao);
+            return JsonConvert.DeserializeObject(valor, tipo, settings ?? ConfiguracaoJson.Leitura(settings));
         }
 
         public ContratoJson()
@@ -50,11 +44,28 @@ namespace TemplateApi.Compartilhado.Json
 
             foreach (JsonProperty jsonProperty in properties)
             {
-                PropertyInfo property = actualProperties.FirstOrDefault(x => x.Name.ToLower() == jsonProperty.PropertyName.ToLower());
-                if (property != null && (property.GetCustomAttribute(typeof(JsonIgnoreAttribute)) != null
-                    || property.PropertyType == typeof(ValidationNotification)))
+                PropertyInfo property = actualProperties.FirstOrDefault(
+                    x => x.Name.ToLower() == jsonProperty.PropertyName.ToLower());
+
+                if (property != null)
                 {
-                    jsonProperty.Ignored = true;
+                    if (property.GetCustomAttribute(typeof(JsonIgnoreAttribute)) != null
+                        || property.PropertyType == typeof(ValidationNotification))
+                    {
+                        jsonProperty.Ignored = true;
+                    }
+                    else
+                    {
+                        if (property.GetCustomAttribute(typeof(JsonIgnoreDeserializeAttribute)) != null)
+                        {
+                            jsonProperty.Writable = false;
+                        }
+
+                        if (property.GetCustomAttribute(typeof(JsonIgnoreSerializeAttribute)) != null)
+                        {
+                            jsonProperty.Readable = false;
+                        }
+                    }
                 }
             }
             return properties;

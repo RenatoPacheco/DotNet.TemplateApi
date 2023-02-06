@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using TemplateApi.RecursoResx;
-using System.Diagnostics.CodeAnalysis;
+using TemplateApi.Recurso;
+using System.Text.RegularExpressions;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
@@ -22,9 +22,10 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
 
         public DecimalInput(decimal? input)
         {
-            _inptValue = input?.ToString();
-            _value = input;
-            _isValid = !(input is null);
+            TryParse(input?.ToString(Culture()), out DecimalInput output);
+            _inptValue = output._inptValue;
+            _value = output._value;
+            _isValid = output._isValid;
         }
 
         private string _inptValue;
@@ -56,11 +57,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly DecimalInput Empty = new DecimalInput(string.Empty);
 
-        public static void Parse(string input, out DecimalInput output)
+        public static DecimalInput Parse(string input)
         {
             if (TryParse(input, out DecimalInput result))
             {
-                output = result;
+                return result;
             }
             else
             {
@@ -77,17 +78,28 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         {
             input = input?.Trim();
             NumberStyles style = NumberStyles.Number;
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            bool result = decimal.TryParse(input, style, culture, out decimal value);
+            bool result = decimal.TryParse(input, style, Culture(), out decimal value);
+            result = result && !(input is null) && input.IndexOf(",") < 0;
+            if (result)
+            {
+                input = value.ToString(Culture());
+                if (Regex.IsMatch(input, @"\.[0]+$"))
+                {
+                    value = Math.Floor(value);
+                    input = value.ToString(Culture());
+                }
+            }
             output = new DecimalInput
             {
                 _isValid = result,
-                _inptValue = result ? value.ToString() : input,
+                _inptValue = input,
                 _value = result ? value : (decimal?)null
             };
 
             return result;
         }
+
+        private static CultureInfo Culture() => CultureInfo.CreateSpecificCulture("en-US");
 
         public bool IsValid()
         {

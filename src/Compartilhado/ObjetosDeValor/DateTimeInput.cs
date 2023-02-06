@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using TemplateApi.RecursoResx;
-using System.Diagnostics.CodeAnalysis;
+using TemplateApi.Recurso;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
 {
@@ -56,11 +55,11 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
         /// </summary>
         public static readonly DateTimeInput Empty = new DateTimeInput(string.Empty);
 
-        public static void Parse(string input, out DateTimeInput output)
+        public static DateTimeInput Parse(string input)
         {
             if (TryParse(input, out DateTimeInput result))
             {
-                output = result;
+                return result;
             }
             else
             {

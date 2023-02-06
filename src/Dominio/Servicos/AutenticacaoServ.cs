@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
 using System.Reflection;
-using TemplateApi.RecursoResx;
+using TemplateApi.Recurso;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.ObjetosDeValor;
 

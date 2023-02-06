@@ -6,24 +6,24 @@ namespace TemplateApi.Dominio.Comandos.Comum
 {
     public abstract class EditarBaseCmd
     {
-        protected IList<string> _propriedadesRegistrados = new List<string>();
+        protected IList<string> _propriedadesRegistradas = new List<string>();
 
-        protected string[] PropriedadesRegistrados()
+        protected string[] PropriedadesRegistradas()
         {
-            return _propriedadesRegistrados.ToArray();
+            return _propriedadesRegistradas.ToArray();
         }
 
         protected void RegistrarPropriedade([CallerMemberName] string nome = null)
         {
-            if (!_propriedadesRegistrados.Contains(nome))
+            if (!_propriedadesRegistradas.Contains(nome))
             {
-                _propriedadesRegistrados.Add(nome);
+                _propriedadesRegistradas.Add(nome);
             }
         }
 
         protected bool PropriedadeRegistrada(string nome)
         {
-            return _propriedadesRegistrados.Contains(nome);
+            return _propriedadesRegistradas.Contains(nome);
         }
 
 
@@ -31,11 +31,11 @@ namespace TemplateApi.Dominio.Comandos.Comum
         {
             if (nome is null)
             {
-                _propriedadesRegistrados.Clear();
+                _propriedadesRegistradas.Clear();
             }
             else
             {
-                _propriedadesRegistrados = _propriedadesRegistrados.Where(x => x != nome).ToList();
+                _propriedadesRegistradas = _propriedadesRegistradas.Where(x => x != nome).ToList();
             }
         }
     }

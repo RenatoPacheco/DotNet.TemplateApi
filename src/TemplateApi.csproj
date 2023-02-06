@@ -40,14 +40,14 @@
     <Reference Include="BitHelp.Core.Type.pt-BR, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BitHelp.Core.Type.pt-BR.0.2.0\lib\netstandard2.0\BitHelp.Core.Type.pt-BR.dll</HintPath>
     </Reference>
-    <Reference Include="BitHelp.Core.Validation, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BitHelp.Core.Validation.0.13.0\lib\netstandard2.0\BitHelp.Core.Validation.dll</HintPath>
+    <Reference Include="BitHelp.Core.Validation, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BitHelp.Core.Validation.0.15.0\lib\netstandard2.0\BitHelp.Core.Validation.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -69,38 +69,49 @@
     <Compile Include="Aplicacao\Comum\BaseAplicacao.cs" />
     <Compile Include="Aplicacao\Comum\BaseInterceptador.cs" />
     <Compile Include="Aplicacao\ConteudoApp.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\AutenticacaoInter.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\AutorizacaoInter.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\ConteudoInter.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\SobreInter.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\StorageInter.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\TesteInter.cs" />
-    <Compile Include="Aplicacao\Intreceptadores\UsuarioInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\AutenticacaoInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\AutorizacaoInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\ConteudoInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\SobreInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\StorageInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\TesteInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\UploadInter.cs" />
+    <Compile Include="Aplicacao\Interceptadores\UsuarioInter.cs" />
     <Compile Include="Aplicacao\SobreApp.cs" />
     <Compile Include="Aplicacao\StorageApp.cs" />
     <Compile Include="Aplicacao\TesteApp.cs" />
+    <Compile Include="Aplicacao\UploadApp.cs" />
     <Compile Include="Aplicacao\UsuarioApp.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="Compartilhado\Extensoes\StringExt.cs" />
-    <Compile Include="Compartilhado\IModuloDependencias.cs" />
-    <Compile Include="Compartilhado\IResolverDependencias.cs" />
+    <Compile Include="Compartilhado\IdC\BaseModuloDependencias.cs" />
+    <Compile Include="Compartilhado\IdC\IModuloDependencias.cs" />
+    <Compile Include="Compartilhado\IdC\IResolverDependencias.cs" />
     <Compile Include="Compartilhado\Json\ConfiguracaoJson.cs" />
     <Compile Include="Compartilhado\Json\ContratoJson.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\BoolInputJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\DateTimeInputJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\DecimalInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\DecimalJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\DoubleInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\DoubleJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\EnumInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\FloatInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\FloatJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\GuidInputJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\IntInputJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\LongInputJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\PhoneTypeJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\JsonConverte\StringJsonConverte.cs" />
     <Compile Include="Compartilhado\Json\JsonConverte\TimeSpanInputJsonConverte.cs" />
+    <Compile Include="Compartilhado\Json\Notacoes\JsonIgnoreDeserializeAttribute.cs" />
+    <Compile Include="Compartilhado\Json\Notacoes\JsonIgnoreSerializeAttribute.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\BoolInput.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\DateTimeInput.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\DecimalInput.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\DoubleInput.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\EnumInput.cs" />
+    <Compile Include="Compartilhado\ObjetosDeValor\FloatInput.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\GuidInput.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\IInputType.cs" />
     <Compile Include="Compartilhado\ObjetosDeValor\IntInput.cs" />
@@ -130,6 +141,8 @@
     <Compile Include="Dominio\Comandos\StorageCmds\InserirStorageCmd.cs" />
     <Compile Include="Dominio\Comandos\StorageCmds\ObterStorageCmd.cs" />
     <Compile Include="Dominio\Comandos\TesteCmds\FormatosTesteCmd.cs" />
+    <Compile Include="Dominio\Comandos\UploadCmds\ArquivoUploadCmd.cs" />
+    <Compile Include="Dominio\Comandos\UploadCmds\ImagemUploadCmd.cs" />
     <Compile Include="Dominio\Comandos\UsuarioCmds\EditarUsuarioCmd.cs" />
     <Compile Include="Dominio\Comandos\UsuarioCmds\ExcluirUsuarioCmd.cs" />
     <Compile Include="Dominio\Comandos\UsuarioCmds\FiltrarUsuarioCmd.cs" />
@@ -162,6 +175,7 @@
     <Compile Include="Dominio\Servicos\SobreServ.cs" />
     <Compile Include="Dominio\Servicos\StorageServ.cs" />
     <Compile Include="Dominio\Servicos\TesteServ.cs" />
+    <Compile Include="Dominio\Servicos\UploadServ.cs" />
     <Compile Include="Dominio\Servicos\UsuarioServ.cs" />
     <Compile Include="IAppSettings.cs" />
     <Compile Include="IdC\ProcessarDependencias.cs" />
@@ -173,8 +187,8 @@
     <Compile Include="Infra\Auxiliares\BaseMapeamento.cs" />
     <Compile Include="Infra\Auxiliares\MediaType.cs" />
     <Compile Include="Infra\Auxiliares\ModuloDependencias.cs" />
-    <Compile Include="Infra\Comum\BaseBuscaMsSqlRepositorio.cs" />
-    <Compile Include="Infra\Comum\BaseRepositorio.cs" />
+    <Compile Include="Infra\Comum\BaseBuscaMsSqlInfra.cs" />
+    <Compile Include="Infra\Comum\BaseInfra.cs" />
     <Compile Include="Infra\Contexto\ConexaoMsSql.cs" />
     <Compile Include="Infra\Extensoes\MapeamentoMsSsqlExt.cs" />
     <Compile Include="Infra\Interfaces\IConexao.cs" />
@@ -204,8 +218,16 @@
     <Compile Include="Infra\Recursos\Core\Servicos\AutorizacaoServ\ListarAutorizacaoServ.cs" />
     <Compile Include="Infra\Recursos\Core\Servicos\SobreServ\ObterSobreServ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecursoResx\AvisosResx.Designer.cs" />
-    <Compile Include="RecursoResx\NomesResx.Designer.cs" />
+    <Compile Include="Recurso\AvisosResx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AvisosResx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recurso\NomesResx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NomesResx.resx</DependentUpon>
+    </Compile>
     <Compile Include="Repositorio\AutorizacaoRep.cs" />
     <Compile Include="Repositorio\Auxiliares\ModuloDependencias.cs" />
     <Compile Include="Repositorio\Comum\BaseRepositorio.cs" />
@@ -229,12 +251,18 @@
     <Compile Include="Repositorio\UsuarioRep.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RecursoResx\AvisosResx.resx" />
-    <EmbeddedResource Include="RecursoResx\NomesResx.resx" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Recurso\AvisosResx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AvisosResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recurso\NomesResx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NomesResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

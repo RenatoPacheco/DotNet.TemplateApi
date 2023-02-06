@@ -28,13 +28,13 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
             }
         }
 
-        private IList<Status> _status;
+        private IList<Status> _status = new List<Status>();
         /// <summary>
         /// Status de usuário
         /// </summary>
         public IList<Status> Status
         {
-            get => _status ?? (_status = new List<Status>());
+            get => _status;
             set
             {
                 _status = value ?? new List<Status>();
