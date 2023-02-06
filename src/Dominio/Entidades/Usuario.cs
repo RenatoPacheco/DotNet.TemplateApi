@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using BitHelp.Core.Validation;
 using BitHelp.Core.Type.pt_BR;
 using TemplateApi.Dominio.Escopos;
-using System.Diagnostics.CodeAnalysis;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhado.Json.Notacoes;

@@ -6,7 +6,6 @@ using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Entidades;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Dominio.ObjetosDeValor
 {

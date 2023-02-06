@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Escopos;
-using System.Diagnostics.CodeAnalysis;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 
