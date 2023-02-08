@@ -17,7 +17,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _storage = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -31,7 +31,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
             set
             {
                 _alias = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }
