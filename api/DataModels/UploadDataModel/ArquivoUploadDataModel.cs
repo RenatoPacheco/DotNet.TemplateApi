@@ -17,7 +17,7 @@ namespace TemplateApi.Api.DataModels.UploadDataModel
             set
             {
                 _arquivo = value ?? new List<IFormFile>();
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }

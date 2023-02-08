@@ -19,7 +19,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _nome = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -34,7 +34,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _email = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -48,7 +48,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _telefone = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -63,7 +63,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _senha = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -77,7 +77,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _status = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }

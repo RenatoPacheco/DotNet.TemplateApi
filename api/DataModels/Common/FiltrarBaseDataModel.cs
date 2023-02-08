@@ -16,7 +16,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _texto = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -31,7 +31,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _pagina = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -48,7 +48,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _maximo = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -65,7 +65,7 @@ namespace TemplateApi.Api.DataModels.Common
             set
             {
                 _calucularPaginacao = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }

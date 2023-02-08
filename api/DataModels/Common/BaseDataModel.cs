@@ -10,7 +10,7 @@ namespace TemplateApi.Api.DataModels.Common
     {
         private IList<string> _propriedadesRegistradas = new List<string>();
 
-        protected void RegistarPropriedade(
+        protected void RegistrarPropriedade(
             [CallerMemberName] string nome = null)
         {
             if (!_propriedadesRegistradas.Contains(nome))
@@ -28,11 +28,11 @@ namespace TemplateApi.Api.DataModels.Common
     public abstract class BaseDataModel<T>
         : BaseDataModel
     {
-        protected void RegistarPropriedade<P>(
+        protected void RegistrarPropriedade<P>(
             Expression<Func<T, P>> expressao)
         {
             string prop = expressao.PropertyPath();
-            RegistarPropriedade(prop);
+            RegistrarPropriedade(prop);
         }
 
         public bool PropriedadeRegistrada<P>(

@@ -19,7 +19,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _contexto = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -34,7 +34,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _usuario = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -48,7 +48,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
             set
             {
                 _status = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }

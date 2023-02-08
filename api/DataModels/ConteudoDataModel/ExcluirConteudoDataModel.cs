@@ -18,7 +18,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
             set
             {
                 _conteudo = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }
