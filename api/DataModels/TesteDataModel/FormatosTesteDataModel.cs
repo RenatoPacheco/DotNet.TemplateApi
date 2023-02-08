@@ -14,7 +14,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _string = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -25,7 +25,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _int = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -36,7 +36,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _long = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -47,7 +47,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _decimal = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -58,7 +58,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _double = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -69,7 +69,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _float = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -80,7 +80,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _bool = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -91,7 +91,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _dateTime = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -102,7 +102,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _timeSpan = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -113,7 +113,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _guid = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -124,7 +124,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _enum = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
 
@@ -135,7 +135,7 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _phone = value;
-                RegistarPropriedade();
+                RegistrarPropriedade();
             }
         }
     }
