@@ -10,38 +10,38 @@ namespace TemplateApi.Api.App_Start.AutoMappers
     {
         public CustonTypesProfile()
         {
-            CreateMap<EnumInput<Status>, Status>().ConvertUsing(v => v == null ? 0 : (Status)v);
-            CreateMap<EnumInput<Status>, Status?>().ConvertUsing(v => v == null ? null : (Status?)v);
+            CreateMap<EnumInput<Status>, Status>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (Status)v);
+            CreateMap<EnumInput<Status>, Status?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (Status?)v);
 
-            CreateMap<EnumInput<ContextoCmd>, ContextoCmd>().ConvertUsing(v => v == null ? 0 : (ContextoCmd)v);
-            CreateMap<EnumInput<ContextoCmd>, ContextoCmd?>().ConvertUsing(v => v == null ? null : (ContextoCmd?)v);
+            CreateMap<EnumInput<ContextoCmd>, ContextoCmd>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (ContextoCmd)v);
+            CreateMap<EnumInput<ContextoCmd>, ContextoCmd?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (ContextoCmd?)v);
 
-            CreateMap<IntInput, int>().ConvertUsing(v => v == null ? 0 : (int)v);
-            CreateMap<IntInput, int?>().ConvertUsing(v => v == null ? null : (int?)v);
+            CreateMap<IntInput, int>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (int)v);
+            CreateMap<IntInput, int?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (int?)v);
 
-            CreateMap<LongInput, long>().ConvertUsing(v => v == null ? 0 : (long)v);
-            CreateMap<LongInput, long?>().ConvertUsing(v => v == null ? null : (long?)v);
+            CreateMap<LongInput, long>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (long)v);
+            CreateMap<LongInput, long?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (long?)v);
 
-            CreateMap<DecimalInput, decimal>().ConvertUsing(v => v == null ? 0 : (decimal)v);
-            CreateMap<DecimalInput, decimal?>().ConvertUsing(v => v == null ? null : (decimal?)v);
+            CreateMap<DecimalInput, decimal>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (decimal)v);
+            CreateMap<DecimalInput, decimal?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (decimal?)v);
 
-            CreateMap<DoubleInput, double>().ConvertUsing(v => v == null ? 0 : (double)v);
-            CreateMap<DoubleInput, double?>().ConvertUsing(v => v == null ? null : (double?)v);
+            CreateMap<DoubleInput, double>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (double)v);
+            CreateMap<DoubleInput, double?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (double?)v);
 
-            CreateMap<FloatInput, float>().ConvertUsing(v => v == null ? 0 : (float)v);
-            CreateMap<FloatInput, float?>().ConvertUsing(v => v == null ? null : (float?)v);
+            CreateMap<FloatInput, float>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (float)v);
+            CreateMap<FloatInput, float?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (float?)v);
 
-            CreateMap<BoolInput, bool>().ConvertUsing(v => v == null ? false : (bool)v);
-            CreateMap<BoolInput, bool?>().ConvertUsing(v => v == null ? null : (bool?)v);
+            CreateMap<BoolInput, bool>().ConvertUsing(v => v == null || !v.IsValid() ? false : (bool)v);
+            CreateMap<BoolInput, bool?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (bool?)v);
 
-            CreateMap<GuidInput, Guid>().ConvertUsing(v => v == null ? Guid.Empty : (Guid)v);
-            CreateMap<GuidInput, Guid?>().ConvertUsing(v => v == null ? null : (Guid?)v);
+            CreateMap<GuidInput, Guid>().ConvertUsing(v => v == null || !v.IsValid() ? Guid.Empty : (Guid)v);
+            CreateMap<GuidInput, Guid?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (Guid?)v);
 
-            CreateMap<DateTimeInput, DateTime>().ConvertUsing(v => v == null ? new DateTime() : (DateTime)v);
-            CreateMap<DateTimeInput, DateTime?>().ConvertUsing(v => v == null ? null : (DateTime?)v);
+            CreateMap<DateTimeInput, DateTime>().ConvertUsing(v => v == null || !v.IsValid() ? new DateTime() : (DateTime)v);
+            CreateMap<DateTimeInput, DateTime?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (DateTime?)v);
 
-            CreateMap<TimeSpanInput, TimeSpan>().ConvertUsing(v => v == null ? new TimeSpan() : (TimeSpan)v);
-            CreateMap<TimeSpanInput, TimeSpan?>().ConvertUsing(v => v == null ? null : (TimeSpan?)v);
+            CreateMap<TimeSpanInput, TimeSpan>().ConvertUsing(v => v == null || !v.IsValid() ? new TimeSpan() : (TimeSpan)v);
+            CreateMap<TimeSpanInput, TimeSpan?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (TimeSpan?)v);
         }
     }
 }
