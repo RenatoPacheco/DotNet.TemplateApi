@@ -21,12 +21,23 @@ namespace TemplateApi.Compartilhado.Json.JsonConverte
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            string v = (new DecimalInput(value as decimal?))?.ToString();
+            DecimalInput v = value is decimal output ? (DecimalInput)output : null;
 
             if (v is null)
+            {
                 writer.WriteNull();
+            }
             else
-                writer.WriteValue(v);
+            {
+                if (v.ToString().IndexOf(".") >= 0)
+                {
+                    writer.WriteValue((decimal)v);
+                }
+                else
+                {
+                    writer.WriteRawValue(v?.ToString());
+                }
+            }
         }
     }
 }
