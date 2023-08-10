@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using TemplateApi.Recurso;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace TemplateApi.Compartilhado.ObjetosDeValor
@@ -137,12 +138,12 @@ namespace TemplateApi.Compartilhado.ObjetosDeValor
             return _value == other;
         }
 
-        public bool Equals(float? other)
+        public bool Equals([AllowNull] float? other)
         {
             return _value == other;
         }
 
-        public bool Equals(string other)
+        public bool Equals([AllowNull] string other)
         {
             return _inptValue == other;
         }
