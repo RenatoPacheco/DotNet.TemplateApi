@@ -1,0 +1,66 @@
+{
+    "_id": "c6ffb090-4d9f-4cd3-9066-98b1af0d9442",
+    "colName": "Teste",
+    "created": "2022-07-21T00:33:36.558Z",
+    "sortNum": 40000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f79f4e72-14cb-4e35-9d4e-cee1fffc5973",
+            "colId": "c6ffb090-4d9f-4cd3-9066-98b1af0d9442",
+            "containerId": "",
+            "name": "FromBody",
+            "url": "{{host}}/servico/teste/fromBody",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2022-07-21T00:33:36.576Z",
+            "modified": "2022-07-21T01:20:16.917Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"Decimal\": \"123.45\",\n    \"DateTime\": \"2019-06-22 12:33\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f1f87136-83dc-4711-81fc-d7819de31404",
+            "colId": "c6ffb090-4d9f-4cd3-9066-98b1af0d9442",
+            "containerId": "",
+            "name": "FromQuery",
+            "url": "{{host}}/servico/teste/fromQuery?bool",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-08-10T12:09:04.254Z",
+            "modified": "2023-08-10T13:39:07.800Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "bool",
+                    "value": "",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        }
+    ]
+}

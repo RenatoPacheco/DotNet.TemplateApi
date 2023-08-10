@@ -1,0 +1,138 @@
+{
+    "_id": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
+    "colName": "Conteúdo",
+    "created": "2022-07-21T10:21:32.957Z",
+    "sortNum": 25000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "61d84ff4-6b65-46fb-aeaf-5d1c28f00742",
+            "colId": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
+            "containerId": "",
+            "name": "Filtrar",
+            "url": "{{host}}/servico/conteudo?Contexto=Embutir&Status=Ativo&Status=Inativo&Texto=testando",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2022-07-21T10:21:32.960Z",
+            "modified": "2022-07-25T23:21:20.906Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "Contexto",
+                    "value": "Embutir",
+                    "isPath": false
+                },
+                {
+                    "name": "Status",
+                    "value": "Ativo",
+                    "isPath": false
+                },
+                {
+                    "name": "Status",
+                    "value": "Inativo",
+                    "isPath": false
+                },
+                {
+                    "name": "Texto",
+                    "value": "testando",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "59095a5c-a8c2-4d2a-9a81-d90908af8265",
+            "colId": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
+            "containerId": "",
+            "name": "Inserir",
+            "url": "{{host}}/servico/conteudo",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-07-21T10:21:32.962Z",
+            "modified": "2022-07-21T10:24:29.154Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"titulo\": \"Título teste\",\n    \"alias\": \"alias-teste\",\n    \"texto\": \"Texto teste\",\n    \"status\": \"Ativo\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3c7bdd89-1f44-446b-afc1-61f6baa62930",
+            "colId": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
+            "containerId": "",
+            "name": "Editar",
+            "url": "{{host}}/servico/conteudo",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2022-07-21T10:21:32.963Z",
+            "modified": "2022-07-21T10:25:11.226Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"conteudo\": 1,\n    \"titulo\": \"Título teste\",\n    \"alias\": \"alias-teste\",\n    \"texto\": \"Texto teste\",\n    \"status\": \"Ativo\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ce0a3856-4b13-45af-9a3f-c24ce8ec1062",
+            "colId": "8cc8d8cd-baaf-41ff-8c0c-a6ea8dfba5b9",
+            "containerId": "",
+            "name": "Deletar",
+            "url": "{{host}}/servico/conteudo?conteudo=1111",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2022-07-21T10:21:32.964Z",
+            "modified": "2022-07-21T10:22:13.163Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "conteudo",
+                    "value": "1111",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        }
+    ]
+}

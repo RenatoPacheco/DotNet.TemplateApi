@@ -1,0 +1,141 @@
+{
+    "_id": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+    "colName": "Storage",
+    "created": "2022-07-14T11:06:49.561Z",
+    "sortNum": 30000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c9455346-de59-4b98-b120-e76eec4a9689",
+            "colId": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+            "containerId": "",
+            "name": "Filtrar",
+            "url": "{{host}}/servico/storage",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2022-07-14T11:06:49.564Z",
+            "modified": "2022-07-14T11:24:33.072Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1b4c46fb-2b46-429b-8003-1facc8cda23d",
+            "colId": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+            "containerId": "",
+            "name": "Inserir",
+            "url": "{{host}}/servico/storage",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-07-14T11:06:49.565Z",
+            "modified": "2022-07-14T11:24:58.407Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "34b80165-ca57-471c-8134-332843f00dde",
+            "colId": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+            "containerId": "",
+            "name": "Editar",
+            "url": "{{host}}/servico/storage",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2022-07-14T11:06:49.566Z",
+            "modified": "2022-07-14T11:33:38.996Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "53519960-d1dc-4bc0-a429-db6e0a570bf1",
+            "colId": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+            "containerId": "",
+            "name": "Deletar",
+            "url": "{{host}}/servico/storage?usuario=1111",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2022-07-14T11:06:49.567Z",
+            "modified": "2022-07-14T11:25:30.689Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "usuario",
+                    "value": "1111",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fbc239aa-b644-4e67-99d7-bfce5c8bc8a1",
+            "colId": "17a6e267-80dd-4748-b838-fcc659ceebfc",
+            "containerId": "",
+            "name": "Obter",
+            "url": "{{host}}/storage/{alias}",
+            "method": "GET",
+            "sortNum": 5000,
+            "created": "2022-07-14T11:07:07.744Z",
+            "modified": "2022-07-14T11:17:31.155Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "alias",
+                    "value": "aaaaaaaaaaaaa555",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        }
+    ]
+}

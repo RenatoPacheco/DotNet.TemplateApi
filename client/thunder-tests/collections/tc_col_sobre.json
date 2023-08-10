@@ -1,0 +1,32 @@
+{
+    "_id": "7be72ee1-52f2-482b-8b47-61ca965c23d5",
+    "colName": "Sobre",
+    "created": "2022-07-04T15:04:24.177Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7fa36ed3-f596-4df2-9353-636e09ddffdc",
+            "colId": "7be72ee1-52f2-482b-8b47-61ca965c23d5",
+            "containerId": "",
+            "name": "Obter",
+            "url": "{{host}}/servico/sobre",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2022-07-04T15:04:32.517Z",
+            "modified": "2022-07-04T15:06:33.824Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        }
+    ]
+}
