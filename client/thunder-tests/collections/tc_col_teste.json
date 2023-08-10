@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 5000,
             "created": "2022-07-21T00:33:36.576Z",
-            "modified": "2022-07-21T01:20:16.917Z",
+            "modified": "2023-08-10T14:02:35.992Z",
             "headers": [
                 {
                     "name": "Chave-Publica",
@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"Decimal\": \"123.45\",\n    \"DateTime\": \"2019-06-22 12:33\"\n}",
+                "raw": "{\n    \"Decimal\": \"123.45\",\n    \"DateTime\": \"2019-06-22 12:33\",\n    \"Bool\": true\n}",
                 "form": []
             },
             "auth": {
@@ -42,7 +42,7 @@
             "method": "GET",
             "sortNum": 15000,
             "created": "2023-08-10T12:09:04.254Z",
-            "modified": "2023-08-10T13:39:07.800Z",
+            "modified": "2023-08-10T14:01:33.390Z",
             "headers": [
                 {
                     "name": "Chave-Publica",
@@ -56,6 +56,39 @@
                     "isPath": false
                 }
             ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{autorizacao}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "81d1e749-1c57-443b-9a02-4cf0a82a17cb",
+            "colId": "c6ffb090-4d9f-4cd3-9066-98b1af0d9442",
+            "containerId": "",
+            "name": "FromForm",
+            "url": "{{host}}/servico/teste/fromForm",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2023-08-10T14:03:12.001Z",
+            "modified": "2023-08-10T18:28:08.926Z",
+            "headers": [
+                {
+                    "name": "Chave-Publica",
+                    "value": "{{chave-publica}}"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "Bool",
+                        "value": ""
+                    }
+                ]
+            },
             "auth": {
                 "type": "bearer",
                 "bearer": "{{autorizacao}}"

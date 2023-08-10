@@ -30,6 +30,11 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (string.IsNullOrEmpty(value))
             {
+                if (bindingContext.ModelType == typeof(T) || value == string.Empty)
+                {
+                    bindingContext.SetStateError(AvisosResx.XNaoEhValido);
+                }
+
                 return Task.CompletedTask;
             }
 
@@ -42,11 +47,7 @@ namespace TemplateApi.Api.App_Start.ModelBinders
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
-                bindingContext.ModelState.SetModelValue(modelName, valueProviderResult);
-                bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
+                bindingContext.SetStateError(AvisosResx.XNaoEhValido);
             }
 
             return Task.CompletedTask;
