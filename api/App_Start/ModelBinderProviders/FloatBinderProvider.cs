@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace TemplateApi.Api.App_Start.ModelBinderProviders
 {
@@ -14,11 +13,11 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(float) 
+            if (context.Metadata.ModelType == typeof(float)
                 || context.Metadata.ModelType == typeof(float?)
                 || context.Metadata.ModelType == typeof(FloatInput))
             {
-                return new BinderTypeModelBinder(typeof(ModelBinders.FloatModelBinder));
+                return new BinderTypeModelBinder(typeof(FloatModelBinder));
             }
 
             return null;

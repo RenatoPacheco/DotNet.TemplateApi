@@ -1,4 +1,4 @@
-﻿using System;
+﻿using TemplateApi.Api.App_Start.ModelBinders;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -18,7 +18,7 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 || context.Metadata.ModelType == typeof(bool?)
                 || context.Metadata.ModelType == typeof(BoolInput))
             {
-                return new BinderTypeModelBinder(typeof(ModelBinders.BoolModelBinder));
+                return new BinderTypeModelBinder(typeof(BoolModelBinder));
             }
 
             return null;

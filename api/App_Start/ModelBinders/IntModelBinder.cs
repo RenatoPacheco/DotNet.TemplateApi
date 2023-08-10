@@ -16,62 +16,40 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
-            if ((bindingContext.ModelType != typeof(int?)
-                && bindingContext.ModelType != typeof(int)
-                && bindingContext.ModelType != typeof(IntInput))
-                || bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
-            {
-                return Task.CompletedTask;
-            }
+            var modelName = bindingContext.ModelName;
 
-            string modelName = bindingContext.ModelName;
-            Type modelType = bindingContext.ModelType;
-            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+            var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
 
             if (valueProviderResult == ValueProviderResult.None)
             {
                 return Task.CompletedTask;
             }
 
-            string value = valueProviderResult.FirstValue;
+            var value = valueProviderResult.FirstValue?.Trim();
 
-            if (value == null)
+            if (string.IsNullOrEmpty(value))
             {
-                if (modelType == typeof(int?) || modelType == typeof(IntInput))
+                if (bindingContext.ModelType == typeof(int) || value == string.Empty)
                 {
-                    bindingContext.Result = ModelBindingResult.Success(null);
+                    bindingContext.SetStateError(AvisosResx.XNaoEhValido);
                 }
-                else
-                {
-                    ErrorReport(bindingContext, valueProviderResult);
-                }
+
+                return Task.CompletedTask;
             }
-            else if (IntInput.TryParse(value, out IntInput result))
+
+            if (IntInput.TryParse(value, out IntInput result))
             {
-                if (modelType == typeof(IntInput))
+                if (bindingContext.ModelType == typeof(IntInput))
                     bindingContext.Result = ModelBindingResult.Success(result);
                 else
                     bindingContext.Result = ModelBindingResult.Success((int)result);
             }
-            else
+            else if(!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
-                ErrorReport(bindingContext, valueProviderResult);
+                bindingContext.SetStateError(AvisosResx.XNaoEhValido);
             }
 
             return Task.CompletedTask;
-        }
-
-        protected void ErrorReport(
-            ModelBindingContext bindingContext,
-            ValueProviderResult valueProviderResult)
-        {
-            bindingContext.ModelState.SetModelValue(
-                bindingContext.ModelName, valueProviderResult);
-
-            bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
         }
     }
 }

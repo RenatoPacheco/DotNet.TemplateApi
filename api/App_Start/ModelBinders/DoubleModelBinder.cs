@@ -1,6 +1,4 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -16,62 +14,40 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
-            if ((bindingContext.ModelType != typeof(double?)
-                && bindingContext.ModelType != typeof(double)
-                && bindingContext.ModelType != typeof(DoubleInput))
-                || bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
-            {
-                return Task.CompletedTask;
-            }
+            var modelName = bindingContext.ModelName;
 
-            string modelName = bindingContext.ModelName;
-            Type modelType = bindingContext.ModelType;
-            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+            var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
 
             if (valueProviderResult == ValueProviderResult.None)
             {
                 return Task.CompletedTask;
             }
 
-            string value = valueProviderResult.FirstValue;
+            var value = valueProviderResult.FirstValue?.Trim();
 
-            if (value == null)
+            if (string.IsNullOrEmpty(value))
             {
-                if (modelType == typeof(double?) || modelType == typeof(DoubleInput))
+                if (bindingContext.ModelType == typeof(double) || value == string.Empty)
                 {
-                    bindingContext.Result = ModelBindingResult.Success(null);
+                    bindingContext.SetStateError(AvisosResx.XNaoEhValido);
                 }
-                else
-                {
-                    ErrorReport(bindingContext, valueProviderResult);
-                }
+
+                return Task.CompletedTask;
             }
-            else if (DoubleInput.TryParse(value, out DoubleInput result))
+
+            if (DoubleInput.TryParse(value, out DoubleInput result))
             {
-                if (modelType == typeof(DoubleInput))
+                if (bindingContext.ModelType == typeof(DoubleInput))
                     bindingContext.Result = ModelBindingResult.Success(result);
                 else
                     bindingContext.Result = ModelBindingResult.Success((double)result);
             }
-            else
+            else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
-                ErrorReport(bindingContext, valueProviderResult);
+                bindingContext.SetStateError(AvisosResx.XNaoEhValido);
             }
 
             return Task.CompletedTask;
-        }
-
-        protected void ErrorReport(
-            ModelBindingContext bindingContext,
-            ValueProviderResult valueProviderResult)
-        {
-            bindingContext.ModelState.SetModelValue(
-                bindingContext.ModelName, valueProviderResult);
-
-            bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
         }
     }
 }

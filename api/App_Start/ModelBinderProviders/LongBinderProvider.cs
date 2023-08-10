@@ -1,4 +1,4 @@
-﻿using System;
+﻿using TemplateApi.Api.App_Start.ModelBinders;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -14,11 +14,11 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(long) 
+            if (context.Metadata.ModelType == typeof(long)
                 || context.Metadata.ModelType == typeof(long?)
                 || context.Metadata.ModelType == typeof(LongInput))
             {
-                return new BinderTypeModelBinder(typeof(ModelBinders.LongModelBinder));
+                return new BinderTypeModelBinder(typeof(IntModelBinder));
             }
 
             return null;

@@ -1,5 +1,4 @@
-﻿using System;
-using BitHelp.Core.Type.pt_BR;
+﻿using BitHelp.Core.Type.pt_BR;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Api.App_Start.ModelBinders;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
@@ -15,7 +14,8 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(PhoneType) || context.Metadata.ModelType == typeof(PhoneType?))
+            if (context.Metadata.ModelType == typeof(PhoneType)
+                || context.Metadata.ModelType == typeof(PhoneType?))
             {
                 return new BinderTypeModelBinder(typeof(PhoneTypeModelBinder));
             }
