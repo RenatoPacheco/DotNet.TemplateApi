@@ -25,7 +25,7 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 return Task.CompletedTask;
             }
 
-            var value = valueProviderResult.FirstValue;
+            var value = valueProviderResult.FirstValue?.Trim();
 
             if (string.IsNullOrEmpty(value))
             {
