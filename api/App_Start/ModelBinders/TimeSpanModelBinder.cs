@@ -1,6 +1,4 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -34,7 +32,10 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (TimeSpanInput.TryParse(value, out TimeSpanInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((TimeSpan)result);
+                if (bindingContext.ModelType == typeof(TimeSpanInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((TimeSpan)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

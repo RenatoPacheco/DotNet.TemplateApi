@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using BitHelp.Core.Type.pt_BR;
+﻿using BitHelp.Core.Type.pt_BR;
 using TemplateApi.Recurso;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Api.Extensions;

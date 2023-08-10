@@ -1,6 +1,4 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -34,9 +32,12 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (DecimalInput.TryParse(value, out DecimalInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((decimal)result);
+                if (bindingContext.ModelType == typeof(DecimalInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((decimal)result);
             }
-            else if(!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
+            else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
                 bindingContext.ModelState.SetModelValue(modelName, valueProviderResult);
                 bindingContext.ModelState.AddModelError(

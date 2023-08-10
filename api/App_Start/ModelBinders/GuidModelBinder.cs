@@ -34,7 +34,10 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (GuidInput.TryParse(value, out GuidInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((Guid)result);
+                if (bindingContext.ModelType == typeof(GuidInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((Guid)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

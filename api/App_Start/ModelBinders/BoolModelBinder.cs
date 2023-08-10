@@ -1,8 +1,7 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.ModelBinders
 {
@@ -31,9 +30,12 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 return Task.CompletedTask;
             }
 
-            if (bool.TryParse(value, out bool result))
+            if (BoolInput.TryParse(value, out BoolInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success(result);
+                if (bindingContext.ModelType == typeof(BoolInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((bool)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

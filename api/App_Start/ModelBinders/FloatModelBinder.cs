@@ -1,13 +1,11 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.ModelBinders
 {
-    public class GuidInputModelBinder : IModelBinder
+    public class FloatModelBinder : IModelBinder
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -32,9 +30,12 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 return Task.CompletedTask;
             }
 
-            if (GuidInput.TryParse(value, out GuidInput result))
+            if (FloatInput.TryParse(value, out FloatInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success(result);
+                if (bindingContext.ModelType == typeof(FloatInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((float)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

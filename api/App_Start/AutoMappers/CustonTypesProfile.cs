@@ -30,6 +30,9 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<DoubleInput, double>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (double)v);
             CreateMap<DoubleInput, double?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (double?)v);
 
+            CreateMap<FloatInput, float>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (float)v);
+            CreateMap<FloatInput, float?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (float?)v);
+
             CreateMap<BoolInput, bool>().ConvertUsing(v => v == null || !v.IsValid() ? false : (bool)v);
             CreateMap<BoolInput, bool?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (bool?)v);
 

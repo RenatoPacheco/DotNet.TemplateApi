@@ -35,7 +35,10 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (EnumInput<T>.TryParse(value, out EnumInput<T> result))
             {
-                bindingContext.Result = ModelBindingResult.Success((T)result);
+                if (bindingContext.ModelType == typeof(EnumInput<T>))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((T)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

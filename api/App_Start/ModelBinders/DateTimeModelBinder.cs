@@ -1,6 +1,4 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
@@ -34,7 +32,10 @@ namespace TemplateApi.Api.App_Start.ModelBinders
 
             if (DateTimeInput.TryParse(value, out DateTimeInput result))
             {
-                bindingContext.Result = ModelBindingResult.Success((DateTime)result);
+                if (bindingContext.ModelType == typeof(DateTimeInput))
+                    bindingContext.Result = ModelBindingResult.Success(result);
+                else
+                    bindingContext.Result = ModelBindingResult.Success((DateTime)result);
             }
             else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {

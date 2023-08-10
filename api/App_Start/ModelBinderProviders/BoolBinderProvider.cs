@@ -1,7 +1,7 @@
-﻿using System;
-using TemplateApi.Api.App_Start.ModelBinders;
+﻿using TemplateApi.Api.App_Start.ModelBinders;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using TemplateApi.Compartilhado.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.ModelBinderProviders
 {
@@ -14,7 +14,9 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(bool) || context.Metadata.ModelType == typeof(bool?))
+            if (context.Metadata.ModelType == typeof(bool) 
+                || context.Metadata.ModelType == typeof(bool?)
+                || context.Metadata.ModelType == typeof(BoolInput))
             {
                 return new BinderTypeModelBinder(typeof(BoolModelBinder));
             }

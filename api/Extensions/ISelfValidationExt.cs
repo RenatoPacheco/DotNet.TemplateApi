@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using TemplateApi.Recurso;
 using BitHelp.Core.Validation;
-using TemplateApi.Recurso;
 using System.Linq.Expressions;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;

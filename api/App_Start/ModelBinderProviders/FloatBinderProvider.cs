@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
-using TemplateApi.Api.App_Start.ModelBinders;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 namespace TemplateApi.Api.App_Start.ModelBinderProviders
 {
-    public class GuidInputBinderProvider : IModelBinderProvider
+    public class FloatBinderProvider : IModelBinderProvider
     {
         public IModelBinder GetBinder(ModelBinderProviderContext context)
         {
@@ -15,9 +13,11 @@ namespace TemplateApi.Api.App_Start.ModelBinderProviders
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.Metadata.ModelType == typeof(GuidInput))
+            if (context.Metadata.ModelType == typeof(float)
+                || context.Metadata.ModelType == typeof(float?)
+                || context.Metadata.ModelType == typeof(FloatInput))
             {
-                return new BinderTypeModelBinder(typeof(GuidInputModelBinder));
+                return new BinderTypeModelBinder(typeof(FloatModelBinder));
             }
 
             return null;
