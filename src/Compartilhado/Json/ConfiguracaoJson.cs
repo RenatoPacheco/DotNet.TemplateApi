@@ -12,17 +12,19 @@ namespace TemplateApi.Compartilhado.Json
         {
             settings.PropertyNamingPolicy = new ContratoJson();
             settings.Converters.Add(new JsonStringEnumConverter());
-            settings.Converters.Add(new PhoneTypeJsonConverte());
-            settings.Converters.Add(new IntInputJsonConverte());
-            settings.Converters.Add(new LongInputJsonConverte());
-            settings.Converters.Add(new DoubleInputJsonConverte());
-            settings.Converters.Add(new DecimalInputJsonConverte());
-            settings.Converters.Add(new GuidInputJsonConverte());
+            // Incluindo os tips customizados
             settings.Converters.Add(new BoolInputJsonConverte());
             settings.Converters.Add(new DateTimeInputJsonConverte());
-            settings.Converters.Add(new TimeSpanInputJsonConverte());
+            settings.Converters.Add(new DecimalInputJsonConverte());
+            settings.Converters.Add(new DoubleInputJsonConverte());
             settings.Converters.Add(new EnumInputJsonConverte<Status>());
             settings.Converters.Add(new EnumInputJsonConverte<ContextoCmd>());
+            settings.Converters.Add(new FloatInputJsonConverte());
+            settings.Converters.Add(new GuidInputJsonConverte());
+            settings.Converters.Add(new IntInputJsonConverte());
+            settings.Converters.Add(new LongInputJsonConverte());
+            settings.Converters.Add(new PhoneTypeJsonConverte());
+            settings.Converters.Add(new TimeSpanInputJsonConverte());
 
             return settings;
         }

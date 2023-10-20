@@ -7,35 +7,25 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
     public class FormatosTesteDataModel
         : Common.BaseDataModel<FormatosTesteDataModel>
     {
-        private string _string;
-        public string String
+
+        private BoolInput _bool;
+        public BoolInput Bool
         {
-            get => _string;
+            get => _bool;
             set
             {
-                _string = value;
+                _bool = value;
                 RegistrarPropriedade();
             }
         }
 
-        private IntInput _int;
-        public IntInput Int
+        private DateTimeInput _dateTime;
+        public DateTimeInput DateTime
         {
-            get => _int;
+            get => _dateTime;
             set
             {
-                _int = value;
-                RegistrarPropriedade();
-            }
-        }
-
-        private LongInput _long;
-        public LongInput Long
-        {
-            get => _long;
-            set
-            {
-                _long = value;
+                _dateTime = value;
                 RegistrarPropriedade();
             }
         }
@@ -62,35 +52,24 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             }
         }
 
-        private BoolInput _bool;
-        public BoolInput Bool
+        private EnumInput<Status> _enum;
+        public EnumInput<Status> Enum
         {
-            get => _bool;
+            get => _enum;
             set
             {
-                _bool = value;
+                _enum = value;
                 RegistrarPropriedade();
             }
         }
 
-        private DateTimeInput _dateTime;
-        public DateTimeInput DateTime
+        private FloatInput _float;
+        public FloatInput Float
         {
-            get => _dateTime;
+            get => _float;
             set
             {
-                _dateTime = value;
-                RegistrarPropriedade();
-            }
-        }
-
-        private TimeSpanInput _timeSpan;
-        public TimeSpanInput TimeSpan
-        {
-            get => _timeSpan;
-            set
-            {
-                _timeSpan = value;
+                _float = value;
                 RegistrarPropriedade();
             }
         }
@@ -106,13 +85,24 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             }
         }
 
-        private EnumInput<Status> _enum;
-        public EnumInput<Status> Enum
+        private IntInput _int;
+        public IntInput Int
         {
-            get => _enum;
+            get => _int;
             set
             {
-                _enum = value;
+                _int = value;
+                RegistrarPropriedade();
+            }
+        }
+
+        private LongInput _long;
+        public LongInput Long
+        {
+            get => _long;
+            set
+            {
+                _long = value;
                 RegistrarPropriedade();
             }
         }
@@ -124,6 +114,28 @@ namespace TemplateApi.Api.DataModels.TesteDataModel
             set
             {
                 _phone = value;
+                RegistrarPropriedade();
+            }
+        }
+
+        private string _string;
+        public string String
+        {
+            get => _string;
+            set
+            {
+                _string = value;
+                RegistrarPropriedade();
+            }
+        }
+
+        private TimeSpanInput _timeSpan;
+        public TimeSpanInput TimeSpan
+        {
+            get => _timeSpan;
+            set
+            {
+                _timeSpan = value;
                 RegistrarPropriedade();
             }
         }
