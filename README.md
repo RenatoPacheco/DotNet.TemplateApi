@@ -11,5 +11,6 @@ Outras versões do projeto:
 
 - [.NET Core 3.1](https://github.com/RenatoPacheco/DotNet.TemplateApi/tree/dot-net-core-3) - modelo de projeto usando .Net Core 3.1
 - [.NET Core 6.0](https://github.com/RenatoPacheco/DotNet.TemplateApi/tree/dot-net-core-6) - modelo de projeto usando .Net Core 6.0
+- [.NET Core 7](https://github.com/RenatoPacheco/DotNet.TemplateApi/tree/dot-net-core-7) - modelo de projeto usando .Net Core 7
 
 [Wiki]: <https://github.com/RenatoPacheco/DotNetCore.TemplateApi/wiki>
