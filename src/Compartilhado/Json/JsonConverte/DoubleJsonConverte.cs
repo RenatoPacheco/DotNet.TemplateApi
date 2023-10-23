@@ -21,12 +21,23 @@ namespace TemplateApi.Compartilhado.Json.JsonConverte
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            string v = (new DoubleInput(value as double?))?.ToString();
+            DoubleInput v = value is double output ? (DoubleInput)output : null;
 
             if (v is null)
+            {
                 writer.WriteNull();
+            }
             else
-                writer.WriteValue(v);
+            {
+                if (v.ToString().IndexOf(".") >= 0)
+                {
+                    writer.WriteValue((double)v);
+                }
+                else
+                {
+                    writer.WriteRawValue(v?.ToString());
+                }
+            }
         }
     }
 }
