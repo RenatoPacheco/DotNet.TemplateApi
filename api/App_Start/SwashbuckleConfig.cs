@@ -237,71 +237,11 @@ namespace TemplateApi.Api
                         Nullable = true
                     });
 
-                options.MapType<Status>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Enum = options.OpenApiEnum<Status>()
-                    });
-                options.MapType<Status?>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Nullable = true,
-                        Enum = options.OpenApiEnum<Status>()
-                    });
+                options.MapTypeEnum<Status>();
+                
+                options.MapTypeEnum<ContextoCmd>();
 
-                options.MapType<EnumInput<Status>>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Nullable = true,
-                        Enum = options.OpenApiEnum<Status>()
-                    });
-
-                options.MapType<ContextoCmd>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Enum = options.OpenApiEnum<ContextoCmd>()
-                    });
-                options.MapType<ContextoCmd?>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Nullable = true,
-                        Enum = options.OpenApiEnum<ContextoCmd>()
-                    });
-
-                options.MapType<EnumInput<ContextoCmd>>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Nullable = true,
-                        Enum = options.OpenApiEnum<ContextoCmd>()
-                    });
-
-                options.MapType<TipoAvisos>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Enum = options.OpenApiEnum<TipoAvisos>()
-                    });
-                options.MapType<TipoAvisos?>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Nullable = true,
-                        Enum = options.OpenApiEnum<TipoAvisos>()
-                    });
-
-                options.MapType<EnumInput<TipoAvisos>>(
-                    () => new OpenApiSchema
-                    {
-                        Type = "string",
-                        Nullable = true,
-                        Enum = options.OpenApiEnum<TipoAvisos>()
-                    });
+                options.MapTypeEnum<TipoAvisos>();
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;
                 options.IncludeXmlComments(Path.Combine(pasta, "TemplateApi.Api.xml"));
