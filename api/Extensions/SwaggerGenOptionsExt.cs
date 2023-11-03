@@ -29,7 +29,7 @@ namespace TemplateApi.Api.Extensions
                 () => new OpenApiSchema
                 {
                     Type = "string",
-                    Enum = source.OpenApiEnum<Status>()
+                    Enum = source.OpenApiEnum<T>()
                 });
 
             source.MapType<T?>(
@@ -37,7 +37,7 @@ namespace TemplateApi.Api.Extensions
                 {
                     Type = "string",
                     Nullable = true,
-                    Enum = source.OpenApiEnum<Status>()
+                    Enum = source.OpenApiEnum<T>()
                 });
 
             source.MapType<EnumInput<T>>(
@@ -45,7 +45,7 @@ namespace TemplateApi.Api.Extensions
                 {
                     Type = "string",
                     Nullable = true,
-                    Enum = source.OpenApiEnum<Status>()
+                    Enum = source.OpenApiEnum<T>()
                 });
         }
     }
