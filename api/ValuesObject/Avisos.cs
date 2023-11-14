@@ -4,12 +4,17 @@ using BitHelp.Core.Validation;
 using TemplateApi.Recurso;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace TemplateApi.Api.ValuesObject
 {
     public class Avisos
     {
+        [JsonConstructor]
+        protected Avisos() { }
+
         public Avisos(int codigo)
+            : this()
         {
             Data = DateTime.Now;
             Rastreio = Guid.NewGuid().ToString("N");
