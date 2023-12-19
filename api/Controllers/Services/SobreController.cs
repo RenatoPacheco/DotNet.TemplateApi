@@ -39,7 +39,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpGet]
         [ReferenciarApp(typeof(SobreApp), nameof(SobreApp.Obter))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<Sobre>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Sobre>))]
         public IActionResult Get()
         {
             Sobre resultado = _appSobre.Obter();

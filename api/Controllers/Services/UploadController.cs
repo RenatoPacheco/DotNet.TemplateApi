@@ -50,7 +50,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpPost, Route("Arquivo")]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Arquivo))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<IArquivo[]>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<IArquivo[]>))]
         public IActionResult PostArquivo([FromForm] ArquivoUploadDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -77,7 +77,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpPost, Route("Imagem")]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Imagem))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<IArquivo[]>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<IArquivo[]>))]
         public IActionResult PostImagem([FromForm] ImagemUploadDataModel body)
         {
             InvocarSeNulo(ref body);

@@ -38,7 +38,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpGet]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Filtrar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<ResultadoBusca<Usuario>>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Usuario>))]
         public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -57,7 +57,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpPost]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Inserir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<Usuario>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Usuario>))]
         public IActionResult Post([FromBody] InserirUsuarioDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -76,7 +76,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </summary>
         [HttpPatch]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Editar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<Usuario>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Usuario>))]
         public IActionResult Patch([FromBody] EditarUsuarioDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -98,7 +98,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpDelete]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Excluir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query)
         {
             InvocarSeNulo(ref query);

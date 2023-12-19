@@ -16,9 +16,9 @@ using System.Collections.Generic;
 
 namespace TemplateApi.Api.Controllers.Common
 {
-    [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(ComumViewData))]
-    [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(ComumViewData))]
-    [SwaggerResponse((int)HttpStatusCode.InternalServerError, "", typeof(ComumViewData))]
+    [SwaggerResponse((int)HttpStatusCode.BadRequest, null, typeof(ComumViewData))]
+    [SwaggerResponse((int)HttpStatusCode.Unauthorized, null, typeof(ComumViewData))]
+    [SwaggerResponse((int)HttpStatusCode.InternalServerError, null, typeof(ComumViewData))]
     public class BaseController : ControllerBase
     {
         protected ValidationNotification Notifications { get; set; } = new ValidationNotification();

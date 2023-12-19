@@ -38,7 +38,7 @@ namespace TemplateApi.Api.Controllers.Services
         [ApiExplorerSettings(GroupName = "Teste / FromQuery")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -59,7 +59,7 @@ namespace TemplateApi.Api.Controllers.Services
         [ApiExplorerSettings(GroupName = "Teste / FromBody")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromBody([FromBody] FormatosTesteDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -80,7 +80,7 @@ namespace TemplateApi.Api.Controllers.Services
         [ApiExplorerSettings(GroupName = "Teste / FromForm")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromForm([FromForm] FormatosTesteDataModel form)
         {
             InvocarSeNulo(ref form);
@@ -101,7 +101,7 @@ namespace TemplateApi.Api.Controllers.Services
         [ApiExplorerSettings(GroupName = "Teste / FromHeader")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromHeader([FromHeader] FormatosTesteDataModel header)
         {
             InvocarSeNulo(ref header);
@@ -122,7 +122,7 @@ namespace TemplateApi.Api.Controllers.Services
         [ApiExplorerSettings(GroupName = "Teste / WithoutFrom")]
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<FormatosTesteCmd>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult WithoutFrom(FormatosTesteDataModel without)
         {
             InvocarSeNulo(ref without);
