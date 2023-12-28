@@ -244,8 +244,8 @@ namespace TemplateApi.Api
                 options.MapTypeEnum<TipoAvisos>();
 
                 string pasta = AppDomain.CurrentDomain.BaseDirectory;
-                options.IncludeXmlComments(Path.Combine(pasta, "TemplateApi.Api.xml"));
-                options.IncludeXmlComments(Path.Combine(pasta, "TemplateApi.xml"));
+                options.IncludeXmlComments(Path.Combine(pasta, $"{typeof(SwashbuckleConfig).Namespace}.xml"));
+                options.IncludeXmlComments(Path.Combine(pasta, $"{typeof(AppSettings).Namespace}.xml"));
             });
         }
 

@@ -10,7 +10,7 @@
         private static IAppSettings _appSettings;
 
         public static bool EhDesenvolvimento { get; set; }
-        
+
         public static string Ambiente => EhDesenvolvimento ? "desenvolvimento" : "producao";
 
         public static string Nome => _appSettings.GetValue<string>("app:nome");
