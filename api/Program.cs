@@ -13,7 +13,7 @@ CorsConfig.Config(builder.Services);
 IdCConfig.Config(builder.Services);
 
 builder.Services.AddControllers(options => {
-    // Aplicando filtrdo customizados
+    // Aplicando filtros customizados
     FilterConfig.Config(options);
     // Aplicando binders customizados
     ModelBinderProviderConfig.Config(options);
