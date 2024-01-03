@@ -14,6 +14,14 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
+            if ((bindingContext.ModelType != typeof(TimeSpan?)
+                && bindingContext.ModelType != typeof(TimeSpan)
+                && bindingContext.ModelType != typeof(TimeSpanInput))
+                || bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
+            {
+                return Task.CompletedTask;
+            }
+
             var modelName = bindingContext.ModelName;
 
             var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);

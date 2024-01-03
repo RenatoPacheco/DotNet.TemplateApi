@@ -14,6 +14,13 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
+            if ((bindingContext.ModelType != typeof(PhoneType?)
+                && bindingContext.ModelType != typeof(PhoneType))
+                || bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
+            {
+                return Task.CompletedTask;
+            }
+
             var modelName = bindingContext.ModelName;
 
             var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
