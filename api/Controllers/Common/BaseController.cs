@@ -13,6 +13,7 @@ using TemplateApi.Recurso;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Api.ViewsData.CKEditorViewData;
 using System.Collections.Generic;
+using TemplateApi.Api.Extensions;
 
 namespace TemplateApi.Api.Controllers.Common
 {
@@ -75,18 +76,15 @@ namespace TemplateApi.Api.Controllers.Common
             {
                 if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
                 {
-                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    return MontarResultado.Json(
+                    return Response.ToJson(
                         HttpStatusCode.Unauthorized, Notifications, data);
                 }
 
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return MontarResultado.Json(
+                return Response.ToJson(
                     HttpStatusCode.BadRequest, Notifications, data);
             }
 
-            Response.StatusCode = (int)HttpStatusCode.OK;
-            return MontarResultado.Json(
+            return Response.ToJson(
                 HttpStatusCode.OK, Notifications, data);
         }
 
@@ -128,13 +126,11 @@ namespace TemplateApi.Api.Controllers.Common
             {
                 if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
                 {
-                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    return MontarResultado.Json(
+                    return Response.ToJson(
                         HttpStatusCode.Unauthorized, Notifications);
                 }
 
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return MontarResultado.Json(
+                return Response.ToJson(
                     HttpStatusCode.BadRequest, Notifications);
             }
 
@@ -166,13 +162,11 @@ namespace TemplateApi.Api.Controllers.Common
             {
                 if (Notifications.Messages.Any(x => x.Type == ValidationType.Unauthorized))
                 {
-                    Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                    return MontarResultado.Json(
+                    return Response.ToJson(
                         HttpStatusCode.Unauthorized, Notifications);
                 }
 
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return MontarResultado.Json(
+                return Response.ToJson(
                     HttpStatusCode.BadRequest, Notifications);
             }
 
