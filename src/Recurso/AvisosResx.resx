@@ -159,6 +159,9 @@
   <data name="Status401" xml:space="preserve">
     <value>Solicitação não autorizada.</value>
   </data>
+  <data name="Status404" xml:space="preserve">
+    <value>Solicitação não encontrada.</value>
+  </data>
   <data name="Status500" xml:space="preserve">
     <value>Ocorreu um erro interno na solicitação.</value>
   </data>

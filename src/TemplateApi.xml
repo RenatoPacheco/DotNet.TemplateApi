@@ -1038,6 +1038,11 @@
               Looks up a localized string similar to Solicitação não autorizada..
             </summary>
         </member>
+        <member name="P:TemplateApi.Recurso.AvisosResx.Status404">
+            <summary>
+              Looks up a localized string similar to Solicitação não encontrada..
+            </summary>
+        </member>
         <member name="P:TemplateApi.Recurso.AvisosResx.Status500">
             <summary>
               Looks up a localized string similar to Ocorreu um erro interno na solicitação..
