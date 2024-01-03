@@ -18,7 +18,7 @@ namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController]
     [Route("Servico/[controller]")]
-    public class UploadController : Common.BaseController
+    public class UploadController : Common.BaseApiController
     {
         public UploadController(
             IMapper mapper,

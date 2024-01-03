@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Controllers.Services
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Autenticação")]
-    public class AutenticacaoController : Common.BaseController
+    public class AutenticacaoController : Common.BaseApiController
     {
         public AutenticacaoController(
             AutenticacaoApiApp apiServAutenticacao,

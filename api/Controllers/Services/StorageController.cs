@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController]
     [Route("Servico/[controller]")]
-    public class StorageController : Common.BaseController
+    public class StorageController : Common.BaseApiController
     {
         public StorageController(
             StorageApp appStorage,

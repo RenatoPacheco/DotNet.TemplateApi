@@ -17,7 +17,7 @@ namespace TemplateApi.Api.Controllers.Services
     [ApiController]
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Conteúdo")]
-    public class ConteudoController : Common.BaseController
+    public class ConteudoController : Common.BaseApiController
     {
         public ConteudoController(
             IMapper mapper,

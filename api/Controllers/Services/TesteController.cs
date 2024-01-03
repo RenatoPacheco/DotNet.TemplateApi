@@ -15,7 +15,7 @@ namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
-    public class TesteController : Common.BaseController
+    public class TesteController : Common.BaseApiController
     {
         public TesteController(
             IMapper mapper,

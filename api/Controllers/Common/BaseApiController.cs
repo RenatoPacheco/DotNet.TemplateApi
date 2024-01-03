@@ -20,7 +20,7 @@ namespace TemplateApi.Api.Controllers.Common
     [SwaggerResponse((int)HttpStatusCode.BadRequest, null, typeof(ComumViewData))]
     [SwaggerResponse((int)HttpStatusCode.Unauthorized, null, typeof(ComumViewData))]
     [SwaggerResponse((int)HttpStatusCode.InternalServerError, null, typeof(ComumViewData))]
-    public class BaseController : ControllerBase
+    public class BaseApiController : ControllerBase
     {
         protected ValidationNotification Notifications { get; set; } = new ValidationNotification();
 

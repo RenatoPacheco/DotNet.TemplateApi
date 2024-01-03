@@ -16,7 +16,7 @@ namespace TemplateApi.Api.Controllers
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("[controller]")]
-    public class StorageController : Common.BaseController
+    public class StorageController : Common.BaseApiController
     {
         public StorageController(
             StorageApp appStorage,

@@ -12,7 +12,7 @@ namespace TemplateApi.Api.Controllers.Services
 {
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
-    public class SobreController : Common.BaseController
+    public class SobreController : Common.BaseApiController
     {
         public SobreController(
             SobreApp appSobre,
