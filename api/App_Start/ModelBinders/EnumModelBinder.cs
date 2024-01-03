@@ -8,7 +8,7 @@ using TemplateApi.Compartilhado.ObjetosDeValor;
 namespace TemplateApi.Api.App_Start.ModelBinders
 {
     public class EnumModelBinder<T> : IModelBinder
-        where T: struct
+        where T : struct
     {
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
@@ -25,54 +25,40 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 return Task.CompletedTask;
             }
 
-            string modelName = bindingContext.ModelName;
-            Type modelType = bindingContext.ModelType;
-            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+            var modelName = bindingContext.ModelName;
+
+            var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
 
             if (valueProviderResult == ValueProviderResult.None)
             {
                 return Task.CompletedTask;
             }
 
-            string value = valueProviderResult.FirstValue;
+            var value = valueProviderResult.FirstValue?.Trim();
 
-            if (value == null)
+            if (string.IsNullOrEmpty(value))
             {
-                if (modelType == typeof(T?) || modelType == typeof(EnumInput<T>))
+                if (bindingContext.ModelType == typeof(T) || value == string.Empty)
                 {
-                    bindingContext.Result = ModelBindingResult.Success(null);
+                    bindingContext.SetStateError(AvisosResx.XNaoEhValido);
                 }
-                else
-                {
-                    ErrorReport(bindingContext, valueProviderResult);
-                }
+
+                return Task.CompletedTask;
             }
-            else if (EnumInput<T>.TryParse(value, out EnumInput<T> result))
+
+            if (EnumInput<T>.TryParse(value, out EnumInput<T> result))
             {
-                if (modelType == typeof(EnumInput<T>))
+                if (bindingContext.ModelType == typeof(EnumInput<T>))
                     bindingContext.Result = ModelBindingResult.Success(result);
                 else
                     bindingContext.Result = ModelBindingResult.Success((T)result);
             }
-            else
+            else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
-                ErrorReport(bindingContext, valueProviderResult);
+                bindingContext.SetStateError(AvisosResx.XNaoEhValido);
             }
 
             return Task.CompletedTask;
-        }
-
-        protected void ErrorReport(
-            ModelBindingContext bindingContext,
-            ValueProviderResult valueProviderResult)
-        {
-            bindingContext.ModelState.SetModelValue(
-                bindingContext.ModelName, valueProviderResult);
-
-            bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
         }
     }
 }

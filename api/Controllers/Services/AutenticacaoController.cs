@@ -51,7 +51,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpGet]
         [ReferenciarApp(typeof(AutenticacaoApp), nameof(AutenticacaoApp.Obter))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<AutenticacaoApi>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<AutenticacaoApi>))]
         public IActionResult Get()
         {
             AutenticacaoApi resultado = _apiServAutenticacao.Obter();
@@ -70,7 +70,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpGet, Route("Core")]
         [ReferenciarApp(typeof(AutenticacaoApp), nameof(AutenticacaoApp.Obter))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<AutenticacaoApi>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<AutenticacaoApi>))]
         public IActionResult GetCore()
         {
             Autenticacao resultado = _apiServAutenticacao.ObterCore();

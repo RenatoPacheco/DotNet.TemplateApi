@@ -1,9 +1,9 @@
-﻿using System;
-using TemplateApi.Recurso;
-using System.Threading.Tasks;
+﻿using TemplateApi.Recurso;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhado.ObjetosDeValor;
+using System.Threading.Tasks;
+using System;
 
 namespace TemplateApi.Api.App_Start.ModelBinders
 {
@@ -24,54 +24,40 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 return Task.CompletedTask;
             }
 
-            string modelName = bindingContext.ModelName;
-            Type modelType = bindingContext.ModelType;
-            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+            var modelName = bindingContext.ModelName;
+
+            var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
 
             if (valueProviderResult == ValueProviderResult.None)
             {
                 return Task.CompletedTask;
             }
 
-            string value = valueProviderResult.FirstValue;
+            var value = valueProviderResult.FirstValue?.Trim();
 
-            if (value == null)
+            if (string.IsNullOrEmpty(value))
             {
-                if (modelType == typeof(decimal?) || modelType == typeof(DecimalInput))
+                if (bindingContext.ModelType == typeof(decimal) || value == string.Empty)
                 {
-                    bindingContext.Result = ModelBindingResult.Success(null);
+                    bindingContext.SetStateError(AvisosResx.XNaoEhValido);
                 }
-                else
-                {
-                    ErrorReport(bindingContext, valueProviderResult);
-                }
+
+                return Task.CompletedTask;
             }
-            else if (DecimalInput.TryParse(value, out DecimalInput result))
+
+            if (DecimalInput.TryParse(value, out DecimalInput result))
             {
-                if (modelType == typeof(DecimalInput))
+                if (bindingContext.ModelType == typeof(DecimalInput))
                     bindingContext.Result = ModelBindingResult.Success(result);
                 else
                     bindingContext.Result = ModelBindingResult.Success((decimal)result);
             }
-            else
+            else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
-                ErrorReport(bindingContext, valueProviderResult);
+                bindingContext.SetStateError(AvisosResx.XNaoEhValido);
             }
 
             return Task.CompletedTask;
-        }
-
-        protected void ErrorReport(
-            ModelBindingContext bindingContext,
-            ValueProviderResult valueProviderResult)
-        {
-            bindingContext.ModelState.SetModelValue(
-                bindingContext.ModelName, valueProviderResult);
-
-            bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
         }
     }
 }

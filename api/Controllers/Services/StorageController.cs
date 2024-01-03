@@ -39,7 +39,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpGet]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Filtrar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<ResultadoBusca<Storage>>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<ResultadoBusca<Storage>>))]
         public IActionResult Get([FromQuery] FiltrarStorageDataModel query)
         {
             InvocarSeNulo(ref query);
@@ -69,7 +69,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpPost]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Inserir))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<ResultadoBusca<Storage>>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<ResultadoBusca<Storage>>))]
         public IActionResult Post([FromForm] InserirStorageDataModel body)
         {
             InvocarSeNulo(ref body);
@@ -91,7 +91,7 @@ namespace TemplateApi.Api.Controllers.Services
         /// </remarks>
         [HttpPatch]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Editar))]
-        [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(ComumViewData<Storage>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Storage>))]
         public IActionResult Patch([FromBody] EditarStorageDataModel body)
         {
             InvocarSeNulo(ref body);

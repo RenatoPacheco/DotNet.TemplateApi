@@ -37,7 +37,9 @@ namespace TemplateApi.Api.Filters
             if (!ignorarFiltro && !_autenticacaoApiServ.EstaAutorizado(action))
             {
                 Autorizacao requisito = _autenticacaoApiServ.ExtrairAutorizacao(action);
+                HttpStatusCode codigo = HttpStatusCode.Unauthorized;
                 ValidationNotification notificacao = new ValidationNotification();
+                
                 if (!_autenticacaoApiServ.HaChavePublica() && requisito.RequerChavePublica)
                 {
                     notificacao.AddError(AvisosResx.ChavePublicaNaoRecebiada);
@@ -50,7 +52,6 @@ namespace TemplateApi.Api.Filters
                 {
                     notificacao.AddError(AvisosResx.AcessoNaoAutorizado);
                 }
-                HttpStatusCode codigo = HttpStatusCode.Unauthorized;
 
                 context.HttpContext.Response.StatusCode = (int)codigo;
                 context.Result = MontarResultado.Json(codigo, notificacao);

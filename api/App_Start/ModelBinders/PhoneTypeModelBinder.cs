@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BitHelp.Core.Type.pt_BR;
 using TemplateApi.Recurso;
-using System.Threading.Tasks;
-using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using BitHelp.Core.Type.pt_BR;
+using TemplateApi.Api.Extensions;
+using System.Threading.Tasks;
+using System;
 
 namespace TemplateApi.Api.App_Start.ModelBinders
 {
@@ -23,54 +23,37 @@ namespace TemplateApi.Api.App_Start.ModelBinders
                 return Task.CompletedTask;
             }
 
-            string modelName = bindingContext.ModelName;
-            Type modelType = bindingContext.ModelType;
-            ValueProviderResult valueProviderResult = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+            var modelName = bindingContext.ModelName;
+
+            var valueProviderResult = bindingContext.ValueProvider.GetValue(modelName);
 
             if (valueProviderResult == ValueProviderResult.None)
             {
                 return Task.CompletedTask;
             }
 
-            string value = valueProviderResult.FirstValue;
+            var value = valueProviderResult.FirstValue?.Trim();
 
-            if (value == null)
+            if (string.IsNullOrEmpty(value))
             {
-                if (modelType == typeof(PhoneType?) || modelType == typeof(PhoneType))
+                if (bindingContext.ModelType == typeof(PhoneType) || value == string.Empty)
                 {
-                    bindingContext.Result = ModelBindingResult.Success(null);
+                    bindingContext.SetStateError(AvisosResx.XNaoEhValido);
                 }
-                else
-                {
-                    ErrorReport(bindingContext, valueProviderResult);
-                }
+
+                return Task.CompletedTask;
             }
-            else if (PhoneType.TryParse(value, out PhoneType result))
+
+            if (PhoneType.TryParse(value, out PhoneType result))
             {
-                if (modelType == typeof(PhoneType))
-                    bindingContext.Result = ModelBindingResult.Success(result);
-                else
-                    bindingContext.Result = ModelBindingResult.Success(result);
+                bindingContext.Result = ModelBindingResult.Success(result);
             }
-            else
+            else if (!bindingContext.ModelState.ContainsKey(bindingContext.ModelName))
             {
-                ErrorReport(bindingContext, valueProviderResult);
+                bindingContext.SetStateError(AvisosResx.XNaoEhValido);
             }
 
             return Task.CompletedTask;
-        }
-
-        protected void ErrorReport(
-            ModelBindingContext bindingContext,
-            ValueProviderResult valueProviderResult)
-        {
-            bindingContext.ModelState.SetModelValue(
-                bindingContext.ModelName, valueProviderResult);
-
-            bindingContext.ModelState.AddModelError(
-                bindingContext.ModelName,
-                string.Format(AvisosResx.XNaoEhValido,
-                bindingContext.DisplayName()));
         }
     }
 }

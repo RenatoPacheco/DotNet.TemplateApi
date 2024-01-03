@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.Extensions
 {
-    public static class ModelStateExt
+    public static class TypeExt
     {
-        public static string DisplayName(this Type type, string modelName)
+        public static string ModelName(this Type type, string modelName)
         {
             string nameAttribute = string.Empty;
             DisplayAttribute attribute = null;
@@ -14,14 +14,10 @@ namespace TemplateApi.Api.Extensions
             var property = type?.GetProperty(modelName);
 
             if (!object.Equals(property, null))
-            {
                 attribute = type.GetProperty(modelName).GetCustomAttribute<DisplayAttribute>();
-            }
 
             if (!object.Equals(attribute, null))
-            {
                 nameAttribute = !object.Equals(attribute, null) ? attribute.Name : modelName;
-            }
 
             return nameAttribute ?? modelName;
         }
