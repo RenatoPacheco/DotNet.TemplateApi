@@ -1,23 +1,18 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.UsuarioDataModel
-{
+namespace TemplateApi.Api.DataModels.UsuarioDataModel {
     public class FiltrarUsuarioDataModel
-        : Common.FiltrarBaseDataModel<FiltrarUsuarioDataModel>
-    {
+        : Common.FiltrarBaseDataModel<FiltrarUsuarioDataModel> {
         private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public EnumInput<ContextoCmd> Contexto
-        {
+        public EnumInput<ContextoCmd> Contexto {
             get => _contexto;
-            set
-            {
+            set {
                 _contexto = value;
                 RegistrarPropriedade();
             }
@@ -28,11 +23,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<IntInput> Usuario
-        {
+        public IList<IntInput> Usuario {
             get => _usuario;
-            set
-            {
+            set {
                 _usuario = value;
                 RegistrarPropriedade();
             }
@@ -42,11 +35,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<EnumInput<Status>> Status
-        {
+        public IList<EnumInput<Status>> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }

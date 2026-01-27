@@ -1,23 +1,18 @@
-﻿using System.Collections.Generic;
-using TemplateApi.Dominio.Comandos.Comum;
+﻿using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.ConteudoDataModel
-{
-    public class FiltrarConteudoDataModel 
-        : Common.FiltrarBaseDataModel<FiltrarConteudoDataModel>
-    {
+namespace TemplateApi.Api.DataModels.ConteudoDataModel {
+    public class FiltrarConteudoDataModel
+        : Common.FiltrarBaseDataModel<FiltrarConteudoDataModel> {
         private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public EnumInput<ContextoCmd> Contexto
-        {
+        public EnumInput<ContextoCmd> Contexto {
             get => _contexto;
-            set
-            {
+            set {
                 _contexto = value;
                 RegistrarPropriedade();
             }
@@ -28,11 +23,9 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
-        public IList<IntInput> Conteudo
-        {
+        public IList<IntInput> Conteudo {
             get => _conteudo;
-            set
-            {
+            set {
                 _conteudo = value;
                 RegistrarPropriedade();
             }
@@ -42,11 +35,9 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public IList<EnumInput<Status>> Status
-        {
+        public IList<EnumInput<Status>> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }

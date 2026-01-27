@@ -1,15 +1,14 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.App_Start.AutoMappers
-{
-    public class CustonTypesProfile : Profile
-    {
-        public CustonTypesProfile()
-        {
+namespace TemplateApi.Api.App_Start.AutoMappers {
+
+    public class CustonTypesProfile : Profile {
+
+        public CustonTypesProfile() {
+
             CreateMap<EnumInput<Status>, Status>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (Status)v);
             CreateMap<EnumInput<Status>, Status?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (Status?)v);
 
@@ -31,7 +30,7 @@ namespace TemplateApi.Api.App_Start.AutoMappers
             CreateMap<FloatInput, float>().ConvertUsing(v => v == null || !v.IsValid() ? 0 : (float)v);
             CreateMap<FloatInput, float?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (float?)v);
 
-            CreateMap<BoolInput, bool>().ConvertUsing(v => v == null || !v.IsValid() ? false : (bool)v);
+            CreateMap<BoolInput, bool>().ConvertUsing(v => v != null && v.IsValid() && (bool)v);
             CreateMap<BoolInput, bool?>().ConvertUsing(v => v == null || !v.IsValid() ? null : (bool?)v);
 
             CreateMap<GuidInput, Guid>().ConvertUsing(v => v == null || !v.IsValid() ? Guid.Empty : (Guid)v);

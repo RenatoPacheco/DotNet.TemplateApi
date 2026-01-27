@@ -1,20 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.Common
-{
+namespace TemplateApi.Api.DataModels.Common {
     public abstract class FiltrarBaseDataModel<T>
-        : BaseDataModel<T>
-    {
+        : BaseDataModel<T> {
         private static string _texto;
         /// <summary>
         /// Texto com as palavras chaves para busca.
         /// </summary>
-        public virtual string Texto
-        {
+        public virtual string Texto {
             get => _texto;
-            set
-            {
+            set {
                 _texto = value;
                 RegistrarPropriedade();
             }
@@ -25,11 +21,9 @@ namespace TemplateApi.Api.DataModels.Common
         /// Página atual, com valor padrão 1, sendo qualquer valor menor que 1, será considerado o valor padrão.
         /// </summary>
         [Display(Name = "Página")]
-        public virtual IntInput Pagina
-        {
+        public virtual IntInput Pagina {
             get => _pagina;
-            set
-            {
+            set {
                 _pagina = value;
                 RegistrarPropriedade();
             }
@@ -42,11 +36,9 @@ namespace TemplateApi.Api.DataModels.Common
         /// Se indicar qualquer valor menor que 1, será passado para 0, e buscará por tosos os registros.
         /// </summary>
         [Display(Name = "Máximo")]
-        public virtual IntInput Maximo
-        {
+        public virtual IntInput Maximo {
             get => _maximo;
-            set
-            {
+            set {
                 _maximo = value;
                 RegistrarPropriedade();
             }
@@ -59,11 +51,9 @@ namespace TemplateApi.Api.DataModels.Common
         /// Quando true retorna o total de resultados e o total de páginas.
         /// </summary>
         [Display(Name = "Calcular paginação")]
-        public virtual BoolInput CalcularPaginacao
-        {
+        public virtual BoolInput CalcularPaginacao {
             get => _calucularPaginacao;
-            set
-            {
+            set {
                 _calucularPaginacao = value;
                 RegistrarPropriedade();
             }

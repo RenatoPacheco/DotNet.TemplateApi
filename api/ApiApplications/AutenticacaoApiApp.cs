@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using TemplateApi.Aplicacoes;
+﻿using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using TemplateApi.Api.ApiServices;
 using TemplateApi.Dominio.Entidades;
@@ -10,16 +7,13 @@ using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Api.ApiApplications
-{
-    public class AutenticacaoApiApp 
-        : Common.BaseApiApplications
-    {
+namespace TemplateApi.Api.ApiApplications {
+    public class AutenticacaoApiApp
+        : Common.BaseApiApplications {
         public AutenticacaoApiApp(
                AutenticacaoApp appAutenticacao,
                RequestApiServ apiServRequest,
-               AutorizacaoApiServ apiServAutorizacao)
-        {
+               AutorizacaoApiServ apiServAutorizacao) {
             _appAutenticacao = appAutenticacao;
             _apiServRequest = apiServRequest;
             _apiServAutorizacao = apiServAutorizacao;
@@ -31,8 +25,7 @@ namespace TemplateApi.Api.ApiApplications
 
         public AutenticacaoApi Autenticacao { get; protected set; }
 
-        public AutenticacaoApi Obter()
-        {
+        public AutenticacaoApi Obter() {
             Notifications.Clear();
 
             Autenticacao core = _appAutenticacao.Obter();
@@ -42,8 +35,7 @@ namespace TemplateApi.Api.ApiApplications
             return Autenticacao;
         }
 
-        public Autenticacao ObterCore()
-        {
+        public Autenticacao ObterCore() {
             Notifications.Clear();
 
             Autenticacao core = _appAutenticacao.Obter();
@@ -53,12 +45,10 @@ namespace TemplateApi.Api.ApiApplications
             return core;
         }
 
-        public AutenticacaoApi Iniciar()
-        {
+        public AutenticacaoApi Iniciar() {
             Notifications.Clear();
 
-            Autenticacao origem = _appAutenticacao.Iniciar(new IniciarAutenticacaoCmd
-            {
+            Autenticacao origem = _appAutenticacao.Iniciar(new IniciarAutenticacaoCmd {
                 Token = ExtrairToken(),
                 ChavePublica = ExtrairChavePublica(),
             });
@@ -72,8 +62,7 @@ namespace TemplateApi.Api.ApiApplications
 
         public bool HaChavePublica() => !string.IsNullOrWhiteSpace(ExtrairChavePublica());
 
-        public bool EstaAutorizado(ControllerActionDescriptor action)
-        {
+        public bool EstaAutorizado(ControllerActionDescriptor action) {
             Autorizacao autorizacao = ExtrairAutorizacao(action);
 
             AutorizacaoApi[] autorizacoes = Autenticacao?.Autorizacoes ?? Array.Empty<AutorizacaoApi>();
@@ -81,8 +70,7 @@ namespace TemplateApi.Api.ApiApplications
             return autorizacoes.Where(x => x.EstaAutorizado(autorizacao)).FirstOrDefault() != null;
         }
 
-        public Autorizacao ExtrairAutorizacao(ControllerActionDescriptor action)
-        {
+        public Autorizacao ExtrairAutorizacao(ControllerActionDescriptor action) {
             ReferenciarAppAttribute atributo = action.MethodInfo.GetCustomAttributes(
                 typeof(ReferenciarAppAttribute), true)
                 .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
@@ -90,18 +78,15 @@ namespace TemplateApi.Api.ApiApplications
             return atributo?.ExtrairAutorizacao();
         }
 
-        private string ExtrairToken()
-        {
+        private string ExtrairToken() {
             string resultado = _apiServRequest.GetHeader("Authorization").FirstOrDefault()?.Trim();
-            if (!string.IsNullOrWhiteSpace(resultado))
-            {
+            if (!string.IsNullOrWhiteSpace(resultado)) {
                 resultado = resultado.StartsWith("Bearer ") ? resultado[7..] : resultado;
             }
             return resultado;
         }
 
-        private string ExtrairChavePublica()
-        {
+        private string ExtrairChavePublica() {
             return _apiServRequest.GetHeader("Chave-Publica").FirstOrDefault()?.Trim();
         }
     }

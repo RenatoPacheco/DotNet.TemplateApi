@@ -1,15 +1,11 @@
-﻿using System;
-using TemplateApi.Dominio.Entidades;
+﻿using TemplateApi.Dominio.Entidades;
 using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Api.ValuesObject
-{
-    public class AutenticacaoApi
-    {
+namespace TemplateApi.Api.ValuesObject {
+    public class AutenticacaoApi {
         public AutenticacaoApi() { }
 
-        public AutenticacaoApi(Autenticacao dados)
-        {
+        public AutenticacaoApi(Autenticacao dados) {
             Nome = dados.Nome;
             Email = dados.Email;
             CriadoEm = dados.CriadoEm;

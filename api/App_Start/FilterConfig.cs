@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.Filters;
 
-namespace TemplateApi.Api
-{
-    public static class FilterConfig
-    {
-        public static void Config(MvcOptions options)
-        {
+namespace TemplateApi.Api {
+    public static class FilterConfig {
+        public static void Config(MvcOptions options) {
             // Incluindo filtro para customizar erro 500 da API
             options.Filters.Add<HttpResponseExceptionFilter>();
             // Inicializa o acesso a aplicação

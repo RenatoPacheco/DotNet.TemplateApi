@@ -5,28 +5,22 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.Extensions
-{
-    public static class ISelfValidationExt
-    {
-        public static void ExtrairModelState(this ISelfValidation entidade, ModelStateDictionary dados)
-        {
+namespace TemplateApi.Api.Extensions {
+    public static class ISelfValidationExt {
+        public static void ExtrairModelState(this ISelfValidation entidade, ModelStateDictionary dados) {
             string chave, referencia;
             ModelErrorCollection erros;
             int errosTotal;
             int chavesTotal = dados.Keys.Count();
 
-            for (int c = 0; c < chavesTotal; c++)
-            {
+            for (int c = 0; c < chavesTotal; c++) {
                 chave = dados.Keys.ElementAt(c);
                 erros = dados[chave].Errors;
                 referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
                 errosTotal = erros.Count();
-                if (erros.Any())
-                {
+                if (erros.Any()) {
                     entidade.Notifications.RemoveAtReference(referencia);
-                    for (int e = 0; e < errosTotal; e++)
-                    {
+                    for (int e = 0; e < errosTotal; e++) {
                         entidade.Notifications.AddError(erros[e].ErrorMessage.ToString(), referencia);
                     }
                 }
@@ -35,16 +29,13 @@ namespace TemplateApi.Api.Extensions
             dados.Clear();
         }
 
-        public static void ExtrairModelStateParaBody(this ISelfValidation entidade, ModelStateDictionary dados)
-        {
+        public static void ExtrairModelStateParaBody(this ISelfValidation entidade, ModelStateDictionary dados) {
             string chave, referencia;
             int chavesTotal = dados.Keys.Count();
 
-            for (int c = 0; c < chavesTotal; c++)
-            {
+            for (int c = 0; c < chavesTotal; c++) {
                 chave = dados.Keys.ElementAt(c);
-                if (dados[chave].Errors.Any())
-                {
+                if (dados[chave].Errors.Any()) {
                     referencia = Regex.Replace(chave, @"^[^\.]+\.", "");
                     entidade.Notifications.RemoveAtReference(referencia);
                     entidade.Notifications.AddError(
@@ -58,8 +49,7 @@ namespace TemplateApi.Api.Extensions
 
 
         public static bool InputTypeEhValido<T>(this T entidade, Expression<Func<T, object>> expression, IInputType checar)
-            where T : ISelfValidation
-        {
+            where T : ISelfValidation {
             bool ehValido = checar?.IsValid() ?? true;
 
             if ((checar != null) && !ehValido)
@@ -69,8 +59,7 @@ namespace TemplateApi.Api.Extensions
         }
 
         public static bool InputTypeEhValido<T>(this T entidade, Expression<Func<T, object>> expression, IEnumerable<IInputType> checar)
-            where T : ISelfValidation
-        {
+            where T : ISelfValidation {
             bool ehValido = !(checar?.Any(x => !x.IsValid()) ?? true);
 
             if ((checar != null) && !ehValido)

@@ -1,13 +1,10 @@
 ﻿using TemplateApi.Api.ValuesObject;
 using BitHelp.Core.Validation;
 
-namespace TemplateApi.Api.ViewsData.ErroViewData
-{
+namespace TemplateApi.Api.ViewsData.ErroViewData {
     public class IndexErroViewData
-        : ISelfValidation
-    {
-        public IndexErroViewData(int codigo)
-        {
+        : ISelfValidation {
+        public IndexErroViewData(int codigo) {
             _avisos = new Avisos(codigo);
         }
 
@@ -17,11 +14,10 @@ namespace TemplateApi.Api.ViewsData.ErroViewData
 
         #region ISelfValidation
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        bool ISelfValidation.IsValid()
-        {
+        bool ISelfValidation.IsValid() {
             return _notifications.IsValid();
         }
 

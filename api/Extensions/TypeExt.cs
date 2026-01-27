@@ -1,14 +1,10 @@
 ﻿using System.Reflection;
 using System.ComponentModel.DataAnnotations;
-using System;
 using TemplateApi.Api.Controllers.Common;
 
-namespace TemplateApi.Api.Extensions
-{
-    public static class TypeExt
-    {
-        public static string ModelName(this Type type, string modelName)
-        {
+namespace TemplateApi.Api.Extensions {
+    public static class TypeExt {
+        public static string ModelName(this Type type, string modelName) {
             string nameAttribute = string.Empty;
             DisplayAttribute attribute = null;
 
@@ -23,13 +19,11 @@ namespace TemplateApi.Api.Extensions
             return nameAttribute ?? modelName;
         }
 
-        public static bool IsApi(this Type type)
-        {
+        public static bool IsApi(this Type type) {
             return typeof(BaseApiController).IsAssignableFrom(type);
         }
 
-        public static bool IsMvc(this Type type)
-        {
+        public static bool IsMvc(this Type type) {
             return typeof(BaseMvcController).IsAssignableFrom(type);
         }
     }

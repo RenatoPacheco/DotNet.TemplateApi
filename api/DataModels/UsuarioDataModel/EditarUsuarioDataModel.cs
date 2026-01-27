@@ -4,21 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 using TemplateApi.Compartilhados.Json.Notacoes;
 
-namespace TemplateApi.Api.DataModels.UsuarioDataModel
-{
+namespace TemplateApi.Api.DataModels.UsuarioDataModel {
     public class EditarUsuarioDataModel
-        : Common.BaseDataModel<EditarUsuarioDataModel>
-    {
+        : Common.BaseDataModel<EditarUsuarioDataModel> {
         private IntInput _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IntInput Usuario
-        {
+        public IntInput Usuario {
             get => _usuario;
-            set
-            {
+            set {
                 _usuario = value;
                 RegistrarPropriedade();
             }
@@ -28,11 +24,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// <summary>
         /// Nome de usuário
         /// </summary>
-        public string Nome
-        {
+        public string Nome {
             get => _nome;
-            set
-            {
+            set {
                 _nome = value;
                 RegistrarPropriedade();
             }
@@ -43,11 +37,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// E-mail de usuário
         /// </summary>
         [Display(Name = "E-mail")]
-        public string Email
-        {
+        public string Email {
             get => _email;
-            set
-            {
+            set {
                 _email = value;
                 RegistrarPropriedade();
             }
@@ -57,11 +49,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// <summary>
         /// Telefone de usuário
         /// </summary>
-        public PhoneType? Telefone
-        {
+        public PhoneType? Telefone {
             get => _telefone;
-            set
-            {
+            set {
                 _telefone = value;
                 RegistrarPropriedade();
             }
@@ -72,11 +62,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// Senha de usuário
         /// </summary>
         [JsonIgnoreSerialize]
-        public string Senha
-        {
+        public string Senha {
             get => _senha;
-            set
-            {
+            set {
                 _senha = value;
                 RegistrarPropriedade();
             }
@@ -87,11 +75,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public EnumInput<Status> Status
-        {
+        public EnumInput<Status> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }

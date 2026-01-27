@@ -1,23 +1,18 @@
-﻿using System.Collections.Generic;
-using TemplateApi.Dominio.ObjetosDeValor;
+﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TemplateApi.Api.DataModels.StorageDataModel
-{
+namespace TemplateApi.Api.DataModels.StorageDataModel {
     public class ObterStorageDataModel
-        : Common.FiltrarBaseDataModel<ObterStorageDataModel>
-    {
+        : Common.FiltrarBaseDataModel<ObterStorageDataModel> {
         private string _alias;
         /// <summary>
         /// Alias de storage
         /// </summary>
         [FromRoute]
-        public string Alias
-        {
+        public string Alias {
             get => _alias;
-            set
-            {
+            set {
                 _alias = value;
                 RegistrarPropriedade();
             }
@@ -27,11 +22,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Status de srorage
         /// </summary>
-        public IList<EnumInput<Status>> Status
-        {
+        public IList<EnumInput<Status>> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }
@@ -41,11 +34,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Informe true para fazer download do arquivo 
         /// </summary>
-        public BoolInput Download
-        {
+        public BoolInput Download {
             get => _download;
-            set
-            {
+            set {
                 _download = value;
                 RegistrarPropriedade();
             }

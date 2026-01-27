@@ -1,18 +1,13 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Aplicacoes;
 
-namespace TemplateApi.Api.ApiServices
-{
-    public class AutorizacaoApiServ : Common.BaseApiServices
-    {
+namespace TemplateApi.Api.ApiServices {
+    public class AutorizacaoApiServ : Common.BaseApiServices {
         public AutorizacaoApiServ(
             AutorizacaoApp appAutorizacao,
-            IApiDescriptionGroupCollectionProvider apiExplorer)
-        {
+            IApiDescriptionGroupCollectionProvider apiExplorer) {
             _appAutorizacao = appAutorizacao;
             _apiExplorer = apiExplorer;
         }
@@ -23,16 +18,13 @@ namespace TemplateApi.Api.ApiServices
 
         private static AutorizacaoApi[] Sincronizar(
             IApiDescriptionGroupCollectionProvider apiExplorer,
-            AutorizacaoApp appAutorizacao)
-        {
+            AutorizacaoApp appAutorizacao) {
             IList<AutorizacaoApi> resultado = new List<AutorizacaoApi>();
 
             ApiDescriptionGroup[] grupos = apiExplorer.ApiDescriptionGroups.Items.ToArray();
-            foreach (ApiDescriptionGroup grupo in grupos)
-            {
+            foreach (ApiDescriptionGroup grupo in grupos) {
                 ApiDescription[] itens = grupo.Items.ToArray();
-                foreach (ApiDescription item in itens)
-                {
+                foreach (ApiDescription item in itens) {
                     resultado.Add(new AutorizacaoApi(item));
                 }
             }
@@ -40,16 +32,13 @@ namespace TemplateApi.Api.ApiServices
             return resultado.ToArray();
         }
 
-        public AutorizacaoApi[] Autorizacoes
-        {
+        public AutorizacaoApi[] Autorizacoes {
             get => _autorizacoes ??= Sincronizar(_apiExplorer, _appAutorizacao);
         }
 
-        public AutenticacaoApi Aplicar(Autenticacao dados)
-        {
+        public AutenticacaoApi Aplicar(Autenticacao dados) {
             Notifications.Clear();
-            AutenticacaoApi resultado = new AutenticacaoApi(dados)
-            {
+            AutenticacaoApi resultado = new(dados) {
                 Autorizacoes = Autorizacoes.Where(
                 x => x.EstaAutorizado(dados.Autorizacoes)).ToArray()
             };

@@ -1,22 +1,17 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.UsuarioDataModel
-{
+namespace TemplateApi.Api.DataModels.UsuarioDataModel {
     public class ExcluirUsuarioDataModel
-        : Common.BaseDataModel<ExcluirUsuarioDataModel>
-    {
+        : Common.BaseDataModel<ExcluirUsuarioDataModel> {
         private IList<IntInput> _usuario;
         /// <summary>
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<IntInput> Usuario
-        {
+        public IList<IntInput> Usuario {
             get => _usuario;
-            set
-            {
+            set {
                 _usuario = value;
                 RegistrarPropriedade();
             }

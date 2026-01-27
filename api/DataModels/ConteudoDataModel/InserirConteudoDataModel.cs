@@ -2,21 +2,17 @@
 using TemplateApi.Compartilhados.ObjetosDeValor;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.ConteudoDataModel
-{
+namespace TemplateApi.Api.DataModels.ConteudoDataModel {
     public class InserirConteudoDataModel
-        : Common.BaseDataModel<InserirConteudoDataModel>
-    {
+        : Common.BaseDataModel<InserirConteudoDataModel> {
         private string _titulo;
         /// <summary>
         /// Título de conteúdo
         /// </summary>
         [Display(Name = "Título")]
-        public string Titulo
-        {
+        public string Titulo {
             get => _titulo;
-            set 
-            { 
+            set {
                 _titulo = value;
                 RegistrarPropriedade();
             }
@@ -26,11 +22,9 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
         /// <summary>
         /// Alias de conteúdo
         /// </summary>
-        public string Alias
-        {
+        public string Alias {
             get => _alias;
-            set
-            {
+            set {
                 _alias = value;
                 RegistrarPropriedade();
             }
@@ -40,11 +34,9 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
         /// <summary>
         /// Texto de conteúdo
         /// </summary>
-        public string Texto
-        {
+        public string Texto {
             get => _texto;
-            set
-            {
+            set {
                 _texto = value;
                 RegistrarPropriedade();
             }
@@ -54,11 +46,9 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public EnumInput<Status> Status
-        {
+        public EnumInput<Status> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }

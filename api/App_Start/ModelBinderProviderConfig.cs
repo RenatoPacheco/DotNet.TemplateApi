@@ -3,12 +3,9 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Api.App_Start.ModelBinderProviders;
 
-namespace TemplateApi.Api
-{
-    public static class ModelBinderProviderConfig
-    {
-        public static void Config(MvcOptions options)
-        {
+namespace TemplateApi.Api {
+    public static class ModelBinderProviderConfig {
+        public static void Config(MvcOptions options) {
             options.ModelBinderProviders.Insert(0, new GuidBinderProvider());
             options.ModelBinderProviders.Insert(0, new TimeSpanBinderProvider());
             options.ModelBinderProviders.Insert(0, new BoolBinderProvider());

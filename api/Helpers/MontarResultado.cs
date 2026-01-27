@@ -5,33 +5,26 @@ using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Dominio.Json;
 
-namespace TemplateApi.Api.Helpers
-{
-    public static class MontarResultado
-    {
-        public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes)
-        {
-            Avisos avisos = new Avisos((int)codigo, notificacoes);
+namespace TemplateApi.Api.Helpers {
+    public static class MontarResultado {
+        public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes) {
+            Avisos avisos = new((int)codigo, notificacoes);
 
-            return new JsonResult(new ComumViewData
-            { 
+            return new JsonResult(new ComumViewData {
                 Avisos = avisos
             }, ConfiguracaoJson.Escrita());
         }
 
-        public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes, object dados)
-        {
-            Avisos avisos = new Avisos((int)codigo, notificacoes);
+        public static JsonResult Json(HttpStatusCode codigo, ValidationNotification notificacoes, object dados) {
+            Avisos avisos = new((int)codigo, notificacoes);
 
-            return new JsonResult(new ComumViewData<object>
-            {
+            return new JsonResult(new ComumViewData<object> {
                 Avisos = avisos,
                 Dados = dados
             }, ConfiguracaoJson.Escrita());
         }
 
-        public static JsonResult Json(object dados)
-        {
+        public static JsonResult Json(object dados) {
             return new JsonResult(dados, ConfiguracaoJson.Escrita());
         }
     }

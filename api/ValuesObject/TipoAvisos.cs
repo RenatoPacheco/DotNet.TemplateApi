@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Api.ValuesObject
-{
-    public enum TipoAvisos
-    {
+namespace TemplateApi.Api.ValuesObject {
+    public enum TipoAvisos {
         Erro,
         Sucesso,
         [Display(Name = "Atenção")]

@@ -1,20 +1,16 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.StorageDataModel
-{
+namespace TemplateApi.Api.DataModels.StorageDataModel {
     public class EditarStorageDataModel
-        : Common.BaseDataModel<EditarStorageDataModel>
-    {
+        : Common.BaseDataModel<EditarStorageDataModel> {
         private LongInput _storage;
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public LongInput Storage
-        {
+        public LongInput Storage {
             get => _storage;
-            set
-            {
+            set {
                 _storage = value;
                 RegistrarPropriedade();
             }
@@ -24,11 +20,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Nome de storage
         /// </summary>
-        public string Nome
-        {
+        public string Nome {
             get => _nome;
-            set
-            {
+            set {
                 _nome = value;
                 RegistrarPropriedade();
             }
@@ -38,11 +32,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Status de srorage
         /// </summary>
-        public EnumInput<Status> Status
-        {
+        public EnumInput<Status> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }

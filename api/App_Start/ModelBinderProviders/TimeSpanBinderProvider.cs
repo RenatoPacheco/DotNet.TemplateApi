@@ -3,21 +3,16 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.App_Start.ModelBinderProviders
-{
-    public class TimeSpanBinderProvider : IModelBinderProvider
-    {
-        public IModelBinder GetBinder(ModelBinderProviderContext context)
-        {
-            if (context == null)
-            {
+namespace TemplateApi.Api.App_Start.ModelBinderProviders {
+    public class TimeSpanBinderProvider : IModelBinderProvider {
+        public IModelBinder GetBinder(ModelBinderProviderContext context) {
+            if (context == null) {
                 throw new ArgumentNullException(nameof(context));
             }
 
             if (context.Metadata.ModelType == typeof(TimeSpan)
                 || context.Metadata.ModelType == typeof(TimeSpan?)
-                || context.Metadata.ModelType == typeof(TimeSpanInput))
-            {
+                || context.Metadata.ModelType == typeof(TimeSpanInput)) {
                 return new BinderTypeModelBinder(typeof(TimeSpanModelBinder));
             }
 

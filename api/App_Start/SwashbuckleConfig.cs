@@ -1,12 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Text;
+﻿using System.Text;
 using BitHelp.Core.Type.pt_BR;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Builder;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Api.App_Start.Swashbuckles;
-using Microsoft.Extensions.DependencyInjection;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Compartilhados.ObjetosDeValor;
@@ -14,21 +10,16 @@ using TemplateApi.Dominio.Comandos.Comum;
 using Microsoft.OpenApi.Any;
 using Microsoft.AspNetCore.Mvc.Controllers;
 
-namespace TemplateApi.Api
-{
-    public static class SwashbuckleConfig
-    {
-        public static void Config(IServiceCollection services)
-        {
-            Sobre sobre = new Sobre();
+namespace TemplateApi.Api {
+    public static class SwashbuckleConfig {
+        public static void Config(IServiceCollection services) {
+            Sobre sobre = new();
 
-            services.AddSwaggerGen(options =>
-            {
+            services.AddSwaggerGen(options => {
 
-                StringBuilder texto = new StringBuilder();
+                StringBuilder texto = new();
 
-                options.SwaggerDoc("v1", new OpenApiInfo
-                {
+                options.SwaggerDoc("v1", new OpenApiInfo {
                     Title = AppSettings.Nome,
                     Version = "v1",
                     Description = $@"<p>Um projeto para montrar uma estrutura base de reursos e 
@@ -45,23 +36,19 @@ namespace TemplateApi.Api
                             </ul>
                         </p>"
                     ,
-                    Contact = new OpenApiContact()
-                    {
+                    Contact = new OpenApiContact() {
                         Name = AppSettings.Autor.Nome,
                         Email = AppSettings.Autor.Email,
                         Url = new Uri(AppSettings.Autor.Url)
                     },
                 });
 
-                options.TagActionsBy(api =>
-                {
-                    if (api.GroupName != null)
-                    {
+                options.TagActionsBy(api => {
+                    if (api.GroupName != null) {
                         return new[] { api.GroupName };
                     }
 
-                    if (api.ActionDescriptor is ControllerActionDescriptor controllerActionDescriptor)
-                    {
+                    if (api.ActionDescriptor is ControllerActionDescriptor controllerActionDescriptor) {
                         return new[] { controllerActionDescriptor.ControllerName };
                     }
 
@@ -76,8 +63,7 @@ namespace TemplateApi.Api
                 texto.Append("<br><br><center><strong>!!! IMPORTANTE !!!</strong></center>");
                 texto.Append("<br/>Esse é só um template, não deixe os valores aparecerem aqui nem use esses valores!<br>&nbsp;");
 
-                options.AddSecurityDefinition("Chave pública", new OpenApiSecurityScheme
-                {
+                options.AddSecurityDefinition("Chave pública", new OpenApiSecurityScheme {
                     Description = texto.ToString(),
                     Name = "Chave-Publica",
                     In = ParameterLocation.Header,
@@ -102,8 +88,7 @@ namespace TemplateApi.Api
                 texto.Append("<br><br><center><strong>!!! IMPORTANTE !!!</strong></center>");
                 texto.Append("<br/>Esse é só um template, não deixe os valores aparecerem aqui nem use esses valores!<br>&nbsp;");
 
-                options.AddSecurityDefinition("Autorização", new OpenApiSecurityScheme
-                {
+                options.AddSecurityDefinition("Autorização", new OpenApiSecurityScheme {
                     Description = texto.ToString(),
                     Name = "Authorization",
                     Scheme = "Bearer",
@@ -132,15 +117,13 @@ namespace TemplateApi.Api
                 // https://swagger.io/docs/specification/data-models/data-types/
 
                 options.MapType<PhoneType>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "string",
                         Format = "phone",
                         Example = new OpenApiString("(12) 93456-7890")
                     });
                 options.MapType<PhoneType?>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "string",
                         Format = "phone",
                         Nullable = true,
@@ -148,48 +131,42 @@ namespace TemplateApi.Api
                     });
 
                 options.MapType<IntInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "number",
                         Format = "int32",
                         Nullable = true
                     });
 
                 options.MapType<LongInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "number",
                         Format = "int64",
                         Nullable = true
                     });
 
                 options.MapType<DecimalInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "number",
                         Format = "decimal",
                         Nullable = true
                     });
 
                 options.MapType<DoubleInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "number",
                         Format = "double",
                         Nullable = true
                     });
 
                 options.MapType<FloatInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "number",
                         Format = "float",
                         Nullable = true
                     });
 
                 options.MapType<DateTimeInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "strting",
                         Format = "date-time",
                         Nullable = true,
@@ -197,15 +174,13 @@ namespace TemplateApi.Api
                     });
 
                 options.MapType<TimeSpan>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "string",
                         Format = "time",
                         Example = new OpenApiString(TimeSpan.FromSeconds(5346).ToString())
                     });
                 options.MapType<TimeSpan?>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "string",
                         Format = "time",
                         Nullable = true,
@@ -213,8 +188,7 @@ namespace TemplateApi.Api
                     });
 
                 options.MapType<TimeSpanInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "strting",
                         Format = "time",
                         Nullable = true,
@@ -222,8 +196,7 @@ namespace TemplateApi.Api
                     });
 
                 options.MapType<GuidInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "strting",
                         Format = "uuid",
                         Nullable = true,
@@ -231,14 +204,13 @@ namespace TemplateApi.Api
                     });
 
                 options.MapType<BoolInput>(
-                    () => new OpenApiSchema
-                    {
+                    () => new OpenApiSchema {
                         Type = "boolean",
                         Nullable = true
                     });
 
                 options.MapTypeEnum<Status>();
-                
+
                 options.MapTypeEnum<ContextoCmd>();
 
                 options.MapTypeEnum<TipoAvisos>();
@@ -249,8 +221,7 @@ namespace TemplateApi.Api
             });
         }
 
-        public static void Config(IApplicationBuilder app)
-        {
+        public static void Config(IApplicationBuilder app) {
             app.UseSwagger();
             app.UseSwaggerUI();
         }

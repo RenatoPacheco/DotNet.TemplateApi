@@ -40,8 +40,7 @@ AppSettingsConfig.Config(app.Environment);
 CultureInfoConfig.Config(app);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
     app.UseDeveloperExceptionPage();
     SwashbuckleConfig.Config(app);
 }
@@ -61,5 +60,5 @@ app.MapControllers();
 
 app.Run();
 
-// Tive de adicionar essa linha para rodar o teste de integra��o
+// Tive de adicionar essa linha para rodar o teste de integração
 public partial class Program { }

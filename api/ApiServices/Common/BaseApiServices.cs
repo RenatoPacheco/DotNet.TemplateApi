@@ -1,8 +1,6 @@
-﻿namespace TemplateApi.Api.ApiServices.Common
-{
+﻿namespace TemplateApi.Api.ApiServices.Common {
     public abstract class BaseApiServices
-        : Dominio.Servicos.Comum.BaseServico
-    {
+        : Dominio.Servicos.Comum.BaseServico {
 
     }
 }

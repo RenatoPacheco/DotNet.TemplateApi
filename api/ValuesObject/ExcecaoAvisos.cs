@@ -1,11 +1,6 @@
-﻿using System;
-
-namespace TemplateApi.Api.ValuesObject
-{
-    public class ExcecaoAvisos
-    {
-        public ExcecaoAvisos(Exception ex)
-        {
+﻿namespace TemplateApi.Api.ValuesObject {
+    public class ExcecaoAvisos {
+        public ExcecaoAvisos(Exception ex) {
             ClassName = ex.GetType().ToString();
             Message = ex.Message;
             HelpLink = ex.HelpLink;

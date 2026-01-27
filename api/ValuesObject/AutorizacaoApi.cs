@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -9,12 +7,9 @@ using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 using Newtonsoft.Json;
 
-namespace TemplateApi.Api.ValuesObject
-{
-    public class AutorizacaoApi : ICloneable
-    {
-        public AutorizacaoApi(ApiDescription apiInfo)
-        {
+namespace TemplateApi.Api.ValuesObject {
+    public class AutorizacaoApi : ICloneable {
+        public AutorizacaoApi(ApiDescription apiInfo) {
             ControllerActionDescriptor actionDescriptor = (ControllerActionDescriptor)apiInfo.ActionDescriptor;
             Metodo = actionDescriptor.MethodInfo;
             Classe = actionDescriptor.ControllerTypeInfo;
@@ -87,27 +82,23 @@ namespace TemplateApi.Api.ValuesObject
         [Display(Name = "Observação")]
         public string Observacao { get; set; }
 
-        public bool EstaAutorizado(Autorizacao[] compare)
-        {
+        public bool EstaAutorizado(Autorizacao[] compare) {
             return !(Referencia is null) && compare.Any(x => x.Id == Referencia.Id);
         }
 
-        public bool EstaAutorizado(Autorizacao compare)
-        {
+        public bool EstaAutorizado(Autorizacao compare) {
             return !(Referencia is null) && compare?.Id == Referencia.Id;
         }
 
-        private string ExtrairNome(MethodInfo metodo)
-        {
+        private string ExtrairNome(MethodInfo metodo) {
             DisplayAttribute atributo = metodo.GetCustomAttributes(
                 typeof(DisplayAttribute), true)
                 .FirstOrDefault() as DisplayAttribute;
 
             return atributo?.Name;
-        }        
+        }
 
-        private Autorizacao ExtrairReferencia(MethodInfo metodo)
-        {
+        private Autorizacao ExtrairReferencia(MethodInfo metodo) {
             ReferenciarAppAttribute atributo = metodo.GetCustomAttributes(
                 typeof(ReferenciarAppAttribute), true)
                 .Select(x => x as ReferenciarAppAttribute).FirstOrDefault();
@@ -115,8 +106,7 @@ namespace TemplateApi.Api.ValuesObject
             return atributo?.ExtrairAutorizacao();
         }
 
-        private void ExtrairObsoleto(MethodInfo metodo)
-        {
+        private void ExtrairObsoleto(MethodInfo metodo) {
             ObsoleteAttribute info = metodo.GetCustomAttributes(
                 typeof(ObsoleteAttribute), true)
                 .FirstOrDefault() as ObsoleteAttribute;
@@ -125,8 +115,7 @@ namespace TemplateApi.Api.ValuesObject
             Observacao = info?.Message;
         }
 
-        public object Clone()
-        {
+        public object Clone() {
             return (AutorizacaoApi)MemberwiseClone();
         }
     }

@@ -2,138 +2,112 @@
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.TesteDataModel
-{
+namespace TemplateApi.Api.DataModels.TesteDataModel {
     public class FormatosTesteDataModel
-        : Common.BaseDataModel<FormatosTesteDataModel>
-    {
+        : Common.BaseDataModel<FormatosTesteDataModel> {
         private string _string;
-        public string String
-        {
+        public string String {
             get => _string;
-            set
-            {
+            set {
                 _string = value;
                 RegistrarPropriedade();
             }
         }
 
         private IntInput _int;
-        public IntInput Int
-        {
+        public IntInput Int {
             get => _int;
-            set
-            {
+            set {
                 _int = value;
                 RegistrarPropriedade();
             }
         }
 
         private LongInput _long;
-        public LongInput Long
-        {
+        public LongInput Long {
             get => _long;
-            set
-            {
+            set {
                 _long = value;
                 RegistrarPropriedade();
             }
         }
 
         private DecimalInput _decimal;
-        public DecimalInput Decimal
-        {
+        public DecimalInput Decimal {
             get => _decimal;
-            set
-            {
+            set {
                 _decimal = value;
                 RegistrarPropriedade();
             }
         }
 
         private DoubleInput _double;
-        public DoubleInput Double
-        {
+        public DoubleInput Double {
             get => _double;
-            set
-            {
+            set {
                 _double = value;
                 RegistrarPropriedade();
             }
         }
 
         private FloatInput _float;
-        public FloatInput Float
-        {
+        public FloatInput Float {
             get => _float;
-            set
-            {
+            set {
                 _float = value;
                 RegistrarPropriedade();
             }
         }
 
         private BoolInput _bool;
-        public BoolInput Bool
-        {
+        public BoolInput Bool {
             get => _bool;
-            set
-            {
+            set {
                 _bool = value;
                 RegistrarPropriedade();
             }
         }
 
         private DateTimeInput _dateTime;
-        public DateTimeInput DateTime
-        {
+        public DateTimeInput DateTime {
             get => _dateTime;
-            set
-            {
+            set {
                 _dateTime = value;
                 RegistrarPropriedade();
             }
         }
 
         private TimeSpanInput _timeSpan;
-        public TimeSpanInput TimeSpan
-        {
+        public TimeSpanInput TimeSpan {
             get => _timeSpan;
-            set
-            {
+            set {
                 _timeSpan = value;
                 RegistrarPropriedade();
             }
         }
 
         private GuidInput _guid;
-        public GuidInput Guid
-        {
+        public GuidInput Guid {
             get => _guid;
-            set
-            {
+            set {
                 _guid = value;
                 RegistrarPropriedade();
             }
         }
 
         private EnumInput<Status> _enum;
-        public EnumInput<Status> Enum
-        {
+        public EnumInput<Status> Enum {
             get => _enum;
-            set
-            {
+            set {
                 _enum = value;
                 RegistrarPropriedade();
             }
         }
 
         private PhoneType? _phone;
-        public PhoneType? Phone
-        {
+        public PhoneType? Phone {
             get => _phone;
-            set
-            {
+            set {
                 _phone = value;
                 RegistrarPropriedade();
             }

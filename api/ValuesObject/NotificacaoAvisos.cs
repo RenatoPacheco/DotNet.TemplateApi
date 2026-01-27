@@ -1,14 +1,10 @@
-﻿using System;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 using TemplateApi.Compartilhados.Extensoes;
 using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Api.ValuesObject
-{
-    public class NotificacaoAvisos
-    {
-        public NotificacaoAvisos(string mensagem, string referencia)
-        {
+namespace TemplateApi.Api.ValuesObject {
+    public class NotificacaoAvisos {
+        public NotificacaoAvisos(string mensagem, string referencia) {
             Id = Guid.NewGuid().ToString("N");
             Data = DateTime.Now;
             Mensagem = mensagem;
@@ -16,8 +12,7 @@ namespace TemplateApi.Api.ValuesObject
             Tipo = TipoAvisos.Erro;
         }
 
-        public NotificacaoAvisos(ValidationMessage dados)
-        {
+        public NotificacaoAvisos(ValidationMessage dados) {
             Id = dados.Id.ToString("N");
             Data = dados.Date;
             Mensagem = dados.Message;
@@ -34,8 +29,7 @@ namespace TemplateApi.Api.ValuesObject
 
         private string _referencia;
         [Display(Name = "Referência")]
-        public string Referencia
-        {
+        public string Referencia {
             get { return _referencia ??= string.Empty; }
             set { _referencia = (value ?? string.Empty).ToJsonReference(); }
         }
@@ -45,18 +39,15 @@ namespace TemplateApi.Api.ValuesObject
         [Display(Name = "Exceção")]
         public ExcecaoAvisos Excecao { get; set; }
 
-        public bool EhValido()
-        {
+        public bool EhValido() {
             return !(Tipo == TipoAvisos.Erro
                 || Tipo == TipoAvisos.NaoAutorizado
                 || Tipo == TipoAvisos.NaoEncontrado);
         }
 
-        private TipoAvisos InterpretarTipo(ValidationType dados)
-        {
+        private TipoAvisos InterpretarTipo(ValidationType dados) {
             TipoAvisos resultado;
-            switch (dados)
-            {
+            switch (dados) {
                 case ValidationType.Success:
                     resultado = TipoAvisos.Sucesso;
                     break;

@@ -1,23 +1,18 @@
-﻿using System.Collections.Generic;
-using TemplateApi.Dominio.Comandos.Comum;
+﻿using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhados.ObjetosDeValor;
 
-namespace TemplateApi.Api.DataModels.StorageDataModel
-{
+namespace TemplateApi.Api.DataModels.StorageDataModel {
     public class FiltrarStorageDataModel
-        : Common.FiltrarBaseDataModel<FiltrarStorageDataModel>
-    {
+        : Common.FiltrarBaseDataModel<FiltrarStorageDataModel> {
         private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public EnumInput<ContextoCmd> Contexto
-        {
+        public EnumInput<ContextoCmd> Contexto {
             get => _contexto;
-            set
-            {
+            set {
                 _contexto = value;
                 RegistrarPropriedade();
             }
@@ -27,11 +22,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public IList<LongInput> Storage
-        {
+        public IList<LongInput> Storage {
             get => _storage;
-            set
-            {
+            set {
                 _storage = value;
                 RegistrarPropriedade();
             }
@@ -42,11 +35,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// Referência de storage
         /// </summary>
         [Display(Name = "Referência")]
-        public IList<string> Referencia
-        {
+        public IList<string> Referencia {
             get => _referencia;
-            set
-            {
+            set {
                 _referencia = value;
                 RegistrarPropriedade();
             }
@@ -56,11 +47,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Alias de storage
         /// </summary>
-        public IList<string> Alias
-        {
+        public IList<string> Alias {
             get => _alias;
-            set
-            {
+            set {
                 _alias = value;
                 RegistrarPropriedade();
             }
@@ -70,11 +59,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public IList<EnumInput<Status>> Status
-        {
+        public IList<EnumInput<Status>> Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
             }

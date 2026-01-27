@@ -1,19 +1,11 @@
 ﻿using AutoMapper;
 using TemplateApi.Api.App_Start.AutoMappers;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
 
-namespace TemplateApi.Api
-{
-    public static class AutoMapperConfig
-    {
-        public static void Config(IServiceCollection services)
-        {
-            services.AddSingleton(provider =>
-            {
-                MapperConfiguration config = new MapperConfiguration(cfg =>
-                {
+namespace TemplateApi.Api {
+    public static class AutoMapperConfig {
+        public static void Config(IServiceCollection services) {
+            services.AddSingleton(provider => {
+                MapperConfiguration config = new(cfg => {
                     IServiceProvider invock = provider.CreateScope().ServiceProvider;
                     string basNnamespace = typeof(ConteudoProfile).Namespace;
                     Type[] listType = typeof(ConteudoProfile)
@@ -25,8 +17,7 @@ namespace TemplateApi.Api
                             && !x.IsAbstract
                             && !x.IsInterface).ToArray();
 
-                    foreach (Type item in listType)
-                    {
+                    foreach (Type item in listType) {
                         cfg.AddProfile(invock.GetService(item) as Profile);
                     }
                 });
