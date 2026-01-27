@@ -9,7 +9,7 @@ using TemplateApi.Api.App_Start.Swashbuckles;
 using Microsoft.Extensions.DependencyInjection;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Api.ValuesObject;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 using Microsoft.OpenApi.Any;
 using Microsoft.AspNetCore.Mvc.Controllers;

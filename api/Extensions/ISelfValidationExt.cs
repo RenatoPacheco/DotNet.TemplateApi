@@ -3,7 +3,7 @@ using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 
 namespace TemplateApi.Api.Extensions
 {

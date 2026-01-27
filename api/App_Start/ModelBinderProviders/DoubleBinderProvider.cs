@@ -1,7 +1,7 @@
 ﻿using TemplateApi.Api.App_Start.ModelBinders;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.ModelBinderProviders
 {

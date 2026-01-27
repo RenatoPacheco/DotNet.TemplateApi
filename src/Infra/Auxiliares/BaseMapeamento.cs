@@ -3,7 +3,7 @@ using System.Linq;
 using BitHelp.Core.Extend;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhados.Extensoes;
 
 namespace TemplateApi.Infra.Auxiliares
 {

@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Adaptadores;
-using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhados.Extensoes;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
 namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ

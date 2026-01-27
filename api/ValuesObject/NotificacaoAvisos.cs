@@ -1,6 +1,6 @@
 ﻿using System;
 using BitHelp.Core.Validation;
-using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhados.Extensoes;
 using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Api.ValuesObject

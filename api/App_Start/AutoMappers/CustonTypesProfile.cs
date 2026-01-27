@@ -2,7 +2,7 @@
 using AutoMapper;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 
 namespace TemplateApi.Api.App_Start.AutoMappers
 {

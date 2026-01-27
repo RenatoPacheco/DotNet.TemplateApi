@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Infra.Adaptadores;
-using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhados.Extensoes;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
 namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ

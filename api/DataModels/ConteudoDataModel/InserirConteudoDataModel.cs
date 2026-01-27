@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.ConteudoDataModel

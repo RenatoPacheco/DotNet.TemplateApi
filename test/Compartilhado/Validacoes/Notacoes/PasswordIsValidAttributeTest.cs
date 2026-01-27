@@ -1,4 +1,4 @@
-﻿using TemplateApi.Compartilhado.Validacoes.Notacoes;
+﻿using TemplateApi.Compartilhados.Validacoes.Notacoes;
 using Xunit;
 
 namespace TemplateApi.Teste.Compartilhado.Validacoes.Notacoes

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using TemplateApi.Api.ApiServices;
-using TemplateApi.Compartilhado.IdC;
+using TemplateApi.Compartilhados.IdC;
 using TemplateApi.Api.ApiApplications;
 using TemplateApi.Api.App_Start.AutoMappers;
 

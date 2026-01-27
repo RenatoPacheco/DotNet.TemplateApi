@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.UsuarioDataModel
 {

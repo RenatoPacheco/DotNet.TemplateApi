@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Adaptadores;
-using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhados.Extensoes;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 
 namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ

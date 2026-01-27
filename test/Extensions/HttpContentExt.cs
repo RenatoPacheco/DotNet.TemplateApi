@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TemplateApi.Api.ViewsData;
 using System.Collections.Generic;
-using TemplateApi.Compartilhado.Json;
+using TemplateApi.Compartilhados.Json;
 
 namespace TemplateApi.Teste.Extensions
 {

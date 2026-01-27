@@ -1,8 +1,8 @@
 ﻿using BitHelp.Core.Type.pt_BR;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
-using TemplateApi.Compartilhado.ObjetosDeValor;
-using TemplateApi.Compartilhado.Json.Notacoes;
+using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Json.Notacoes;
 
 namespace TemplateApi.Api.DataModels.UsuarioDataModel
 {

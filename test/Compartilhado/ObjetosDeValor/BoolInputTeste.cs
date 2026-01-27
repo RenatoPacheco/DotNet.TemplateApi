@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using TemplateApi.Compartilhado.ObjetosDeValor;
+using TemplateApi.Compartilhados.ObjetosDeValor;
 using System;
 
 namespace TemplateApi.Teste.Compartilhado.ObjetosDeValor

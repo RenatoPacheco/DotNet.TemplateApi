@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using TemplateApi.Compartilhado.Extensoes;
+using TemplateApi.Compartilhados.Extensoes;
 
 namespace TemplateApi.Api.Helpers
 {

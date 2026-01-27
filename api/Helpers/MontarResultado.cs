@@ -3,7 +3,7 @@ using BitHelp.Core.Validation;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.ValuesObject;
-using TemplateApi.Compartilhado.Json;
+using TemplateApi.Compartilhados.Json;
 
 namespace TemplateApi.Api.Helpers
 {
