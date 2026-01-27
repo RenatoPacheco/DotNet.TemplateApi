@@ -4,13 +4,12 @@ using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.Json.JsonConverte;
 
-namespace TemplateApi.Compartilhados.Json
-{
-    public static class ConfiguracaoJson
-    {
-        private static JsonSerializerSettings Base(JsonSerializerSettings config = null)
-        {
-            JsonSerializerSettings resultado = config 
+namespace TemplateApi.Dominio.Json {
+
+    public static class ConfiguracaoJson {
+
+        private static JsonSerializerSettings Base(JsonSerializerSettings config = null) {
+            JsonSerializerSettings resultado = config
                 ?? new JsonSerializerSettings();
 
             resultado.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -41,8 +40,7 @@ namespace TemplateApi.Compartilhados.Json
         /// <summary>
         /// Essa é a configuração padrão se nada for definido
         /// </summary>
-        public static JsonSerializerSettings Leitura(JsonSerializerSettings config = null)
-        {
+        public static JsonSerializerSettings Leitura(JsonSerializerSettings config = null) {
             JsonSerializerSettings resultado = Base(config);
             return resultado;
         }
@@ -50,8 +48,7 @@ namespace TemplateApi.Compartilhados.Json
         /// <summary>
         /// Essa é a configuração padrão se nada for definido
         /// </summary>
-        public static JsonSerializerSettings Escrita(JsonSerializerSettings config = null)
-        {
+        public static JsonSerializerSettings Escrita(JsonSerializerSettings config = null) {
             JsonSerializerSettings resultado = Base(config);
             resultado.NullValueHandling = NullValueHandling.Ignore;
             return resultado;

@@ -3,7 +3,7 @@ using BitHelp.Core.Validation;
 using TemplateApi.Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using TemplateApi.Compartilhados.Json;
+using TemplateApi.Dominio.Json;
 
 namespace TemplateApi.Api.Extensions
 {

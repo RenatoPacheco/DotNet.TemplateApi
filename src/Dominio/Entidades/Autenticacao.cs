@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using TemplateApi.Compartilhados.Json;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.Protecoes;
 using System.ComponentModel.DataAnnotations;
+using TemplateApi.Dominio.Json;
 
 namespace TemplateApi.Dominio.Entidades
 {

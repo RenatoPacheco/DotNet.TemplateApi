@@ -1,5 +1,5 @@
 using TemplateApi.Api;
-using TemplateApi.Compartilhados.Json;
+using TemplateApi.Dominio.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 

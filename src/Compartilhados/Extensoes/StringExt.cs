@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using TemplateApi.Compartilhados.Json;
+using TemplateApi.Dominio.Json;
 
 namespace TemplateApi.Compartilhados.Extensoes
 {
