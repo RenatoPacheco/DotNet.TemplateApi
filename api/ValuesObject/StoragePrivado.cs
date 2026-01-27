@@ -6,7 +6,7 @@ namespace TemplateApi.Api.ValuesObject {
     public class StoragePrivado : Arquivo {
         public StoragePrivado(
             IFormFile formFile, RequestApiServ request) {
-            string folder = $"storage/{DateTime.Now:yyyy/MM/dd}";
+            string folder = $"storage/private/{DateTime.Now:yyyy/MM/dd}";
 
 
             _formFile = formFile;

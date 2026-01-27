@@ -20,7 +20,8 @@ namespace TemplateApi.Api.App_Start.AutoMappers {
                 .ForMember(cmd => cmd.Arquivo, opts => {
                     opts.Condition((src, dest, srcMember)
                         => src.PropriedadeRegistrada(x => x.Arquivo));
-                    opts.MapFrom(src => src.Arquivo == null ? null : src.Arquivo.Select(x => new StoragePrivado(x, _apiServRequest)));
+                    opts.MapFrom(src => src.Arquivo == null ? null
+                        : src.Arquivo.Select(x => new StoragePrivado(x, _apiServRequest)));
                 });
 
             #endregion
