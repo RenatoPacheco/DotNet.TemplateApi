@@ -2,14 +2,13 @@
 using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
-using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.Controllers.Services {
 
-    [ApiController, NaoRequerAutorizacao]
+    [ApiController]
     [Route("Servico/[controller]")]
     public class SobreController : Common.BaseApiController {
         public SobreController(

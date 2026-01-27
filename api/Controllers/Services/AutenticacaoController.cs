@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
-using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Api.ApiApplications;
@@ -11,7 +10,7 @@ using TemplateApi.Api.ValuesObject;
 
 namespace TemplateApi.Api.Controllers.Services {
 
-    [ApiController, NaoRequerAutorizacao]
+    [ApiController]
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Autenticação")]
     public class AutenticacaoController : Common.BaseApiController {
