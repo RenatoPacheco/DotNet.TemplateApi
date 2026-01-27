@@ -18,7 +18,7 @@ namespace TemplateApi.Dominio.Entidades
                 string decodificado = Codificacao.Decriptar(token);
                 if (!string.IsNullOrWhiteSpace(decodificado))
                 {
-                    resultado = ContratoJson.Desserializar<Autenticacao>(decodificado);
+                    resultado = ConverterJson.Desserializar<Autenticacao>(decodificado);
                     resultado.Token = token;
                 }
             }
@@ -125,7 +125,7 @@ namespace TemplateApi.Dominio.Entidades
 
             if (!EhInterno && EstaAutenticado)
             {
-                Token = ContratoJson.Serializar(this);
+                Token = ConverterJson.Serializar(this);
                 Token = Codificacao.Encriptar(Token);
             }
 

@@ -8,18 +8,6 @@ namespace TemplateApi.Dominio.Json {
 
     public class ContratoJson : DefaultContractResolver {
 
-        public static string Serializar(object valor, JsonSerializerSettings settings = null) {
-            return JsonConvert.SerializeObject(valor, ConfiguracaoJson.Leitura(settings));
-        }
-
-        public static T Desserializar<T>(string valor, JsonSerializerSettings settings = null) {
-            return JsonConvert.DeserializeObject<T>(valor, ConfiguracaoJson.Leitura(settings));
-        }
-
-        public static object Desserializar(string valor, Type tipo, JsonSerializerSettings settings = null) {
-            return JsonConvert.DeserializeObject(valor, tipo, settings ?? ConfiguracaoJson.Leitura(settings));
-        }
-
         public ContratoJson()
             : base() {
             // Aplicar o comportamento de CamelCasePropertyNamesContractResolver

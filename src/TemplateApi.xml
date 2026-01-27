@@ -110,16 +110,6 @@
             </summary>
             <param name="resolve">Informar a classe que vai resolver as dependencias</param>
         </member>
-        <member name="M:TemplateApi.Compartilhados.Json.ConfiguracaoJson.Leitura(Newtonsoft.Json.JsonSerializerSettings)">
-            <summary>
-            Essa é a configuração padrão se nada for definido
-            </summary>
-        </member>
-        <member name="M:TemplateApi.Compartilhados.Json.ConfiguracaoJson.Escrita(Newtonsoft.Json.JsonSerializerSettings)">
-            <summary>
-            Essa é a configuração padrão se nada for definido
-            </summary>
-        </member>
         <member name="F:TemplateApi.Compartilhados.ObjetosDeValor.BoolInput.Empty">
             <summary>
             Return value string.Empty
@@ -893,6 +883,16 @@
         <member name="P:TemplateApi.Dominio.Comandos.UsuarioCmds.InserirUsuarioCmd.Status">
             <summary>
             Status de usuário
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Dominio.Json.ConfiguracaoJson.Leitura(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Essa é a configuração padrão se nada for definido
+            </summary>
+        </member>
+        <member name="M:TemplateApi.Dominio.Json.ConfiguracaoJson.Escrita(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Essa é a configuração padrão se nada for definido
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.ObjetosDeValor.ResultadoBusca`1.TotalDeResultados">

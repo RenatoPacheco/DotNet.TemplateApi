@@ -34,7 +34,7 @@ namespace TemplateApi.Compartilhados.Extensoes
 
         public static T ParseJson<T>(this string source)
         {
-            return ContratoJson.Desserializar<T>(source);
+            return ConverterJson.Desserializar<T>(source);
         }
 
         public static string HideEmail(this string source)
