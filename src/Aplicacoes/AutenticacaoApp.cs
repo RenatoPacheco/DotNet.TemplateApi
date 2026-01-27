@@ -4,9 +4,9 @@ using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 
-namespace TemplateApi.Aplicacao {
+namespace TemplateApi.Aplicacoes {
     public class AutenticacaoApp : Comum.BaseAplicacao {
         public AutenticacaoApp(
             AutenticacaoServ servAutenticacao,

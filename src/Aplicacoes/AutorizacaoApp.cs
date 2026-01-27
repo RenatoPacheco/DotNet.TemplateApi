@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 
-namespace TemplateApi.Aplicacao {
+namespace TemplateApi.Aplicacoes {
     public class AutorizacaoApp : Comum.BaseAplicacao {
         public AutorizacaoApp(
             AutenticacaoServ servAutenticacao,

@@ -3,7 +3,7 @@ using System.Diagnostics;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Servicos;
 
-namespace TemplateApi.Aplicacao.Comum {
+namespace TemplateApi.Aplicacoes.Comum {
     public abstract class BaseAplicacao
         : Dominio.Servicos.Comum.BaseServico {
         public BaseAplicacao(

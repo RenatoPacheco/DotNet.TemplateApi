@@ -2,7 +2,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;

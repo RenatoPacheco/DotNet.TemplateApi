@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace TemplateApi.Aplicacao {
+namespace TemplateApi.Aplicacoes {
     public class UsuarioApp : Comum.BaseAplicacao {
         public UsuarioApp(
             AutenticacaoServ servAutenticacao,

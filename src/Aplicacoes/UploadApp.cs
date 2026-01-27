@@ -2,10 +2,10 @@
 using TemplateApi.Dominio.Servicos;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Interfaces;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 using TemplateApi.Dominio.Comandos.UploadCmds;
 
-namespace TemplateApi.Aplicacao {
+namespace TemplateApi.Aplicacoes {
     public class UploadApp
         : Comum.BaseAplicacao {
         public UploadApp(

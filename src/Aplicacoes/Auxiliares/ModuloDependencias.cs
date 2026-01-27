@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using TemplateApi.Compartilhado.IdC;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 
-namespace TemplateApi.Aplicacao.Auxiliares {
+namespace TemplateApi.Aplicacoes.Auxiliares {
     public class ModuloDependencias
         : BaseModuloDependencias {
         public override Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();

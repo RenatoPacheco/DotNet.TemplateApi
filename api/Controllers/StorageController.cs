@@ -3,7 +3,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
-using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.ObjetosDeValor;

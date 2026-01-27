@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Notacoes;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 
-namespace TemplateApi.Aplicacao {
+namespace TemplateApi.Aplicacoes {
     public class TesteApp : Comum.BaseAplicacao {
         public TesteApp(
                AutenticacaoServ servAutenticacao,

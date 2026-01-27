@@ -3,7 +3,7 @@ using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Aplicacao.Interceptadores {
+namespace TemplateApi.Aplicacoes.Interceptadores {
     public class StorageInter : Comum.BaseInterceptador {
         public StorageInter(
             AutenticacaoServ servAutenticacao)

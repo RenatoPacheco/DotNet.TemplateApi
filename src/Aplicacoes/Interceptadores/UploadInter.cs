@@ -1,7 +1,7 @@
 ﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Comandos.UploadCmds;
 
-namespace TemplateApi.Aplicacao.Interceptadores {
+namespace TemplateApi.Aplicacoes.Interceptadores {
     public class UploadInter : Comum.BaseInterceptador {
         public UploadInter(
             AutenticacaoServ servAutenticacao)

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using TemplateApi.Recurso;
-using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacoes;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ

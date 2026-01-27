@@ -1,7 +1,7 @@
 ﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Aplicacao.Interceptadores {
+namespace TemplateApi.Aplicacoes.Interceptadores {
     public class ConteudoInter : Comum.BaseInterceptador {
         public ConteudoInter(
             AutenticacaoServ servAutenticacao)

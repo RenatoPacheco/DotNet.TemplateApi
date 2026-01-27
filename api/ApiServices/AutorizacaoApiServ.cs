@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacoes;
 
 namespace TemplateApi.Api.ApiServices
 {

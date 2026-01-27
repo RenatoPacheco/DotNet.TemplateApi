@@ -1,4 +1,4 @@
-﻿using TemplateApi.Aplicacao;
+﻿using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Api.DataAnnotations;

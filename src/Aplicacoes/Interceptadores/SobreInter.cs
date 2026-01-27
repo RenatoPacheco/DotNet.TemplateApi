@@ -1,6 +1,6 @@
 ﻿using TemplateApi.Dominio.Servicos;
 
-namespace TemplateApi.Aplicacao.Interceptadores {
+namespace TemplateApi.Aplicacoes.Interceptadores {
     public class SobreInter : Comum.BaseInterceptador {
         public SobreInter(
             AutenticacaoServ servAutenticacao)

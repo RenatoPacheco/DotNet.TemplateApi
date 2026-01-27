@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using AutoMapper;
 using System.Linq;
-using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;

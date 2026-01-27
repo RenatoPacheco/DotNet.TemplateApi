@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using TemplateApi.Aplicacao;
+using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using TemplateApi.Api.ApiServices;
 using TemplateApi.Dominio.Entidades;

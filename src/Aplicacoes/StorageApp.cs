@@ -4,9 +4,9 @@ using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Notacoes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using TemplateApi.Aplicacao.Interceptadores;
+using TemplateApi.Aplicacoes.Interceptadores;
 
-namespace TemplateApi.Aplicacao {
+namespace TemplateApi.Aplicacoes {
     public class StorageApp : Comum.BaseAplicacao {
         public StorageApp(
             AutenticacaoServ servAutenticacao,
