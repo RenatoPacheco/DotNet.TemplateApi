@@ -20,13 +20,13 @@ namespace TemplateApi.Api.ValuesObject
             Classe = actionDescriptor.ControllerTypeInfo;
 
             Referencia = ExtrairReferencia(Metodo);
-            Http = apiInfo.HttpMethod.ToString();
+            Http = apiInfo.HttpMethod?.ToString();
             Rota = apiInfo.RelativePath;
             ExtrairObsoleto(Metodo);
 
             Id = Regex.Match(apiInfo.RelativePath, @"^[^?]+").Value;
             Id = Regex.Replace(Id, @"{[^}]+}", "{Param}").ToLower();
-            Id = $"{Http.ToLower()}:{Id}";
+            Id = $"{Http?.ToLower()}:{Id}";
         }
 
         [JsonIgnore]

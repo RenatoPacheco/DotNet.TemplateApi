@@ -1,0 +1,14 @@
+﻿@model TemplateApi.Api.ViewsData.ErroViewData.IndexErroViewData;
+@{
+    ViewData["Title"] = @Model.Titulo;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/assets/css/erro/erro.css" asp-append-version="true" />
+}
+
+<div class="text-center">
+    <h1 class="display-4">
+        <strong>@Model.Titulo</strong>
+    </h1>
+</div>

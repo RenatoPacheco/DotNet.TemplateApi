@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 AppSettingsConfig.Config(builder.Configuration);
 
+// Configuração para MVC
+builder.Services.AddControllersWithViews();
+// ----------------------
+
 builder.Services.AddHttpContextAccessor();
 
 CorsConfig.Config(builder.Services);
@@ -46,11 +50,16 @@ FileConfig.Config(app);
 
 app.UseHttpsRedirection();
 
+// Configuração para MVC
+app.UseRouting();
+MiddlewareConfig.Config(app);
+// ----------------------
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
 
-// Tive de adicionar essa linha para rodar o teste de integra��o
+// Tive de adicionar essa linha para rodar o teste de integra��o
 public partial class Program { }

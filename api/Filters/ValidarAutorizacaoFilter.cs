@@ -1,12 +1,12 @@
 ﻿using System.Net;
-using BitHelp.Core.Validation;
 using TemplateApi.Recurso;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc.Controllers;
+using BitHelp.Core.Validation;
 using TemplateApi.Api.Helpers;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Api.ApiApplications;
+using Microsoft.AspNetCore.Mvc.Filters;
 using TemplateApi.Dominio.ObjetosDeValor;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace TemplateApi.Api.Filters
 {
@@ -31,29 +31,40 @@ namespace TemplateApi.Api.Filters
             ControllerActionDescriptor action = context.ActionDescriptor as ControllerActionDescriptor;
             
             bool ignorarFiltro = action.MethodInfo.GetCustomAttributes(
-                typeof(IgnorarFiltroAutorizacaoAttribute), true)
-                .Select(x => x as IgnorarFiltroAutorizacaoAttribute).Any();
+                typeof(IgnorarFiltroAutorizacaoAttribute), true).Any();
 
             if (!ignorarFiltro && !_autenticacaoApiServ.EstaAutorizado(action))
             {
                 Autorizacao requisito = _autenticacaoApiServ.ExtrairAutorizacao(action);
                 ValidationNotification notificacao = new ValidationNotification();
+                
                 if (!_autenticacaoApiServ.HaChavePublica() && requisito.RequerChavePublica)
                 {
                     notificacao.AddError(AvisosResx.ChavePublicaNaoRecebiada);
                 }
+                
                 if (!_autenticacaoApiServ.HaToken() && requisito.RequerAutorizacao)
                 {
                     notificacao.AddError(AvisosResx.TokenDeAutenticacaoNaoRecebido);
                 }
+                
                 if (notificacao.IsValid())
                 {
                     notificacao.AddError(AvisosResx.AcessoNaoAutorizado);
                 }
+                
                 HttpStatusCode codigo = HttpStatusCode.Unauthorized;
-
                 context.HttpContext.Response.StatusCode = (int)codigo;
-                context.Result = MontarResultado.Json(codigo, notificacao);
+
+                if (action.ControllerTypeInfo.IsApi())
+                {
+                    context.Result = MontarResultado.Json(codigo, notificacao);
+                }
+                else
+                {
+                    context.HttpContext.RedirectToErrorPage();
+                }
+
             }
         }
     }
