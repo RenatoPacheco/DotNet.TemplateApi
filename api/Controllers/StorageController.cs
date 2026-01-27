@@ -1,8 +1,6 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Hosting;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.Extensions;
@@ -12,18 +10,16 @@ using TemplateApi.Api.DataModels.StorageDataModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 
-namespace TemplateApi.Api.Controllers
-{
+namespace TemplateApi.Api.Controllers {
+
     [ApiController, NaoRequerAutorizacao]
     [Route("[controller]")]
-    public class StorageController : Common.BaseApiController
-    {
+    public class StorageController : Common.BaseApiController {
         public StorageController(
             StorageApp appStorage,
             IMapper mapper,
             IWebHostEnvironment webHostingEnvironment,
-            ILogger<StorageController> logger)
-        {
+            ILogger<StorageController> logger) {
             _logger = logger;
             _appStorage = appStorage;
             _mapper = mapper;
@@ -45,8 +41,7 @@ namespace TemplateApi.Api.Controllers
         [HttpGet, Route("{Alias}")]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(byte[]))]
-        public IActionResult Get([FromQuery] ObterStorageDataModel values)
-        {
+        public IActionResult Get([FromQuery] ObterStorageDataModel values) {
             InvocarSeNulo(ref values);
 
             ObterStorageCmd cmd = _mapper.Map<ObterStorageCmd>(values);

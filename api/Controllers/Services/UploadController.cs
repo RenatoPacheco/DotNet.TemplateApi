@@ -1,11 +1,9 @@
 ﻿using System.Net;
 using AutoMapper;
-using System.Linq;
 using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
@@ -14,17 +12,15 @@ using TemplateApi.Api.DataModels.UploadDataModel;
 using TemplateApi.Api.ViewsData.CKEditorViewData;
 using TemplateApi.Api.Filters;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController]
     [Route("Servico/[controller]")]
-    public class UploadController : Common.BaseApiController
-    {
+    public class UploadController : Common.BaseApiController {
         public UploadController(
             IMapper mapper,
             UploadApp appUpload,
-            ILogger<UploadController> logger)
-        {
+            ILogger<UploadController> logger) {
             _logger = logger;
             _mapper = mapper;
             _appUpload = appUpload;
@@ -51,8 +47,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPost, Route("Arquivo")]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Arquivo))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<IArquivo[]>))]
-        public IActionResult PostArquivo([FromForm] ArquivoUploadDataModel body)
-        {
+        public IActionResult PostArquivo([FromForm] ArquivoUploadDataModel body) {
             InvocarSeNulo(ref body);
 
             ArquivoUploadCmd cmd = _mapper.Map<ArquivoUploadCmd>(body);
@@ -78,8 +73,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPost, Route("Imagem")]
         [ReferenciarApp(typeof(UploadApp), nameof(UploadApp.Imagem))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<IArquivo[]>))]
-        public IActionResult PostImagem([FromForm] ImagemUploadDataModel body)
-        {
+        public IActionResult PostImagem([FromForm] ImagemUploadDataModel body) {
             InvocarSeNulo(ref body);
 
             ImagemUploadCmd cmd = _mapper.Map<ImagemUploadCmd>(body);
@@ -109,8 +103,7 @@ namespace TemplateApi.Api.Controllers.Services
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(V4CKEditorViewData))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(V4CKEditorViewData))]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(V4CKEditorViewData))]
-        public IActionResult PostCkEditorArquivo([FromForm] ArquivoCKEditorV4UploadDataModel body)
-        {
+        public IActionResult PostCkEditorArquivo([FromForm] ArquivoCKEditorV4UploadDataModel body) {
             InvocarSeNulo(ref body);
 
             ArquivoUploadCmd cmd = _mapper.Map<ArquivoUploadCmd>(body);
@@ -137,8 +130,7 @@ namespace TemplateApi.Api.Controllers.Services
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(V4CKEditorViewData))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "", typeof(V4CKEditorViewData))]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "", typeof(V4CKEditorViewData))]
-        public IActionResult PostCkEditorImagem([FromForm] ImagemCKEditorV4UploadDataModel body)
-        {
+        public IActionResult PostCkEditorImagem([FromForm] ImagemCKEditorV4UploadDataModel body) {
             InvocarSeNulo(ref body);
 
             ImagemUploadCmd cmd = _mapper.Map<ImagemUploadCmd>(body);

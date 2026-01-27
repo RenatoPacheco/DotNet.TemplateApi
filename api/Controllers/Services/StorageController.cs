@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
@@ -11,17 +10,15 @@ using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Api.DataModels.StorageDataModel;
 using TemplateApi.Api.DataAnnotations;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController]
     [Route("Servico/[controller]")]
-    public class StorageController : Common.BaseApiController
-    {
+    public class StorageController : Common.BaseApiController {
         public StorageController(
             StorageApp appStorage,
             IMapper mapper,
-            ILogger<StorageController> logger)
-        {
+            ILogger<StorageController> logger) {
             _logger = logger;
             _appStorage = appStorage;
             _mapper = mapper;
@@ -40,8 +37,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Storage>))]
-        public IActionResult Get([FromQuery] FiltrarStorageDataModel query)
-        {
+        public IActionResult Get([FromQuery] FiltrarStorageDataModel query) {
             InvocarSeNulo(ref query);
 
             FiltrarStorageCmd cmd = _mapper.Map<FiltrarStorageCmd>(query);
@@ -70,8 +66,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPost]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Storage>))]
-        public IActionResult Post([FromForm] InserirStorageDataModel body)
-        {
+        public IActionResult Post([FromForm] InserirStorageDataModel body) {
             InvocarSeNulo(ref body);
 
             InserirStorageCmd cmd = _mapper.Map<InserirStorageCmd>(body);
@@ -92,8 +87,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPatch]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Storage>))]
-        public IActionResult Patch([FromBody] EditarStorageDataModel body)
-        {
+        public IActionResult Patch([FromBody] EditarStorageDataModel body) {
             InvocarSeNulo(ref body);
 
             EditarStorageCmd cmd = _mapper.Map<EditarStorageCmd>(body);
@@ -114,8 +108,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpDelete]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
-        public IActionResult Delete([FromQuery] ExcluirStorageDataModel query)
-        {
+        public IActionResult Delete([FromQuery] ExcluirStorageDataModel query) {
             InvocarSeNulo(ref query);
 
             ExcluirStorageCmd cmd = _mapper.Map<ExcluirStorageCmd>(query);

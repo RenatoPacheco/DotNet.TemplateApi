@@ -4,24 +4,21 @@ using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.Comandos.TesteCmds;
 using TemplateApi.Api.DataModels.TesteDataModel;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
-    public class TesteController : Common.BaseApiController
-    {
+    public class TesteController : Common.BaseApiController {
         public TesteController(
             IMapper mapper,
             TesteApp appTeste,
-            ILogger<TesteController> logger)
-        {
+            ILogger<TesteController> logger) {
             _logger = logger;
             _mapper = mapper;
             _appTeste = appTeste;
@@ -39,8 +36,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
-        public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query)
-        {
+        public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query) {
             InvocarSeNulo(ref query);
 
             FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(query);
@@ -60,8 +56,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
-        public IActionResult FromBody([FromBody] FormatosTesteDataModel body)
-        {
+        public IActionResult FromBody([FromBody] FormatosTesteDataModel body) {
             InvocarSeNulo(ref body);
 
             FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(body);
@@ -81,8 +76,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
-        public IActionResult FromForm([FromForm] FormatosTesteDataModel form)
-        {
+        public IActionResult FromForm([FromForm] FormatosTesteDataModel form) {
             InvocarSeNulo(ref form);
 
             FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(form);
@@ -102,8 +96,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
-        public IActionResult FromHeader([FromHeader] FormatosTesteDataModel header)
-        {
+        public IActionResult FromHeader([FromHeader] FormatosTesteDataModel header) {
             InvocarSeNulo(ref header);
 
             FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(header);
@@ -123,8 +116,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
-        public IActionResult WithoutFrom(FormatosTesteDataModel without)
-        {
+        public IActionResult WithoutFrom(FormatosTesteDataModel without) {
             InvocarSeNulo(ref without);
 
             FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(without);

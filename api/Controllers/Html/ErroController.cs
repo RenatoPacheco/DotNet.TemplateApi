@@ -1,19 +1,14 @@
-﻿using TemplateApi.Aplicacoes;
-using Microsoft.AspNetCore.Mvc;
-using TemplateApi.Api.DataAnnotations;
-using TemplateApi.Dominio.ObjetosDeValor;
+﻿using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.Filters;
 using TemplateApi.Api.ViewsData.ErroViewData;
 using TemplateApi.Api.Extensions;
 
-namespace TemplateApi.Api.Controllers.Html
-{
+namespace TemplateApi.Api.Controllers.Html {
+
     [ApiExplorerSettings(IgnoreApi = true)]
-    public class ErroController : Common.BaseMvcController
-    {
+    public class ErroController : Common.BaseMvcController {
         public ErroController(
-            ILogger<ErroController> logger)
-        {
+            ILogger<ErroController> logger) {
             _logger = logger;
         }
 
@@ -21,9 +16,8 @@ namespace TemplateApi.Api.Controllers.Html
 
         [IgnorarFiltroAutorizacao]
         [Route("Html/[controller]/{status}")]
-        public IActionResult Erro(int status)
-        {
-            IndexErroViewData resultado = new IndexErroViewData(status);
+        public IActionResult Erro(int status) {
+            IndexErroViewData resultado = new(status);
             resultado.ExtrairModelState(ModelState);
 
             return View(resultado);

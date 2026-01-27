@@ -2,22 +2,19 @@
 using TemplateApi.Aplicacoes;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Api.ViewsData;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
-    public class SobreController : Common.BaseApiController
-    {
+    public class SobreController : Common.BaseApiController {
         public SobreController(
             SobreApp appSobre,
-            ILogger<SobreController> logger)
-        {
+            ILogger<SobreController> logger) {
             _logger = logger;
             _appSobre = appSobre;
         }
@@ -40,8 +37,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet]
         [ReferenciarApp(typeof(SobreApp), nameof(SobreApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Sobre>))]
-        public IActionResult Get()
-        {
+        public IActionResult Get() {
             Sobre resultado = _appSobre.Obter();
             Validate(_appSobre);
 

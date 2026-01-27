@@ -5,16 +5,13 @@ using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Api.Controllers.Html
-{
+namespace TemplateApi.Api.Controllers.Html {
     [ApiExplorerSettings(IgnoreApi = true)]
     [Route("Html/[controller]/[action]/{id?}")]
-    public class ConteudoController : Common.BaseMvcController
-    {
+    public class ConteudoController : Common.BaseMvcController {
         public ConteudoController(
             ConteudoApp appConteudo,
-            ILogger<ConteudoController> logger)
-        {
+            ILogger<ConteudoController> logger) {
             _logger = logger;
             _appConteudo = appConteudo;
         }
@@ -23,9 +20,8 @@ namespace TemplateApi.Api.Controllers.Html
         private readonly ConteudoApp _appConteudo;
 
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Filtrar))]
-        public IActionResult Index(int id)
-        {
-            Conteudo resultado = _appConteudo.Filtrar(new FiltrarConteudoCmd { 
+        public IActionResult Index(int id) {
+            Conteudo resultado = _appConteudo.Filtrar(new FiltrarConteudoCmd {
                 Maximo = 1,
                 Conteudo = new List<int> { id },
                 Contexto = ContextoCmd.Visualizar

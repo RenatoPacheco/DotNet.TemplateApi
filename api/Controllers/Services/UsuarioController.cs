@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
@@ -12,18 +11,16 @@ using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Api.DataModels.UsuarioDataModel;
 using TemplateApi.Api.DataAnnotations;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController]
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Usuário")]
-    public class UsuarioController : Common.BaseApiController
-    {
+    public class UsuarioController : Common.BaseApiController {
         public UsuarioController(
             UsuarioApp appUsuario,
             IMapper mapper,
-            ILogger<UsuarioController> logger)
-        {
+            ILogger<UsuarioController> logger) {
             _logger = logger;
             _appUsuario = appUsuario;
             _mapper = mapper;
@@ -39,8 +36,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Usuario>))]
-        public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query)
-        {
+        public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query) {
             InvocarSeNulo(ref query);
 
             FiltrarUsuarioCmd cmd = _mapper.Map<FiltrarUsuarioCmd>(query);
@@ -58,8 +54,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPost]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Usuario>))]
-        public IActionResult Post([FromBody] InserirUsuarioDataModel body)
-        {
+        public IActionResult Post([FromBody] InserirUsuarioDataModel body) {
             InvocarSeNulo(ref body);
 
             InserirUsuarioCmd cmd = _mapper.Map<InserirUsuarioCmd>(body);
@@ -77,8 +72,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPatch]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Usuario>))]
-        public IActionResult Patch([FromBody] EditarUsuarioDataModel body)
-        {
+        public IActionResult Patch([FromBody] EditarUsuarioDataModel body) {
             InvocarSeNulo(ref body);
 
             EditarUsuarioCmd cmd = _mapper.Map<EditarUsuarioCmd>(body);
@@ -99,8 +93,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpDelete]
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
-        public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query)
-        {
+        public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query) {
             InvocarSeNulo(ref query);
 
             ExcluirUsuarioCmd cmd = _mapper.Map<ExcluirUsuarioCmd>(query);

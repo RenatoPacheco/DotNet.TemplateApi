@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
@@ -10,17 +9,15 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Api.ApiApplications;
 using TemplateApi.Api.ValuesObject;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController, NaoRequerAutorizacao]
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Autenticação")]
-    public class AutenticacaoController : Common.BaseApiController
-    {
+    public class AutenticacaoController : Common.BaseApiController {
         public AutenticacaoController(
             AutenticacaoApiApp apiServAutenticacao,
-            ILogger<AutenticacaoController> logger)
-        {
+            ILogger<AutenticacaoController> logger) {
             _logger = logger;
             _apiServAutenticacao = apiServAutenticacao;
         }
@@ -52,8 +49,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet]
         [ReferenciarApp(typeof(AutenticacaoApp), nameof(AutenticacaoApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<AutenticacaoApi>))]
-        public IActionResult Get()
-        {
+        public IActionResult Get() {
             AutenticacaoApi resultado = _apiServAutenticacao.Obter();
             Validate(_apiServAutenticacao);
 
@@ -71,8 +67,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet, Route("Core")]
         [ReferenciarApp(typeof(AutenticacaoApp), nameof(AutenticacaoApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<AutenticacaoApi>))]
-        public IActionResult GetCore()
-        {
+        public IActionResult GetCore() {
             Autenticacao resultado = _apiServAutenticacao.ObterCore();
             Validate(_apiServAutenticacao);
 

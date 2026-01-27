@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
@@ -12,18 +11,16 @@ using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Api.DataModels.ConteudoDataModel;
 using TemplateApi.Api.DataAnnotations;
 
-namespace TemplateApi.Api.Controllers.Services
-{
+namespace TemplateApi.Api.Controllers.Services {
+
     [ApiController]
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Conteúdo")]
-    public class ConteudoController : Common.BaseApiController
-    {
+    public class ConteudoController : Common.BaseApiController {
         public ConteudoController(
             IMapper mapper,
             ConteudoApp appConteudo,
-            ILogger<ConteudoController> logger)
-        {
+            ILogger<ConteudoController> logger) {
             _logger = logger;
             _appConteudo = appConteudo;
             _mapper = mapper;
@@ -39,8 +36,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpGet]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Conteudo>))]
-        public IActionResult Get([FromQuery] FiltrarConteudoDataModel query)
-        {
+        public IActionResult Get([FromQuery] FiltrarConteudoDataModel query) {
             InvocarSeNulo(ref query);
 
             FiltrarConteudoCmd cmd = _mapper.Map<FiltrarConteudoCmd>(query);
@@ -58,8 +54,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPost]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Conteudo>))]
-        public IActionResult Post([FromBody] InserirConteudoDataModel body)
-        {
+        public IActionResult Post([FromBody] InserirConteudoDataModel body) {
             InvocarSeNulo(ref body);
 
             InserirConteudoCmd cmd = _mapper.Map<InserirConteudoCmd>(body);
@@ -77,8 +72,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpPatch]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Conteudo>))]
-        public IActionResult Patch([FromBody] EditarConteudoDataModel body)
-        {
+        public IActionResult Patch([FromBody] EditarConteudoDataModel body) {
             InvocarSeNulo(ref body);
 
             EditarConteudoCmd cmd = _mapper.Map<EditarConteudoCmd>(body);
@@ -99,8 +93,7 @@ namespace TemplateApi.Api.Controllers.Services
         [HttpDelete]
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
-        public IActionResult Delete([FromQuery] ExcluirConteudoDataModel query)
-        {
+        public IActionResult Delete([FromQuery] ExcluirConteudoDataModel query) {
             InvocarSeNulo(ref query);
 
             ExcluirConteudoCmd cmd = _mapper.Map<ExcluirConteudoCmd>(query);
