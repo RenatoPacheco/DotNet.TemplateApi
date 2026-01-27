@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using BitHelp.Core.Validation;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using TemplateApi.Aplicacoes;
 using TemplateApi.Dominio.ObjetosDeValor;
 

@@ -1,4 +1,4 @@
-﻿using TemplateApi.Recurso;
+﻿using TemplateApi.Recursos;
 using TemplateApi.Api.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Compartilhados.ObjetosDeValor;

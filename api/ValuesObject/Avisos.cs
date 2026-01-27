@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Newtonsoft.Json;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

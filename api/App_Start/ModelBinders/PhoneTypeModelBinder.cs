@@ -1,5 +1,5 @@
 ﻿using BitHelp.Core.Type.pt_BR;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using TemplateApi.Api.Extensions;
 

@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Linq;
 using System.Text;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using BitHelp.Core.Validation;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;

@@ -1,4 +1,4 @@
-﻿using TemplateApi.Recurso;
+﻿using TemplateApi.Recursos;
 using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;

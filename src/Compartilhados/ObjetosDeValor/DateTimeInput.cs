@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using System.Diagnostics.CodeAnalysis;
 
 namespace TemplateApi.Compartilhados.ObjetosDeValor

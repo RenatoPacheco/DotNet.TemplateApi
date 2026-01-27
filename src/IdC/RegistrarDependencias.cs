@@ -10,7 +10,7 @@ namespace TemplateApi.IdC
 
             processar.Aplicar(new Aplicacoes.Auxiliares.ModuloDependencias(), resolve);
             processar.Aplicar(new Dominio.Auxiliares.ModuloDependencias(), resolve);
-            processar.Aplicar(new Repositorio.Auxiliares.ModuloDependencias(), resolve);
+            processar.Aplicar(new Repositorios.Auxiliares.ModuloDependencias(), resolve);
             processar.Aplicar(new Infra.Auxiliares.ModuloDependencias(), resolve);
         }
 

@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using BitHelp.Core.Validation;
 using TemplateApi.Api.Helpers;
 using TemplateApi.Api.Extensions;

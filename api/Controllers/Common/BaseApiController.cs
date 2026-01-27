@@ -6,7 +6,7 @@ using TemplateApi.Api.Helpers;
 using TemplateApi.Api.ViewsData;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Recurso;
+using TemplateApi.Recursos;
 using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Api.ViewsData.CKEditorViewData;
 using TemplateApi.Api.Extensions;

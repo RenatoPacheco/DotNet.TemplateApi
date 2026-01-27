@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using TemplateApi.Compartilhados.Json;
 using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Compartilhados.Seguranca;
+using TemplateApi.Compartilhados.Protecoes;
 using System.ComponentModel.DataAnnotations;
 
 namespace TemplateApi.Dominio.Entidades
