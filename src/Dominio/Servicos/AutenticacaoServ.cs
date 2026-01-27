@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using TemplateApi.Dominio.Entidades;
+﻿using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
 using System.Reflection;
@@ -7,25 +6,20 @@ using TemplateApi.Recursos;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Dominio.Servicos
-{
-    public class AutenticacaoServ : Comum.BaseServico
-    {
+namespace TemplateApi.Dominio.Servicos {
+    public class AutenticacaoServ : Comum.BaseServico {
         public AutenticacaoServ(
-            IAutorizacaoRep repAutorizacao)
-        {
+            IAutorizacaoRep repAutorizacao) {
             _repAutorizacao = repAutorizacao;
         }
 
         protected readonly IAutorizacaoRep _repAutorizacao;
         protected Autenticacao _autenticacao;
 
-        public Autenticacao Obter()
-        {
+        public Autenticacao Obter() {
             Notifications.Clear();
 
-            if(_autenticacao is null)
-            {
+            if (_autenticacao is null) {
                 _autenticacao = Autenticacao.GerarInterno(false);
                 _autenticacao.Autorizacoes = _repAutorizacao.Listar().Where(
                     x => _autenticacao.EstaAutenticado || !x.RequerAutorizacao).ToArray();
@@ -34,22 +28,17 @@ namespace TemplateApi.Dominio.Servicos
             return _autenticacao;
         }
 
-        public Autenticacao Iniciar(IniciarAutenticacaoCmd comando)
-        {
+        public Autenticacao Iniciar(IniciarAutenticacaoCmd comando) {
             Notifications.Clear();
 
             _autenticacao = Autenticacao.GerarNaoAutenticado(false);
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 bool haChavePublica = AppSettings.ChavePublica == comando.ChavePublica;
 
-                if (AppSettings.Autorizacao == comando.Token)
-                {
+                if (AppSettings.Autorizacao == comando.Token) {
                     _autenticacao = Autenticacao.GerarInterno(haChavePublica);
-                }
-                else
-                {
+                } else {
                     _autenticacao = Autenticacao.GerarNaoAutenticado(haChavePublica);
                 }
             }
@@ -60,16 +49,14 @@ namespace TemplateApi.Dominio.Servicos
             return _autenticacao;
         }
 
-        public bool EstaAutorizado(MethodBase metodo, ValidationType erro = ValidationType.Error)
-        {
+        public bool EstaAutorizado(MethodBase metodo, ValidationType erro = ValidationType.Error) {
             Notifications.Clear();
             Autorizacao requisito = _repAutorizacao.Listar().Where(x => x.Metodo == metodo).FirstOrDefault();
-            
+
             bool chavePublica = !requisito.RequerChavePublica || _autenticacao.HaChavePublica;
             bool autorizacao = !requisito.RequerAutorizacao || _autenticacao.Autorizacoes.Any(x => x.Metodo == metodo);
 
-            if (!chavePublica || !autorizacao)
-            {
+            if (!chavePublica || !autorizacao) {
                 Notifications.Add(
                     new ValidationMessage(
                         AvisosResx.AcessoNaoAutorizado, null, erro));
@@ -78,13 +65,11 @@ namespace TemplateApi.Dominio.Servicos
             return Notifications.IsValid();
         }
 
-        public bool EstaAutenticado()
-        {
+        public bool EstaAutenticado() {
             Notifications.Clear();
             bool resultado = _autenticacao?.EstaAutenticado ?? false;
 
-            if (!resultado)
-            {
+            if (!resultado) {
                 Notifications.AddAlert(
                     AvisosResx.AcessoNaoAutenticado);
             }

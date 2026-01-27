@@ -1,10 +1,6 @@
-﻿using System;
-
-namespace TemplateApi.Dominio.Notacoes
-{
+﻿namespace TemplateApi.Dominio.Notacoes {
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = true)]
-    public sealed class AcessoLivreAttribute : Attribute
-    {
+    public sealed class AcessoLivreAttribute : Attribute {
 
     }
 }

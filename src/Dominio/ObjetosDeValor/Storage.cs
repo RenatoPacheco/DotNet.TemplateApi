@@ -1,25 +1,20 @@
-﻿using System;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.Interfaces;
 using Newtonsoft.Json;
 
-namespace TemplateApi.Dominio.ObjetosDeValor
-{
+namespace TemplateApi.Dominio.ObjetosDeValor {
     public class Storage
-        : IArquivo, ISelfValidation, IEquatable<Storage>
-    {
+        : IArquivo, ISelfValidation, IEquatable<Storage> {
         [JsonConstructor]
-        protected Storage()
-        {
+        protected Storage() {
             _escopo = new StorageEscp<Storage>(this);
         }
 
         public Storage(IArquivo dados)
-            : this()
-        {
+            : this() {
             Inicializar();
 
             Alias = dados.Alias;
@@ -68,8 +63,7 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         public override string ToString() => Nome;
 
-        private void Inicializar()
-        {
+        private void Inicializar() {
             CriadoEm = DateTime.Now;
             AlteradoEm = DateTime.Now;
             Status = ObjetosDeValor.Status.Inativo;
@@ -77,19 +71,16 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         #region Compare
 
-        public bool Equals([AllowNull] Storage other)
-        {
+        public bool Equals([AllowNull] Storage other) {
             return !(other is null)
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object other)
-        {
+        public override bool Equals(object other) {
             return other is Storage compare && Equals(compare);
         }
 
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             return $"{GetType()}:{Id}".GetHashCode();
         }
 
@@ -97,13 +88,11 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         #region Operadores
 
-        public static bool operator ==(Storage a, Storage b)
-        {
+        public static bool operator ==(Storage a, Storage b) {
             return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
-        public static bool operator !=(Storage a, Storage b)
-        {
+        public static bool operator !=(Storage a, Storage b) {
             return !(a == b);
         }
 
@@ -113,11 +102,10 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         protected readonly StorageEscp<Storage> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public bool IsValid()
-        {
+        public bool IsValid() {
             _escopo.IdEhValido(x => x.Id);
             _escopo.NomeEhValido(x => x.Nome);
             _escopo.AliasEhValido(x => x.Alias);

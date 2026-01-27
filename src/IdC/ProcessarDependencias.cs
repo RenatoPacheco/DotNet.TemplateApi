@@ -1,27 +1,20 @@
-﻿using System;
-using System.Linq;
-using TemplateApi.Compartilhados.IdC;
+﻿using TemplateApi.Compartilhados.IdC;
 
-namespace TemplateApi.IdC
-{
-    internal class ProcessarDependencias
-    {
+namespace TemplateApi.IdC {
+    internal class ProcessarDependencias {
         private Type[] _singleton = Array.Empty<Type>();
-        private Type[] Singleton
-        {
+        private Type[] Singleton {
             get => _singleton;
             set => _singleton = value ?? Array.Empty<Type>();
         }
 
         private Type[] _transient = Array.Empty<Type>();
-        private Type[] Transient
-        {
+        private Type[] Transient {
             get => _transient;
             set => _transient = value ?? Array.Empty<Type>();
         }
 
-        public void Aplicar(IModuloDependencias modulo, IResolverDependencias resolve)
-        {
+        public void Aplicar(IModuloDependencias modulo, IResolverDependencias resolve) {
             modulo.Registrar(resolve);
 
             Singleton = modulo.Singleton;
@@ -46,29 +39,23 @@ namespace TemplateApi.IdC
             Type @class;
             Type[] interfaces;
 
-            for (int count = 0; count < total; count++)
-            {
+            for (int count = 0; count < total; count++) {
                 @class = listType[count];
                 interfaces = @class.GetInterfaces().Where(
                     x => exactInterface.Contains(x.Namespace)
                         || startInterface.Any(y => x.Namespace.StartsWith(y))).Distinct().ToArray();
 
-                if (interfaces.Any())
-                {
-                    foreach (Type @interface in interfaces)
-                    {
+                if (interfaces.Any()) {
+                    foreach (Type @interface in interfaces) {
                         Registrar(resolve, @interface, @class);
                     }
-                }
-                else
-                {
+                } else {
                     Registrar(resolve, @class);
                 }
             }
         }
 
-        private void Registrar(IResolverDependencias resolve, Type objeto)
-        {
+        private void Registrar(IResolverDependencias resolve, Type objeto) {
             if (Transient.Contains(objeto))
                 resolve.Transiente(objeto);
             else if (Singleton.Contains(objeto))
@@ -77,8 +64,7 @@ namespace TemplateApi.IdC
                 resolve.Escopo(objeto);
         }
 
-        private void Registrar(IResolverDependencias resolve, Type servico, Type objeto)
-        {
+        private void Registrar(IResolverDependencias resolve, Type servico, Type objeto) {
             if (Transient.Contains(servico))
                 resolve.Transiente(servico, objeto);
             else if (Singleton.Contains(servico))

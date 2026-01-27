@@ -1,36 +1,29 @@
-﻿using System;
-using Dapper;
-using System.Collections.Generic;
+﻿using Dapper;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Adaptadores;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ {
     internal class EditarUsuarioServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public EditarUsuarioServ(
             Conexao conexao,
             EhUnicoUsuarioServ persEhUnicoUsuario)
-            : base(conexao)
-        {
+            : base(conexao) {
             _persEhUnicoUsuario = persEhUnicoUsuario;
         }
 
         private readonly EhUnicoUsuarioServ _persEhUnicoUsuario;
 
-        public void Executar(Usuario dados)
-        {
+        public void Executar(Usuario dados) {
             Notifications.Clear();
-            Mapeamentos.UsuarioMap map = new Mapeamentos.UsuarioMap();
+            Mapeamentos.UsuarioMap map = new();
 
             IsValid(dados);
 
             _persEhUnicoUsuario.Executar(dados);
             IsValid(_persEhUnicoUsuario);
 
-            if (IsValid())
-            {
+            if (IsValid()) {
                 dados.AlteradoEm = DateTime.Now;
 
                 string sqlString = @$"

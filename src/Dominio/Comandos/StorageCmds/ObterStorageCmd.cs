@@ -1,16 +1,12 @@
 ﻿using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Dominio.Comandos.StorageCmds
-{
+namespace TemplateApi.Dominio.Comandos.StorageCmds {
     public class ObterStorageCmd
-        : Comum.FiltrarBaseCmd, ISelfValidation
-    {
-        public ObterStorageCmd()
-        {
+        : Comum.FiltrarBaseCmd, ISelfValidation {
+        public ObterStorageCmd() {
             _escopo = new StorageEscp<ObterStorageCmd>(this);
         }
 
@@ -18,11 +14,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Alias de storage
         /// </summary>
-        public string Alias
-        {
+        public string Alias {
             get => _alias;
-            set
-            {
+            set {
                 _alias = value;
                 _escopo.AliasEhValido(x => x.Alias);
             }
@@ -32,11 +26,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<Status> Status
-        {
+        public IList<Status> Status {
             get => _status ??= new List<Status>();
-            set
-            {
+            set {
                 _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
@@ -46,11 +38,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Informe true para fazer download do arquivo , valor padrão é true
         /// </summary>
-        public bool? Download
-        {
+        public bool? Download {
             get => _download;
-            set
-            {
+            set {
                 _download = value;
                 this.RemoveAtReference(x => x.Download);
                 this.RequiredIsValid(x => x.Download);
@@ -61,11 +51,10 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         protected readonly StorageEscp<ObterStorageCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Alias);
 
             return _notifications.IsValid();

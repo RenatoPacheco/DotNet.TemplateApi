@@ -1,22 +1,17 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Notations;
 using TemplateApi.Recursos;
 
-namespace TemplateApi.Compartilhados.Validacoes.Notacoes
-{
+namespace TemplateApi.Compartilhados.Validacoes.Notacoes {
     [AttributeUsage(AttributeTargets.Property |
            AttributeTargets.Field, AllowMultiple = false)]
-    public class PasswordIsValidAttribute : ListIsValidAttribute
-    {
-        public PasswordIsValidAttribute() : base()
-        {
+    public class PasswordIsValidAttribute : ListIsValidAttribute {
+        public PasswordIsValidAttribute() : base() {
             ErrorMessageResourceType = typeof(AvisosResx);
             ErrorMessageResourceName = nameof(AvisosResx.XSenhaDeveConter);
         }
 
-        protected override bool Check(object value)
-        {
+        protected override bool Check(object value) {
             string input = Convert.ToString(value);
             bool result = false;
 

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Dominio.ObjetosDeValor
-{
-    public class ResultadoBusca<T>
-    {
+namespace TemplateApi.Dominio.ObjetosDeValor {
+    public class ResultadoBusca<T> {
         /// <summary>
         /// Indica o total de resultados encontrados, somando todas as páginas.
         /// Não será retornar de não for indicado para calcular a paginação.
@@ -26,46 +21,38 @@ namespace TemplateApi.Dominio.ObjetosDeValor
         /// Retorna os resultados encontrados na página atual.
         /// </summary>
         [Display(Name = "Resultados da página atual")]
-        public T[] ResultadosDaPaginaAtual
-        {
+        public T[] ResultadosDaPaginaAtual {
             get => _resultadosDaPaginaAtual;
             set => _resultadosDaPaginaAtual = value ?? Array.Empty<T>();
         }
 
-        public void CalcularPaginas(long total, long maximo)
-        {
+        public void CalcularPaginas(long total, long maximo) {
             TotalDeResultados = total;
             TotalDePaginas = maximo < 1 ? 1
-                : total % maximo > 0 ? total / maximo + 1 : total / maximo;
+                : total % maximo > 0 ? (total / maximo) + 1 : total / maximo;
         }
 
-        public List<T> ToList()
-        {
+        public List<T> ToList() {
             return ResultadosDaPaginaAtual.ToList();
         }
 
-        public T[] ToArray()
-        {
+        public T[] ToArray() {
             return ResultadosDaPaginaAtual.ToArray();
         }
 
-        public T First()
-        {
+        public T First() {
             return ResultadosDaPaginaAtual.First();
         }
 
-        public T FirstOrDefault()
-        {
+        public T FirstOrDefault() {
             return ResultadosDaPaginaAtual.FirstOrDefault();
         }
 
-        public T Last()
-        {
+        public T Last() {
             return ResultadosDaPaginaAtual.Last();
         }
 
-        public T LastOrDefault()
-        {
+        public T LastOrDefault() {
             return ResultadosDaPaginaAtual.LastOrDefault();
         }
     }

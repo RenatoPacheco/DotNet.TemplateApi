@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ;
 
-namespace TemplateApi.Repositorios.Persistencias.UsuarioPers
-{
+namespace TemplateApi.Repositorios.Persistencias.UsuarioPers {
     internal class ExcluirUsuarioPers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public ExcluirUsuarioPers(
-            ExcluirUsuarioServ servExcluirUsuario)
-        {
+            ExcluirUsuarioServ servExcluirUsuario) {
             _servExcluirUsuario = servExcluirUsuario;
         }
 
         private readonly ExcluirUsuarioServ _servExcluirUsuario;
 
-        public void Executar(ExcluirUsuarioCmd comando)
-        {
+        public void Executar(ExcluirUsuarioCmd comando) {
             Notifications.Clear();
 
             _servExcluirUsuario.Executar(comando);

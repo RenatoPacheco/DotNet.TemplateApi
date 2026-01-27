@@ -1,14 +1,11 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using TemplateApi.Compartilhados.IdC;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorios.Persistencias.SobrePers;
 
-namespace TemplateApi.Repositorios.Auxiliares
-{
+namespace TemplateApi.Repositorios.Auxiliares {
     public class ModuloDependencias
-        : BaseModuloDependencias
-    {
+        : BaseModuloDependencias {
         public override Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();
 
         public override string[] StarClasstNamespace => new string[]

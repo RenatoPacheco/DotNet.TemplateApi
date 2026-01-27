@@ -1,28 +1,23 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using TemplateApi.Recursos;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
-namespace TemplateApi.Compartilhados.ObjetosDeValor
-{
+namespace TemplateApi.Compartilhados.ObjetosDeValor {
     public class DoubleInput
         : IFormattable, IConvertible, IInputType,
         IEquatable<DoubleInput>, IEquatable<double>,
-        IEquatable<double?>, IEquatable<string>
-    {
+        IEquatable<double?>, IEquatable<string> {
         public DoubleInput() { }
 
-        public DoubleInput(string input)
-        {
+        public DoubleInput(string input) {
             TryParse(input, out DoubleInput output);
             _inptValue = output._inptValue;
             _value = output._value;
             _isValid = output._isValid;
         }
 
-        public DoubleInput(double? input)
-        {
+        public DoubleInput(double? input) {
             TryParse(input?.ToString(Culture()), out DoubleInput output);
             _inptValue = output._inptValue;
             _value = output._value;
@@ -33,39 +28,31 @@ namespace TemplateApi.Compartilhados.ObjetosDeValor
         private double? _value;
         private bool _isValid;
 
-        public static explicit operator string(DoubleInput input)
-        {
+        public static explicit operator string(DoubleInput input) {
             return input?.ToString();
         }
 
-        public static explicit operator DoubleInput(string input)
-        {
+        public static explicit operator DoubleInput(string input) {
             return input is null ? null : new DoubleInput(input);
         }
 
-        public static explicit operator double?(DoubleInput input)
-        {
+        public static explicit operator double?(DoubleInput input) {
             return input?._value;
         }
 
-        public static explicit operator DoubleInput(double? input)
-        {
+        public static explicit operator DoubleInput(double? input) {
             return input is null ? null : new DoubleInput(input);
         }
 
         /// <summary>
         /// Return value string.Empty
         /// </summary>
-        public static readonly DoubleInput Empty = new DoubleInput(string.Empty);
+        public static readonly DoubleInput Empty = new(string.Empty);
 
-        public static DoubleInput Parse(string input)
-        {
-            if (TryParse(input, out DoubleInput result))
-            {
+        public static DoubleInput Parse(string input) {
+            if (TryParse(input, out DoubleInput result)) {
                 return result;
-            }
-            else
-            {
+            } else {
                 if (input == null)
                     throw new ArgumentException(
                         nameof(input), AvisosResx.NaoPodeSerNulo);
@@ -75,26 +62,22 @@ namespace TemplateApi.Compartilhados.ObjetosDeValor
             }
         }
 
-        public static bool TryParse(string input, out DoubleInput output)
-        {
+        public static bool TryParse(string input, out DoubleInput output) {
             input = input?.Trim();
             NumberStyles style = NumberStyles.Number;
             bool result = double.TryParse(input, style, Culture(), out double value);
             result = result && !(input is null) && input.IndexOf(",") < 0;
-            if (result)
-            {
+            if (result) {
                 input = value.ToString(Culture());
-                if (Regex.IsMatch(input, @"\.[0]+$"))
-                {
+                if (Regex.IsMatch(input, @"\.[0]+$")) {
                     value = Math.Floor(value);
                     input = value.ToString(Culture());
                 }
             }
-            output = new DoubleInput
-            {
+            output = new DoubleInput {
                 _isValid = result,
                 _inptValue = input,
-                _value = result ? value : (double?)null
+                _value = result ? value : null
             };
 
             return result;
@@ -102,171 +85,142 @@ namespace TemplateApi.Compartilhados.ObjetosDeValor
 
         private static CultureInfo Culture() => CultureInfo.CreateSpecificCulture("en-US");
 
-        public bool IsValid()
-        {
+        public bool IsValid() {
             return _isValid;
         }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return ToString(null);
         }
 
-        public string ToString(string format)
-        {
+        public string ToString(string format) {
             return ToString(format, null);
         }
 
-        public string ToString(string format, IFormatProvider formatProvider)
-        {
+        public string ToString(string format, IFormatProvider formatProvider) {
             return _inptValue;
         }
 
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             return $"{_inptValue}:{GetType()}".GetHashCode();
         }
 
-        public bool Equals(DoubleInput other)
-        {
+        public bool Equals(DoubleInput other) {
             return _inptValue == other._inptValue
                 && _value == other._value;
         }
 
-        public bool Equals(double other)
-        {
+        public bool Equals(double other) {
             return _value == other;
         }
 
-        public bool Equals([AllowNull] double? other)
-        {
+        public bool Equals([AllowNull] double? other) {
             return _value == other;
         }
 
-        public bool Equals([AllowNull] string other)
-        {
+        public bool Equals([AllowNull] string other) {
             return _inptValue == other;
         }
 
-        public override bool Equals(object obj)
-        {
+        public override bool Equals(object obj) {
             return (obj is null && _value is null)
                 || (obj is DoubleInput typeA && Equals(typeA))
                 || (obj is double typeB && Equals(typeB))
                 || (obj is string typeC && Equals(typeC));
         }
 
-        public static bool operator ==(DoubleInput left, DoubleInput right)
-        {
+        public static bool operator ==(DoubleInput left, DoubleInput right) {
             return (left is null && right is null) ||
                 (left is DoubleInput l && right is DoubleInput r && l.Equals(r));
         }
 
-        public static bool operator !=(DoubleInput left, DoubleInput right)
-        {
+        public static bool operator !=(DoubleInput left, DoubleInput right) {
             return !(left == right);
         }
 
         #region IConvertible implementation
 
-        public TypeCode GetTypeCode()
-        {
+        public TypeCode GetTypeCode() {
             return TypeCode.String;
         }
 
         /// <internalonly/>
-        string IConvertible.ToString(IFormatProvider provider)
-        {
+        string IConvertible.ToString(IFormatProvider provider) {
             return _inptValue;
         }
 
         /// <internalonly/>
-        bool IConvertible.ToBoolean(IFormatProvider provider)
-        {
+        bool IConvertible.ToBoolean(IFormatProvider provider) {
             return Convert.ToBoolean(_inptValue);
         }
 
         /// <internalonly/>
-        char IConvertible.ToChar(IFormatProvider provider)
-        {
+        char IConvertible.ToChar(IFormatProvider provider) {
             return Convert.ToChar(_inptValue);
         }
 
         /// <internalonly/>
-        sbyte IConvertible.ToSByte(IFormatProvider provider)
-        {
+        sbyte IConvertible.ToSByte(IFormatProvider provider) {
             return Convert.ToSByte(_inptValue);
         }
 
         /// <internalonly/>
-        byte IConvertible.ToByte(IFormatProvider provider)
-        {
+        byte IConvertible.ToByte(IFormatProvider provider) {
             return Convert.ToByte(_inptValue);
         }
 
         /// <internalonly/>
-        short IConvertible.ToInt16(IFormatProvider provider)
-        {
+        short IConvertible.ToInt16(IFormatProvider provider) {
             return Convert.ToInt16(_inptValue);
         }
 
         /// <internalonly/>
-        ushort IConvertible.ToUInt16(IFormatProvider provider)
-        {
+        ushort IConvertible.ToUInt16(IFormatProvider provider) {
             return Convert.ToUInt16(_inptValue);
         }
 
         /// <internalonly/>
-        int IConvertible.ToInt32(IFormatProvider provider)
-        {
+        int IConvertible.ToInt32(IFormatProvider provider) {
             return Convert.ToInt32(_inptValue);
         }
 
         /// <internalonly/>
-        uint IConvertible.ToUInt32(IFormatProvider provider)
-        {
+        uint IConvertible.ToUInt32(IFormatProvider provider) {
             return Convert.ToUInt32(_inptValue);
         }
 
         /// <internalonly/>
-        long IConvertible.ToInt64(IFormatProvider provider)
-        {
+        long IConvertible.ToInt64(IFormatProvider provider) {
             return Convert.ToInt64(_inptValue);
         }
 
         /// <internalonly/>
-        ulong IConvertible.ToUInt64(IFormatProvider provider)
-        {
+        ulong IConvertible.ToUInt64(IFormatProvider provider) {
             return Convert.ToUInt64(_inptValue);
         }
 
         /// <internalonly/>
-        float IConvertible.ToSingle(IFormatProvider provider)
-        {
+        float IConvertible.ToSingle(IFormatProvider provider) {
             return Convert.ToSingle(_inptValue);
         }
 
         /// <internalonly/>
-        double IConvertible.ToDouble(IFormatProvider provider)
-        {
+        double IConvertible.ToDouble(IFormatProvider provider) {
             return Convert.ToDouble(_inptValue);
         }
 
         /// <internalonly/>
-        decimal IConvertible.ToDecimal(IFormatProvider provider)
-        {
+        decimal IConvertible.ToDecimal(IFormatProvider provider) {
             return Convert.ToDecimal(_inptValue);
         }
 
         /// <internalonly/>
-        DateTime IConvertible.ToDateTime(IFormatProvider provider)
-        {
+        DateTime IConvertible.ToDateTime(IFormatProvider provider) {
             return Convert.ToDateTime(_inptValue);
         }
 
         /// <internalonly/>
-        object IConvertible.ToType(System.Type type, IFormatProvider provider)
-        {
+        object IConvertible.ToType(System.Type type, IFormatProvider provider) {
             return Convert.ChangeType(this, type, provider);
         }
 

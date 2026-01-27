@@ -3,10 +3,8 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace TemplateApi.Dominio.Interfaces.Repositorios
-{
-    public interface IUsuarioRep : ISelfValidation
-    {
+namespace TemplateApi.Dominio.Interfaces.Repositorios {
+    public interface IUsuarioRep : ISelfValidation {
         void Inserir(Usuario dados);
 
         void Editar(Usuario dados);
@@ -21,7 +19,7 @@ namespace TemplateApi.Dominio.Interfaces.Repositorios
             FiltrarUsuarioCmd comando, ValidationType tipo);
 
         ResultadoBusca<Usuario> Filtrar(
-            FiltrarUsuarioCmd comando, string referencia = "", 
+            FiltrarUsuarioCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert);
     }
 }

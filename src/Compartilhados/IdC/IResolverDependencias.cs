@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace TemplateApi.Compartilhados.IdC {
+    public interface IResolverDependencias {
 
-namespace TemplateApi.Compartilhados.IdC
-{
-    public interface IResolverDependencias
-    {
         #region unico
 
         void Unico<TConcrete>()

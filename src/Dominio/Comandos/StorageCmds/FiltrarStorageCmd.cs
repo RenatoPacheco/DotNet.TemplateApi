@@ -1,18 +1,14 @@
 ﻿using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.Comandos.Comum;
 
-namespace TemplateApi.Dominio.Comandos.StorageCmds
-{
+namespace TemplateApi.Dominio.Comandos.StorageCmds {
     public class FiltrarStorageCmd
-        : Comum.FiltrarBaseCmd, ISelfValidation
-    {
-        public FiltrarStorageCmd()
-        {
+        : Comum.FiltrarBaseCmd, ISelfValidation {
+        public FiltrarStorageCmd() {
             _escopo = new StorageEscp<FiltrarStorageCmd>(this);
         }
 
@@ -20,11 +16,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public ContextoCmd? Contexto
-        {
+        public ContextoCmd? Contexto {
             get => _contexto;
-            set
-            {
+            set {
                 _contexto = value;
                 this.RemoveAtReference(x => x.Contexto);
             }
@@ -34,11 +28,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public IList<long> Storage
-        {
+        public IList<long> Storage {
             get => _storage ??= new List<long>();
-            set
-            {
+            set {
                 _storage = value ?? new List<long>();
                 _escopo.IdEhValido(x => x.Storage);
             }
@@ -49,11 +41,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// Referência de storage
         /// </summary>
         [Display(Name = "Referência")]
-        public IList<string> Referencia
-        {
+        public IList<string> Referencia {
             get => _referencia ??= new List<string>();
-            set
-            {
+            set {
                 _referencia = value ?? new List<string>();
                 _escopo.ReferenciaEhValido(x => x.Referencia);
             }
@@ -63,11 +53,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Alias de storage
         /// </summary>
-        public IList<string> Alias
-        {
+        public IList<string> Alias {
             get => _alias ??= new List<string>();
-            set
-            {
+            set {
                 _alias = value ?? new List<string>();
                 _escopo.AliasEhValido(x => x.Alias);
             }
@@ -77,11 +65,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<Status> Status
-        {
+        public IList<Status> Status {
             get => _status ??= new List<Status>();
-            set
-            {
+            set {
                 _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
@@ -91,11 +77,10 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         protected readonly StorageEscp<FiltrarStorageCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             return _notifications.IsValid();
         }
 

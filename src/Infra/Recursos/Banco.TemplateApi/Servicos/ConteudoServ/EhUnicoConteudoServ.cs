@@ -1,24 +1,19 @@
 ﻿using Dapper;
-using System.Linq;
 using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using TemplateApi.Recursos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Adaptadores;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ {
     internal class EhUnicoConteudoServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public EhUnicoConteudoServ(
             Conexao conexao)
             : base(conexao) { }
 
-        public bool Executar(Conteudo dados)
-        {
-            ValidationNotification notificacoes = new ValidationNotification();
+        public bool Executar(Conteudo dados) {
+            ValidationNotification notificacoes = new();
 
             AliasEhUnico(dados);
             notificacoes.Add(this);
@@ -28,13 +23,11 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
             return IsValid();
         }
 
-        private bool AliasEhUnico(Conteudo dados)
-        {
+        private bool AliasEhUnico(Conteudo dados) {
             Notifications.Clear();
-            Mapeamentos.ConteudoMap map = new Mapeamentos.ConteudoMap();
+            Mapeamentos.ConteudoMap map = new();
 
-            if (!(dados?.Alias is null))
-            {
+            if (!(dados?.Alias is null)) {
                 string sqlString = @$"
                     SELECT TOP 1 1
                     FROM {map.Tabela}
@@ -53,8 +46,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(
                     sqlString, sqlParam, Conexao.Transicao);
 
-                if (resultado.Any())
-                {
+                if (resultado.Any()) {
                     Notifications.AddError<Conteudo>(
                         x => x.Alias, AvisosResx.XNaoEhUnico, null);
                 }

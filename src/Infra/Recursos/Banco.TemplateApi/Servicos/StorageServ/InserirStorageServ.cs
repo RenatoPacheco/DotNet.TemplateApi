@@ -1,36 +1,29 @@
-﻿using System;
-using Dapper;
-using System.Collections.Generic;
+﻿using Dapper;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ {
     internal class InserirStorageServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public InserirStorageServ(
             Conexao conexao,
             EhUnicoStorageServ persEhUnicoStorage)
-            : base(conexao)
-        {
+            : base(conexao) {
             _persEhUnicoStorage = persEhUnicoStorage;
         }
 
         private readonly EhUnicoStorageServ _persEhUnicoStorage;
 
-        public void Executar(Storage dados)
-        {
+        public void Executar(Storage dados) {
             Notifications.Clear();
-            Mapeamentos.StorageMap map = new Mapeamentos.StorageMap();
+            Mapeamentos.StorageMap map = new();
 
             IsValid(dados);
 
             _persEhUnicoStorage.Executar(dados);
             IsValid(_persEhUnicoStorage);
 
-            if (IsValid())
-            {
+            if (IsValid()) {
                 dados.CriadoEm = DateTime.Now;
                 dados.AlteradoEm = DateTime.Now;
 

@@ -1,23 +1,17 @@
-﻿using System.Linq;
-using BitHelp.Core.Validation;
-using System.Collections.Generic;
+﻿using BitHelp.Core.Validation;
 using System.Text.RegularExpressions;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Dominio.Comandos.UploadCmds
-{
+namespace TemplateApi.Dominio.Comandos.UploadCmds {
     public class ImagemUploadCmd
-        : ISelfValidation
-    {
+        : ISelfValidation {
         private IList<Arquivo> _arquivo = new List<Arquivo>();
 
-        public IList<Arquivo> Arquivo
-        {
+        public IList<Arquivo> Arquivo {
             get => _arquivo;
-            set
-            {
+            set {
                 _arquivo = value ?? new List<Arquivo>();
                 this.RemoveAtReference(x => x.Arquivo);
                 this.MaxItemsIsValid(x => x.Arquivo, 20);
@@ -38,11 +32,10 @@ namespace TemplateApi.Dominio.Comandos.UploadCmds
 
         #region Auto validação
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        bool ISelfValidation.IsValid()
-        {
+        bool ISelfValidation.IsValid() {
             this.RequiredIsValid(x => x.Arquivo);
 
             return _notifications.IsValid();

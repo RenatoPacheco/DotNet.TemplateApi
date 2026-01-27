@@ -1,8 +1,6 @@
-﻿namespace TemplateApi.Infra.Comum
-{
+﻿namespace TemplateApi.Infra.Comum {
     internal abstract class BaseInfra
-        : Dominio.Servicos.Comum.BaseServico
-    {
+        : Dominio.Servicos.Comum.BaseServico {
 
     }
 }

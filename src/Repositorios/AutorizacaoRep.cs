@@ -2,21 +2,17 @@
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorios.Persistencias.AutorizacaoPers;
 
-namespace TemplateApi.Repositorios
-{
+namespace TemplateApi.Repositorios {
     internal class AutorizacaoRep
-        : Comum.BaseRepositorio, IAutorizacaoRep
-    {
+        : Comum.BaseRepositorio, IAutorizacaoRep {
         public AutorizacaoRep(
-            ListarAutorizacaoPers persListarAutorizacao)
-        {
+            ListarAutorizacaoPers persListarAutorizacao) {
             _persListarAutorizacao = persListarAutorizacao;
         }
 
         private readonly ListarAutorizacaoPers _persListarAutorizacao;
 
-        public Autorizacao[] Listar()
-        {
+        public Autorizacao[] Listar() {
             Notifications.Clear();
 
             Autorizacao[] resultado = _persListarAutorizacao.Executar();

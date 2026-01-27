@@ -1,24 +1,17 @@
-﻿using System;
-using System.Linq;
-using TemplateApi.Dominio.Interfaces;
+﻿using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UploadCmds;
 
-namespace TemplateApi.Dominio.Servicos
-{
-    public class UploadServ : Comum.BaseServico
-    {
-        public IArquivo[] Arquivo(ArquivoUploadCmd comando)
-        {
+namespace TemplateApi.Dominio.Servicos {
+    public class UploadServ : Comum.BaseServico {
+        public IArquivo[] Arquivo(ArquivoUploadCmd comando) {
             Notifications.Clear();
 
             Arquivo[] resultado = Array.Empty<Arquivo>();
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 resultado = comando.Arquivo.ToArray();
-                foreach (Arquivo item in resultado)
-                {
+                foreach (Arquivo item in resultado) {
                     item.Salvar();
                 }
             }
@@ -26,17 +19,14 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public IArquivo[] Imagem(ImagemUploadCmd comando)
-        {
+        public IArquivo[] Imagem(ImagemUploadCmd comando) {
             Notifications.Clear();
 
             Arquivo[] resultado = Array.Empty<Arquivo>();
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 resultado = comando.Arquivo.ToArray();
-                foreach (Arquivo item in resultado)
-                {
+                foreach (Arquivo item in resultado) {
                     item.Salvar();
                 }
             }

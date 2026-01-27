@@ -1,14 +1,10 @@
 ﻿using BitHelp.Core.Validation;
 using BitHelp.Core.Validation.Extends;
-using System.Collections.Generic;
 using TemplateApi.Dominio.Escopos;
 
-namespace TemplateApi.Dominio.Comandos.StorageCmds
-{
-    public class ExcluirStorageCmd : ISelfValidation
-    {
-        public ExcluirStorageCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.StorageCmds {
+    public class ExcluirStorageCmd : ISelfValidation {
+        public ExcluirStorageCmd() {
             _escopo = new StorageEscp<ExcluirStorageCmd>(this);
         }
 
@@ -16,11 +12,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public IList<long> Storage
-        {
+        public IList<long> Storage {
             get => _storage ??= new List<long>();
-            set
-            {
+            set {
                 _storage = value ?? new List<long>();
                 _escopo.IdEhValido(x => x.Storage);
             }
@@ -30,11 +24,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Alias de storage
         /// </summary>
-        public IList<string> Alias
-        {
+        public IList<string> Alias {
             get => _alias ??= new List<string>();
-            set
-            {
+            set {
                 _alias = value ?? new List<string>();
                 _escopo.AliasEhValido(x => x.Alias);
             }
@@ -44,11 +36,10 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         protected readonly StorageEscp<ExcluirStorageCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIfOtherNotNullIsValid(x => x.Storage, Alias);
             this.RequiredIfOtherNotNullIsValid(x => x.Alias, Storage);
 

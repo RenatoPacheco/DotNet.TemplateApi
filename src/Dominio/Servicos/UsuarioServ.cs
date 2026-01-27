@@ -1,31 +1,24 @@
-﻿using System;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
-using TemplateApi.Compartilhados.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 
-namespace TemplateApi.Dominio.Servicos
-{
-    public class UsuarioServ : Comum.BaseServico
-    {
+namespace TemplateApi.Dominio.Servicos {
+    public class UsuarioServ : Comum.BaseServico {
         public UsuarioServ(
-            IUsuarioRep repUsuario)
-        {
+            IUsuarioRep repUsuario) {
             _repUsuario = repUsuario;
         }
 
         protected readonly IUsuarioRep _repUsuario;
 
-        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando)
-        {
+        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando) {
             Notifications.Clear();
-            ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
+            ResultadoBusca<Usuario> resultado = new();
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 resultado = _repUsuario.Filtrar(comando);
                 IsValid(_repUsuario);
             }
@@ -33,13 +26,11 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public Usuario Inserir(InserirUsuarioCmd comando)
-        {
+        public Usuario Inserir(InserirUsuarioCmd comando) {
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 comando.Aplicar(ref resultado);
                 _repUsuario.Inserir(resultado);
                 IsValid(_repUsuario);
@@ -51,23 +42,20 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public Usuario Editar(EditarUsuarioCmd comando)
-        {
+        public Usuario Editar(EditarUsuarioCmd comando) {
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 resultado = _repUsuario.Filtrar(new FiltrarUsuarioCmd {
                     Usuario = new int[] { comando.Usuario.Value },
                     Contexto = ContextoCmd.Editar,
-                    Maximo = 1, 
+                    Maximo = 1,
                     Pagina = 1
                 }, nameof(comando.Usuario), ValidationType.Error).FirstOrDefault();
                 IsValid(_repUsuario);
 
-                if (IsValid())
-                {
+                if (IsValid()) {
                     comando.Aplicar(ref resultado);
                     _repUsuario.Editar(resultado);
                     IsValid(_repUsuario);
@@ -80,12 +68,10 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public void Excluir(ExcluirUsuarioCmd comando)
-        {
+        public void Excluir(ExcluirUsuarioCmd comando) {
             Notifications.Clear();
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 _repUsuario.Excluir(comando);
                 IsValid(_repUsuario);
             }

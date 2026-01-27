@@ -1,22 +1,17 @@
 ﻿using Dapper;
-using System.Linq;
 using System.Text;
 using TemplateApi.Recursos;
 using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using TemplateApi.Dominio.Entidades;
 using System.Text.RegularExpressions;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Infra.Adaptadores;
-using TemplateApi.Compartilhados.Extensoes;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ {
     internal class FiltrarConteudoServ
-        : BaseBuscaServico
-    {
+        : BaseBuscaServico {
         public FiltrarConteudoServ(
             Conexao conexao)
             : base(conexao) { }
@@ -24,25 +19,22 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
         private Mapeamentos.ConteudoMap _map;
 
         public ResultadoBusca<Conteudo> Executar(
-            FiltrarConteudoCmd comando, string referencia)
-        {
+            FiltrarConteudoCmd comando, string referencia) {
             return Executar(comando, referencia);
         }
 
         public ResultadoBusca<Conteudo> Executar(
-            FiltrarConteudoCmd comando, ValidationType tipo)
-        {
+            FiltrarConteudoCmd comando, ValidationType tipo) {
             return Executar(comando, string.Empty, tipo);
         }
 
         public ResultadoBusca<Conteudo> Executar(
             FiltrarConteudoCmd comando, string referencia = "",
-            ValidationType tipo = ValidationType.Alert)
-        {
+            ValidationType tipo = ValidationType.Alert) {
             Notifications.Clear();
 
-            ResultadoBusca<Conteudo> resultado = new ResultadoBusca<Conteudo>();
-            StringBuilder sql = new StringBuilder();
+            ResultadoBusca<Conteudo> resultado = new();
+            StringBuilder sql = new();
             IDictionary<string, object> sqlParametros = new Dictionary<string, object>();
 
             _map = new Mapeamentos.ConteudoMap { RefSql = "cont" };
@@ -52,14 +44,12 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
             CalcularPaginacao(ref resultado, sqlParametros, comando, sql);
 
             if (resultado.TotalDePaginas >= comando.Pagina
-                || !comando.CalcularPaginacao)
-            {
-                if (comando.Contexto == ContextoCmd.Embutir)
-                {
+                || !comando.CalcularPaginacao) {
+                if (comando.Contexto == ContextoCmd.Embutir) {
                     _map.Ignorar(x => x.Texto);
                 }
 
-                StringBuilder sqlConsulta = new StringBuilder();
+                StringBuilder sqlConsulta = new();
                 sqlConsulta.Append($" SELECT {_map}");
                 sqlConsulta.Append(sql);
                 sqlConsulta.Append($" ORDER BY {_map.Col(x => x.Id)} DESC ");
@@ -69,17 +59,15 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
                 IEnumerable<string> jsonList = Conexao.Sessao.Query<string>(
                    sqlConsulta.ToString(), sqlParametros, Conexao.Transicao);
 
-                string jsonResult = (jsonList.Any() ? string.Join("", jsonList) : "[]");
+                string jsonResult = jsonList.Any() ? string.Join("", jsonList) : "[]";
 
                 resultado.ResultadosDaPaginaAtual = DesserializarJson<Conteudo[]>(jsonResult);
             }
 
-            if (!resultado.ResultadosDaPaginaAtual.Any())
-            {
+            if (!resultado.ResultadosDaPaginaAtual.Any()) {
                 string mensagem = string.Format(AvisosResx.XNaoEncontrados, NomesResx.Conteudos);
 
-                if (comando.Maximo == 1)
-                {
+                if (comando.Maximo == 1) {
                     mensagem = string.Format(AvisosResx.XNaoEncontrado, NomesResx.Conteudo);
                 }
 
@@ -90,31 +78,26 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
         }
 
         private void AplicarFiltro(FiltrarConteudoCmd comando,
-            ref StringBuilder sql, ref IDictionary<string, object> sqlParametros)
-        {
-            StringBuilder sqlFiltro = new StringBuilder();
-            StringBuilder sqlTextos = new StringBuilder();
+            ref StringBuilder sql, ref IDictionary<string, object> sqlParametros) {
+            StringBuilder sqlFiltro = new();
+            StringBuilder sqlTextos = new();
             IList<string> textos = DesmembrarTexto(comando.Texto);
 
             sql.Append($" FROM {_map.Tabela} ");
 
-            if (comando.Conteudo.Any())
-            {
+            if (comando.Conteudo.Any()) {
                 sqlFiltro.Append($" AND {_map.Col(x => x.Id)} IN @Conteudo ");
                 sqlParametros.Add("Conteudo", comando.Conteudo);
             }
 
-            if (comando.Status.Any())
-            {
+            if (comando.Status.Any()) {
                 sqlFiltro.Append($" AND {_map.Col(x => x.Status)} IN @Status ");
                 sqlParametros.Add("Status", StatusAdapt.EnumParaSql(comando.Status));
             }
 
-            if (textos.Any())
-            {
+            if (textos.Any()) {
                 sqlFiltro.Append(" AND ( ");
-                for (int i = 0; i < textos.Count; i++)
-                {
+                for (int i = 0; i < textos.Count; i++) {
                     sqlTextos.Append($" OR {_map.Col(x => x.Titulo)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
                     sqlTextos.Append($" OR {_map.Col(x => x.Alias)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
                     sqlTextos.Append($" OR {_map.Col(x => x.Texto)} collate SQL_Latin1_general_CP1_CI_AI LIKE @Texto{i} ");
@@ -132,11 +115,9 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
         private void CalcularPaginacao(
             ref ResultadoBusca<Conteudo> resultado,
             IDictionary<string, object> sqlParametros,
-            FiltrarConteudoCmd comando, StringBuilder sql)
-        {
-            if (comando.CalcularPaginacao)
-            {
-                StringBuilder sqlContagem = new StringBuilder();
+            FiltrarConteudoCmd comando, StringBuilder sql) {
+            if (comando.CalcularPaginacao) {
+                StringBuilder sqlContagem = new();
                 sqlContagem.Append($" SELECT count(*) ");
                 sqlContagem.Append(sql);
 

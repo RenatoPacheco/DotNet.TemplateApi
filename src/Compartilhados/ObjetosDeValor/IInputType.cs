@@ -1,7 +1,5 @@
-﻿namespace TemplateApi.Compartilhados.ObjetosDeValor
-{
-    public interface IInputType
-    {
+﻿namespace TemplateApi.Compartilhados.ObjetosDeValor {
+    public interface IInputType {
         bool IsValid();
     }
 }

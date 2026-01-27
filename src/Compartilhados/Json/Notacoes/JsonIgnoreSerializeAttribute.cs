@@ -1,10 +1,6 @@
-﻿using System;
-
-namespace TemplateApi.Compartilhados.Json.Notacoes
-{
+﻿namespace TemplateApi.Compartilhados.Json.Notacoes {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class JsonIgnoreSerializeAttribute : Attribute
-    {
+    public class JsonIgnoreSerializeAttribute : Attribute {
 
     }
 }

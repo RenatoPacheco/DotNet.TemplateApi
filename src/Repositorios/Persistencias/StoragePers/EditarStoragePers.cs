@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ;
 
-namespace TemplateApi.Repositorios.Persistencias.StoragePers
-{
+namespace TemplateApi.Repositorios.Persistencias.StoragePers {
     internal class EditarStoragePers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public EditarStoragePers(
-            EditarStorageServ servEditarStorage)
-        {
+            EditarStorageServ servEditarStorage) {
             _servEditarStorage = servEditarStorage;
         }
 
         private readonly EditarStorageServ _servEditarStorage;
 
-        public void Executar(Storage dados)
-        {
+        public void Executar(Storage dados) {
             Notifications.Clear();
 
             _servEditarStorage.Executar(dados);

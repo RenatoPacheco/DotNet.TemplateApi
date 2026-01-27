@@ -5,18 +5,15 @@ using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorios.Persistencias.ConteudoPers;
 
-namespace TemplateApi.Repositorios
-{
+namespace TemplateApi.Repositorios {
     internal class ConteudoRep
-        : Comum.BaseRepositorio, IConteudoRep
-    {
+        : Comum.BaseRepositorio, IConteudoRep {
         public ConteudoRep(
             InserirConteudoPers persInserirConteudo,
             EditarConteudoPers persEditarConteudo,
             ExcluirConteudoPers persExcluirConteudo,
             FiltrarConteudoPers persFiltrarConteudo)
-            : base()
-        {
+            : base() {
             _persInserirConteudo = persInserirConteudo;
             _persEditarConteudo = persEditarConteudo;
             _persExcluirConteudo = persExcluirConteudo;
@@ -28,16 +25,14 @@ namespace TemplateApi.Repositorios
         private readonly ExcluirConteudoPers _persExcluirConteudo;
         private readonly FiltrarConteudoPers _persFiltrarConteudo;
 
-        public void Editar(Conteudo dados)
-        {
+        public void Editar(Conteudo dados) {
             Notifications.Clear();
 
             _persEditarConteudo.Executar(dados);
             IsValid(_persEditarConteudo);
         }
 
-        public void Excluir(ExcluirConteudoCmd comando)
-        {
+        public void Excluir(ExcluirConteudoCmd comando) {
             Notifications.Clear();
 
             _persExcluirConteudo.Executar(comando);
@@ -45,21 +40,18 @@ namespace TemplateApi.Repositorios
         }
 
         public ResultadoBusca<Conteudo> Filtrar(
-            FiltrarConteudoCmd comando, string referencia)
-        {
+            FiltrarConteudoCmd comando, string referencia) {
             return Filtrar(comando, referencia, ValidationType.Alert);
         }
 
         public ResultadoBusca<Conteudo> Filtrar(
-            FiltrarConteudoCmd comando, ValidationType tipo)
-        {
+            FiltrarConteudoCmd comando, ValidationType tipo) {
             return Filtrar(comando, string.Empty, tipo);
         }
 
         public ResultadoBusca<Conteudo> Filtrar(
             FiltrarConteudoCmd comando, string referencia = "",
-            ValidationType tipo = ValidationType.Alert)
-        {
+            ValidationType tipo = ValidationType.Alert) {
             Notifications.Clear();
 
             ResultadoBusca<Conteudo> resultado = _persFiltrarConteudo.Executar(comando, referencia, tipo);
@@ -68,8 +60,7 @@ namespace TemplateApi.Repositorios
             return resultado;
         }
 
-        public void Inserir(Conteudo dados)
-        {
+        public void Inserir(Conteudo dados) {
             Notifications.Clear();
 
             _persInserirConteudo.Executar(dados);

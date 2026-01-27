@@ -5,13 +5,10 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Validation.Extends;
 
-namespace TemplateApi.Dominio.Comandos.ConteudoCmds
-{
-    public class EditarConteudoCmd 
-        : Comum.EditarBaseCmd, ISelfValidation
-    {
-        public EditarConteudoCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.ConteudoCmds {
+    public class EditarConteudoCmd
+        : Comum.EditarBaseCmd, ISelfValidation {
+        public EditarConteudoCmd() {
             _escopo = new ConteudoEscp<EditarConteudoCmd>(this);
         }
 
@@ -20,11 +17,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
-        public int? Conteudo
-        {
+        public int? Conteudo {
             get => _Conteudo;
-            set
-            {
+            set {
                 _Conteudo = value;
                 RegistrarPropriedade();
                 _escopo.IdEhValido(x => x.Conteudo);
@@ -36,11 +31,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// Título de conteúdo
         /// </summary>
         [Display(Name = "Título")]
-        public string Titulo
-        {
+        public string Titulo {
             get => _titulo;
-            set
-            {
+            set {
                 _titulo = value;
                 RegistrarPropriedade();
                 _escopo.TituloEhValido(x => x.Titulo);
@@ -51,11 +44,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Alias de conteúdo
         /// </summary>
-        public string Alias
-        {
+        public string Alias {
             get => _alias;
-            set
-            {
+            set {
                 _alias = value;
                 RegistrarPropriedade();
                 _escopo.AliasEhValido(x => x.Alias);
@@ -66,11 +57,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Texto de conteúdo
         /// </summary>
-        public string Texto
-        {
+        public string Texto {
             get => _texto;
-            set
-            {
+            set {
                 _texto = value;
                 RegistrarPropriedade();
                 _escopo.TextoEhValido(x => x.Texto);
@@ -81,36 +70,29 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public Status? Status
-        {
+        public Status? Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
-        public void Aplicar(ref Conteudo dados)
-        {
-            if (PropriedadeRegistrada(nameof(Titulo)))
-            {
+        public void Aplicar(ref Conteudo dados) {
+            if (PropriedadeRegistrada(nameof(Titulo))) {
                 dados.Titulo = Titulo;
             }
 
-            if (PropriedadeRegistrada(nameof(Alias)))
-            {
+            if (PropriedadeRegistrada(nameof(Alias))) {
                 dados.Alias = Alias;
             }
 
-            if (PropriedadeRegistrada(nameof(Texto)))
-            {
+            if (PropriedadeRegistrada(nameof(Texto))) {
                 dados.Texto = Texto;
             }
 
-            if (PropriedadeRegistrada(nameof(Status)))
-            {
+            if (PropriedadeRegistrada(nameof(Status))) {
                 dados.Status = Status;
             }
         }
@@ -121,11 +103,10 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 
         protected readonly ConteudoEscp<EditarConteudoCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Conteudo);
 
             return _notifications.IsValid();

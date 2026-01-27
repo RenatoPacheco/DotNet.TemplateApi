@@ -5,18 +5,15 @@ using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorios.Persistencias.UsuarioPers;
 
-namespace TemplateApi.Repositorios
-{
+namespace TemplateApi.Repositorios {
     internal class UsuarioRep
-        : Comum.BaseRepositorio, IUsuarioRep
-    {
+        : Comum.BaseRepositorio, IUsuarioRep {
         public UsuarioRep(
             InserirUsuarioPers persInserirUsuario,
             EditarUsuarioPers persEditarUsuario,
             ExcluirUsuarioPers persExcluirUsuario,
             FiltrarUsuarioPers persFiltrarUsuario)
-            : base()
-        {
+            : base() {
             _persInserirUsuario = persInserirUsuario;
             _persEditarUsuario = persEditarUsuario;
             _persExcluirUsuario = persExcluirUsuario;
@@ -28,16 +25,14 @@ namespace TemplateApi.Repositorios
         private readonly ExcluirUsuarioPers _persExcluirUsuario;
         private readonly FiltrarUsuarioPers _persFiltrarUsuario;
 
-        public void Editar(Usuario dados)
-        {
+        public void Editar(Usuario dados) {
             Notifications.Clear();
 
             _persEditarUsuario.Executar(dados);
             IsValid(_persEditarUsuario);
         }
 
-        public void Excluir(ExcluirUsuarioCmd comando)
-        {
+        public void Excluir(ExcluirUsuarioCmd comando) {
             Notifications.Clear();
 
             _persExcluirUsuario.Executar(comando);
@@ -45,21 +40,18 @@ namespace TemplateApi.Repositorios
         }
 
         public ResultadoBusca<Usuario> Filtrar(
-            FiltrarUsuarioCmd comando, string referencia)
-        {
+            FiltrarUsuarioCmd comando, string referencia) {
             return Filtrar(comando, referencia, ValidationType.Alert);
         }
 
         public ResultadoBusca<Usuario> Filtrar(
-            FiltrarUsuarioCmd comando, ValidationType tipo)
-        {
+            FiltrarUsuarioCmd comando, ValidationType tipo) {
             return Filtrar(comando, string.Empty, tipo);
         }
 
         public ResultadoBusca<Usuario> Filtrar(
             FiltrarUsuarioCmd comando, string referencia = "",
-            ValidationType tipo = ValidationType.Alert)
-        {
+            ValidationType tipo = ValidationType.Alert) {
             Notifications.Clear();
 
             ResultadoBusca<Usuario> resultado = _persFiltrarUsuario.Executar(comando, referencia, tipo);
@@ -68,8 +60,7 @@ namespace TemplateApi.Repositorios
             return resultado;
         }
 
-        public void Inserir(Usuario dados)
-        {
+        public void Inserir(Usuario dados) {
             Notifications.Clear();
 
             _persInserirUsuario.Executar(dados);

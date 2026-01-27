@@ -1,12 +1,9 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using TemplateApi.Compartilhados.IdC;
 
-namespace TemplateApi.Infra.Auxiliares
-{
+namespace TemplateApi.Infra.Auxiliares {
     public class ModuloDependencias
-        : BaseModuloDependencias
-    {
+        : BaseModuloDependencias {
         public override Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();
 
         public override string[] StarClasstNamespace => new string[]
@@ -15,8 +12,7 @@ namespace TemplateApi.Infra.Auxiliares
             GetStartNamespace(typeof(Recursos.Banco.TemplateApi.Servicos.ConteudoServ.FiltrarConteudoServ))
         };
 
-        public override void Registrar(IResolverDependencias resolve) 
-        {
+        public override void Registrar(IResolverDependencias resolve) {
             resolve.Escopo<Recursos.Banco.TemplateApi.Conexao>();
         }
     }

@@ -1,15 +1,11 @@
 ﻿using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 using BitHelp.Core.Validation.Extends;
 
-namespace TemplateApi.Dominio.Comandos.ConteudoCmds
-{
-    public class ExcluirConteudoCmd : ISelfValidation
-    {
-        public ExcluirConteudoCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.ConteudoCmds {
+    public class ExcluirConteudoCmd : ISelfValidation {
+        public ExcluirConteudoCmd() {
             _escopo = new ConteudoEscp<ExcluirConteudoCmd>(this);
         }
 
@@ -18,11 +14,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
-        public IList<int> Conteudo
-        {
+        public IList<int> Conteudo {
             get => _conteudo ??= new List<int>();
-            set
-            {
+            set {
                 _conteudo = value ?? new List<int>();
                 _escopo.IdEhValido(x => x.Conteudo);
             }
@@ -32,11 +26,10 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 
         protected readonly ConteudoEscp<ExcluirConteudoCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Conteudo);
 
             return _notifications.IsValid();

@@ -1,20 +1,16 @@
 ﻿using BitHelp.Core.Validation;
 using BitHelp.Core.Validation.Extends;
 
-namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
-{
+namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds {
     public class IniciarAutenticacaoCmd
-        : Comum.FiltrarBaseCmd, ISelfValidation
-    {
+        : Comum.FiltrarBaseCmd, ISelfValidation {
         private string _token;
         /// <summary>
         /// Token de acesso
         /// </summary>
-        public string Token
-        {
+        public string Token {
             get => _token;
-            set
-            {
+            set {
                 _token = value;
                 this.RemoveAtReference(x => Token);
             }
@@ -24,11 +20,9 @@ namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
         /// <summary>
         /// Chave pública
         /// </summary>
-        public string ChavePublica
-        {
+        public string ChavePublica {
             get => _chavePublica;
-            set
-            {
+            set {
                 _chavePublica = value;
                 this.RemoveAtReference(x => ChavePublica);
             }
@@ -36,11 +30,10 @@ namespace TemplateApi.Dominio.Comandos.AutenticacaoCmds
 
         #region Auto validação
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             return _notifications.IsValid();
         }
 

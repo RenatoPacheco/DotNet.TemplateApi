@@ -1,23 +1,18 @@
-﻿using System;
-using Dapper;
-using System.Collections.Generic;
+﻿using Dapper;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ {
     internal class ExcluirUsuarioServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public ExcluirUsuarioServ(
             Conexao conexao)
             : base(conexao) { }
 
-        public void Executar(ExcluirUsuarioCmd comando)
-        {
+        public void Executar(ExcluirUsuarioCmd comando) {
             Notifications.Clear();
-            Mapeamentos.UsuarioMap map = new Mapeamentos.UsuarioMap();
+            Mapeamentos.UsuarioMap map = new();
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET

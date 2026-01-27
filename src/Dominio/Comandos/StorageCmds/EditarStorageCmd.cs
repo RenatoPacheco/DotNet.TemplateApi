@@ -3,13 +3,10 @@ using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.Escopos;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Dominio.Comandos.StorageCmds
-{
-    public class EditarStorageCmd 
-        : Comum.EditarBaseCmd, ISelfValidation
-    {
-        public EditarStorageCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.StorageCmds {
+    public class EditarStorageCmd
+        : Comum.EditarBaseCmd, ISelfValidation {
+        public EditarStorageCmd() {
             _escopo = new StorageEscp<EditarStorageCmd>(this);
         }
 
@@ -17,11 +14,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Identificador de storage
         /// </summary>
-        public long? Storage
-        {
+        public long? Storage {
             get => _storage;
-            set
-            {
+            set {
                 _storage = value;
                 RegistrarPropriedade();
                 _escopo.IdEhValido(x => x.Storage);
@@ -32,11 +27,9 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Nome de storage
         /// </summary>
-        public string Nome
-        {
+        public string Nome {
             get => _nome;
-            set
-            {
+            set {
                 _nome = value;
                 RegistrarPropriedade();
                 _escopo.NomeEhValido(x => x.Nome);
@@ -47,26 +40,21 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public Status? Status
-        {
+        public Status? Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
-        public void Aplicar(ref Storage dados)
-        {
-            if (PropriedadeRegistrada(nameof(Nome)))
-            {
+        public void Aplicar(ref Storage dados) {
+            if (PropriedadeRegistrada(nameof(Nome))) {
                 dados.Nome = Nome;
             }
 
-            if (PropriedadeRegistrada(nameof(Status)))
-            {
+            if (PropriedadeRegistrada(nameof(Status))) {
                 dados.Status = (Status)Status;
             }
         }
@@ -77,11 +65,10 @@ namespace TemplateApi.Dominio.Comandos.StorageCmds
 
         protected readonly StorageEscp<EditarStorageCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Storage);
 
             return _notifications.IsValid();

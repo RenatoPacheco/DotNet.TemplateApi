@@ -1,10 +1,6 @@
-﻿using System;
-
-namespace TemplateApi.Compartilhados.IdC
-{
+﻿namespace TemplateApi.Compartilhados.IdC {
     public abstract class BaseModuloDependencias
-        : IModuloDependencias
-    {
+        : IModuloDependencias {
         public abstract Type[] Base { get; }
 
         public virtual Type[] Singleton => Array.Empty<Type>();
@@ -21,8 +17,7 @@ namespace TemplateApi.Compartilhados.IdC
 
         public virtual void Registrar(IResolverDependencias resolve) { }
 
-        protected virtual string GetStartNamespace(Type type)
-        {
+        protected virtual string GetStartNamespace(Type type) {
             return type.Namespace.Substring(
                 0, type.Namespace.LastIndexOf('.'));
         }

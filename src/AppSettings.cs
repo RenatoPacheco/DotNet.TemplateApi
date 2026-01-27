@@ -1,9 +1,6 @@
-﻿namespace TemplateApi
-{
-    public static class AppSettings
-    {
-        public static void Inicializar(IAppSettings appSettings)
-        {
+﻿namespace TemplateApi {
+    public static class AppSettings {
+        public static void Inicializar(IAppSettings appSettings) {
             _appSettings = appSettings;
         }
 
@@ -23,8 +20,7 @@
 
         public static string CultureInfo => _appSettings.GetValue<string>("app:culture-info");
 
-        public static class Autor
-        {
+        public static class Autor {
             public static string Nome => _appSettings.GetValue<string>("app:autor:nome");
 
             public static string Url => _appSettings.GetValue<string>("app:autor:url");

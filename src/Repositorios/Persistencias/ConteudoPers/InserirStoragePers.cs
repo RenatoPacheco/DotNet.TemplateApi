@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ;
 
-namespace TemplateApi.Repositorios.Persistencias.ConteudoPers
-{
+namespace TemplateApi.Repositorios.Persistencias.ConteudoPers {
     internal class InserirConteudoPers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public InserirConteudoPers(
-            InserirConteudoServ servInserirConteudo)
-        {
+            InserirConteudoServ servInserirConteudo) {
             _servInserirConteudo = servInserirConteudo;
         }
 
         private readonly InserirConteudoServ _servInserirConteudo;
 
-        public void Executar(Conteudo dados)
-        {
+        public void Executar(Conteudo dados) {
             Notifications.Clear();
 
             _servInserirConteudo.Executar(dados);

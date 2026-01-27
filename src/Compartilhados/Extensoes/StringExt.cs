@@ -2,7 +2,25 @@
 using System.Text.RegularExpressions;
 
 namespace TemplateApi.Compartilhados.Extensoes {
+
     public static class StringExt {
+
+        public static string ExtrairNome(string texto) {
+            string resultado = texto?.Trim().Split(' ').FirstOrDefault();
+            return string.IsNullOrEmpty(resultado) ? null : resultado;
+        }
+
+        public static string ExtrairSobrenome(string texto) {
+            texto = texto?.Trim();
+            string nome = ExtrairNome(texto);
+
+            if (string.IsNullOrWhiteSpace(nome) || nome.Length == texto.Length) {
+                return null;
+            }
+
+            string resultado = texto.Substring(nome.Length).Trim();
+            return string.IsNullOrEmpty(resultado) ? null : resultado;
+        }
 
         public static string ToBase64(this string value) {
             if (string.IsNullOrEmpty(value))

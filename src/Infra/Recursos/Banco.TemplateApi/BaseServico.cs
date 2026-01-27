@@ -1,7 +1,5 @@
-﻿namespace TemplateApi.Infra.Recursos.Banco.TemplateApi
-{
+﻿namespace TemplateApi.Infra.Recursos.Banco.TemplateApi {
     internal class BaseServico
-        : Comum.BaseInfra
-    {
+        : Comum.BaseInfra {
     }
 }

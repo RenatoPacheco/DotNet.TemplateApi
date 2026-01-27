@@ -1,15 +1,11 @@
 ﻿using BitHelp.Core.Validation;
 using BitHelp.Core.Validation.Extends;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Escopos;
 
-namespace TemplateApi.Dominio.Comandos.UsuarioCmds
-{
-    public class ExcluirUsuarioCmd : ISelfValidation
-    {
-        public ExcluirUsuarioCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds {
+    public class ExcluirUsuarioCmd : ISelfValidation {
+        public ExcluirUsuarioCmd() {
             _escopo = new UsuarioEscp<ExcluirUsuarioCmd>(this);
         }
 
@@ -18,11 +14,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<int> Usuario
-        {
+        public IList<int> Usuario {
             get => _usuario ??= new List<int>();
-            set
-            {
+            set {
                 _usuario = value ?? new List<int>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
@@ -32,11 +26,10 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         protected readonly UsuarioEscp<ExcluirUsuarioCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Usuario);
 
             return _notifications.IsValid();

@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Dominio.Interfaces
-{
-    public interface IArquivo
-    {
+namespace TemplateApi.Dominio.Interfaces {
+    public interface IArquivo {
         string Nome { get; set; }
 
         string Alias { get; set; }

@@ -1,23 +1,18 @@
-﻿using System;
-using Dapper;
+﻿using Dapper;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
-using System.Collections.Generic;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ {
     internal class ExcluirStorageServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public ExcluirStorageServ(
             Conexao conexao)
             : base(conexao) { }
 
-        public void Executar(ExcluirStorageCmd comando)
-        {
+        public void Executar(ExcluirStorageCmd comando) {
             Notifications.Clear();
-            Mapeamentos.StorageMap map = new Mapeamentos.StorageMap();
+            Mapeamentos.StorageMap map = new();
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET

@@ -3,13 +3,10 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Extensoes;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos {
     internal class ConteudoMap
-        : Auxiliares.BaseMapeamento<Conteudo>
-    {
-        public ConteudoMap()
-        {
+        : Auxiliares.BaseMapeamento<Conteudo> {
+        public ConteudoMap() {
             DefinnirTabela("Conteudo");
 
             Associar(x => x.Id, "Codigo_Conteudo");
@@ -21,42 +18,34 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
             Associar(x => x.Status, "Status_Conteudo");
         }
 
-        public override string ToString()
-        {
-            StringBuilder resultado = new StringBuilder();
+        public override string ToString() {
+            StringBuilder resultado = new();
 
-            if (NaoIgnorar(x => x.Id))
-            {
+            if (NaoIgnorar(x => x.Id)) {
                 resultado.Append($"{SqlParaJson(x => x.Id)},");
             }
 
-            if (NaoIgnorar(x => x.Titulo))
-            {
+            if (NaoIgnorar(x => x.Titulo)) {
                 resultado.Append($"{SqlParaJson(x => x.Titulo)},");
             }
 
-            if (NaoIgnorar(x => x.Alias))
-            {
+            if (NaoIgnorar(x => x.Alias)) {
                 resultado.Append($"{SqlParaJson(x => x.Alias)},");
             }
 
-            if (NaoIgnorar(x => x.Texto))
-            {
+            if (NaoIgnorar(x => x.Texto)) {
                 resultado.Append($"{SqlParaJson(x => x.Texto)},");
             }
 
-            if (NaoIgnorar(x => x.CriadoEm))
-            {
+            if (NaoIgnorar(x => x.CriadoEm)) {
                 resultado.Append($"{SqlParaJson(x => x.CriadoEm)},");
             }
 
-            if (NaoIgnorar(x => x.AlteradoEm))
-            {
+            if (NaoIgnorar(x => x.AlteradoEm)) {
                 resultado.Append($"{SqlParaJson(x => x.AlteradoEm)},");
             }
 
-            if (NaoIgnorar(x => x.Status))
-            {
+            if (NaoIgnorar(x => x.Status)) {
                 resultado.Append($"{this.MsSqlCharParaEnum(x => x.Status, typeof(Status))},");
             }
 

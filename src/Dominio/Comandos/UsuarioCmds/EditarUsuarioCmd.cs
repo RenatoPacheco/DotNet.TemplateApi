@@ -7,13 +7,10 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Compartilhados.Json.Notacoes;
 
-namespace TemplateApi.Dominio.Comandos.UsuarioCmds
-{
-    public class EditarUsuarioCmd 
-        : Comum.EditarBaseCmd, ISelfValidation
-    {
-        public EditarUsuarioCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds {
+    public class EditarUsuarioCmd
+        : Comum.EditarBaseCmd, ISelfValidation {
+        public EditarUsuarioCmd() {
             _escopo = new UsuarioEscp<EditarUsuarioCmd>(this);
         }
 
@@ -22,11 +19,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public int? Usuario
-        {
+        public int? Usuario {
             get => _usuario;
-            set
-            {
+            set {
                 _usuario = value;
                 RegistrarPropriedade();
                 _escopo.IdEhValido(x => x.Usuario);
@@ -37,11 +32,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Nome de usuário
         /// </summary>
-        public string Nome
-        {
+        public string Nome {
             get => _nome;
-            set
-            {
+            set {
                 _nome = value;
                 RegistrarPropriedade();
                 _escopo.NomeEhValido(x => x.Nome);
@@ -53,11 +46,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// E-mail de usuário
         /// </summary>
         [Display(Name = "E-mail")]
-        public string Email
-        {
+        public string Email {
             get => _email;
-            set
-            {
+            set {
                 _email = value;
                 RegistrarPropriedade();
                 _escopo.EmailEhValido(x => x.Email);
@@ -69,11 +60,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// Senha de usuário
         /// </summary>
         [JsonIgnoreSerialize]
-        public string Senha
-        {
+        public string Senha {
             get => _senha;
-            set
-            {
+            set {
                 _senha = value;
                 RegistrarPropriedade();
                 _escopo.SenhaEhValido(x => x.Senha);
@@ -84,11 +73,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Telefone de usuário
         /// </summary>
-        public PhoneType? Telefone
-        {
+        public PhoneType? Telefone {
             get => _telefone;
-            set
-            {
+            set {
                 _telefone = value;
                 RegistrarPropriedade();
                 _escopo.TelefoneEhValido(x => x.Telefone);
@@ -99,41 +86,33 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public Status? Status
-        {
+        public Status? Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 RegistrarPropriedade();
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
-        public void Aplicar(ref Usuario dados)
-        {
-            if (PropriedadeRegistrada(nameof(Nome)))
-            {
+        public void Aplicar(ref Usuario dados) {
+            if (PropriedadeRegistrada(nameof(Nome))) {
                 dados.Nome = Nome;
             }
 
-            if (PropriedadeRegistrada(nameof(Email)))
-            {
+            if (PropriedadeRegistrada(nameof(Email))) {
                 dados.Email = Email;
             }
 
-            if (PropriedadeRegistrada(nameof(Senha)))
-            {
+            if (PropriedadeRegistrada(nameof(Senha))) {
                 dados.Senha = Senha;
             }
 
-            if (PropriedadeRegistrada(nameof(Telefone)))
-            {
+            if (PropriedadeRegistrada(nameof(Telefone))) {
                 dados.Telefone = Telefone;
             }
 
-            if (PropriedadeRegistrada(nameof(Status)))
-            {
+            if (PropriedadeRegistrada(nameof(Status))) {
                 dados.Status = Status;
             }
         }
@@ -144,11 +123,10 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         protected readonly UsuarioEscp<EditarUsuarioCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Usuario);
 
             return _notifications.IsValid();

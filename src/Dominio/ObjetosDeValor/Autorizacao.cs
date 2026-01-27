@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Reflection;
 using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;
@@ -8,33 +6,30 @@ using TemplateApi.Dominio.Entidades;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace TemplateApi.Dominio.ObjetosDeValor
-{
+namespace TemplateApi.Dominio.ObjetosDeValor {
     public class Autorizacao
-        : IEquatable<Autorizacao>
-    {
+        : IEquatable<Autorizacao> {
         [JsonConstructor]
         protected Autorizacao() { }
 
         public Autorizacao(MethodInfo metodo, Type classe)
-            : this()
-        {
+            : this() {
             Classe = classe;
             Metodo = metodo;
 
             // Analizando classe
 
-            bool naoRequerAutorizacao = (classe.GetCustomAttributes(
+            bool naoRequerAutorizacao = classe.GetCustomAttributes(
                 typeof(NaoRequerAutorizacaoAttribute), true)
-                .FirstOrDefault() != null);
+                .FirstOrDefault() != null;
 
-            bool naoRequerChavePublica = (classe.GetCustomAttributes(
+            bool naoRequerChavePublica = classe.GetCustomAttributes(
                 typeof(NaoRequerChavePublicaAttribute), true)
-                .FirstOrDefault() != null);
+                .FirstOrDefault() != null;
 
-            bool acessoLivre = (classe.GetCustomAttributes(
+            bool acessoLivre = classe.GetCustomAttributes(
                 typeof(AcessoLivreAttribute), true)
-                .FirstOrDefault() != null);
+                .FirstOrDefault() != null;
 
             // Analizando o método
 
@@ -105,27 +100,23 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         public override string ToString() => $"{Grupo}.{Acao}";
 
-        public bool EstaAutorizado(Autenticacao autenticacao)
-        {
+        public bool EstaAutorizado(Autenticacao autenticacao) {
             return (!RequerAutorizacao || (RequerAutorizacao == autenticacao.EstaAutenticado))
                 && (!RequerChavePublica || (RequerChavePublica == autenticacao.HaChavePublica));
         }
 
         #region Compare
 
-        public bool Equals([AllowNull] Autorizacao other)
-        {
+        public bool Equals([AllowNull] Autorizacao other) {
             return !(other is null)
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object other)
-        {
+        public override bool Equals(object other) {
             return other is Autorizacao compare && Equals(compare);
         }
 
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             return $"{GetType()}:{Id}".GetHashCode();
         }
 
@@ -133,13 +124,11 @@ namespace TemplateApi.Dominio.ObjetosDeValor
 
         #region Operadores
 
-        public static bool operator ==(Autorizacao a, Autorizacao b)
-        {
+        public static bool operator ==(Autorizacao a, Autorizacao b) {
             return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
-        public static bool operator !=(Autorizacao a, Autorizacao b)
-        {
+        public static bool operator !=(Autorizacao a, Autorizacao b) {
             return !(a == b);
         }
 

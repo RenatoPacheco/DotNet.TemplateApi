@@ -1,30 +1,24 @@
-﻿using System;
-using BitHelp.Core.Validation;
+﻿using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Dominio.Comandos.Comum;
 
-namespace TemplateApi.Dominio.Servicos
-{
-    public class ConteudoServ : Comum.BaseServico
-    {
+namespace TemplateApi.Dominio.Servicos {
+    public class ConteudoServ : Comum.BaseServico {
         public ConteudoServ(
-            IConteudoRep repConteudo)
-        {
+            IConteudoRep repConteudo) {
             _repConteudo = repConteudo;
         }
 
         protected readonly IConteudoRep _repConteudo;
 
-        public ResultadoBusca<Conteudo> Filtrar(FiltrarConteudoCmd comando)
-        {
+        public ResultadoBusca<Conteudo> Filtrar(FiltrarConteudoCmd comando) {
             Notifications.Clear();
-            ResultadoBusca<Conteudo> resultado = new ResultadoBusca<Conteudo>();
+            ResultadoBusca<Conteudo> resultado = new();
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 resultado = _repConteudo.Filtrar(comando);
                 IsValid(_repConteudo);
             }
@@ -32,13 +26,11 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public Conteudo Inserir(InserirConteudoCmd comando)
-        {
+        public Conteudo Inserir(InserirConteudoCmd comando) {
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 comando.Aplicar(ref resultado);
                 _repConteudo.Inserir(resultado);
                 IsValid(_repConteudo);
@@ -50,23 +42,20 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public Conteudo Editar(EditarConteudoCmd comando)
-        {
+        public Conteudo Editar(EditarConteudoCmd comando) {
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 resultado = _repConteudo.Filtrar(new FiltrarConteudoCmd {
                     Conteudo = new int[] { comando.Conteudo.Value },
                     Contexto = ContextoCmd.Editar,
-                    Maximo = 1, 
+                    Maximo = 1,
                     Pagina = 1
                 }, nameof(comando.Conteudo), ValidationType.Error).FirstOrDefault();
                 IsValid(_repConteudo);
 
-                if (IsValid())
-                {
+                if (IsValid()) {
                     comando.Aplicar(ref resultado);
                     _repConteudo.Editar(resultado);
                     IsValid(_repConteudo);
@@ -79,12 +68,10 @@ namespace TemplateApi.Dominio.Servicos
             return resultado;
         }
 
-        public void Excluir(ExcluirConteudoCmd comando)
-        {
+        public void Excluir(ExcluirConteudoCmd comando) {
             Notifications.Clear();
 
-            if (IsValid(comando))
-            {
+            if (IsValid(comando)) {
                 _repConteudo.Excluir(comando);
                 IsValid(_repConteudo);
             }

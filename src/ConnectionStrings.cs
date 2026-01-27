@@ -1,9 +1,6 @@
-﻿namespace TemplateApi
-{
-    public static class ConnectionStrings
-    {
-        public static void Inicializar(IAppSettings appSettings)
-        {
+﻿namespace TemplateApi {
+    public static class ConnectionStrings {
+        public static void Inicializar(IAppSettings appSettings) {
             _appSettings = appSettings;
         }
 

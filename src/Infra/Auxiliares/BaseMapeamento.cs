@@ -1,26 +1,16 @@
-﻿using System;
-using System.Linq;
-using BitHelp.Core.Extend;
+﻿using BitHelp.Core.Extend;
 using System.Linq.Expressions;
-using System.Collections.Generic;
 using TemplateApi.Compartilhados.Extensoes;
 
-namespace TemplateApi.Infra.Auxiliares
-{
+namespace TemplateApi.Infra.Auxiliares {
     internal abstract class BaseMapeamento<T>
-        where T : class
-    {
+        where T : class {
         private string _tabela;
-        public string Tabela
-        {
-            get
-            {
-                if (!string.IsNullOrWhiteSpace(RefSql))
-                {
+        public string Tabela {
+            get {
+                if (!string.IsNullOrWhiteSpace(RefSql)) {
                     return $"{_tabela} AS {RefSql}";
-                }
-                else
-                {
+                } else {
                     return _tabela;
                 }
             }
@@ -29,15 +19,13 @@ namespace TemplateApi.Infra.Auxiliares
         protected string[] _ignorar = Array.Empty<string>();
 
         private string _refJson;
-        public string RefJson
-        {
+        public string RefJson {
             get => _refJson;
             set => _refJson = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
         }
 
         private string _refSql;
-        public string RefSql
-        {
+        public string RefSql {
             get => _refSql;
             set => _refSql = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
         }
@@ -48,57 +36,46 @@ namespace TemplateApi.Infra.Auxiliares
 
         private readonly IDictionary<string, string> _alias = new Dictionary<string, string>();
 
-        public BaseMapeamento<T> Ignorar<P>(Expression<Func<T, P>> expression)
-        {
+        public BaseMapeamento<T> Ignorar<P>(Expression<Func<T, P>> expression) {
             _ignorar = _ignorar.Concat(new string[] { expression.PropertyPath() }).ToArray();
             return this;
         }
 
-        public string Alias<P>(Expression<Func<T, P>> expression)
-        {
+        public string Alias<P>(Expression<Func<T, P>> expression) {
             string referencia = expression.PropertyPath();
             return _alias[referencia];
         }
 
-        public string Coluna<P>(Expression<Func<T, P>> expression)
-        {
+        public string Coluna<P>(Expression<Func<T, P>> expression) {
             string referencia = expression.PropertyPath();
 
-            if (!string.IsNullOrWhiteSpace(RefSql))
-            {
+            if (!string.IsNullOrWhiteSpace(RefSql)) {
                 return $"{RefSql}.{_colunas[referencia]}";
-            }
-            else
-            {
+            } else {
                 return _colunas[referencia];
             }
         }
 
-        public string Col<P>(Expression<Func<T, P>> expression)
-        {
+        public string Col<P>(Expression<Func<T, P>> expression) {
             return Coluna(expression);
         }
 
-        public string Propriedade<P>(Expression<Func<T, P>> expression)
-        {
+        public string Propriedade<P>(Expression<Func<T, P>> expression) {
             string referencia = expression.PropertyPath();
             string refJson = string.IsNullOrWhiteSpace(RefJson) ? string.Empty : $"{RefJson}.";
 
             return $"[{refJson}{_propriedades[referencia]}]";
         }
 
-        public string Prop<P>(Expression<Func<T, P>> expression)
-        {
+        public string Prop<P>(Expression<Func<T, P>> expression) {
             return Propriedade(expression);
         }
 
-        protected void DefinnirTabela(string tabela)
-        {
+        protected void DefinnirTabela(string tabela) {
             _tabela = tabela.Trim();
         }
 
-        protected void Associar<P>(Expression<Func<T, P>> expression, string sql)
-        {
+        protected void Associar<P>(Expression<Func<T, P>> expression, string sql) {
             string referencia = expression.PropertyPath();
             string json = referencia.ToJsonReference();
 
@@ -107,13 +84,11 @@ namespace TemplateApi.Infra.Auxiliares
             _alias.Add(referencia, referencia.Replace(".", string.Empty));
         }
 
-        protected bool NaoIgnorar<P>(Expression<Func<T, P>> expression)
-        {
+        protected bool NaoIgnorar<P>(Expression<Func<T, P>> expression) {
             return !_ignorar.Contains(expression.PropertyPath());
         }
 
-        protected string SqlParaJson<P>(Expression<Func<T, P>> expression)
-        {
+        protected string SqlParaJson<P>(Expression<Func<T, P>> expression) {
             return $"{Col(expression)} AS {Prop(expression)}";
         }
     }

@@ -1,10 +1,6 @@
-﻿using System;
-
-namespace TemplateApi.Infra.Interfaces
-{
+﻿namespace TemplateApi.Infra.Interfaces {
     public interface IConexao
-        : IDisposable
-    {
+        : IDisposable {
         bool HaSessao();
 
         bool HaTransicao();

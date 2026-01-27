@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ;
 
-namespace TemplateApi.Repositorios.Persistencias.AutorizacaoPers
-{
+namespace TemplateApi.Repositorios.Persistencias.AutorizacaoPers {
     internal class ListarAutorizacaoPers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public ListarAutorizacaoPers(
-            ListarAutorizacaoServ servListarAutorizacao)
-        {
+            ListarAutorizacaoServ servListarAutorizacao) {
             _servListarAutorizacao = servListarAutorizacao;
         }
 
         private readonly ListarAutorizacaoServ _servListarAutorizacao;
 
-        public Autorizacao[] Executar()
-        {
+        public Autorizacao[] Executar() {
             Notifications.Clear();
 
             Autorizacao[] resultado = _servListarAutorizacao.Executar();

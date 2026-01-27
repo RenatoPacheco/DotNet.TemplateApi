@@ -1,23 +1,17 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Compartilhados.Protecoes;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Json;
 
-namespace TemplateApi.Dominio.Entidades
-{
-    public class Autenticacao
-    {
-        public static Autenticacao DecodificarToken(string token)
-        {
+namespace TemplateApi.Dominio.Entidades {
+    public class Autenticacao {
+        public static Autenticacao DecodificarToken(string token) {
             Autenticacao resultado = null;
 
-            if (!string.IsNullOrWhiteSpace(token))
-            {
+            if (!string.IsNullOrWhiteSpace(token)) {
                 string decodificado = Codificacao.Decriptar(token);
-                if (!string.IsNullOrWhiteSpace(decodificado))
-                {
+                if (!string.IsNullOrWhiteSpace(decodificado)) {
                     resultado = ConverterJson.Desserializar<Autenticacao>(decodificado);
                     resultado.Token = token;
                 }
@@ -26,10 +20,8 @@ namespace TemplateApi.Dominio.Entidades
             return resultado;
         }
 
-        public static Autenticacao GerarInterno(bool haChavePublica)
-        {
-            Autenticacao resultado = new Autenticacao
-            {
+        public static Autenticacao GerarInterno(bool haChavePublica) {
+            Autenticacao resultado = new() {
                 Id = "NULL",
                 Nome = "Usuário interno",
                 EhInterno = true,
@@ -37,7 +29,7 @@ namespace TemplateApi.Dominio.Entidades
                 CriadoEm = null,
                 ExpiraEm = null,
                 HaChavePublica = haChavePublica
-                
+
             };
 
             resultado.AtualizarToken();
@@ -45,10 +37,8 @@ namespace TemplateApi.Dominio.Entidades
             return resultado;
         }
 
-        public static Autenticacao GerarNaoAutenticado(bool haChavePublica)
-        {
-            Autenticacao resultado = new Autenticacao
-            {
+        public static Autenticacao GerarNaoAutenticado(bool haChavePublica) {
+            Autenticacao resultado = new() {
                 Id = "NULL",
                 Nome = "Usuário não autenticado",
                 EhInterno = false,
@@ -67,8 +57,7 @@ namespace TemplateApi.Dominio.Entidades
         protected Autenticacao() { }
 
         public Autenticacao(string id, string nome, string email)
-            : this()
-        {
+            : this() {
             Inicializar();
 
             Id = id;
@@ -105,26 +94,22 @@ namespace TemplateApi.Dominio.Entidades
         private Autorizacao[] _autorizacoes = Array.Empty<Autorizacao>();
 
         [Display(Name = "Autorizações")]
-        public Autorizacao[] Autorizacoes
-        {
+        public Autorizacao[] Autorizacoes {
             get { return _autorizacoes; }
             set { _autorizacoes = value ?? Array.Empty<Autorizacao>(); }
         }
 
-        private void Inicializar()
-        {
+        private void Inicializar() {
             CriadoEm = DateTime.Now;
             ExpiraEm = CriadoEm.Value.AddDays(1);
         }
 
-        private void AtualizarToken()
-        {
+        private void AtualizarToken() {
             Autorizacao[] autorizacoes = Autorizacoes;
             Autorizacoes = Array.Empty<Autorizacao>();
             Token = null;
 
-            if (!EhInterno && EstaAutenticado)
-            {
+            if (!EhInterno && EstaAutenticado) {
                 Token = ConverterJson.Serializar(this);
                 Token = Codificacao.Encriptar(Token);
             }

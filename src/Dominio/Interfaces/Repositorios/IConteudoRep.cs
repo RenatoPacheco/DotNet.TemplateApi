@@ -3,10 +3,8 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Dominio.Interfaces.Repositorios
-{
-    public interface IConteudoRep : ISelfValidation
-    {
+namespace TemplateApi.Dominio.Interfaces.Repositorios {
+    public interface IConteudoRep : ISelfValidation {
         void Inserir(Conteudo dados);
 
         void Editar(Conteudo dados);
@@ -21,7 +19,7 @@ namespace TemplateApi.Dominio.Interfaces.Repositorios
             FiltrarConteudoCmd comando, ValidationType tipo);
 
         ResultadoBusca<Conteudo> Filtrar(
-            FiltrarConteudoCmd comando, string referencia = "", 
+            FiltrarConteudoCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert);
     }
 }

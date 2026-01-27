@@ -2,21 +2,17 @@
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorios.Persistencias.SobrePers;
 
-namespace TemplateApi.Repositorios
-{
+namespace TemplateApi.Repositorios {
     internal class SobreRep
-        : Comum.BaseRepositorio, ISobreRep
-    {
+        : Comum.BaseRepositorio, ISobreRep {
         public SobreRep(
-            ObterSobrePers persObterSobre)
-        {
+            ObterSobrePers persObterSobre) {
             _persObterSobre = persObterSobre;
         }
 
         private readonly ObterSobrePers _persObterSobre;
 
-        public Sobre Obter()
-        {
+        public Sobre Obter() {
             Notifications.Clear();
 
             Sobre resultado = _persObterSobre.Executar();

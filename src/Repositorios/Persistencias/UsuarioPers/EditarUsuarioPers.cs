@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ;
 
-namespace TemplateApi.Repositorios.Persistencias.UsuarioPers
-{
+namespace TemplateApi.Repositorios.Persistencias.UsuarioPers {
     internal class EditarUsuarioPers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public EditarUsuarioPers(
-            EditarUsuarioServ servEditarUsuario)
-        {
+            EditarUsuarioServ servEditarUsuario) {
             _servEditarUsuario = servEditarUsuario;
         }
 
         private readonly EditarUsuarioServ _servEditarUsuario;
 
-        public void Executar(Usuario dados)
-        {
+        public void Executar(Usuario dados) {
             Notifications.Clear();
 
             _servEditarUsuario.Executar(dados);

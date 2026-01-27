@@ -2,13 +2,10 @@
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Extensoes;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos {
     internal class StorageMap
-        : Auxiliares.BaseMapeamento<Storage>
-    {
-        public StorageMap()
-        {
+        : Auxiliares.BaseMapeamento<Storage> {
+        public StorageMap() {
             DefinnirTabela("Storage");
 
             Associar(x => x.Id, "Codigo_Storage");
@@ -26,72 +23,58 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Mapeamentos
             Associar(x => x.Url, "Url_Storage");
         }
 
-        public override string ToString()
-        {
-            StringBuilder resultado = new StringBuilder();
+        public override string ToString() {
+            StringBuilder resultado = new();
 
-            if (NaoIgnorar(x => x.Id))
-            {
+            if (NaoIgnorar(x => x.Id)) {
                 resultado.Append($"{SqlParaJson(x => x.Id)},");
             }
 
-            if (NaoIgnorar(x => x.Nome))
-            {
+            if (NaoIgnorar(x => x.Nome)) {
                 resultado.Append($"{SqlParaJson(x => x.Nome)},");
             }
 
-            if (NaoIgnorar(x => x.Alias))
-            {
+            if (NaoIgnorar(x => x.Alias)) {
                 resultado.Append($"{SqlParaJson(x => x.Alias)},");
             }
 
-            if (NaoIgnorar(x => x.Diretorio))
-            {
+            if (NaoIgnorar(x => x.Diretorio)) {
                 resultado.Append($"{SqlParaJson(x => x.Diretorio)},");
             }
 
-            if (NaoIgnorar(x => x.Extensao))
-            {
+            if (NaoIgnorar(x => x.Extensao)) {
                 resultado.Append($"{SqlParaJson(x => x.Extensao)},");
             }
 
-            if (NaoIgnorar(x => x.Tipo))
-            {
+            if (NaoIgnorar(x => x.Tipo)) {
                 resultado.Append($"{SqlParaJson(x => x.Tipo)},");
             }
 
-            if (NaoIgnorar(x => x.Checksum))
-            {
+            if (NaoIgnorar(x => x.Checksum)) {
                 resultado.Append($"{SqlParaJson(x => x.Checksum)},");
             }
 
-            if (NaoIgnorar(x => x.Url))
-            {
+            if (NaoIgnorar(x => x.Url)) {
                 resultado.Append($"{SqlParaJson(x => x.Url)},");
             }
 
-            if (NaoIgnorar(x => x.Peso))
-            {
+            if (NaoIgnorar(x => x.Peso)) {
                 resultado.Append($"{SqlParaJson(x => x.Peso)},");
             }
 
-            if (NaoIgnorar(x => x.Referencia))
-            {
+            if (NaoIgnorar(x => x.Referencia)) {
                 resultado.Append($"{SqlParaJson(x => x.Referencia)},");
             }
 
-            if (NaoIgnorar(x => x.CriadoEm))
-            {
+            if (NaoIgnorar(x => x.CriadoEm)) {
                 resultado.Append($"{SqlParaJson(x => x.CriadoEm)},");
             }
 
-            if (NaoIgnorar(x => x.AlteradoEm))
-            {
+            if (NaoIgnorar(x => x.AlteradoEm)) {
                 resultado.Append($"{SqlParaJson(x => x.AlteradoEm)},");
             }
 
-            if (NaoIgnorar(x => x.Status))
-            {
+            if (NaoIgnorar(x => x.Status)) {
                 resultado.Append($"{this.MsSqlCharParaEnum(x => x.Status, typeof(Status))},");
             }
 

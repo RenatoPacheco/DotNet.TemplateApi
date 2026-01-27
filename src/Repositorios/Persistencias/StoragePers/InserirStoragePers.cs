@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ;
 
-namespace TemplateApi.Repositorios.Persistencias.StoragePers
-{
+namespace TemplateApi.Repositorios.Persistencias.StoragePers {
     internal class InserirStoragePers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public InserirStoragePers(
-            InserirStorageServ servInserirStorage)
-        {
+            InserirStorageServ servInserirStorage) {
             _servInserirStorage = servInserirStorage;
         }
 
         private readonly InserirStorageServ _servInserirStorage;
 
-        public void Executar(Storage dados)
-        {
+        public void Executar(Storage dados) {
             Notifications.Clear();
 
             _servInserirStorage.Executar(dados);

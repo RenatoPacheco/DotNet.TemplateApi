@@ -1,7 +1,5 @@
-﻿namespace TemplateApi.Infra.Recursos.Core
-{
+﻿namespace TemplateApi.Infra.Recursos.Core {
     internal class BaseServico
-        : Comum.BaseBuscaMsSqlInfra
-    {
+        : Comum.BaseBuscaMsSqlInfra {
     }
 }

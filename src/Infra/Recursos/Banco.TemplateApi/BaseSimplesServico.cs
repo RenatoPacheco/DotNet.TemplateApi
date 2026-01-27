@@ -1,11 +1,8 @@
-﻿namespace TemplateApi.Infra.Recursos.Banco.TemplateApi
-{
+﻿namespace TemplateApi.Infra.Recursos.Banco.TemplateApi {
     internal class BaseSimplesServico
-        : Comum.BaseInfra
-    {
+        : Comum.BaseInfra {
         public BaseSimplesServico(
-            Conexao conexao)
-        {
+            Conexao conexao) {
             Conexao = conexao;
         }
 

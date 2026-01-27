@@ -1,20 +1,16 @@
 ﻿using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 
-namespace TemplateApi.Dominio.Servicos
-{
-    public class SobreServ : Comum.BaseServico
-    {
+namespace TemplateApi.Dominio.Servicos {
+    public class SobreServ : Comum.BaseServico {
         public SobreServ(
-            ISobreRep repSobre)
-        {
+            ISobreRep repSobre) {
             _repSobre = repSobre;
         }
 
         protected readonly ISobreRep _repSobre;
 
-        public Sobre Obter()
-        {
+        public Sobre Obter() {
             Notifications.Clear();
             Sobre resultado = _repSobre.Obter();
             IsValid(_repSobre);

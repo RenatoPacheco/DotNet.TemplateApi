@@ -1,21 +1,17 @@
 ﻿using TemplateApi.Dominio.Entidades;
 using TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ;
 
-namespace TemplateApi.Repositorios.Persistencias.ConteudoPers
-{
+namespace TemplateApi.Repositorios.Persistencias.ConteudoPers {
     internal class EditarConteudoPers
-        : Comum.BaseRepositorio
-    {
+        : Comum.BaseRepositorio {
         public EditarConteudoPers(
-            EditarConteudoServ servEditarConteudo)
-        {
+            EditarConteudoServ servEditarConteudo) {
             _servEditarConteudo = servEditarConteudo;
         }
 
         private readonly EditarConteudoServ _servEditarConteudo;
 
-        public void Executar(Conteudo dados)
-        {
+        public void Executar(Conteudo dados) {
             Notifications.Clear();
 
             _servEditarConteudo.Executar(dados);

@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Interfaces;
 
-namespace TemplateApi.Dominio.ObjetosDeValor
-{
-    public abstract class Arquivo : IArquivo
-    {
+namespace TemplateApi.Dominio.ObjetosDeValor {
+    public abstract class Arquivo : IArquivo {
         public string Nome { get; set; }
 
         public string Alias { get; set; }
@@ -23,7 +21,7 @@ namespace TemplateApi.Dominio.ObjetosDeValor
         public string Checksum { get; set; }
 
         public long Peso { get; set; }
-        
+
         public string Referencia { get; set; }
 
         public abstract void Salvar();

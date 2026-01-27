@@ -5,12 +5,9 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using BitHelp.Core.Validation.Extends;
 
-namespace TemplateApi.Dominio.Comandos.ConteudoCmds
-{
-    public class InserirConteudoCmd : ISelfValidation
-    {
-        public InserirConteudoCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.ConteudoCmds {
+    public class InserirConteudoCmd : ISelfValidation {
+        public InserirConteudoCmd() {
             _escopo = new ConteudoEscp<InserirConteudoCmd>(this);
         }
 
@@ -19,11 +16,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// Título de conteúdo
         /// </summary>
         [Display(Name = "Título")]
-        public string Titulo
-        {
+        public string Titulo {
             get => _titulo;
-            set
-            {
+            set {
                 _titulo = value;
                 _escopo.TituloEhValido(x => x.Titulo);
             }
@@ -33,11 +28,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Alias de conteúdo
         /// </summary>
-        public string Alias
-        {
+        public string Alias {
             get => _alias;
-            set
-            {
+            set {
                 _alias = value;
                 _escopo.AliasEhValido(x => x.Alias);
             }
@@ -47,11 +40,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Texto de conteúdo
         /// </summary>
-        public string Texto
-        {
+        public string Texto {
             get => _texto;
-            set
-            {
+            set {
                 _texto = value;
                 _escopo.TextoEhValido(x => x.Texto);
             }
@@ -61,18 +52,15 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public Status? Status
-        {
+        public Status? Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
-        public void Aplicar(ref Conteudo dados)
-        {
+        public void Aplicar(ref Conteudo dados) {
             dados = new Conteudo(
                 Titulo, Alias, Texto, Status);
         }
@@ -83,11 +71,10 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 
         protected readonly ConteudoEscp<InserirConteudoCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Titulo);
             this.RequiredIsValid(x => x.Alias);
             this.RequiredIsValid(x => x.Texto);

@@ -4,18 +4,15 @@ using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Interfaces.Repositorios;
 using TemplateApi.Repositorios.Persistencias.StoragePers;
 
-namespace TemplateApi.Repositorios
-{
+namespace TemplateApi.Repositorios {
     internal class StorageRep
-        : Comum.BaseRepositorio, IStorageRep
-    {
+        : Comum.BaseRepositorio, IStorageRep {
         public StorageRep(
             InserirStoragePers persInserirStorage,
             EditarStoragePers persEditarStorage,
             ExcluirStoragePers persExcluirStorage,
             FiltrarStoragePers persFiltrarStorage)
-            : base()
-        {
+            : base() {
             _persInserirStorage = persInserirStorage;
             _persEditarStorage = persEditarStorage;
             _persExcluirStorage = persExcluirStorage;
@@ -27,16 +24,14 @@ namespace TemplateApi.Repositorios
         private readonly ExcluirStoragePers _persExcluirStorage;
         private readonly FiltrarStoragePers _persFiltrarStorage;
 
-        public void Editar(Storage dados)
-        {
+        public void Editar(Storage dados) {
             Notifications.Clear();
 
             _persEditarStorage.Executar(dados);
             IsValid(_persEditarStorage);
         }
 
-        public void Excluir(ExcluirStorageCmd comando)
-        {
+        public void Excluir(ExcluirStorageCmd comando) {
             Notifications.Clear();
 
             _persExcluirStorage.Executar(comando);
@@ -44,21 +39,18 @@ namespace TemplateApi.Repositorios
         }
 
         public ResultadoBusca<Storage> Filtrar(
-            FiltrarStorageCmd comando, string referencia)
-        {
+            FiltrarStorageCmd comando, string referencia) {
             return Filtrar(comando, referencia, ValidationType.Alert);
         }
 
         public ResultadoBusca<Storage> Filtrar(
-            FiltrarStorageCmd comando, ValidationType tipo)
-        {
+            FiltrarStorageCmd comando, ValidationType tipo) {
             return Filtrar(comando, string.Empty, tipo);
         }
 
         public ResultadoBusca<Storage> Filtrar(
             FiltrarStorageCmd comando, string referencia = "",
-            ValidationType tipo = ValidationType.Alert)
-        {
+            ValidationType tipo = ValidationType.Alert) {
             Notifications.Clear();
 
             ResultadoBusca<Storage> resultado = _persFiltrarStorage.Executar(comando, referencia, tipo);
@@ -67,8 +59,7 @@ namespace TemplateApi.Repositorios
             return resultado;
         }
 
-        public void Inserir(Storage dados)
-        {
+        public void Inserir(Storage dados) {
             Notifications.Clear();
 
             _persInserirStorage.Executar(dados);

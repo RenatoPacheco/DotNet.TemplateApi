@@ -6,12 +6,9 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using BitHelp.Core.Validation.Extends;
 
-namespace TemplateApi.Dominio.Comandos.UsuarioCmds
-{
-    public class InserirUsuarioCmd : ISelfValidation
-    {
-        public InserirUsuarioCmd()
-        {
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds {
+    public class InserirUsuarioCmd : ISelfValidation {
+        public InserirUsuarioCmd() {
             _escopo = new UsuarioEscp<InserirUsuarioCmd>(this);
         }
 
@@ -19,11 +16,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Nome de usuário
         /// </summary>
-        public string Nome
-        {
+        public string Nome {
             get => _nome;
-            set
-            {
+            set {
                 _nome = value;
                 _escopo.NomeEhValido(x => x.Nome);
             }
@@ -34,11 +29,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// E-mail de usuário
         /// </summary>
         [Display(Name = "E-mail")]
-        public string Email
-        {
+        public string Email {
             get => _email;
-            set
-            {
+            set {
                 _email = value;
                 _escopo.EmailEhValido(x => x.Email);
             }
@@ -48,11 +41,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Senha de usuário
         /// </summary>
-        public string Senha
-        {
+        public string Senha {
             get => _senha;
-            set
-            {
+            set {
                 _senha = value;
                 _escopo.SenhaEhValido(x => x.Senha);
             }
@@ -62,11 +53,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Telefone de usuário
         /// </summary>
-        public PhoneType? Telefone
-        {
+        public PhoneType? Telefone {
             get => _telefone;
-            set
-            {
+            set {
                 _telefone = value;
                 _escopo.TelefoneEhValido(x => x.Telefone);
             }
@@ -76,21 +65,17 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public Status? Status
-        {
+        public Status? Status {
             get => _status;
-            set
-            {
+            set {
                 _status = value;
                 _escopo.StatusEhValido(x => x.Status);
             }
         }
 
-        public void Aplicar(ref Usuario dados)
-        {
+        public void Aplicar(ref Usuario dados) {
             dados = new Usuario(
-                Nome, Email, Status)
-            {
+                Nome, Email, Status) {
                 Senha = Senha,
                 Telefone = Telefone
             };
@@ -102,11 +87,10 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         protected readonly UsuarioEscp<InserirUsuarioCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             this.RequiredIsValid(x => x.Nome);
             this.RequiredIsValid(x => x.Email);
             this.RequiredIsValid(x => x.Senha);

@@ -1,7 +1,5 @@
-﻿namespace TemplateApi
-{
-    public static class ConnectionNames
-    {
+﻿namespace TemplateApi {
+    public static class ConnectionNames {
         public static string TemplateApi => $"app:template-api:{AppSettings.Ambiente}";
     }
 }

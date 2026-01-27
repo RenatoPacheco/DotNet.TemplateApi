@@ -1,20 +1,15 @@
-﻿using System;
-using BitHelp.Core.Security;
+﻿using BitHelp.Core.Security;
 using System.Text.RegularExpressions;
 
-namespace TemplateApi.Compartilhados.Protecoes
-{
-    public class Codificacao
-    {
+namespace TemplateApi.Compartilhados.Protecoes {
+    public class Codificacao {
         private static readonly string Chave = "TemplateApi";
         private static readonly string Senha = "74Ixdj9AnA5d1cTP";
 
-        public static string Encriptar(string value)
-        {
+        public static string Encriptar(string value) {
             return Encripty.Crypt(value, Senha, Chave);
         }
-        public static string Encriptar(string value, DateTime timeout)
-        {
+        public static string Encriptar(string value, DateTime timeout) {
             if (string.IsNullOrEmpty(value))
                 return string.Empty;
 
@@ -22,8 +17,7 @@ namespace TemplateApi.Compartilhados.Protecoes
             return Encripty.Crypt(value, Senha, Chave);
         }
 
-        public static string Decriptar(string value)
-        {
+        public static string Decriptar(string value) {
             if (string.IsNullOrWhiteSpace(value))
                 return string.Empty;
 
@@ -32,12 +26,9 @@ namespace TemplateApi.Compartilhados.Protecoes
             bool dataLimite = Regex.IsMatch(resultado, expressao);
             DateTime data = dataLimite ? Convert.ToDateTime(Regex.Replace(resultado, @"^([^\|]+)(\|)(.*)$", "$1")) : new DateTime();
 
-            if (data != new DateTime() && DateTime.Compare(DateTime.Parse(DateTime.Now.ToShortDateString()), data) > 0)
-            {
+            if (data != new DateTime() && DateTime.Compare(DateTime.Parse(DateTime.Now.ToShortDateString()), data) > 0) {
                 resultado = string.Empty;
-            }
-            else if (dataLimite)
-            {
+            } else if (dataLimite) {
                 resultado = Regex.Replace(resultado, expressao, "$3");
             }
 

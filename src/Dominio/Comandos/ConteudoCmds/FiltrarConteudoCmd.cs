@@ -1,18 +1,14 @@
 ﻿using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using TemplateApi.Dominio.Escopos;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.Comum;
 using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Dominio.Comandos.ConteudoCmds
-{
+namespace TemplateApi.Dominio.Comandos.ConteudoCmds {
     public class FiltrarConteudoCmd
-        : Comum.FiltrarBaseCmd, ISelfValidation
-    {
-        public FiltrarConteudoCmd()
-        {
+        : Comum.FiltrarBaseCmd, ISelfValidation {
+        public FiltrarConteudoCmd() {
             _escopo = new ConteudoEscp<FiltrarConteudoCmd>(this);
         }
 
@@ -20,11 +16,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public ContextoCmd? Contexto
-        {
+        public ContextoCmd? Contexto {
             get => _contexto;
-            set
-            {
+            set {
                 _contexto = value;
                 this.RemoveAtReference(x => x.Contexto);
             }
@@ -35,11 +29,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// Identificador de conteúdo
         /// </summary>
         [Display(Name = "Conteúdo")]
-        public IList<int> Conteudo
-        {
+        public IList<int> Conteudo {
             get => _Conteudo ??= new List<int>();
-            set
-            {
+            set {
                 _Conteudo = value ?? new List<int>();
                 _escopo.IdEhValido(x => x.Conteudo);
             }
@@ -49,11 +41,9 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
         /// <summary>
         /// Status de conteúdo
         /// </summary>
-        public IList<Status> Status
-        {
+        public IList<Status> Status {
             get => _status ??= new List<Status>();
-            set
-            {
+            set {
                 _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
@@ -63,11 +53,10 @@ namespace TemplateApi.Dominio.Comandos.ConteudoCmds
 
         protected readonly ConteudoEscp<FiltrarConteudoCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             return _notifications.IsValid();
         }
 

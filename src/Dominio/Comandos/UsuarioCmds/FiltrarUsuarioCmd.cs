@@ -1,18 +1,14 @@
 ﻿using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using TemplateApi.Dominio.Escopos;
 using BitHelp.Core.Validation.Extends;
 using TemplateApi.Dominio.Comandos.Comum;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Dominio.Comandos.UsuarioCmds
-{
+namespace TemplateApi.Dominio.Comandos.UsuarioCmds {
     public class FiltrarUsuarioCmd
-        : Comum.FiltrarBaseCmd, ISelfValidation
-    {
-        public FiltrarUsuarioCmd()
-        {
+        : Comum.FiltrarBaseCmd, ISelfValidation {
+        public FiltrarUsuarioCmd() {
             _escopo = new UsuarioEscp<FiltrarUsuarioCmd>(this);
         }
 
@@ -20,11 +16,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
         /// </summary>
-        public ContextoCmd? Contexto
-        {
+        public ContextoCmd? Contexto {
             get => _contexto;
-            set
-            {
+            set {
                 _contexto = value;
                 this.RemoveAtReference(x => x.Contexto);
             }
@@ -35,11 +29,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// Identificador de usuário
         /// </summary>
         [Display(Name = "Usuário")]
-        public IList<int> Usuario
-        {
+        public IList<int> Usuario {
             get => _usuario ??= new List<int>();
-            set
-            {
+            set {
                 _usuario = value ?? new List<int>();
                 _escopo.IdEhValido(x => x.Usuario);
             }
@@ -49,11 +41,9 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
         /// <summary>
         /// Status de usuário
         /// </summary>
-        public IList<Status> Status
-        {
+        public IList<Status> Status {
             get => _status ??= new List<Status>();
-            set
-            {
+            set {
                 _status = value ?? new List<Status>();
                 _escopo.StatusEhValido(x => x.Status);
             }
@@ -63,11 +53,10 @@ namespace TemplateApi.Dominio.Comandos.UsuarioCmds
 
         protected readonly UsuarioEscp<FiltrarUsuarioCmd> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        public virtual bool IsValid()
-        {
+        public virtual bool IsValid() {
             return _notifications.IsValid();
         }
 

@@ -1,23 +1,18 @@
-﻿using System;
-using Dapper;
-using System.Collections.Generic;
+﻿using Dapper;
 using TemplateApi.Infra.Adaptadores;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.ConteudoServ {
     internal class ExcluirConteudoServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public ExcluirConteudoServ(
             Conexao conexao)
             : base(conexao) { }
 
-        public void Executar(ExcluirConteudoCmd comando)
-        {
+        public void Executar(ExcluirConteudoCmd comando) {
             Notifications.Clear();
-            Mapeamentos.ConteudoMap map = new Mapeamentos.ConteudoMap();
+            Mapeamentos.ConteudoMap map = new();
 
             string sqlString = @$"
                     UPDATE {map.Tabela} SET

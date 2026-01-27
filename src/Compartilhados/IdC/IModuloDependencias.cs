@@ -1,9 +1,5 @@
-﻿using System;
-
-namespace TemplateApi.Compartilhados.IdC
-{
-    public interface IModuloDependencias
-    {
+﻿namespace TemplateApi.Compartilhados.IdC {
+    public interface IModuloDependencias {
         Type[] Base { get; }
 
         /// <summary>

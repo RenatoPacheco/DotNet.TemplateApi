@@ -4,30 +4,23 @@ using TemplateApi.Recursos;
 using TemplateApi.Aplicacoes;
 using TemplateApi.Dominio.ObjetosDeValor;
 
-namespace TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ
-{
+namespace TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ {
     internal class ListarAutorizacaoServ
-        : BaseServico
-    {
+        : BaseServico {
         private static Autorizacao[] _dadosBase;
 
         private Autorizacao[] _opcoes = null;
-        private Autorizacao[] Opcoes
-        {
-            get
-            {
-                if (_opcoes is null || !_opcoes.Any())
-                {
+        private Autorizacao[] Opcoes {
+            get {
+                if (_opcoes is null || !_opcoes.Any()) {
                     _opcoes = Sincronizar();
                 }
                 return _opcoes;
             }
         }
 
-        private Autorizacao[] Sincronizar()
-        {
-            if (_dadosBase is null || !_dadosBase.Any())
-            {
+        private Autorizacao[] Sincronizar() {
+            if (_dadosBase is null || !_dadosBase.Any()) {
                 string referencia = typeof(SobreApp).Namespace;
                 Autorizacao[] resultado = Array.Empty<Autorizacao>();
                 IEnumerable<Autorizacao> autorizacoes = new List<Autorizacao>();
@@ -42,8 +35,7 @@ namespace TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ
                     && !t.IsInterface
                     && t.Namespace == referencia).ToArray();
 
-                foreach (Type classe in classes)
-                {
+                foreach (Type classe in classes) {
                     autorizacoes = classe.GetMethods().Where(
                         metodo => !(metodo is null)
                         && metodo.IsPublic
@@ -62,28 +54,23 @@ namespace TemplateApi.Infra.Recursos.Core.Servicos.AutorizacaoServ
             return new List<Autorizacao>().Concat(_dadosBase).ToArray();
         }
 
-        public Autorizacao[] Executar()
-        {
+        public Autorizacao[] Executar() {
             return Executar(string.Empty, ValidationType.Alert);
         }
 
-        public Autorizacao[] Executar(string referencia)
-        {
+        public Autorizacao[] Executar(string referencia) {
             return Executar(referencia, ValidationType.Alert);
         }
 
-        public Autorizacao[] Executar(ValidationType tipo)
-        {
+        public Autorizacao[] Executar(ValidationType tipo) {
             return Executar(string.Empty, tipo);
         }
 
-        public Autorizacao[] Executar(string referencia, ValidationType tipo)
-        {
+        public Autorizacao[] Executar(string referencia, ValidationType tipo) {
             Notifications.Clear();
             Autorizacao[] resultado = Opcoes;
 
-            if (!resultado.Any())
-            {
+            if (!resultado.Any()) {
                 Notifications.Add(new ValidationMessage(
                     string.Format(AvisosResx.XNaoEncontrados, NomesResx.Autorizacoes), referencia, tipo));
             }

@@ -1,23 +1,18 @@
 ﻿using Dapper;
-using System.Linq;
 using BitHelp.Core.Validation;
-using System.Collections.Generic;
 using TemplateApi.Recursos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Infra.Adaptadores;
 
-namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
-{
+namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ {
     internal class EhUnicoStorageServ
-        : BaseSimplesServico
-    {
+        : BaseSimplesServico {
         public EhUnicoStorageServ(
             Conexao conexao)
             : base(conexao) { }
 
-        public bool Executar(Storage dados)
-        {
-            ValidationNotification notificacoes = new ValidationNotification();
+        public bool Executar(Storage dados) {
+            ValidationNotification notificacoes = new();
 
             ReferenciaEhUnico(dados);
             notificacoes.Add(this);
@@ -27,13 +22,11 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
             return IsValid();
         }
 
-        private bool ReferenciaEhUnico(Storage dados)
-        {
+        private bool ReferenciaEhUnico(Storage dados) {
             Notifications.Clear();
-            Mapeamentos.StorageMap map = new Mapeamentos.StorageMap();
+            Mapeamentos.StorageMap map = new();
 
-            if (!(dados?.Referencia is null))
-            {
+            if (!(dados?.Referencia is null)) {
                 string sqlString = @$"
                     SELECT TOP 1 1
                     FROM {map.Tabela}
@@ -52,8 +45,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
                 IEnumerable<dynamic> resultado = Conexao.Sessao.Query(
                     sqlString, sqlParam, Conexao.Transicao);
 
-                if (resultado.Any())
-                {
+                if (resultado.Any()) {
                     Notifications.AddError<Storage>(
                         x => x.Referencia, AvisosResx.XNaoEhUnico, null);
                 }

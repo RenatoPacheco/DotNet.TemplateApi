@@ -2,10 +2,8 @@
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 
-namespace TemplateApi.Dominio.Interfaces.Repositorios
-{
-    public interface IStorageRep : ISelfValidation
-    {
+namespace TemplateApi.Dominio.Interfaces.Repositorios {
+    public interface IStorageRep : ISelfValidation {
         void Inserir(Storage dados);
 
         void Editar(Storage dados);
@@ -20,7 +18,7 @@ namespace TemplateApi.Dominio.Interfaces.Repositorios
             FiltrarStorageCmd comando, ValidationType tipo);
 
         ResultadoBusca<Storage> Filtrar(
-            FiltrarStorageCmd comando, string referencia = "", 
+            FiltrarStorageCmd comando, string referencia = "",
             ValidationType tipo = ValidationType.Alert);
     }
 }

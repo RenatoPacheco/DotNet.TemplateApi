@@ -1,25 +1,20 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using BitHelp.Core.Validation;
 using TemplateApi.Dominio.Escopos;
 using System.Diagnostics.CodeAnalysis;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 
-namespace TemplateApi.Dominio.Entidades
-{
+namespace TemplateApi.Dominio.Entidades {
     public class Conteudo
-        : ISelfValidation, IEquatable<Conteudo>
-    {
+        : ISelfValidation, IEquatable<Conteudo> {
         [JsonConstructor]
-        protected Conteudo()
-        {
+        protected Conteudo() {
             _escopo = new ConteudoEscp<Conteudo>(this);
         }
 
         public Conteudo(string titulo, string alias, string texto, Status? status)
-            : this()
-        {
+            : this() {
             Inicializar();
 
             Titulo = titulo;
@@ -47,8 +42,7 @@ namespace TemplateApi.Dominio.Entidades
 
         public override string ToString() => Titulo;
 
-        private void Inicializar()
-        {
+        private void Inicializar() {
             CriadoEm = DateTime.Now;
             AlteradoEm = DateTime.Now;
             Status = ObjetosDeValor.Status.Inativo;
@@ -56,19 +50,16 @@ namespace TemplateApi.Dominio.Entidades
 
         #region Compare
 
-        public bool Equals([AllowNull] Conteudo other)
-        {
+        public bool Equals([AllowNull] Conteudo other) {
             return !(other is null)
                 && other.GetHashCode() == GetHashCode();
         }
 
-        public override bool Equals(object other)
-        {
+        public override bool Equals(object other) {
             return other is Conteudo compare && Equals(compare);
         }
 
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             return $"{GetType()}:{Id}".GetHashCode();
         }
 
@@ -76,13 +67,11 @@ namespace TemplateApi.Dominio.Entidades
 
         #region Operadores
 
-        public static bool operator ==(Conteudo a, Conteudo b)
-        {
+        public static bool operator ==(Conteudo a, Conteudo b) {
             return (a is null && b is null) || (a?.Equals(b) ?? false);
         }
 
-        public static bool operator !=(Conteudo a, Conteudo b)
-        {
+        public static bool operator !=(Conteudo a, Conteudo b) {
             return !(a == b);
         }
 
@@ -92,11 +81,10 @@ namespace TemplateApi.Dominio.Entidades
 
         protected readonly ConteudoEscp<Conteudo> _escopo;
 
-        private readonly ValidationNotification _notifications = new ValidationNotification();
+        private readonly ValidationNotification _notifications = new();
         ValidationNotification ISelfValidation.Notifications => _notifications;
 
-        bool ISelfValidation.IsValid()
-        {
+        bool ISelfValidation.IsValid() {
             _escopo.IdEhValido(x => x.Id);
             _escopo.TituloEhValido(x => x.Titulo);
             _escopo.TituloEhValido(x => x.Alias);
