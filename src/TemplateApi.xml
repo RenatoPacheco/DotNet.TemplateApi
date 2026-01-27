@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <doc>
     <assembly>
         <name>TemplateApi</name>
@@ -664,7 +664,7 @@
             <summary>
             Máximo de registros por página, com valor padrão 100.
             Pode indicar um valor menor que um para buscar todos os registros.
-            Se indicar qualquer valor menor que 1, será passado para 0, e buscará por tosos os registros.
+            Se indicar qualquer valor menor que 1, será passado para 0, e buscará por todos os registros.
             </summary>
         </member>
         <member name="P:TemplateApi.Dominio.Comandos.Comum.FiltrarBaseCmd.CalcularPaginacao">

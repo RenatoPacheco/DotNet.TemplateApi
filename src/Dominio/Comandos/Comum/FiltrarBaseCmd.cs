@@ -29,7 +29,7 @@ namespace TemplateApi.Dominio.Comandos.Comum
         /// <summary>
         /// Máximo de registros por página, com valor padrão 100.
         /// Pode indicar um valor menor que um para buscar todos os registros.
-        /// Se indicar qualquer valor menor que 1, será passado para 0, e buscará por tosos os registros.
+        /// Se indicar qualquer valor menor que 1, será passado para 0, e buscará por todos os registros.
         /// </summary>
         [Display(Name = "Máximo")]
         public virtual int Maximo
