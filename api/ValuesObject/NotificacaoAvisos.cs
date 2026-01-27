@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TemplateApi.Api.ValuesObject {
     public class NotificacaoAvisos {
         public NotificacaoAvisos(string mensagem, string referencia) {
-            Id = Guid.NewGuid().ToString("N");
+            Id = Guid.NewGuid();
             Data = DateTime.Now;
             Mensagem = mensagem;
             Referencia = referencia ?? string.Empty;
@@ -13,7 +13,7 @@ namespace TemplateApi.Api.ValuesObject {
         }
 
         public NotificacaoAvisos(ValidationMessage dados) {
-            Id = dados.Id.ToString("N");
+            Id = dados.Id;
             Data = dados.Date;
             Mensagem = dados.Message;
             Referencia = dados.Reference ?? string.Empty;
@@ -21,7 +21,7 @@ namespace TemplateApi.Api.ValuesObject {
             Excecao = dados.Exception;
         }
 
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime Data { get; set; }
 

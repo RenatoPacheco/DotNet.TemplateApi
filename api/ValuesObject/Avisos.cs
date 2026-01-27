@@ -8,7 +8,7 @@ namespace TemplateApi.Api.ValuesObject {
         [JsonConstructor]
         protected Avisos() {
             Data = DateTime.Now;
-            Rastreio = Guid.NewGuid().ToString("N");
+            Rastreio = Guid.NewGuid();
         }
 
         public Avisos(int codigo)
@@ -77,7 +77,7 @@ namespace TemplateApi.Api.ValuesObject {
 
         public DateTime Data { get; set; }
 
-        public string Rastreio { get; set; }
+        public Guid Rastreio { get; set; }
 
         [Display(Name = "Notificações")]
         public NotificacaoAvisos[] Notificacoes { get; internal set; } = Array.Empty<NotificacaoAvisos>();
