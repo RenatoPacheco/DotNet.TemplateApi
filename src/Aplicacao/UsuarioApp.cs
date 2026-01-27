@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Entidades;
@@ -34,7 +33,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interUsuario.Filtrar(comando);
                 resultado = _servUsuario.Filtrar(comando);
@@ -54,7 +53,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interUsuario.Inserir(comando);
                 resultado = _servUsuario.Inserir(comando);
@@ -74,7 +73,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interUsuario.Editar(comando);
                 resultado = _servUsuario.Editar(comando);
@@ -93,7 +92,7 @@ namespace TemplateApi.Aplicacao
         {
             Notifications.Clear();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interUsuario.Excluir(comando);
                 _servUsuario.Excluir(comando);

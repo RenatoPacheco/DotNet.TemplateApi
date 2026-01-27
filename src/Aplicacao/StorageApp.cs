@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using TemplateApi.Dominio.Servicos;
+﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.Notacoes;
@@ -35,7 +34,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Storage resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interStorage.Obter(comando);
                 resultado = _servStorage.Obter(comando);
@@ -56,7 +55,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interStorage.Filtrar(comando);
                 resultado = _servStorage.Filtrar(comando);
@@ -76,7 +75,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             ResultadoBusca<Storage> resultado = new ResultadoBusca<Storage>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interStorage.Inserir(comando);
                 resultado = _servStorage.Inserir(comando);
@@ -96,7 +95,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Storage resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interStorage.Editar(comando);
                 resultado = _servStorage.Editar(comando);
@@ -115,7 +114,7 @@ namespace TemplateApi.Aplicacao
         {
             Notifications.Clear();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interStorage.Excluir(comando);
                 _servStorage.Excluir(comando);

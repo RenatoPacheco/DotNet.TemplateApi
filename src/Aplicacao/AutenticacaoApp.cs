@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using TemplateApi.Dominio.Servicos;
+﻿using TemplateApi.Dominio.Servicos;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;
@@ -32,7 +31,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Autenticacao resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 resultado = _servAutenticacao.Obter();
                 IsValid(_servAutenticacao);
@@ -52,7 +51,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Autenticacao resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interAutenticacao.Iniciar(comando);
                 resultado = _servAutenticacao.Iniciar(comando);

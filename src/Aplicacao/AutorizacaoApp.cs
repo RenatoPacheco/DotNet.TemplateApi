@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Dominio.Servicos;
@@ -35,7 +33,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Autorizacao[] resultado = Array.Empty<Autorizacao>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 resultado = _servAutorizacao.Listar();
                 IsValid(_servAutorizacao);

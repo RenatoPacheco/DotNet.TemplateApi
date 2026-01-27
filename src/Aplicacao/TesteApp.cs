@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Aplicacao.Interceptadores;
@@ -34,7 +33,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             FormatosTesteCmd resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interTeste.Formatos(comando);
                 resultado = _servTeste.Formatos(comando);

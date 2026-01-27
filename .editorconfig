@@ -1,0 +1,17 @@
+# Arquivo de configuração para padronizar estilo de código entre Visual Studio e VS Code
+root = true
+
+# Regras para todos os arquivos
+[*]
+charset = utf-8-bom           # Compatível com Visual Studio (UTF-8 com BOM)
+end_of_line = crlf            # Windows padrão
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+# CA1051: Do not declare visible instance fields
+dotnet_diagnostic.CA1051.severity = none
+# Não pular linha nas chaves
+csharp_new_line_before_open_brace = none

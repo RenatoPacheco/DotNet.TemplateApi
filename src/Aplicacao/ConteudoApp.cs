@@ -1,12 +1,10 @@
-﻿using System.Reflection;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Aplicacao.Interceptadores;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
-using TemplateApi.Dominio.Notacoes;
 
 namespace TemplateApi.Aplicacao
 {
@@ -35,7 +33,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             ResultadoBusca<Conteudo> resultado = new ResultadoBusca<Conteudo>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interConteudo.Filtrar(comando);
                 resultado = _servConteudo.Filtrar(comando);
@@ -55,7 +53,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interConteudo.Inserir(comando);
                 resultado = _servConteudo.Inserir(comando);
@@ -75,7 +73,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interConteudo.Editar(comando);
                 resultado = _servConteudo.Editar(comando);
@@ -94,7 +92,7 @@ namespace TemplateApi.Aplicacao
         {
             Notifications.Clear();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interConteudo.Excluir(comando);
                 _servConteudo.Excluir(comando);

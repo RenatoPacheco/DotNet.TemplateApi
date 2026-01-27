@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using TemplateApi.Dominio.Servicos;
+﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
@@ -34,7 +33,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             Sobre resultado = null;
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 resultado = _servSobre.Obter();
                 IsValid(_servSobre);

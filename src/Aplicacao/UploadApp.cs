@@ -1,6 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using TemplateApi.Dominio.Servicos;
 using System.ComponentModel.DataAnnotations;
 using TemplateApi.Dominio.Interfaces;
@@ -32,7 +30,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             IArquivo[] resultado = Array.Empty<IArquivo>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interUpload.Arquivo(comando);
                 resultado = _servUpload.Arquivo(comando);
@@ -49,7 +47,7 @@ namespace TemplateApi.Aplicacao
             Notifications.Clear();
             IArquivo[] resultado = Array.Empty<IArquivo>();
 
-            if (EhAutorizado(MethodBase.GetCurrentMethod()))
+            if (EhAutorizado())
             {
                 _interUpload.Imagem(comando);
                 resultado = _servUpload.Imagem(comando);

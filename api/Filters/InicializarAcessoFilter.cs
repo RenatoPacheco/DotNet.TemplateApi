@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using TemplateApi.Api.ApiApplications;
 
-namespace TemplateApi.Api.Filters
-{
+namespace TemplateApi.Api.Filters {
     public class InicializarAcessoFilter
-        : IAuthorizationFilter, IOrderedFilter
-    {
+        : IAuthorizationFilter, IOrderedFilter {
         public InicializarAcessoFilter(
-            AutenticacaoApiApp autenticacaoApiServ)
-        {
+            AutenticacaoApiApp autenticacaoApiServ) {
             _autenticacaoApiServ = autenticacaoApiServ;
         }
 
@@ -18,8 +15,7 @@ namespace TemplateApi.Api.Filters
 
         public void OnActionExecuting(ActionExecutingContext context) { }
 
-        public void OnAuthorization(AuthorizationFilterContext context)
-        {
+        public void OnAuthorization(AuthorizationFilterContext context) {
             _autenticacaoApiServ.Iniciar();
         }
     }
