@@ -65,7 +65,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.UsuarioServ
 
                 string jsonResult = (jsonList.Any() ? string.Join("", jsonList) : "[]");
 
-                resultado.ResultadosDaPaginaAtual = jsonResult.ParseJson<Usuario[]>();
+                resultado.ResultadosDaPaginaAtual = DesserializarJson<Usuario[]>(jsonResult);
             }
 
             if (!resultado.ResultadosDaPaginaAtual.Any())

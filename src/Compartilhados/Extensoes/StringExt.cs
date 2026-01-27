@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
-using TemplateApi.Dominio.Json;
 
 namespace TemplateApi.Compartilhados.Extensoes {
     public static class StringExt {
@@ -66,10 +65,6 @@ namespace TemplateApi.Compartilhados.Extensoes {
                 });
 
             return source;
-        }
-
-        public static T ParseJson<T>(this string source) {
-            return ConverterJson.Desserializar<T>(source);
         }
 
         public static string HideEmail(this string source) {

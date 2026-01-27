@@ -64,7 +64,7 @@ namespace TemplateApi.Infra.Recursos.Banco.TemplateApi.Servicos.StorageServ
 
                 string jsonResult = (jsonList.Any() ? string.Join("", jsonList) : "[]");
 
-                resultado.ResultadosDaPaginaAtual = jsonResult.ParseJson<Storage[]>();
+                resultado.ResultadosDaPaginaAtual = DesserializarJson<Storage[]>(jsonResult);
             }
 
             if (!resultado.ResultadosDaPaginaAtual.Any())
