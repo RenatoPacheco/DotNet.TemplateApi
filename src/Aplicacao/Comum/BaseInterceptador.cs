@@ -1,13 +1,10 @@
 ﻿using TemplateApi.Dominio.Servicos;
 
-namespace TemplateApi.Aplicacao.Comum
-{
+namespace TemplateApi.Aplicacao.Comum {
     public abstract class BaseInterceptador
-        : Dominio.Servicos.Comum.BaseServico
-    {
+        : Dominio.Servicos.Comum.BaseServico {
         public BaseInterceptador(
-            AutenticacaoServ servAutenticacao)
-        {
+            AutenticacaoServ servAutenticacao) {
             _servAutenticacao = servAutenticacao;
         }
 

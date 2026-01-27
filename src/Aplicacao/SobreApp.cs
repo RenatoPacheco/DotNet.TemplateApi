@@ -5,16 +5,13 @@ using System.ComponentModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Aplicacao.Interceptadores;
 
-namespace TemplateApi.Aplicacao
-{
-    public class SobreApp : Comum.BaseAplicacao
-    {
+namespace TemplateApi.Aplicacao {
+    public class SobreApp : Comum.BaseAplicacao {
         public SobreApp(
             AutenticacaoServ servAutenticacao,
             SobreServ servSobre,
             SobreInter interSobre)
-            : base(servAutenticacao)
-        {
+            : base(servAutenticacao) {
             _servSobre = servSobre;
             _interSobre = interSobre;
         }
@@ -28,13 +25,11 @@ namespace TemplateApi.Aplicacao
         [AcessoLivre]
         [Display(Name = "Obter dados da aplicação")]
         [Description("Permite obter alguns dados sobre a aplicação.")]
-        public Sobre Obter()
-        {
+        public Sobre Obter() {
             Notifications.Clear();
             Sobre resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 resultado = _servSobre.Obter();
                 IsValid(_servSobre);
             }

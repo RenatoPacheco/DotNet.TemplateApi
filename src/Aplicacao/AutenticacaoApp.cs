@@ -6,15 +6,12 @@ using TemplateApi.Dominio.Entidades;
 using TemplateApi.Dominio.Comandos.AutenticacaoCmds;
 using TemplateApi.Aplicacao.Interceptadores;
 
-namespace TemplateApi.Aplicacao
-{
-    public class AutenticacaoApp : Comum.BaseAplicacao
-    {
+namespace TemplateApi.Aplicacao {
+    public class AutenticacaoApp : Comum.BaseAplicacao {
         public AutenticacaoApp(
             AutenticacaoServ servAutenticacao,
             AutenticacaoInter interAutenticacao)
-            : base(servAutenticacao)
-        {
+            : base(servAutenticacao) {
             _interAutenticacao = interAutenticacao;
         }
 
@@ -26,13 +23,11 @@ namespace TemplateApi.Aplicacao
         [AcessoLivre]
         [Display(Name = "Obter dados da autenticação atual")]
         [Description("Permite listar os dados da autenticação atual.")]
-        public Autenticacao Obter()
-        {
+        public Autenticacao Obter() {
             Notifications.Clear();
             Autenticacao resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 resultado = _servAutenticacao.Obter();
                 IsValid(_servAutenticacao);
             }
@@ -46,13 +41,11 @@ namespace TemplateApi.Aplicacao
         [NaoRequerAutorizacao, NaoRequerChavePublica]
         [Display(Name = "Iniciar autenticação")]
         [Description("Permite iniciar a autenticação pelo token e a chave pública.")]
-        public Autenticacao Iniciar(IniciarAutenticacaoCmd comando)
-        {
+        public Autenticacao Iniciar(IniciarAutenticacaoCmd comando) {
             Notifications.Clear();
             Autenticacao resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interAutenticacao.Iniciar(comando);
                 resultado = _servAutenticacao.Iniciar(comando);
                 IsValid(_servAutenticacao);

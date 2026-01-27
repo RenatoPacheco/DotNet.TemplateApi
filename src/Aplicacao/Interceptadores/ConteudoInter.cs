@@ -1,31 +1,25 @@
 ﻿using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Aplicacao.Interceptadores
-{
-    public class ConteudoInter : Comum.BaseInterceptador
-    {
+namespace TemplateApi.Aplicacao.Interceptadores {
+    public class ConteudoInter : Comum.BaseInterceptador {
         public ConteudoInter(
             AutenticacaoServ servAutenticacao)
             : base(servAutenticacao) { }
 
-        internal void Excluir(ExcluirConteudoCmd comando)
-        {
+        internal void Excluir(ExcluirConteudoCmd comando) {
 
         }
 
-        internal void Editar(EditarConteudoCmd comando)
-        {
+        internal void Editar(EditarConteudoCmd comando) {
 
         }
 
-        internal void Inserir(InserirConteudoCmd comando)
-        {
+        internal void Inserir(InserirConteudoCmd comando) {
 
         }
 
-        internal void Filtrar(FiltrarConteudoCmd comando)
-        {
+        internal void Filtrar(FiltrarConteudoCmd comando) {
 
         }
     }

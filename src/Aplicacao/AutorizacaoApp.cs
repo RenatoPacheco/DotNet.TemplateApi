@@ -5,16 +5,13 @@ using TemplateApi.Dominio.Servicos;
 using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Aplicacao.Interceptadores;
 
-namespace TemplateApi.Aplicacao
-{
-    public class AutorizacaoApp : Comum.BaseAplicacao
-    {
+namespace TemplateApi.Aplicacao {
+    public class AutorizacaoApp : Comum.BaseAplicacao {
         public AutorizacaoApp(
             AutenticacaoServ servAutenticacao,
             AutorizacaoServ servAutorizacao,
             AutorizacaoInter interAutorizacao)
-            : base(servAutenticacao)
-        {
+            : base(servAutenticacao) {
             _servAutorizacao = servAutorizacao;
             _interAutorizacao = interAutorizacao;
         }
@@ -28,13 +25,11 @@ namespace TemplateApi.Aplicacao
         [NaoRequerAutorizacao, NaoRequerChavePublica]
         [Display(Name = "Listar autorizações")]
         [Description("Permite listar todas as autorizações existentes.")]
-        public Autorizacao[] Listar()
-        {
+        public Autorizacao[] Listar() {
             Notifications.Clear();
             Autorizacao[] resultado = Array.Empty<Autorizacao>();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 resultado = _servAutorizacao.Listar();
                 IsValid(_servAutorizacao);
             }

@@ -6,16 +6,13 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Aplicacao.Interceptadores;
 using TemplateApi.Dominio.Comandos.UsuarioCmds;
 
-namespace TemplateApi.Aplicacao
-{
-    public class UsuarioApp : Comum.BaseAplicacao
-    {
+namespace TemplateApi.Aplicacao {
+    public class UsuarioApp : Comum.BaseAplicacao {
         public UsuarioApp(
             AutenticacaoServ servAutenticacao,
             UsuarioServ servUsuario,
             UsuarioInter interUsuario)
-            : base(servAutenticacao)
-        {
+            : base(servAutenticacao) {
             _servUsuario = servUsuario;
             _interUsuario = interUsuario;
         }
@@ -28,13 +25,11 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Filtrar usuário")]
         [Description("Permite filtrar os usuários.")]
-        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando)
-        {
+        public ResultadoBusca<Usuario> Filtrar(FiltrarUsuarioCmd comando) {
             Notifications.Clear();
-            ResultadoBusca<Usuario> resultado = new ResultadoBusca<Usuario>();
+            ResultadoBusca<Usuario> resultado = new();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interUsuario.Filtrar(comando);
                 resultado = _servUsuario.Filtrar(comando);
                 IsValid(_servUsuario);
@@ -48,13 +43,11 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Inserir usuário")]
         [Description("Permite inserir um novo usuário.")]
-        public Usuario Inserir(InserirUsuarioCmd comando)
-        {
+        public Usuario Inserir(InserirUsuarioCmd comando) {
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interUsuario.Inserir(comando);
                 resultado = _servUsuario.Inserir(comando);
                 IsValid(_servUsuario);
@@ -68,13 +61,11 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Editar usuário")]
         [Description("Permite editar um usuário específico.")]
-        public Usuario Editar(EditarUsuarioCmd comando)
-        {
+        public Usuario Editar(EditarUsuarioCmd comando) {
             Notifications.Clear();
             Usuario resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interUsuario.Editar(comando);
                 resultado = _servUsuario.Editar(comando);
                 IsValid(_servUsuario);
@@ -88,12 +79,10 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Excluir usuário")]
         [Description("Permite excluir um ou mais usuários.")]
-        public void Excluir(ExcluirUsuarioCmd comando)
-        {
+        public void Excluir(ExcluirUsuarioCmd comando) {
             Notifications.Clear();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interUsuario.Excluir(comando);
                 _servUsuario.Excluir(comando);
                 IsValid(_servUsuario);

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using TemplateApi.Compartilhado.IdC;
 using TemplateApi.Aplicacao.Interceptadores;
 
-namespace TemplateApi.Aplicacao.Auxiliares
-{
+namespace TemplateApi.Aplicacao.Auxiliares {
     public class ModuloDependencias
-        : BaseModuloDependencias
-    {
+        : BaseModuloDependencias {
         public override Type[] Base => Assembly.GetAssembly(typeof(ModuloDependencias)).GetTypes();
 
         public override string[] ExactClassNamespace => new string[]

@@ -6,16 +6,13 @@ using TemplateApi.Dominio.ObjetosDeValor;
 using TemplateApi.Aplicacao.Interceptadores;
 using TemplateApi.Dominio.Comandos.ConteudoCmds;
 
-namespace TemplateApi.Aplicacao
-{
-    public class ConteudoApp : Comum.BaseAplicacao
-    {
+namespace TemplateApi.Aplicacao {
+    public class ConteudoApp : Comum.BaseAplicacao {
         public ConteudoApp(
             AutenticacaoServ servAutenticacao,
             ConteudoServ servConteudo,
             ConteudoInter interConteudo)
-            : base(servAutenticacao)
-        {
+            : base(servAutenticacao) {
             _servConteudo = servConteudo;
             _interConteudo = interConteudo;
         }
@@ -28,13 +25,11 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Filtrar conteúdo")]
         [Description("Permite filtrar os conteúdos.")]
-        public ResultadoBusca<Conteudo> Filtrar(FiltrarConteudoCmd comando)
-        {
+        public ResultadoBusca<Conteudo> Filtrar(FiltrarConteudoCmd comando) {
             Notifications.Clear();
-            ResultadoBusca<Conteudo> resultado = new ResultadoBusca<Conteudo>();
+            ResultadoBusca<Conteudo> resultado = new();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interConteudo.Filtrar(comando);
                 resultado = _servConteudo.Filtrar(comando);
                 IsValid(_servConteudo);
@@ -48,13 +43,11 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Inserir conteúdo")]
         [Description("Permite inserir um novo conteúdo.")]
-        public Conteudo Inserir(InserirConteudoCmd comando)
-        {
+        public Conteudo Inserir(InserirConteudoCmd comando) {
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interConteudo.Inserir(comando);
                 resultado = _servConteudo.Inserir(comando);
                 IsValid(_servConteudo);
@@ -68,13 +61,11 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Editar conteúdo")]
         [Description("Permite editar um conteúdo específico.")]
-        public Conteudo Editar(EditarConteudoCmd comando)
-        {
+        public Conteudo Editar(EditarConteudoCmd comando) {
             Notifications.Clear();
             Conteudo resultado = null;
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interConteudo.Editar(comando);
                 resultado = _servConteudo.Editar(comando);
                 IsValid(_servConteudo);
@@ -88,12 +79,10 @@ namespace TemplateApi.Aplicacao
         /// </summary>
         [Display(Name = "Excluir conteúdo")]
         [Description("Permite excluir um ou mais conteúdos.")]
-        public void Excluir(ExcluirConteudoCmd comando)
-        {
+        public void Excluir(ExcluirConteudoCmd comando) {
             Notifications.Clear();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interConteudo.Excluir(comando);
                 _servConteudo.Excluir(comando);
                 IsValid(_servConteudo);

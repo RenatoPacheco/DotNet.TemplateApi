@@ -5,17 +5,14 @@ using TemplateApi.Dominio.Interfaces;
 using TemplateApi.Aplicacao.Interceptadores;
 using TemplateApi.Dominio.Comandos.UploadCmds;
 
-namespace TemplateApi.Aplicacao
-{
+namespace TemplateApi.Aplicacao {
     public class UploadApp
-        : Comum.BaseAplicacao
-    {
+        : Comum.BaseAplicacao {
         public UploadApp(
             UploadServ servUpload,
             UploadInter interUpload,
             AutenticacaoServ servAutenticacao)
-        : base(servAutenticacao)
-        {
+        : base(servAutenticacao) {
             _servUpload = servUpload;
             _interUpload = interUpload;
         }
@@ -25,13 +22,11 @@ namespace TemplateApi.Aplicacao
 
         [Display(Name = "Upload de arquivos")]
         [Description("Permite upload de arquivos diversos entre imagens, documentos e planilhas.")]
-        public IArquivo[] Arquivo(ArquivoUploadCmd comando)
-        {
+        public IArquivo[] Arquivo(ArquivoUploadCmd comando) {
             Notifications.Clear();
             IArquivo[] resultado = Array.Empty<IArquivo>();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interUpload.Arquivo(comando);
                 resultado = _servUpload.Arquivo(comando);
                 IsValid(_servUpload);
@@ -42,13 +37,11 @@ namespace TemplateApi.Aplicacao
 
         [Display(Name = "Upload de imagens")]
         [Description("Permite upload de arquivos diversos entre imagens.")]
-        public IArquivo[] Imagem(ImagemUploadCmd comando)
-        {
+        public IArquivo[] Imagem(ImagemUploadCmd comando) {
             Notifications.Clear();
             IArquivo[] resultado = Array.Empty<IArquivo>();
 
-            if (EhAutorizado())
-            {
+            if (EhAutorizado()) {
                 _interUpload.Imagem(comando);
                 resultado = _servUpload.Imagem(comando);
                 IsValid(_servUpload);
