@@ -1,14 +1,15 @@
-﻿using System.Net;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
-using TemplateApi.Api.ViewsData;
-using TemplateApi.Api.Extensions;
-using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.StorageCmds;
-using TemplateApi.Api.DataModels.StorageDataModel;
+using System.Net;
+using TemplateApi.Api.ApiServices;
 using TemplateApi.Api.DataAnnotations;
+using TemplateApi.Api.DataModels.StorageDataModel;
+using TemplateApi.Api.Extensions;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Aplicacoes;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.Controllers.Services {
 
@@ -18,15 +19,18 @@ namespace TemplateApi.Api.Controllers.Services {
         public StorageController(
             StorageApp appStorage,
             IMapper mapper,
+            RequestApiServ apiServRequest,
             ILogger<StorageController> logger) {
             _logger = logger;
             _appStorage = appStorage;
             _mapper = mapper;
+            _apiServRequest = apiServRequest;
         }
 
         private readonly ILogger<StorageController> _logger;
         private readonly StorageApp _appStorage;
         private readonly IMapper _mapper;
+        private readonly RequestApiServ _apiServRequest;
 
         /// <summary>
         /// Filtro de storages
@@ -67,12 +71,13 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Storage>))]
         public IActionResult Post([FromForm] InserirStorageDataModel body) {
+
             InvocarSeNulo(ref body);
 
-            InserirStorageCmd cmd = _mapper.Map<InserirStorageCmd>(body);
+            var cmd = body.Montar(_apiServRequest);
             cmd.ExtrairModelStateParaBody(ModelState);
 
-            ResultadoBusca<Storage> resultado = _appStorage.Inserir(cmd);
+            var resultado = _appStorage.Inserir(cmd);
             Validate(_appStorage);
 
             return CustomResponse(resultado);

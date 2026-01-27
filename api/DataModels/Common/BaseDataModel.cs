@@ -1,9 +1,11 @@
 ﻿using BitHelp.Core.Extend;
+using BitHelp.Core.Validation;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
 namespace TemplateApi.Api.DataModels.Common {
-    public abstract class BaseDataModel {
+    public abstract class BaseDataModel
+        : ISelfValidation {
         private IList<string> _propriedadesRegistradas = new List<string>();
 
         protected void RegistrarPropriedade(
@@ -16,6 +18,11 @@ namespace TemplateApi.Api.DataModels.Common {
         public bool PropriedadeRegistrada(string nome) {
             return _propriedadesRegistradas.Contains(nome);
         }
+
+
+        public ValidationNotification Notifications { get; } = new ValidationNotification();
+
+        public abstract bool IsValid();
     }
 
     public abstract class BaseDataModel<T>

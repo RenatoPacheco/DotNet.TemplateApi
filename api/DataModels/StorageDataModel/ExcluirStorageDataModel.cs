@@ -10,7 +10,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
         public IList<LongInput> Storage {
             get => _storage;
             set {
-                _storage = value;
+                _storage = value ?? new List<LongInput>();
                 RegistrarPropriedade();
             }
         }
@@ -22,9 +22,13 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
         public IList<string> Alias {
             get => _alias;
             set {
-                _alias = value;
+                _alias = value ?? new List<string>();
                 RegistrarPropriedade();
             }
+        }
+
+        public override bool IsValid() {
+            return Notifications.IsValid();
         }
     }
 }

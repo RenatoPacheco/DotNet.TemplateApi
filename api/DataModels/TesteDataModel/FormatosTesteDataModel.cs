@@ -112,5 +112,9 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
                 RegistrarPropriedade();
             }
         }
+
+        public override bool IsValid() {
+            return Notifications.IsValid();
+        }
     }
 }

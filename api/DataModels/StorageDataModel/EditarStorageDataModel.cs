@@ -39,5 +39,9 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
                 RegistrarPropriedade();
             }
         }
+
+        public override bool IsValid() {
+            return Notifications.IsValid();
+        }
     }
 }

@@ -42,5 +42,9 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel {
                 RegistrarPropriedade();
             }
         }
+
+        public override bool IsValid() {
+            return Notifications.IsValid();
+        }
     }
 }
