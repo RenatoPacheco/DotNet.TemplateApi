@@ -7,7 +7,7 @@ namespace TemplateApi.Api.DataAnnotations {
     public sealed class ReferenciarAppAttribute : Attribute {
         public ReferenciarAppAttribute(Type classe, string metodo) {
             Classe = classe;
-            Metodo = classe.GetMethods().Where(x => x.Name == metodo).FirstOrDefault();
+            Metodo = classe.GetMethods().FirstOrDefault(x => x.Name == metodo);
         }
 
         public readonly Type Classe;
