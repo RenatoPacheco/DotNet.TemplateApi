@@ -1,4 +1,4 @@
-using TemplateApi.Api;
+﻿using TemplateApi.Api;
 using TemplateApi.Dominio.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +32,6 @@ builder.Services.AddControllers(options => {
 builder.Services.AddEndpointsApiExplorer();
 
 SwashbuckleConfig.Config(builder.Services);
-AutoMapperConfig.Config(builder.Services);
 
 var app = builder.Build();
 
