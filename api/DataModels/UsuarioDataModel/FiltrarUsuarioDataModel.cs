@@ -59,6 +59,8 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel {
 
             var resultado = new FiltrarUsuarioCmd();
 
+            AplicarBase(resultado);
+
             if (PropriedadeRegistrada(x => x.Contexto)) {
                 if (!this.HasNotification(x => x.Contexto)) {
                     resultado.Contexto = (ContextoCmd?)Contexto;

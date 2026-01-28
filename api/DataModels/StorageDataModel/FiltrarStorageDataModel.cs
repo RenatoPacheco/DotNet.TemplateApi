@@ -81,6 +81,8 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
         public FiltrarStorageCmd Montar() {
             var resultado = new FiltrarStorageCmd();
 
+            AplicarBase(resultado);
+
             if (PropriedadeRegistrada(x => x.Contexto)) {
                 if (!this.HasNotification(x => x.Contexto)) {
                     resultado.Contexto = (ContextoCmd?)Contexto;

@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BitHelp.Core.Validation.Extends;
+using System.ComponentModel.DataAnnotations;
 using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.Comum;
 
 namespace TemplateApi.Api.DataModels.Common {
+
     public abstract class FiltrarBaseDataModel<T>
         : BaseDataModel<T> {
+
         private static string _texto;
         /// <summary>
         /// Texto com as palavras chaves para busca.
@@ -25,6 +30,8 @@ namespace TemplateApi.Api.DataModels.Common {
             get => _pagina;
             set {
                 _pagina = value;
+                this.RemoveAtReference(x => x.Pagina);
+                this.InputTypeIsValid(x => x.Pagina);
                 RegistrarPropriedade();
             }
         }
@@ -40,6 +47,8 @@ namespace TemplateApi.Api.DataModels.Common {
             get => _maximo;
             set {
                 _maximo = value;
+                this.RemoveAtReference(x => x.Maximo);
+                this.InputTypeIsValid(x => x.Maximo);
                 RegistrarPropriedade();
             }
         }
@@ -55,8 +64,36 @@ namespace TemplateApi.Api.DataModels.Common {
             get => _calucularPaginacao;
             set {
                 _calucularPaginacao = value;
+                this.RemoveAtReference(x => x.CalcularPaginacao);
+                this.InputTypeIsValid(x => x.CalcularPaginacao);
                 RegistrarPropriedade();
             }
+        }
+
+        protected void AplicarBase(FiltrarBaseCmd resultado) {
+
+            if (PropriedadeRegistrada(nameof(Texto))) {
+                resultado.Texto = Texto;
+            }
+
+            if (PropriedadeRegistrada(nameof(Pagina))) {
+                if (!this.HasNotification(x => x.Pagina)) {
+                    resultado.Pagina = (int)Pagina;
+                }
+            }
+
+            if (PropriedadeRegistrada(nameof(Maximo))) {
+                if (!this.HasNotification(x => x.Maximo)) {
+                    resultado.Maximo = (int)Maximo;
+                }
+            }
+
+            if (PropriedadeRegistrada(nameof(CalcularPaginacao))) {
+                if (!this.HasNotification(x => x.CalcularPaginacao)) {
+                    resultado.CalcularPaginacao = (bool)CalcularPaginacao;
+                }
+            }
+
         }
     }
 }
