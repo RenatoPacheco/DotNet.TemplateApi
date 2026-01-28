@@ -1,10 +1,15 @@
 ﻿using BitHelp.Core.Type.pt_BR;
-using TemplateApi.Dominio.ObjetosDeValor;
+using BitHelp.Core.Validation.Extends;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.TesteCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.TesteDataModel {
     public class FormatosTesteDataModel
         : Common.BaseDataModel<FormatosTesteDataModel> {
+
         private string _string;
         public string String {
             get => _string;
@@ -19,6 +24,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _int;
             set {
                 _int = value;
+                this.RemoveAtReference(x => x.Int);
+                this.InputTypeIsValid(x => x.Int);
                 RegistrarPropriedade();
             }
         }
@@ -28,6 +35,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _long;
             set {
                 _long = value;
+                this.RemoveAtReference(x => x.Long);
+                this.InputTypeIsValid(x => x.Long);
                 RegistrarPropriedade();
             }
         }
@@ -37,6 +46,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _decimal;
             set {
                 _decimal = value;
+                this.RemoveAtReference(x => x.Decimal);
+                this.InputTypeIsValid(x => x.Decimal);
                 RegistrarPropriedade();
             }
         }
@@ -46,6 +57,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _double;
             set {
                 _double = value;
+                this.RemoveAtReference(x => x.Double);
+                this.InputTypeIsValid(x => x.Double);
                 RegistrarPropriedade();
             }
         }
@@ -55,6 +68,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _float;
             set {
                 _float = value;
+                this.RemoveAtReference(x => x.Float);
+                this.InputTypeIsValid(x => x.Float);
                 RegistrarPropriedade();
             }
         }
@@ -64,6 +79,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _bool;
             set {
                 _bool = value;
+                this.RemoveAtReference(x => x.Bool);
+                this.InputTypeIsValid(x => x.Bool);
                 RegistrarPropriedade();
             }
         }
@@ -73,6 +90,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _dateTime;
             set {
                 _dateTime = value;
+                this.RemoveAtReference(x => x.DateTime);
+                this.InputTypeIsValid(x => x.DateTime);
                 RegistrarPropriedade();
             }
         }
@@ -82,6 +101,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _timeSpan;
             set {
                 _timeSpan = value;
+                this.RemoveAtReference(x => x.TimeSpan);
+                this.InputTypeIsValid(x => x.TimeSpan);
                 RegistrarPropriedade();
             }
         }
@@ -91,6 +112,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _guid;
             set {
                 _guid = value;
+                this.RemoveAtReference(x => x.Guid);
+                this.InputTypeIsValid(x => x.Guid);
                 RegistrarPropriedade();
             }
         }
@@ -100,6 +123,8 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _enum;
             set {
                 _enum = value;
+                this.RemoveAtReference(x => x.Enum);
+                this.InputTypeIsValid(x => x.Enum);
                 RegistrarPropriedade();
             }
         }
@@ -109,12 +134,93 @@ namespace TemplateApi.Api.DataModels.TesteDataModel {
             get => _phone;
             set {
                 _phone = value;
+                this.RemoveAtReference(x => x.Phone);
+                this.InputTypeIsValid(x => x.Phone);
                 RegistrarPropriedade();
             }
         }
 
+        public FormatosTesteCmd Montar() {
+
+            var resultado = new FormatosTesteCmd();
+
+            if (PropriedadeRegistrada(x => x.String)) {
+                resultado.String = String;
+            }
+
+            if (PropriedadeRegistrada(x => x.Int)) {
+                if (!this.HasNotification(x => x.Int)) {
+                    resultado.Int = (int?)Int;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Long)) {
+                if (!this.HasNotification(x => x.Long)) {
+                    resultado.Long = (long?)Long;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Decimal)) {
+                if (!this.HasNotification(x => x.Decimal)) {
+                    resultado.Decimal = (decimal?)Decimal;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Double)) {
+                if (!this.HasNotification(x => x.Double)) {
+                    resultado.Double = (double?)Double;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Float)) {
+                if (!this.HasNotification(x => x.Float)) {
+                    resultado.Float = (float?)Float;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Bool)) {
+                if (!this.HasNotification(x => x.Bool)) {
+                    resultado.Bool = (bool?)Bool;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.DateTime)) {
+                if (!this.HasNotification(x => x.DateTime)) {
+                    resultado.DateTime = (DateTime?)DateTime;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.TimeSpan)) {
+                if (!this.HasNotification(x => x.TimeSpan)) {
+                    resultado.TimeSpan = (TimeSpan?)TimeSpan;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Guid)) {
+                if (!this.HasNotification(x => x.Guid)) {
+                    resultado.Guid = (Guid?)Guid;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Enum)) {
+                if (!this.HasNotification(x => x.Enum)) {
+                    resultado.Enum = (Status?)Enum;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Phone)) {
+                if (!this.HasNotification(x => x.Phone)) {
+                    resultado.Phone = Phone;
+                }
+            }
+
+            resultado.AddNotifications(this);
+
+            return resultado;
+        }
+
         public override bool IsValid() {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
     }
 }

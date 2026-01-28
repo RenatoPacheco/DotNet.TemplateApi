@@ -7,6 +7,17 @@ using TemplateApi.Compartilhados.ObjetosDeValor;
 
 namespace TemplateApi.Api.Extensions {
     public static class ISelfValidationExt {
+
+        public static void AddNotifications(this ISelfValidation entidade, ISelfValidation dados) {
+
+            if (dados == null)
+                return;
+
+            foreach (var item in dados.Notifications.Messages) {
+                entidade.Notifications.Add(item);
+            }
+        }
+
         public static void ExtrairModelState(this ISelfValidation entidade, ModelStateDictionary dados) {
             string chave, referencia;
             ModelErrorCollection erros;

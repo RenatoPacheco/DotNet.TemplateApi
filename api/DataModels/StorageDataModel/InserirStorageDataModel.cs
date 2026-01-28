@@ -1,4 +1,5 @@
 ﻿using TemplateApi.Api.ApiServices;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Api.ValuesObject;
 using TemplateApi.Dominio.Comandos.StorageCmds;
 
@@ -21,7 +22,7 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
         }
 
         public InserirStorageCmd Montar(RequestApiServ request) {
-            InserirStorageCmd resultado = new();
+            var resultado = new InserirStorageCmd();
 
             if (PropriedadeRegistrada(x => x.Arquivo)) {
                 resultado.Arquivo = Arquivo.Select(x => {
@@ -30,11 +31,13 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
                 }).ToList();
             }
 
+            resultado.AddNotifications(this);
+
             return resultado;
         }
 
         public override bool IsValid() {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
     }
 }

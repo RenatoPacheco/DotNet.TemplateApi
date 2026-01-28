@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 using TemplateApi.Api.ApiServices;
@@ -8,7 +7,6 @@ using TemplateApi.Api.DataModels.StorageDataModel;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Aplicacoes;
-using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.Controllers.Services {
@@ -18,18 +16,15 @@ namespace TemplateApi.Api.Controllers.Services {
     public class StorageController : Common.BaseApiController {
         public StorageController(
             StorageApp appStorage,
-            IMapper mapper,
             RequestApiServ apiServRequest,
             ILogger<StorageController> logger) {
             _logger = logger;
             _appStorage = appStorage;
-            _mapper = mapper;
             _apiServRequest = apiServRequest;
         }
 
         private readonly ILogger<StorageController> _logger;
         private readonly StorageApp _appStorage;
-        private readonly IMapper _mapper;
         private readonly RequestApiServ _apiServRequest;
 
         /// <summary>
@@ -42,12 +37,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Storage>))]
         public IActionResult Get([FromQuery] FiltrarStorageDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelStateParaBody(ModelState);
 
-            FiltrarStorageCmd cmd = _mapper.Map<FiltrarStorageCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
-            ResultadoBusca<Storage> resultado = _appStorage.Filtrar(cmd);
+            var cmd = query.Montar();
+            var resultado = _appStorage.Filtrar(cmd);
             Validate(_appStorage);
 
             return CustomResponse(resultado);
@@ -73,10 +68,9 @@ namespace TemplateApi.Api.Controllers.Services {
         public IActionResult Post([FromForm] InserirStorageDataModel body) {
 
             InvocarSeNulo(ref body);
+            body.ExtrairModelStateParaBody(ModelState);
 
             var cmd = body.Montar(_apiServRequest);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
             var resultado = _appStorage.Inserir(cmd);
             Validate(_appStorage);
 
@@ -93,12 +87,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Storage>))]
         public IActionResult Patch([FromBody] EditarStorageDataModel body) {
+
             InvocarSeNulo(ref body);
+            body.ExtrairModelStateParaBody(ModelState);
 
-            EditarStorageCmd cmd = _mapper.Map<EditarStorageCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Storage resultado = _appStorage.Editar(cmd);
+            var cmd = body.Montar();
+            var resultado = _appStorage.Editar(cmd);
             Validate(_appStorage);
 
             return CustomResponse(resultado);
@@ -114,11 +108,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirStorageDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelStateParaBody(ModelState);
 
-            ExcluirStorageCmd cmd = _mapper.Map<ExcluirStorageCmd>(query);
-            cmd.ExtrairModelState(ModelState);
 
+            var cmd = query.Montar();
             _appStorage.Excluir(cmd);
             Validate(_appStorage);
 

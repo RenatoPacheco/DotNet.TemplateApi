@@ -20,7 +20,8 @@ namespace TemplateApi.Api.DataModels.Common {
         }
 
 
-        public ValidationNotification Notifications { get; } = new ValidationNotification();
+        protected readonly ValidationNotification _notifications = new();
+        ValidationNotification ISelfValidation.Notifications => _notifications;
 
         public abstract bool IsValid();
     }

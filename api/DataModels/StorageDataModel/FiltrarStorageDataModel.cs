@@ -1,11 +1,16 @@
-﻿using TemplateApi.Dominio.Comandos.Comum;
-using TemplateApi.Dominio.ObjetosDeValor;
+﻿using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.Comum;
+using TemplateApi.Dominio.Comandos.StorageCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.StorageDataModel {
     public class FiltrarStorageDataModel
         : Common.FiltrarBaseDataModel<FiltrarStorageDataModel> {
+
         private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
@@ -14,6 +19,8 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
             get => _contexto;
             set {
                 _contexto = value;
+                this.RemoveAtReference(x => x.Contexto);
+                this.InputTypeIsValid(x => x.Contexto);
                 RegistrarPropriedade();
             }
         }
@@ -26,6 +33,8 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
             get => _storage;
             set {
                 _storage = value;
+                this.RemoveAtReference(x => x.Storage);
+                this.InputTypeIsValid(x => x.Storage);
                 RegistrarPropriedade();
             }
         }
@@ -63,12 +72,48 @@ namespace TemplateApi.Api.DataModels.StorageDataModel {
             get => _status;
             set {
                 _status = value;
+                this.RemoveAtReference(x => x.Status);
+                this.InputTypeIsValid(x => x.Status);
                 RegistrarPropriedade();
             }
         }
 
+        public FiltrarStorageCmd Montar() {
+            var resultado = new FiltrarStorageCmd();
+
+            if (PropriedadeRegistrada(x => x.Contexto)) {
+                if (!this.HasNotification(x => x.Contexto)) {
+                    resultado.Contexto = (ContextoCmd?)Contexto;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Alias)) {
+                resultado.Alias = Alias;
+            }
+
+            if (PropriedadeRegistrada(x => x.Referencia)) {
+                resultado.Referencia = Referencia;
+            }
+
+            if (PropriedadeRegistrada(x => x.Storage)) {
+                if (!this.HasNotification(x => x.Storage)) {
+                    resultado.Storage = Storage.Select(x => (long)x).ToList();
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Status)) {
+                if (!this.HasNotification(x => x.Status)) {
+                    resultado.Status = Status.Select(x => (Status)x).ToList();
+                }
+            }
+
+            resultado.AddNotifications(this);
+
+            return resultado;
+        }
+
         public override bool IsValid() {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
     }
 }

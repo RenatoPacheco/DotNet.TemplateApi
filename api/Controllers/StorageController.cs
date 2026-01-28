@@ -1,11 +1,8 @@
 ﻿using System.Net;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.Extensions;
-using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.StorageCmds;
 using TemplateApi.Api.DataModels.StorageDataModel;
 using TemplateApi.Dominio.Notacoes;
 using TemplateApi.Api.DataAnnotations;
@@ -17,18 +14,15 @@ namespace TemplateApi.Api.Controllers {
     public class StorageController : Common.BaseApiController {
         public StorageController(
             StorageApp appStorage,
-            IMapper mapper,
             IWebHostEnvironment webHostingEnvironment,
             ILogger<StorageController> logger) {
             _logger = logger;
             _appStorage = appStorage;
-            _mapper = mapper;
             _webHostingEnvironment = webHostingEnvironment;
         }
 
         private readonly ILogger<StorageController> _logger;
         private readonly StorageApp _appStorage;
-        private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHostingEnvironment;
 
         /// <summary>
@@ -41,13 +35,13 @@ namespace TemplateApi.Api.Controllers {
         [HttpGet, Route("{Alias}")]
         [ReferenciarApp(typeof(StorageApp), nameof(StorageApp.Obter))]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(byte[]))]
-        public IActionResult Get([FromQuery] ObterStorageDataModel values) {
-            InvocarSeNulo(ref values);
+        public IActionResult Get([FromQuery] ObterStorageDataModel query) {
 
-            ObterStorageCmd cmd = _mapper.Map<ObterStorageCmd>(values);
-            cmd.ExtrairModelState(ModelState);
+            InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            Storage resultado = _appStorage.Obter(cmd);
+            var cmd = query.Montar();
+            var resultado = _appStorage.Obter(cmd);
             Validate(_appStorage);
 
             // Um exemplo caso precise carregar um arquivo que esteja em bytes

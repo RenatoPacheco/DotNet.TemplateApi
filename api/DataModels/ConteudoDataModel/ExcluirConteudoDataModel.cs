@@ -18,7 +18,7 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
         }
 
         public override bool IsValid() {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
     }
 }

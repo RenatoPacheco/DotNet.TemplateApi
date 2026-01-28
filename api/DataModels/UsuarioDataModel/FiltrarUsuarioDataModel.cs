@@ -44,7 +44,7 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel {
         }
 
         public override bool IsValid() {
-            return Notifications.IsValid();
+            return _notifications.IsValid();
         }
     }
 }

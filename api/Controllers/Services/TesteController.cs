@@ -1,14 +1,13 @@
-﻿using System.Net;
-using AutoMapper;
-using TemplateApi.Aplicacoes;
-using Microsoft.AspNetCore.Mvc;
-using TemplateApi.Api.ViewsData;
-using TemplateApi.Api.Extensions;
-using TemplateApi.Dominio.Notacoes;
-using TemplateApi.Api.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using TemplateApi.Dominio.Comandos.TesteCmds;
+using System.Net;
+using TemplateApi.Api.DataAnnotations;
 using TemplateApi.Api.DataModels.TesteDataModel;
+using TemplateApi.Api.Extensions;
+using TemplateApi.Api.ViewsData;
+using TemplateApi.Aplicacoes;
+using TemplateApi.Dominio.Comandos.TesteCmds;
+using TemplateApi.Dominio.Notacoes;
 
 namespace TemplateApi.Api.Controllers.Services {
 
@@ -16,17 +15,14 @@ namespace TemplateApi.Api.Controllers.Services {
     [Route("Servico/[controller]")]
     public class TesteController : Common.BaseApiController {
         public TesteController(
-            IMapper mapper,
             TesteApp appTeste,
             ILogger<TesteController> logger) {
             _logger = logger;
-            _mapper = mapper;
             _appTeste = appTeste;
         }
 
         private readonly ILogger<TesteController> _logger;
         private readonly TesteApp _appTeste;
-        private readonly IMapper _mapper;
 
         /// <summary>
         /// Recebendo os dados por FromQuery
@@ -37,12 +33,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromQuery([FromQuery] FormatosTesteDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
-            FormatosTesteCmd resultado = _appTeste.Formatos(cmd);
+            var cmd = query.Montar();
+            var resultado = _appTeste.Formatos(cmd);
             Validate(_appTeste);
 
             return CustomResponse(resultado);
@@ -57,12 +53,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromBody([FromBody] FormatosTesteDataModel body) {
+
             InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
-            FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(body);
-            cmd.ExtrairModelState(ModelState);
-
-            FormatosTesteCmd resultado = _appTeste.Formatos(cmd);
+            var cmd = body.Montar();
+            var resultado = _appTeste.Formatos(cmd);
             Validate(_appTeste);
 
             return CustomResponse(resultado);
@@ -77,12 +73,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromForm([FromForm] FormatosTesteDataModel form) {
+
             InvocarSeNulo(ref form);
+            form.ExtrairModelState(ModelState);
 
-            FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(form);
-            cmd.ExtrairModelState(ModelState);
-
-            FormatosTesteCmd resultado = _appTeste.Formatos(cmd);
+            var cmd = form.Montar();
+            var resultado = _appTeste.Formatos(cmd);
             Validate(_appTeste);
 
             return CustomResponse(resultado);
@@ -97,12 +93,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult FromHeader([FromHeader] FormatosTesteDataModel header) {
+
             InvocarSeNulo(ref header);
+            header.ExtrairModelState(ModelState);
 
-            FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(header);
-            cmd.ExtrairModelState(ModelState);
-
-            FormatosTesteCmd resultado = _appTeste.Formatos(cmd);
+            var cmd = header.Montar();
+            var resultado = _appTeste.Formatos(cmd);
             Validate(_appTeste);
 
             return CustomResponse(resultado);
@@ -117,12 +113,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(TesteApp), nameof(TesteApp.Formatos))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<FormatosTesteCmd>))]
         public IActionResult WithoutFrom(FormatosTesteDataModel without) {
+
             InvocarSeNulo(ref without);
+            without.ExtrairModelState(ModelState);
 
-            FormatosTesteCmd cmd = _mapper.Map<FormatosTesteCmd>(without);
-            cmd.ExtrairModelState(ModelState);
-
-            FormatosTesteCmd resultado = _appTeste.Formatos(cmd);
+            var cmd = without.Montar();
+            var resultado = _appTeste.Formatos(cmd);
             Validate(_appTeste);
 
             return CustomResponse(resultado);
