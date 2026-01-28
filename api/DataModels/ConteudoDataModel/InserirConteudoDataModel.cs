@@ -1,10 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BitHelp.Core.Validation.Extends;
+using System.ComponentModel.DataAnnotations;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.ConteudoDataModel {
     public class InserirConteudoDataModel
         : Common.BaseDataModel<InserirConteudoDataModel> {
+
         private string _titulo;
         /// <summary>
         /// Título de conteúdo
@@ -50,8 +55,37 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
             get => _status;
             set {
                 _status = value;
+                this.RemoveAtReference(x => x.Status);
+                this.InputTypeIsValid(x => x.Status);
                 RegistrarPropriedade();
             }
+        }
+
+        public InserirConteudoCmd Montar() {
+
+            var resultado = new InserirConteudoCmd();
+
+            if (PropriedadeRegistrada(x => x.Titulo)) {
+                resultado.Titulo = Titulo;
+            }
+
+            if (PropriedadeRegistrada(x => x.Alias)) {
+                resultado.Alias = Alias;
+            }
+
+            if (PropriedadeRegistrada(x => x.Texto)) {
+                resultado.Texto = Texto;
+            }
+
+            if (PropriedadeRegistrada(x => x.Status)) {
+                if (!this.HasNotification(x => x.Status)) {
+                    resultado.Status = (Status?)Status;
+                }
+            }
+
+            resultado.AddNotifications(this);
+
+            return resultado;
         }
 
         public override bool IsValid() {

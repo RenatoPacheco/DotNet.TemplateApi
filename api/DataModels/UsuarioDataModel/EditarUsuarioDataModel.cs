@@ -1,8 +1,12 @@
 ﻿using BitHelp.Core.Type.pt_BR;
-using TemplateApi.Dominio.ObjetosDeValor;
+using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
-using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Compartilhados.Json.Notacoes;
+using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.UsuarioCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.UsuarioDataModel {
     public class EditarUsuarioDataModel
@@ -16,6 +20,8 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel {
             get => _usuario;
             set {
                 _usuario = value;
+                this.RemoveAtReference(x => x.Usuario);
+                this.InputTypeIsValid(x => x.Usuario);
                 RegistrarPropriedade();
             }
         }
@@ -53,6 +59,8 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel {
             get => _telefone;
             set {
                 _telefone = value;
+                this.RemoveAtReference(x => x.Telefone);
+                this.InputTypeIsValid(x => x.Telefone);
                 RegistrarPropriedade();
             }
         }
@@ -79,8 +87,49 @@ namespace TemplateApi.Api.DataModels.UsuarioDataModel {
             get => _status;
             set {
                 _status = value;
+                this.RemoveAtReference(x => x.Status);
+                this.InputTypeIsValid(x => x.Status);
                 RegistrarPropriedade();
             }
+        }
+
+        public EditarUsuarioCmd Montar() {
+
+            var resultado = new EditarUsuarioCmd();
+
+            if (PropriedadeRegistrada(x => x.Usuario)) {
+                if (!this.HasNotification(x => x.Usuario)) {
+                    resultado.Usuario = (int?)Usuario;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Nome)) {
+                resultado.Nome = Nome;
+            }
+
+            if (PropriedadeRegistrada(x => x.Email)) {
+                resultado.Email = Email;
+            }
+
+            if (PropriedadeRegistrada(x => x.Telefone)) {
+                if (!this.HasNotification(x => x.Telefone)) {
+                    resultado.Telefone = Telefone;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Senha)) {
+                resultado.Senha = Senha;
+            }
+
+            if (PropriedadeRegistrada(x => x.Status)) {
+                if (!this.HasNotification(x => x.Status)) {
+                    resultado.Status = (Status?)Status;
+                }
+            }
+
+            resultado.AddNotifications(this);
+
+            return resultado;
         }
 
         public override bool IsValid() {

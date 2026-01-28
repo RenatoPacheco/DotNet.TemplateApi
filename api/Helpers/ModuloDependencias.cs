@@ -13,7 +13,7 @@ namespace TemplateApi.Api.Helpers {
         {
             typeof(AutorizacaoApiServ).Namespace,
             typeof(AutenticacaoApiApp).Namespace,
-            typeof(ConteudoProfile).Namespace
+            typeof(CustonTypesProfile).Namespace
         };
     }
 }

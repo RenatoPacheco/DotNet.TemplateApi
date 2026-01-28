@@ -7,8 +7,8 @@ namespace TemplateApi.Api {
             services.AddSingleton(provider => {
                 MapperConfiguration config = new(cfg => {
                     IServiceProvider invock = provider.CreateScope().ServiceProvider;
-                    string basNnamespace = typeof(ConteudoProfile).Namespace;
-                    Type[] listType = typeof(ConteudoProfile)
+                    string basNnamespace = typeof(CustonTypesProfile).Namespace;
+                    Type[] listType = typeof(CustonTypesProfile)
                         .Assembly.GetTypes().Where(
                         x => x.ReflectedType is null
                             && !(x.Namespace is null)

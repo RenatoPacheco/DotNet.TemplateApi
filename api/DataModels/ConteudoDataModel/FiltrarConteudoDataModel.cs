@@ -1,11 +1,17 @@
-﻿using TemplateApi.Dominio.Comandos.Comum;
-using TemplateApi.Dominio.ObjetosDeValor;
+﻿using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.Comum;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.ConteudoDataModel {
+
     public class FiltrarConteudoDataModel
         : Common.FiltrarBaseDataModel<FiltrarConteudoDataModel> {
+
         private EnumInput<ContextoCmd> _contexto;
         /// <summary>
         /// Informe o contexto da busca, sendo que o valor padrão é Embutir
@@ -14,6 +20,8 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
             get => _contexto;
             set {
                 _contexto = value;
+                this.RemoveAtReference(x => x.Contexto);
+                this.InputTypeIsValid(x => x.Contexto);
                 RegistrarPropriedade();
             }
         }
@@ -24,9 +32,11 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
         /// </summary>
         [Display(Name = "Conteúdo")]
         public IList<IntInput> Conteudo {
-            get => _conteudo;
+            get => _conteudo ??= new List<IntInput>();
             set {
-                _conteudo = value;
+                _conteudo = value ?? new List<IntInput>();
+                this.RemoveAtReference(x => x.Contexto);
+                this.InputTypeIsValid(x => x.Contexto);
                 RegistrarPropriedade();
             }
         }
@@ -36,11 +46,40 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
         /// Status de conteúdo
         /// </summary>
         public IList<EnumInput<Status>> Status {
-            get => _status;
+            get => _status ??= new List<EnumInput<Status>>();
             set {
-                _status = value;
+                _status = value ?? new List<EnumInput<Status>>();
+                this.RemoveAtReference(x => x.Status);
+                this.InputTypeIsValid(x => x.Status);
                 RegistrarPropriedade();
             }
+        }
+
+        public FiltrarConteudoCmd Montar() {
+
+            var resultado = new FiltrarConteudoCmd();
+
+            if (PropriedadeRegistrada(x => x.Contexto)) {
+                if (!this.HasNotification(x => x.Contexto)) {
+                    resultado.Contexto = (ContextoCmd?)Contexto;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Conteudo)) {
+                if (!this.HasNotification(x => x.Conteudo)) {
+                    resultado.Conteudo = Conteudo.Select(x => (int)x).ToList();
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Status)) {
+                if (!this.HasNotification(x => x.Status)) {
+                    resultado.Status = Status.Select(x => (Status)x).ToList();
+                }
+            }
+
+            resultado.AddNotifications(this);
+
+            return resultado;
         }
 
         public override bool IsValid() {

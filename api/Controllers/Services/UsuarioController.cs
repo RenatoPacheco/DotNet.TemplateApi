@@ -1,13 +1,10 @@
 ﻿using System.Net;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.UsuarioCmds;
 using TemplateApi.Api.DataModels.UsuarioDataModel;
 using TemplateApi.Api.DataAnnotations;
 
@@ -17,18 +14,16 @@ namespace TemplateApi.Api.Controllers.Services {
     [Route("Servico/[controller]")]
     [ApiExplorerSettings(GroupName = "Usuário")]
     public class UsuarioController : Common.BaseApiController {
+
         public UsuarioController(
             UsuarioApp appUsuario,
-            IMapper mapper,
             ILogger<UsuarioController> logger) {
             _logger = logger;
             _appUsuario = appUsuario;
-            _mapper = mapper;
         }
 
         private readonly ILogger<UsuarioController> _logger;
         private readonly UsuarioApp _appUsuario;
-        private readonly IMapper _mapper;
 
         /// <summary>
         /// Filtro de usuários
@@ -37,12 +32,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Usuario>))]
         public IActionResult Get([FromQuery] FiltrarUsuarioDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            FiltrarUsuarioCmd cmd = _mapper.Map<FiltrarUsuarioCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
-            ResultadoBusca<Usuario> resultado = _appUsuario.Filtrar(cmd);
+            var cmd = query.Montar();
+            var resultado = _appUsuario.Filtrar(cmd);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);
@@ -55,12 +50,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Usuario>))]
         public IActionResult Post([FromBody] InserirUsuarioDataModel body) {
+
             InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
-            InserirUsuarioCmd cmd = _mapper.Map<InserirUsuarioCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Usuario resultado = _appUsuario.Inserir(cmd);
+            var cmd = body.Montar();
+            var resultado = _appUsuario.Inserir(cmd);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);
@@ -73,12 +68,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Usuario>))]
         public IActionResult Patch([FromBody] EditarUsuarioDataModel body) {
+
             InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
-            EditarUsuarioCmd cmd = _mapper.Map<EditarUsuarioCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Usuario resultado = _appUsuario.Editar(cmd);
+            var cmd = body.Montar();
+            var resultado = _appUsuario.Editar(cmd);
             Validate(_appUsuario);
 
             return CustomResponse(resultado);
@@ -94,11 +89,11 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(UsuarioApp), nameof(UsuarioApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirUsuarioDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            ExcluirUsuarioCmd cmd = _mapper.Map<ExcluirUsuarioCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
+            var cmd = query.Montar();
             _appUsuario.Excluir(cmd);
             Validate(_appUsuario);
 

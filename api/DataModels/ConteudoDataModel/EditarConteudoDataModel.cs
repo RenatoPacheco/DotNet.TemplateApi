@@ -1,6 +1,10 @@
-﻿using TemplateApi.Dominio.ObjetosDeValor;
+﻿using BitHelp.Core.Validation.Extends;
 using System.ComponentModel.DataAnnotations;
+using TemplateApi.Api.Extensions;
 using TemplateApi.Compartilhados.ObjetosDeValor;
+using TemplateApi.Compartilhados.Validacoes.Extensoes;
+using TemplateApi.Dominio.Comandos.ConteudoCmds;
+using TemplateApi.Dominio.ObjetosDeValor;
 
 namespace TemplateApi.Api.DataModels.ConteudoDataModel {
     public class EditarConteudoDataModel
@@ -14,6 +18,8 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
             get => _conteudo;
             set {
                 _conteudo = value;
+                this.RemoveAtReference(x => x.Conteudo);
+                this.InputTypeIsValid(x => x.Conteudo);
                 RegistrarPropriedade();
             }
         }
@@ -63,8 +69,43 @@ namespace TemplateApi.Api.DataModels.ConteudoDataModel {
             get => _status;
             set {
                 _status = value;
+                this.RemoveAtReference(x => x.Status);
+                this.InputTypeIsValid(x => x.Status);
                 RegistrarPropriedade();
             }
+        }
+
+        public EditarConteudoCmd Montar() {
+
+            var resultado = new EditarConteudoCmd();
+
+            if (PropriedadeRegistrada(x => x.Conteudo)) {
+                if (!this.HasNotification(x => x.Conteudo)) {
+                    resultado.Conteudo = (int?)Conteudo;
+                }
+            }
+
+            if (PropriedadeRegistrada(x => x.Titulo)) {
+                resultado.Titulo = Titulo;
+            }
+
+            if (PropriedadeRegistrada(x => x.Alias)) {
+                resultado.Alias = Alias;
+            }
+
+            if (PropriedadeRegistrada(x => x.Texto)) {
+                resultado.Texto = Texto;
+            }
+
+            if (PropriedadeRegistrada(x => x.Status)) {
+                if (!this.HasNotification(x => x.Status)) {
+                    resultado.Status = (Status?)Status;
+                }
+            }
+
+            resultado.AddNotifications(this);
+
+            return resultado;
         }
 
         public override bool IsValid() {

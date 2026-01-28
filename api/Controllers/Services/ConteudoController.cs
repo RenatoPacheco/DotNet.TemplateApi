@@ -1,13 +1,10 @@
 ﻿using System.Net;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TemplateApi.Aplicacoes;
 using Swashbuckle.AspNetCore.Annotations;
 using TemplateApi.Api.ViewsData;
 using TemplateApi.Api.Extensions;
 using TemplateApi.Dominio.Entidades;
-using TemplateApi.Dominio.ObjetosDeValor;
-using TemplateApi.Dominio.Comandos.ConteudoCmds;
 using TemplateApi.Api.DataModels.ConteudoDataModel;
 using TemplateApi.Api.DataAnnotations;
 
@@ -18,17 +15,14 @@ namespace TemplateApi.Api.Controllers.Services {
     [ApiExplorerSettings(GroupName = "Conteúdo")]
     public class ConteudoController : Common.BaseApiController {
         public ConteudoController(
-            IMapper mapper,
             ConteudoApp appConteudo,
             ILogger<ConteudoController> logger) {
             _logger = logger;
             _appConteudo = appConteudo;
-            _mapper = mapper;
         }
 
         private readonly ILogger<ConteudoController> _logger;
         private readonly ConteudoApp _appConteudo;
-        private readonly IMapper _mapper;
 
         /// <summary>
         /// Filtro de conteúdos
@@ -37,12 +31,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Filtrar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(BuscaViewData<Conteudo>))]
         public IActionResult Get([FromQuery] FiltrarConteudoDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            FiltrarConteudoCmd cmd = _mapper.Map<FiltrarConteudoCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
-            ResultadoBusca<Conteudo> resultado = _appConteudo.Filtrar(cmd);
+            var cmd = query.Montar();
+            var resultado = _appConteudo.Filtrar(cmd);
             Validate(_appConteudo);
 
             return CustomResponse(resultado);
@@ -55,12 +49,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Inserir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Conteudo>))]
         public IActionResult Post([FromBody] InserirConteudoDataModel body) {
+
             InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
-            InserirConteudoCmd cmd = _mapper.Map<InserirConteudoCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Conteudo resultado = _appConteudo.Inserir(cmd);
+            var cmd = body.Montar();
+            var resultado = _appConteudo.Inserir(cmd);
             Validate(_appConteudo);
 
             return CustomResponse(resultado);
@@ -73,12 +67,12 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Editar))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData<Conteudo>))]
         public IActionResult Patch([FromBody] EditarConteudoDataModel body) {
+
             InvocarSeNulo(ref body);
+            body.ExtrairModelState(ModelState);
 
-            EditarConteudoCmd cmd = _mapper.Map<EditarConteudoCmd>(body);
-            cmd.ExtrairModelStateParaBody(ModelState);
-
-            Conteudo resultado = _appConteudo.Editar(cmd);
+            var cmd = body.Montar();
+            var resultado = _appConteudo.Editar(cmd);
             Validate(_appConteudo);
 
             return CustomResponse(resultado);
@@ -94,11 +88,11 @@ namespace TemplateApi.Api.Controllers.Services {
         [ReferenciarApp(typeof(ConteudoApp), nameof(ConteudoApp.Excluir))]
         [SwaggerResponse((int)HttpStatusCode.OK, null, typeof(ComumViewData))]
         public IActionResult Delete([FromQuery] ExcluirConteudoDataModel query) {
+
             InvocarSeNulo(ref query);
+            query.ExtrairModelState(ModelState);
 
-            ExcluirConteudoCmd cmd = _mapper.Map<ExcluirConteudoCmd>(query);
-            cmd.ExtrairModelState(ModelState);
-
+            var cmd = query.Montar();
             _appConteudo.Excluir(cmd);
             Validate(_appConteudo);
 
